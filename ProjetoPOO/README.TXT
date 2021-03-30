@@ -8,5 +8,8 @@ PROJECT TITLE: Football Manager (crappy version)
 PURPOSE OF PROJECT: ...
 VERSION or DATE: 210330
 HOW TO START THIS PROJECT: ...
-AUTHORS: AnaMurta10, AnaHenriques01, karlofsky
-USER INSTRUCTIONS:
+AUTHORS:
+Ana Filipa Ribeiro Murta
+Ana Paula Oliveira Henriques
+Carlos Daniel da Silva Santos
+USER INSTRUCTIONS: ...
