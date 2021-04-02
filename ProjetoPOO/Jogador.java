@@ -9,7 +9,7 @@ public class Jogador{
     private double velocidade;
     private double resistencia;
     private double destreza;
-    private double implusao;
+    private double impulsao;
     private double jogoCabeca;
     private double remate;
     private double capPasse;
@@ -21,7 +21,7 @@ public class Jogador{
         this.velocidade = 0;
         this.resistencia = 0;
         this.destreza = 0;
-        this.implusao = 0;
+        this.impulsao = 0;
         this.jogoCabeca = 0;
         this.remate = 0;
         this.capPasse = 0;
@@ -30,11 +30,11 @@ public class Jogador{
     /**
      * Construtor parametrizado.
      */
-    public Jogador (double velocidade, double resistencia, double destreza, double implusao, double jogoCabeca, double remate, double capPasse){
+    public Jogador (double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse){
         this.velocidade = velocidade;
         this.resistencia = resistencia;
         this.destreza = destreza;
-        this.implusao = implusao;
+        this.impulsao = impulsao;
         this.jogoCabeca = jogoCabeca;
         this.remate = remate;
         this.capPasse = capPasse;
@@ -47,7 +47,7 @@ public class Jogador{
         this.velocidade = umJog.getVelocidade();
         this.resistencia = umJog.getResistencia();
         this.destreza = umJog.getDestreza();
-        this.implusao = umJog.getImplusao();
+        this.impulsao = umJog.getImpulsao();
         this.jogoCabeca = umJog.getJogoCabeca();
         this.remate = umJog.getRemate();
         this.capPasse = umJog.getCapPasse();
@@ -68,8 +68,8 @@ public class Jogador{
         return this.destreza;
     }
 
-    public double getImplusao(){
-        return this.implusao;
+    public double getImpulsao(){
+        return this.impulsao;
     }
 
     public double getJogoCabeca(){
@@ -96,8 +96,8 @@ public class Jogador{
         this.destreza = destreza;
     }
 
-    public void setImplusao(double implusao){
-        this.implusao = implusao;
+    public void setImpulsao(double impulsao){
+        this.impulsao = impulsao;
     }
 
     public void setJogoCabeca(double jogoCabeca){
