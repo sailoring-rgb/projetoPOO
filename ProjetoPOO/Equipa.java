@@ -29,7 +29,7 @@ public class Equipa
      */
    public Equipa(int nr_equipa, List<Jogador> equipa){
        this.nr_equipa = nr_equipa;
-       this.equipa = equipa.stream().map(Jogador::clone).collect(Collectors.toList());
+       this.equipa = equipa.stream().map(Jogador::new).collect(Collectors.toList());
    }
    
    /**
