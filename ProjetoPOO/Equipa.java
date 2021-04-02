@@ -67,5 +67,13 @@ public class Equipa
        }
        return habGlobal;
     }
-   
+    
+    
+    // FALTA AINDA:   
+    // Definir número de cada tipo de jogador numa equipa
+    // Definir os titulares e os suplentes
+    // Definir as substituições a fazer
+    // Método que muda um jogador de equipa
+    // Método que constroi o historial de um jogador (as equipas por onde passou)
+
 }
