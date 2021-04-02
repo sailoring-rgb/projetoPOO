@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class Lateral here.
+ * Dados sobre um Jogador do tipo Lateral.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author grupo
+ * @version 210402
  */
 public class Lateral
 {

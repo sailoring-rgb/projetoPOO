@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class Avancado here.
+ * Dados sobre um Jogador do tipo Avançado.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author grupo
+ * @version 210402
  */
 public class Avancado
 {
