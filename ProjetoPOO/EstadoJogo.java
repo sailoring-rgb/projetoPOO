@@ -14,7 +14,7 @@ public class EstadoJogo
     private int num_jogadas;
     private Jogador jogador_atual;
     private int ultima_jogada;
-    private String nome_equipa;
+    private int nr_equipa;
     private int num_jogadores;
     private Jogador jogador;
     private List<Jogador> equipa;

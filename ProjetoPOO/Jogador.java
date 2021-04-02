@@ -1,11 +1,18 @@
 
 /**
- * Características base de um jogador.
+ * Dados sobre um jogador.
  *
  * @author grupo
  * @version 210330
  */
 public class Jogador{
+   /*
+    private static final int GUARDA_REDES = 0;
+    private static final int DEFESA = 1;
+    private static final int MEDIO = 2;
+    private static final int AVANCADO = 3;
+    private static final int LATERAL = 4;
+   */
     private double velocidade;
     private double resistencia;
     private double destreza;
@@ -52,6 +59,7 @@ public class Jogador{
         this.remate = umJog.getRemate();
         this.capPasse = umJog.getCapPasse();
     }
+    
     
     /**
      * Métodos get e set.
@@ -111,6 +119,56 @@ public class Jogador{
     public void setCapPasse(double capPasse){
         this.capPasse = capPasse;
     }
+  
+    /*
+     * public int habGuardaRedes (Jogador umJog){
+     */
     
+    public double habDefesa (){
+        double habilidade = 0;
+        habilidade += this.velocidade*0.5;
+        habilidade += this.resistencia*1;
+        habilidade += this.destreza*0.5;
+        habilidade += this.impulsao*1;
+        habilidade += this.jogoCabeca*1;
+        habilidade += this.remate*0.2;
+        habilidade += this.capPasse*0.2;
+        return habilidade;
+    }
     
+    public double habMedio (){
+        double habilidade = 0;
+        habilidade += this.velocidade*0.5;
+        habilidade += this.resistencia*0.5;
+        habilidade += this.destreza*1;
+        habilidade += this.impulsao*0.5;
+        habilidade += this.jogoCabeca*0.5;
+        habilidade += this.remate*0.5;
+        habilidade += this.capPasse*1;
+        return habilidade;
+    }
+    
+    public double habAvancado (){
+        double habilidade = 0;
+        habilidade += this.velocidade*1;
+        habilidade += this.resistencia*0.5;
+        habilidade += this.destreza*1;
+        habilidade += this.impulsao*1;
+        habilidade += this.jogoCabeca*1;
+        habilidade += this.remate*1;
+        habilidade += this.capPasse*0.5;
+        return habilidade;
+    }
+    
+    public double habLateral (){
+        double habilidade = 0;
+        habilidade += this.velocidade*1;
+        habilidade += this.resistencia*0.5;
+        habilidade += this.destreza*1;
+        habilidade += this.impulsao*1;
+        habilidade += this.jogoCabeca*0.5;
+        habilidade += this.remate*0.5;
+        habilidade += this.capPasse*1;
+        return habilidade;
+    }
 }
