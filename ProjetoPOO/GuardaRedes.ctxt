@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=GuardaRedes
+comment0.text=\r\n\ Dados\ sobre\ um\ Jogador\ do\ tipo\ Guarda\ Redes.\r\n\r\n\ @author\ grupo\r\n\ @version\ 210402\r\n
+comment1.params=
+comment1.target=GuardaRedes()
+comment2.params=elasticidade
+comment2.target=GuardaRedes(int)
+comment3.params=umJog
+comment3.target=GuardaRedes(GuardaRedes)
+comment4.params=
+comment4.target=double\ getElasticidade()
+comment5.params=elasticidade
+comment5.target=void\ setElasticidade(double)
+comment6.params=umJog
+comment6.target=double\ habGuardaRedes(Jogador)
+numComments=7

@@ -5,8 +5,8 @@
  * @author grupo
  * @version 210402
  */
-public class GuardaRedes
-{
+public class GuardaRedes{
+    
     private double elasticidade;
     
     public GuardaRedes(){
@@ -17,8 +17,8 @@ public class GuardaRedes
         this.elasticidade = elasticidade;
     }
     
-    public GuardaRedes(GuardaRedes umGR){
-        this.elasticidade = umGR.getElasticidade();
+    public GuardaRedes(GuardaRedes umJog){
+        this.elasticidade = umJog.getElasticidade();
     }
     
     public double getElasticidade(){
@@ -27,5 +27,20 @@ public class GuardaRedes
     
     public void setElasticidade(double elasticidade){
         this.elasticidade = elasticidade;
+    }
+    
+    public double habGuardaRedes (Jogador umJog){
+        double habilidade = 0;
+        
+        habilidade += umJog.getVelocidade()*0.2;
+        habilidade += umJog.getResistencia()*0.5;
+        habilidade += umJog.getDestreza()*0.7;
+        habilidade += umJog.getImpulsao()*1;
+        habilidade += umJog.getJogoCabeca()*0.2;
+        habilidade += umJog.getRemate()*0.2;
+        habilidade += umJog.getCapPasse()*0.4;
+        habilidade += this.elasticidade*1;
+        
+        return habilidade;
     }
 }

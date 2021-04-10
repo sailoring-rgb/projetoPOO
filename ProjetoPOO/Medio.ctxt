@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=Medio
+comment0.text=\r\n\ Dados\ sobre\ um\ Jogador\ do\ tipo\ M\u00E9dio.\r\n\r\n\ @author\ grupo\r\n\ @version\ 210402\r\n
+comment1.params=umJog
+comment1.target=double\ habMedio(Jogador)
+numComments=2

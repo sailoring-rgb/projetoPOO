@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Equipa
+comment1.params=
+comment1.target=Equipa()
+comment1.text=\r\n\ Construtor\ por\ omiss\u00E3o.\r\n
+comment2.params=nr_equipa\ titulares\ suplentes
+comment2.target=Equipa(int,\ java.util.List,\ java.util.List)
+comment2.text=\r\n\ Construtor\ parametrizado.\r\n
+comment3.params=umaEquipa
+comment3.target=Equipa(Equipa)
+comment3.text=\r\n\ Construtor\ de\ c\u00F3pia.\r\n
+comment4.params=
+comment4.target=int\ getNrEquipa()
+comment5.params=
+comment5.target=java.util.List\ getTitulares()
+comment6.params=
+comment6.target=java.util.List\ getSuplentes()
+comment7.params=nr_equipa
+comment7.target=void\ setNrEquipa(int)
+comment8.params=titulares
+comment8.target=void\ setTitulares(java.util.List)
+comment9.params=suplentes
+comment9.target=void\ setSuplentes(java.util.List)
+numComments=10

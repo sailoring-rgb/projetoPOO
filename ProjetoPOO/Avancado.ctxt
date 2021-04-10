@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=Avancado
+comment0.text=\r\n\ Dados\ sobre\ um\ Jogador\ do\ tipo\ Avan\u00E7ado.\r\n\r\n\ @author\ grupo\r\n\ @version\ 210402\r\n
+comment1.params=umJog
+comment1.target=double\ habAvancado(Jogador)
+numComments=2

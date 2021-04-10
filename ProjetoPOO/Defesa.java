@@ -5,29 +5,20 @@
  * @author grupo
  * @version 210402
  */
-public class Defesa
-{
-    // instance variables - replace the example below with your own
-    private int x;
 
-    /**
-     * Constructor for objects of class Defesa
-     */
-    public Defesa()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+public class Defesa{
+    
+    public double habDefesa (Jogador umJog){
+        double habilidade = 0;
+        
+        habilidade += umJog.getVelocidade()*0.5;
+        habilidade += umJog.getResistencia()*1;
+        habilidade += umJog.getDestreza()*0.5;
+        habilidade += umJog.getImpulsao()*1;
+        habilidade += umJog.getJogoCabeca()*1;
+        habilidade += umJog.getRemate()*0.2;
+        habilidade += umJog.getCapPasse()*0.2;
+        
+        return habilidade;
     }
 }

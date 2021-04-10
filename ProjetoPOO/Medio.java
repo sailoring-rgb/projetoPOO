@@ -5,29 +5,19 @@
  * @author grupo
  * @version 210402
  */
-public class Medio
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Medio
-     */
-    public Medio()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+public class Medio{
+   
+    public double habMedio (Jogador umJog){
+        double habilidade = 0;
+        
+        habilidade += umJog.getVelocidade()*0.5;
+        habilidade += umJog.getResistencia()*0.5;
+        habilidade += umJog.getDestreza()*1;
+        habilidade += umJog.getImpulsao()*0.5;
+        habilidade += umJog.getJogoCabeca()*0.5;
+        habilidade += umJog.getRemate()*0.5;
+        habilidade += umJog.getCapPasse()*1;
+        
+        return habilidade;
     }
 }
