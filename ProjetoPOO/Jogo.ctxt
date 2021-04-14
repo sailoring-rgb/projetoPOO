@@ -1,4 +1,13 @@
 #BlueJ class context
 comment0.target=Jogo
-comment0.text=\r\n\ Jogo\ de\ futebol.\r\n\r\n\ @author\ grupo\r\n\ @version\ 210402\r\n
-numComments=1
+comment1.params=
+comment1.target=Jogo()
+comment2.params=
+comment2.target=int\ getEstado()
+comment3.params=estado
+comment3.target=void\ setEstado(int)
+comment4.params=
+comment4.target=void\ startJogo()
+comment5.params=
+comment5.target=void\ endJogo()
+numComments=6

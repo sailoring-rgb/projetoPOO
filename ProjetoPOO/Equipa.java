@@ -1,4 +1,4 @@
-
+ 
 /**
  * Dados sobre uma Equipa.
  *
