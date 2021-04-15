@@ -1,6 +1,17 @@
 #BlueJ class context
 comment0.target=Medio
 comment0.text=\r\n\ Dados\ sobre\ um\ Jogador\ do\ tipo\ M\u00E9dio.\r\n\r\n\ @author\ grupo\r\n\ @version\ 210402\r\n
-comment1.params=umJog
-comment1.target=double\ habMedio(Jogador)
-numComments=2
+comment1.params=
+comment1.target=Medio()
+comment2.params=capRecuperacao
+comment2.target=Medio(int)
+comment3.params=umJog
+comment3.target=Medio(Medio)
+comment4.params=
+comment4.target=double\ getCapRecuperacao()
+comment4.text=\r\n\ M\u00E9todos\ get\ e\ set.\r\n
+comment5.params=capRecuperacao
+comment5.target=void\ setCapRecuperacao(double)
+comment6.params=umJog
+comment6.target=double\ habMedio(Jogador)
+numComments=7

@@ -44,6 +44,9 @@ public class Equipa{
        this.suplentes = umaEquipa.getSuplentes();
    }
    
+   /**
+     * Métodos get e set.
+     */
    public int getNrEquipa(){
        return this.nr_equipa;
    }

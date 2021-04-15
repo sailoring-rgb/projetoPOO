@@ -9,6 +9,7 @@ comment3.params=umJog
 comment3.target=GuardaRedes(GuardaRedes)
 comment4.params=
 comment4.target=double\ getElasticidade()
+comment4.text=\r\n\ M\u00E9todos\ get\ e\ set.\r\n
 comment5.params=elasticidade
 comment5.target=void\ setElasticidade(double)
 comment6.params=umJog

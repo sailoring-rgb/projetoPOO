@@ -7,6 +7,31 @@
  */
 public class Medio{
    
+    private double capRecuperacao;
+    
+    public Medio(){
+        this.capRecuperacao = 0;
+    }
+    
+    public Medio(int capRecuperacao){
+        this.capRecuperacao = capRecuperacao;
+    }
+    
+    public Medio(Medio umJog){
+        this.capRecuperacao = umJog.getCapRecuperacao();
+    }
+    
+     /**
+     * Métodos get e set.
+     */
+    public double getCapRecuperacao(){
+        return this.capRecuperacao;
+    }
+    
+    public void setCapRecuperacao(double capRecuperacao){
+        this.capRecuperacao = capRecuperacao;
+    }
+    
     public double habMedio (Jogador umJog){
         double habilidade = 0;
         
@@ -17,6 +42,7 @@ public class Medio{
         habilidade += umJog.getJogoCabeca()*0.5;
         habilidade += umJog.getRemate()*0.5;
         habilidade += umJog.getCapPasse()*1;
+        habilidade += this.capRecuperacao*1;
         
         return habilidade;
     }

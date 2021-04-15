@@ -1,6 +1,17 @@
 #BlueJ class context
 comment0.target=Defesa
 comment0.text=\r\n\ Dados\ sobre\ um\ Jogador\ do\ tipo\ Defesa.\r\n\r\n\ @author\ grupo\r\n\ @version\ 210402\r\n
-comment1.params=umJog
-comment1.target=double\ habDefesa(Jogador)
-numComments=2
+comment1.params=
+comment1.target=Defesa()
+comment2.params=intercepcao
+comment2.target=Defesa(int)
+comment3.params=umJog
+comment3.target=Defesa(Defesa)
+comment4.params=
+comment4.target=double\ getIntercepcao()
+comment4.text=\r\n\ M\u00E9todos\ get\ e\ set.\r\n
+comment5.params=intercepcao
+comment5.target=void\ setIntercepcao(double)
+comment6.params=umJog
+comment6.target=double\ habDefesa(Jogador)
+numComments=7

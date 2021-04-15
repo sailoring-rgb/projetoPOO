@@ -11,6 +11,7 @@ comment3.target=Equipa(Equipa)
 comment3.text=\r\n\ Construtor\ de\ c\u00F3pia.\r\n
 comment4.params=
 comment4.target=int\ getNrEquipa()
+comment4.text=\r\n\ M\u00E9todos\ get\ e\ set.\r\n
 comment5.params=
 comment5.target=java.util.List\ getTitulares()
 comment6.params=

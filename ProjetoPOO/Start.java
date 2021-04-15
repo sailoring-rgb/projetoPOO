@@ -26,7 +26,7 @@ public class Start extends Menu
             break;
           case 2:
             Loader load = new Loader();
-            load.loadGame();
+            //load.loadGame();
             break;
           case 3:
             exitGame();

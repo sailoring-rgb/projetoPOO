@@ -23,6 +23,9 @@ public class Jogo{
         this.data = LocalDateTime.now();
     }
     
+    /**
+     * Métodos get e set.
+     */
     public int getEstado(){
         return this.estadoJogo;
     }

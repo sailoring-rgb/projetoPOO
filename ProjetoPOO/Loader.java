@@ -7,16 +7,17 @@ import java.io.*;
  * @author (seu nome) 
  * @version (número de versão ou data)
  */
-public class Loader
-{
+public class Loader{
+    
     public Loader()
     {
         File file = new File("test.txt");
         Scanner sc = new Scanner(file);
     }
 
-    public void loadGame()
+    /**public void loadGame()
     {
         
     }
+    */
 }

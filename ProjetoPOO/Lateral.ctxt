@@ -1,6 +1,17 @@
 #BlueJ class context
 comment0.target=Lateral
 comment0.text=\r\n\ Dados\ sobre\ um\ Jogador\ do\ tipo\ Lateral.\r\n\r\n\ @author\ grupo\r\n\ @version\ 210402\r\n
-comment1.params=umJog
-comment1.target=double\ habLateral(Jogador)
-numComments=2
+comment1.params=
+comment1.target=Lateral()
+comment2.params=cruzamento
+comment2.target=Lateral(int)
+comment3.params=umJog
+comment3.target=Lateral(Lateral)
+comment4.params=
+comment4.target=double\ getCruzamento()
+comment4.text=\r\n\ M\u00E9todos\ get\ e\ set.\r\n
+comment5.params=cruzamento
+comment5.target=void\ setCruzamento(double)
+comment6.params=umJog
+comment6.target=double\ habLateral(Jogador)
+numComments=7

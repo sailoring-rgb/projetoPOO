@@ -21,6 +21,9 @@ public class GuardaRedes{
         this.elasticidade = umJog.getElasticidade();
     }
     
+     /**
+     * Métodos get e set.
+     */
     public double getElasticidade(){
         return this.elasticidade;
     }
