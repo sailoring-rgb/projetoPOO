@@ -45,28 +45,49 @@ public class Equipa{
    }
    
    /**
-     * Métodos get e set.
-     */
+    * Método que obtém o número da equipa.
+    * @return o número da equipa
+    */
    public int getNrEquipa(){
        return this.nr_equipa;
    }
    
+   /**
+    * Método que obtém a lista de jogadores que são titulares.
+    * @return a lista de titulares
+    */
    public List<Jogador> getTitulares(){
        return this.titulares;
    }
    
+   /**
+    * Método que obtém a lista de jogadores que são suplentes.
+    * @return a lista de suplentes
+    */
    public List<Jogador> getSuplentes(){
        return this.suplentes;
    }
    
+   /**
+    * Método que muda o número da equipa.
+    * @param o novo número da equipa
+    */
    public void setNrEquipa(int nr_equipa){
        this.nr_equipa = nr_equipa;
     }
     
+   /**
+    * Método que muda a lista de jogadores que são titulares.
+    * @param a nova lista de titulares
+    */
    public void setTitulares(List<Jogador> titulares){
        this.titulares = titulares;
    }
    
+   /**
+    * Método que muda a lista de jogadores que são suplentes.
+    * @param a nova lista de suplentes
+    */
    public void setSuplentes(List<Jogador> suplentes){
        this.suplentes = suplentes;
    }

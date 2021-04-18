@@ -17,28 +17,42 @@ public class Jogo{
     private LocalDateTime data;
     private Equipa equipa1;
     private Equipa equipa2;
-     
+    
+    /**
+     * Construtor da classe Jogo.
+     */
     public Jogo(){
         this.estadoJogo = POR_COMECAR;
         this.data = LocalDateTime.now();
     }
     
     /**
-     * Métodos get e set.
-     */
+    * Método que obtém o estado atual do jogo.
+    * @return o estado do jogo
+    */
     public int getEstado(){
         return this.estadoJogo;
     }
     
+    /**
+    * Método que muda o estado atual do jogo.
+    * @param o novo estado do jogo
+    */
     public void setEstado(int estado){
         this.estadoJogo = estado;
     }
-           
+    
+    /**
+    * Método que começa o jogo.
+    */
     public void startJogo(){
         if(this.estadoJogo == POR_COMECAR)
             this.estadoJogo = A_DECORRER; 
     }
     
+    /**
+    * Método que termina o jogo.
+    */
     public void endJogo(){
         if(this.estadoJogo == A_DECORRER)
             this.estadoJogo = TERMINADO;
