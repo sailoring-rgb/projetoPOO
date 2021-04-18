@@ -119,5 +119,4 @@ public class Jogador{
     public void setCapPasse(double capPasse){
         this.capPasse = capPasse;
     }
-  
 }

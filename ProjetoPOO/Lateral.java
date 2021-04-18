@@ -5,31 +5,31 @@
  * @author grupo
  * @version 210402
  */
-public class Lateral{
+public class Lateral extends Jogador{
 
-    private double cruzamento;
+    private double capCruzamento;
     
     public Lateral(){
-        this.cruzamento = 0;
+        this.capCruzamento = 0;
     }
     
-    public Lateral(int cruzamento){
-        this.cruzamento = cruzamento;
+    public Lateral(int capCruzamento){
+        this.capCruzamento = capCruzamento;
     }
     
     public Lateral(Lateral umJog){
-        this.cruzamento = umJog.getCruzamento();
+        this.capCruzamento = umJog.getCapCruzamento();
     }
     
      /**
      * Métodos get e set.
      */
-    public double getCruzamento(){
-        return this.cruzamento;
+    public double getCapCruzamento(){
+        return this.capCruzamento;
     }
     
-    public void setCruzamento(double cruzamento){
-        this.cruzamento = cruzamento;
+    public void setCruzamento(double capCruzamento){
+        this.capCruzamento = capCruzamento;
     }
     
     public double habLateral (Jogador umJog){
@@ -42,7 +42,7 @@ public class Lateral{
         habilidade += umJog.getJogoCabeca()*0.5;
         habilidade += umJog.getRemate()*0.5;
         habilidade += umJog.getCapPasse()*1;
-        habilidade += this.cruzamento*1;
+        habilidade += this.capCruzamento*1;
         
         return habilidade;
     }

@@ -5,10 +5,10 @@
  * @author grupo
  * @version 210402
  */
-public class Avancado{
+public class Avancado extends Jogador{
     
-    private double drible;
-    
+    private double drible; // habilidade de evitar que adversio desarme o jogador que tem posse de bola
+         
     public Avancado(){
         this.drible = 0;
     }

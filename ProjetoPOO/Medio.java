@@ -5,9 +5,10 @@
  * @author grupo
  * @version 210402
  */
-public class Medio{
+public class Medio extends Jogador{
    
     private double capRecuperacao;
+    private double dominioBola; // habilidade de reter uma bola em condições de realizar uma jogada
     
     public Medio(){
         this.capRecuperacao = 0;

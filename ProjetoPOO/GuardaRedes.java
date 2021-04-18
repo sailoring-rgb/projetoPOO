@@ -5,20 +5,24 @@
  * @author grupo
  * @version 210402
  */
-public class GuardaRedes{
+public class GuardaRedes extends Jogador{
     
     private double elasticidade;
+    private double lancamento; // ato de chutar a bola para um companheiro distante
     
     public GuardaRedes(){
         this.elasticidade = 0;
+        this.lancamento = 0;
     }
     
-    public GuardaRedes(int elasticidade){
+    public GuardaRedes(double elasticidade, double lancamento){
         this.elasticidade = elasticidade;
+        this.lancamento = lancamento;
     }
     
     public GuardaRedes(GuardaRedes umJog){
         this.elasticidade = umJog.getElasticidade();
+        this.lancamento = umJog.getLancamento();
     }
     
      /**
@@ -28,8 +32,16 @@ public class GuardaRedes{
         return this.elasticidade;
     }
     
+    public double getLancamento(){
+        return this.lancamento;    
+    }
+    
     public void setElasticidade(double elasticidade){
         this.elasticidade = elasticidade;
+    }
+    
+    public void setLancamento(double lancamento){
+        this.lancamento = lancamento;
     }
     
     public double habGuardaRedes (Jogador umJog){
@@ -43,6 +55,7 @@ public class GuardaRedes{
         habilidade += umJog.getRemate()*0.2;
         habilidade += umJog.getCapPasse()*0.4;
         habilidade += this.elasticidade*1;
+        habilidade += this.lancamento*1;
         
         return habilidade;
     }

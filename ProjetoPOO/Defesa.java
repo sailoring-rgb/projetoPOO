@@ -6,31 +6,31 @@
  * @version 210402
  */
 
-public class Defesa{
+public class Defesa extends Jogador{
     
-    private double intercepcao;
+    private double desarme; // abordagem ao oponente, buscando obter a posse de bola
     
     public Defesa(){
-        this.intercepcao = 0;
+        this.desarme = 0;
     }
     
-    public Defesa(int intercepcao){
-        this.intercepcao = intercepcao;
+    public Defesa(int desarme){
+        this.desarme = desarme;
     }
     
     public Defesa(Defesa umJog){
-        this.intercepcao = umJog.getIntercepcao();
+        this.desarme = umJog.getDesarme();
     }
     
      /**
      * Métodos get e set.
      */
-    public double getIntercepcao(){
-        return this.intercepcao;
+    public double getDesarme(){
+        return this.desarme;
     }
     
-    public void setIntercepcao(double intercepcao){
-        this.intercepcao = intercepcao;
+    public void setDesarme(double desarme){
+        this.desarme = desarme;
     }
     
     public double habDefesa (Jogador umJog){
@@ -43,7 +43,7 @@ public class Defesa{
         habilidade += umJog.getJogoCabeca()*1;
         habilidade += umJog.getRemate()*0.2;
         habilidade += umJog.getCapPasse()*0.2;
-        habilidade += this.intercepcao*1;
+        habilidade += this.desarme*1;
         
         return habilidade;
     }
