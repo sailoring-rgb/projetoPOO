@@ -9,88 +9,98 @@ public void criaJogador(){
     System.out.println("Os valores atribuídos as carateristicas tem estar entre 0 e 10");
 
     System.out.println("Velocidade: ");
-    double velocidade = sc.nextLine();
+    double velocidade = sc.nextDouble();
     jog.setVelocidade(velocidade);
 
     System.out.println("Resistência: ");
-    double resistencia = sc.nextLine();
+    double resistencia = sc.nextDouble();
     jog.setResistencia(resistencia);
 
     System.out.println("Destreza: ");
-    double destreza = sc.nextLine();
+    double destreza = sc.nextDouble();
     jog.setDestreza(destreza);
 
     System.out.println("Impulsão: ");
-    double impulsao = sc.nextLine();
+    double impulsao = sc.nextDouble();
     jog.setImpulsao(impulsao);
 
     System.out.println("Jogo de Cabeça: ");
-    double jogoCabeca = sc.nextLine();
+    double jogoCabeca = sc.nextDouble();
     jog.setJogoCabeca(jogoCabeca);
 
     System.out.println("Remate: ");
-    double remate = sc.nextLine();
+    double remate = sc.nextDouble();
     jog.setRemate(remate);
 
     System.out.println("Capaciadade de passe: ");
-    double capPasse= sc.nextLine();
+    double capPasse= sc.nextDouble();
     jog.setCapPasse(capPasse);
 
     double habilidade = 0.0;
 
     switch(id){
 
-        case "avançado":
-            System.out.println("Drible: ");
-            double drible = sc.nextLine();
-            jog.setDrible(drible);
+        case "Avançado":
+            AVANCADO jogAvancado = new Avancado();
 
-            habilidade = jog.habAvancado(jog);
-            System.out.println("Habilidade do jogador: " + habilidade);
+            System.out.println("Drible: ");
+            double drible = sc.nextDouble();
+            jogAvancado.setDrible(drible);
+
+            habilidade = jogAvancado.habAvancado(jog);
+            System.out.println("Habilidade do avançado: " + habilidade);
             break;
     
-        case "lateral":
-            System.out.println("Capaciadade de cruzamento: ");
-            double capCruzamento = sc.nextLine();
-            jog.setCapCruzamento(capCruzamento);
+        case "Lateral":
+            LATERAL jogLateral = new Lateral();
 
-            habilidade = jog.habLateral(jog);
-            System.out.println("Habilidade do jogador: " + habilidade);
+            System.out.println("Capaciadade de cruzamento: ");
+            double capCruzamento = sc.nextDouble();
+            jogLateral.setCapCruzamento(capCruzamento);
+
+            habilidade = jogLateral.habLateral(jog);
+            System.out.println("Habilidade do lateral: " + habilidade);
             break;
 
-        case "médio":
+        case "Médio":
+            MEDIO jogMedio = new Medio();
+
             System.out.println("Capacidade de recuperação: ");
-            double capRecuperacao = sc.nextLine();
-            jog.setCapRecuperacao(capRecuperacao);
+            double capRecuperacao = sc.nextDouble();
+            jogMedio.setCapRecuperacao(capRecuperacao);
 
             System.out.println("Dominio de bola: ");
-            double dominioBola = sc.nextLine();
-            jog.setDominioBola(dominioBola);
+            double dominioBola = sc.nextDouble();
+            jogMedio.setDominioBola(dominioBola);
 
-            habilidade = jog.habMedio(jog);
-            System.out.println("Habilidade do jogador: " + habilidade);
+            habilidade = jogMedio.habMedio(jog);
+            System.out.println("Habilidade do médio: " + habilidade);
             break;
 
-        case "defesa":
+        case "Defesa":
+            MEDIO jogDefesa = new Defesa();
+
             System.out.println("Desarme: ");
-            double desarme = sc.nextLine();
-            jog.setDesarme(desarme);
+            double desarme = sc.nextDouble();
+            jogDefesa.setDesarme(desarme);
 
-            habilidade = jog.habDefesa(jog);
-            System.out.println("Habilidade do jogador: " + habilidade);
+            habilidade = jogDefesa.habDefesa(jog);
+            System.out.println("Habilidade do defesa: " + habilidade);
             break;
 
-        case "guarda redes":
+        case "Guarda-redes":
+            GUARDAREDES jogGR = new GuardaRedes();
+
             System.out.println("Elastecidade: ");
-            double elasticidade = sc.nextLine();
-            jog.setElasticidade(elasticidade);
+            double elasticidade = sc.nextDouble();
+            jogGR.setElasticidade(elasticidade);
 
             System.out.println("Lançamento: ");
-            double lancamento = sc.nextLine();
-            jog.setLancamento(lancamento);
+            double lancamento = sc.nextDouble();
+            jogGR.setLancamento(lancamento);
 
-            habilidade = jog.habGuardaRedes(jog);
-            System.out.println("Habilidade do jogador: " + habilidade);
+            habilidade = jogGR.habGuardaRedes(jog);
+            System.out.println("Habilidade do guarda-redes: " + habilidade);
             break;
     }
 }
