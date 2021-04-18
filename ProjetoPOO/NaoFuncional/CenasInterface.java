@@ -1,9 +1,43 @@
-// o usuário cria o jogador
+/************************ ISTO É PARA A INTERFACE **************************/
+
+public static void main(String[] args){
+    // ..............
+    int escolha;
+    Scanner sc = new Scanner(System.in);
+    
+    System.out.println("O que pretende fazer?");
+
+    System.out.println("1: Criar um novo jogador.");
+    System.out.println("2: ...");
+    System.out.println("3: ...");
+    
+    escolha = sc.nextInt();
+    System.out.println("\n");
+    
+    switch(escolha){
+
+        case 1:
+            CriaJogTemp aux = new CriaJogTemp();
+            aux.criaJogador();
+            break;
+        
+        // case 2:
+        // case 3:
+        }    
+    }
+}
+
+/**
+* Método que cria um jogador consoante os valores atribuídos (pelo usuário) para as características do mesmo.
+*/
 public void criaJogador(){
+
+    Scanner sc = new Scanner(System.in);
 
     System.out.println("Que jogador pretende criar: ");
     String id = sc.nextLine();
-
+    System.out.println("\n");
+        
     Jogador jog = new Jogador();
 
     System.out.println("Os valores atribuídos as carateristicas tem estar entre 0 e 10");
@@ -41,8 +75,8 @@ public void criaJogador(){
     switch(id){
 
         case "Avançado":
-            AVANCADO jogAvancado = new Avancado();
-
+            Avancado jogAvancado = new Avancado();
+            
             System.out.println("Drible: ");
             double drible = sc.nextDouble();
             jogAvancado.setDrible(drible);
@@ -52,7 +86,7 @@ public void criaJogador(){
             break;
     
         case "Lateral":
-            LATERAL jogLateral = new Lateral();
+            Lateral jogLateral = new Lateral();
 
             System.out.println("Capaciadade de cruzamento: ");
             double capCruzamento = sc.nextDouble();
@@ -63,7 +97,7 @@ public void criaJogador(){
             break;
 
         case "Médio":
-            MEDIO jogMedio = new Medio();
+            Medio jogMedio = new Medio();
 
             System.out.println("Capacidade de recuperação: ");
             double capRecuperacao = sc.nextDouble();
@@ -78,7 +112,7 @@ public void criaJogador(){
             break;
 
         case "Defesa":
-            MEDIO jogDefesa = new Defesa();
+            Defesa jogDefesa = new Defesa();
 
             System.out.println("Desarme: ");
             double desarme = sc.nextDouble();
@@ -89,7 +123,7 @@ public void criaJogador(){
             break;
 
         case "Guarda-redes":
-            GUARDAREDES jogGR = new GuardaRedes();
+            GuardaRedes jogGR = new GuardaRedes();
 
             System.out.println("Elastecidade: ");
             double elasticidade = sc.nextDouble();

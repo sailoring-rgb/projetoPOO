@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=GuardaRedes
-comment0.text=\r\n\ Dados\ sobre\ um\ Jogador\ do\ tipo\ Guarda\ Redes.\r\n\r\n\ @author\ grupo\r\n\ @version\ 210402\r\n
+comment0.text=\n\ Dados\ sobre\ um\ Jogador\ do\ tipo\ Guarda\ Redes.\n\n\ @author\ grupo\n\ @version\ 210402\n
 comment1.params=
 comment1.target=GuardaRedes()
 comment2.params=elasticidade\ lancamento
@@ -9,7 +9,7 @@ comment3.params=umJog
 comment3.target=GuardaRedes(GuardaRedes)
 comment4.params=
 comment4.target=double\ getElasticidade()
-comment4.text=\r\n\ M\u00E9todos\ get\ e\ set.\r\n
+comment4.text=\n\ M\u00E9todos\ get\ e\ set.\n
 comment5.params=
 comment5.target=double\ getLancamento()
 comment6.params=elasticidade

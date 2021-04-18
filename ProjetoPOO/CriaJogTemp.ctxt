@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=CriaJogTemp
+comment1.params=
+comment1.target=void\ criaJogador()
+comment1.text=\n\ M\u00E9todo\ que\ cria\ um\ jogador\ consoante\ os\ valores\ atribu\u00EDdos\ (pelo\ usu\u00E1rio)\ para\ as\ caracter\u00EDsticas\ do\ mesmo.\n
+numComments=2

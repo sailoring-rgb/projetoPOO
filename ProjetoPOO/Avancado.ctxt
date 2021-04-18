@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Avancado
-comment0.text=\r\n\ Dados\ sobre\ um\ Jogador\ do\ tipo\ Avan\u00E7ado.\r\n\r\n\ @author\ grupo\r\n\ @version\ 210402\r\n
+comment0.text=\n\ Dados\ sobre\ um\ Jogador\ do\ tipo\ Avan\u00E7ado.\n\n\ @author\ grupo\n\ @version\ 210402\n
 comment1.params=
 comment1.target=Avancado()
 comment2.params=drible
@@ -9,7 +9,7 @@ comment3.params=umJog
 comment3.target=Avancado(Avancado)
 comment4.params=
 comment4.target=double\ getDrible()
-comment4.text=\r\n\ M\u00E9todos\ get\ e\ set.\r\n
+comment4.text=\n\ M\u00E9todos\ get\ e\ set.\n
 comment5.params=drible
 comment5.target=void\ setDrible(double)
 comment6.params=umJog
