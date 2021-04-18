@@ -32,6 +32,14 @@ public class Medio extends Jogador{
     public void setCapRecuperacao(double capRecuperacao){
         this.capRecuperacao = capRecuperacao;
     }
+
+    public double getDominioBola(){
+        return this.dominioBola;
+    }
+
+    public void setDominioBola(double dominioBola){
+        this.dominioBola = dominioBola;
+    }    
     
     public double habMedio (Jogador umJog){
         double habilidade = 0;
@@ -44,6 +52,7 @@ public class Medio extends Jogador{
         habilidade += umJog.getRemate()*0.5;
         habilidade += umJog.getCapPasse()*1;
         habilidade += this.capRecuperacao*1;
+        habilidade += this.dominioBola*1;
         
         return habilidade;
     }
