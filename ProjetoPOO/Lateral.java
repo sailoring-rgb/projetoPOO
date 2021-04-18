@@ -28,7 +28,7 @@ public class Lateral extends Jogador{
         return this.capCruzamento;
     }
     
-    public void setCruzamento(double capCruzamento){
+    public void setCapCruzamento(double capCruzamento){
         this.capCruzamento = capCruzamento;
     }
     
