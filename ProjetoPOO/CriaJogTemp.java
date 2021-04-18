@@ -17,7 +17,7 @@ public class CriaJogTemp
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Que jogador pretende criar: ");
+        System.out.println("Que jogador pretende criar? ");
         String id = sc.nextLine();
         System.out.println("\n");
         
