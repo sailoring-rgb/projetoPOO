@@ -13,13 +13,15 @@ public class Avancado extends Jogador{
      * Construtor por omissão.
      */
     public Avancado(){
+        super();
         this.drible = 0;
     }
     
     /**
      * Construtor parametrizado.
      */
-    public Avancado(int drible){
+    public Avancado(double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, int drible){
+        super(velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
         this.drible = drible;
     }
     
@@ -27,6 +29,7 @@ public class Avancado extends Jogador{
      * Construtor de cópia.
      */
     public Avancado(Avancado umJog){
+        super(umJog);
         this.drible = umJog.getDrible();
     }
     

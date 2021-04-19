@@ -14,6 +14,7 @@ public class GuardaRedes extends Jogador{
      * Construtor por omissão.
      */
     public GuardaRedes(){
+        super();
         this.elasticidade = 0;
         this.lancamento = 0;
     }
@@ -21,7 +22,8 @@ public class GuardaRedes extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public GuardaRedes(double elasticidade, double lancamento){
+    public GuardaRedes(double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double elasticidade, double lancamento){
+        super(velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
         this.elasticidade = elasticidade;
         this.lancamento = lancamento;
     }
@@ -30,6 +32,7 @@ public class GuardaRedes extends Jogador{
      * Construtor de cópia.
      */
     public GuardaRedes(GuardaRedes umJog){
+        super(umJog);
         this.elasticidade = umJog.getElasticidade();
         this.lancamento = umJog.getLancamento();
     }

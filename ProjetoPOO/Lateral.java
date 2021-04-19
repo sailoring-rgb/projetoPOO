@@ -13,13 +13,15 @@ public class Lateral extends Jogador{
      * Construtor por omissão.
      */
     public Lateral(){
+        super();
         this.capCruzamento = 0;
     }
     
     /**
      * Construtor parametrizado.
      */
-    public Lateral(int capCruzamento){
+    public Lateral(double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double capCruzamento){
+        super(velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
         this.capCruzamento = capCruzamento;
     }
     
@@ -27,6 +29,7 @@ public class Lateral extends Jogador{
      * Construtor de cópia.
      */
     public Lateral(Lateral umJog){
+        super(umJog);
         this.capCruzamento = umJog.getCapCruzamento();
     }
     

@@ -14,13 +14,15 @@ public class Defesa extends Jogador{
      * Construtor por omissão.
      */
     public Defesa(){
+        super();
         this.desarme = 0;
     }
     
     /**
      * Construtor parametrizado.
      */
-    public Defesa(int desarme){
+    public Defesa(double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double desarme){
+        super(velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
         this.desarme = desarme;
     }
     
@@ -28,6 +30,7 @@ public class Defesa extends Jogador{
      * Construtor de cópia.
      */
     public Defesa(Defesa umJog){
+        super(umJog);
         this.desarme = umJog.getDesarme();
     }
     

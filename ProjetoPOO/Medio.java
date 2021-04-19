@@ -14,21 +14,27 @@ public class Medio extends Jogador{
      * Construtor por omissão.
      */
     public Medio(){
+        super();
         this.capRecuperacao = 0;
+        this.dominioBola = 0;
     }
     
     /**
      * Construtor parametrizado.
      */
-    public Medio(int capRecuperacao){
+    public Medio(double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double capRecuperacao, double dominioBola){
+        super(velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
         this.capRecuperacao = capRecuperacao;
+        this.dominioBola = dominioBola;
     }
     
     /**
      * Construtor de cópia.
      */
     public Medio(Medio umJog){
+        super(umJog);
         this.capRecuperacao = umJog.getCapRecuperacao();
+        this.dominioBola = umJog.getDominioBola();
     }
     
     /**
