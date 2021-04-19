@@ -11,7 +11,6 @@ public class Teste
 {
     public static void main(String[] args){
         // ..............
-        int escolha;
         Scanner sc = new Scanner(System.in);
     
         System.out.println("O que pretende fazer?");
@@ -20,18 +19,26 @@ public class Teste
         System.out.println("2: ...");
         System.out.println("3: ...");
     
-        escolha = sc.nextInt();
-        System.out.println("\n");
-    
-        switch(escolha){
-
-            case 1:
-                CriaJogTemp aux = new CriaJogTemp();
-                aux.criaJogador();
-                break;
+        int escolha = sc.nextInt();
+        if(escolha < 1 || escolha > 3)
+            System.out.println("Não exite esta opção!");
         
-            // case 2:
-            // case 3:
-        }    
+        else{
+            System.out.println("\n");
+        
+            switch(escolha){
+
+                case 1:
+                    CriarJog aux = new CriarJog();
+                    int jogEscolhido = aux.qualJog();
+                    if(jogEscolhido < 1 || jogEscolhido > 5)
+                        System.out.println("Não exite esta opção!");
+                        else aux.divHabilidade(jogEscolhido);
+                    break;
+        
+                    // case 2:
+                    // case 3:
+            }
+        }
     }
 }

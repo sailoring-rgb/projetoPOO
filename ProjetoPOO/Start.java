@@ -41,7 +41,7 @@ public class Start extends Menu
     
     public void newGame()
     {
-        CriarJog criar = new CriaJog();
+        CriarJog criar = new CriarJog();
     }
     
     public void loadGame()

@@ -8,16 +8,14 @@ import java.util.*;
  */
 public class CriarJog
 {
-    private int id;
-    private double habilidade;
     
     /**
-     * COnstrutor para objetos da classe CriarJog
+     * Método que pergunta ao usuário que tipo de jogador pretende criar.
+     * @return o número da opção
      */
-    public CriarJog()
+    public int qualJog()
     {
         Scanner sc = new Scanner(System.in);
-        Jogador jog = new Jogador();
         
         System.out.println("Que jogador pretende criar?");
         System.out.println("1: Avançado");
@@ -26,17 +24,27 @@ public class CriarJog
         System.out.println("4: Defesa");
         System.out.println("5: Guarda Redes");
         
-        int JogEscolhido = sc.nextInt();
+        int jogEscolhido = sc.nextInt();
+        return jogEscolhido;
     }
 
-    public int DivHabilidade(int JogEscolhido)
+    /**
+     * Método que pede ao usuário valores para as características do tipo de jogador que escolheu.
+     * Este método calcula, ainda, a habilidade do dito jogador consoante os valores dados.
+     * @param o número da opção
+     */
+    public void divHabilidade(int jogEscolhido)
     {
+        Jogador jog = new Jogador();
+        
+        Scanner sc = new Scanner(System.in);
+        
         System.out.println("Os valores atribuídos as carateristicas tem estar entre 0 e 10");
-
+        
         System.out.println("Velocidade: ");
         double velocidade = sc.nextDouble();
         jog.setVelocidade(velocidade);
-
+        
         System.out.println("Resistência: ");
         double resistencia = sc.nextDouble();
         jog.setResistencia(resistencia);
@@ -61,11 +69,9 @@ public class CriarJog
         double capPasse= sc.nextDouble();
         jog.setCapPasse(capPasse);
         
-    }
-    
-    public int DivHabilidade(int JogEscolhido)
-    {
-                switch(JogEscolhido){
+        double habilidade = 0;
+        
+              switch(jogEscolhido){
         
                     case 1:
                         Avancado jogAvancado = new Avancado();
@@ -131,3 +137,4 @@ public class CriarJog
                         break;
         } 
     }
+}
