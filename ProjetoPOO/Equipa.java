@@ -91,26 +91,30 @@ public class Equipa{
    public void setSuplentes(List<Jogador> suplentes){
        this.suplentes = suplentes;
    }
-  
-   /**public double habEquipa(Equipa umaEquipa){
-       double habGlobal = 0;
-       Jogador jogador;
-       Avancado avancado;
-       Lateral lateral;
-       Medio medio;
-       Defesa defesa;
-       GuardaRedes guardaRedes;
+   
+   
+   // FALTA ENTÃO CONSTRUIR OS TITULARES E OS SUPLENTES
+   
+   public double habEquipa(Equipa umaEquipa){
+       double habGlobal = 0; // como recorremos a um loop, temos de declarar a var fora e igualá-la a 0 (ao contrário dos outros métodos hab)
        
-       while(umaEquipa.getTitulares() != null){
-           habGlobal += guardaRedes.habGuardaRedes(jogador)*1;
-           habGlobal += defesa.habDefesa(jogador)*4;
-           habGlobal += medio.habMedio(jogador)*3;
-           habGlobal += avancado.habAvancado(jogador)*1;
-           habGlobal += lateral.habLateral(jogador)*2;
+       Jogador jog = new Jogador();
+       GuardaRedes jogGR = new GuardaRedes();
+       Defesa jogDefesa = new Defesa();
+       Medio jogMedio = new Medio();
+       Avancado jogAvancado = new Avancado();
+       Lateral jogLateral = new Lateral();
+       
+       Iterator<Jogador> iter = umaEquipa.getTitulares().iterator(); 
+       
+       while(iter.hasNext()){
+           habGlobal += jogGR.habGuardaRedes(jog)*1 + jogDefesa.habDefesa(jog)*4 + jogMedio.habMedio(jog)*3 +
+                               jogAvancado.habAvancado(jog)*1 + jogLateral.habLateral(jog)*2;
        }
+       
        return habGlobal;
     }
-    */
+    
     
     // FALTA AINDA:   
     // Definir número de cada tipo de jogador numa equipa

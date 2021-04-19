@@ -52,17 +52,9 @@ public class Avancado extends Jogador{
     * @return a habilidade do avançado
     */
     public double habAvancado (Jogador umJog){
-        double habilidade = 0;
-        
-        habilidade += umJog.getVelocidade()*1;
-        habilidade += umJog.getResistencia()*0.5;
-        habilidade += umJog.getDestreza()*1;
-        habilidade += umJog.getImpulsao()*1;
-        habilidade += umJog.getJogoCabeca()*1;
-        habilidade += umJog.getRemate()*1;
-        habilidade += umJog.getCapPasse()*0.5;
-        habilidade += this.drible*1;
-        
+        double habilidade = umJog.getVelocidade()*1 + umJog.getResistencia()*0.5 + umJog.getDestreza()*1 + umJog.getImpulsao()*1 + 
+                            umJog.getJogoCabeca()*1 + umJog.getRemate()*1 + umJog.getCapPasse()*0.5 + this.drible*1;
+        // isto diminui (imenso) os acessos à memória
         return habilidade;
     }
 }

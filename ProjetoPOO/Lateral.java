@@ -52,17 +52,8 @@ public class Lateral extends Jogador{
     * @return a habilidade do lateral
     */
     public double habLateral (Jogador umJog){
-        double habilidade = 0;
-        
-        habilidade += umJog.getVelocidade()*1;
-        habilidade += umJog.getResistencia()*0.5;
-        habilidade += umJog.getDestreza()*1;
-        habilidade += umJog.getImpulsao()*1;
-        habilidade += umJog.getJogoCabeca()*0.5;
-        habilidade += umJog.getRemate()*0.5;
-        habilidade += umJog.getCapPasse()*1;
-        habilidade += this.capCruzamento*1;
-        
+        double habilidade = umJog.getVelocidade()*1 + umJog.getResistencia()*0.5 + umJog.getDestreza()*1 + umJog.getImpulsao()*1 +
+                            umJog.getJogoCabeca()*0.5 + umJog.getRemate()*0.5 + umJog.getCapPasse()*1 + this.capCruzamento*1;
         return habilidade;
     }
 }

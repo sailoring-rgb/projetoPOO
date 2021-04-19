@@ -53,17 +53,8 @@ public class Defesa extends Jogador{
     * @return a habilidade do defesa
     */
     public double habDefesa (Jogador umJog){
-        double habilidade = 0;
-        
-        habilidade += umJog.getVelocidade()*0.5;
-        habilidade += umJog.getResistencia()*1;
-        habilidade += umJog.getDestreza()*0.5;
-        habilidade += umJog.getImpulsao()*1;
-        habilidade += umJog.getJogoCabeca()*1;
-        habilidade += umJog.getRemate()*0.2;
-        habilidade += umJog.getCapPasse()*0.2;
-        habilidade += this.desarme*1;
-        
+        double habilidade = umJog.getVelocidade()*0.5 + umJog.getResistencia()*1 + umJog.getDestreza()*0.5 + umJog.getImpulsao()*1 +
+                            umJog.getJogoCabeca()*1 + umJog.getRemate()*0.2 + umJog.getCapPasse()*0.2 + this.desarme*1;
         return habilidade;
     }
 }

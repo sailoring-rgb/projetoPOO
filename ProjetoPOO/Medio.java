@@ -39,7 +39,7 @@ public class Medio extends Jogador{
         return this.capRecuperacao;
     }
     
-        /**
+    /**
     * Método que obtém o valor da capacidade de domínio da bola do médio.
     * @return o valor da capacidade de domínio da bola
     */
@@ -69,18 +69,8 @@ public class Medio extends Jogador{
     * @return a habilidade do médio
     */
     public double habMedio (Jogador umJog){
-        double habilidade = 0;
-        
-        habilidade += umJog.getVelocidade()*0.5;
-        habilidade += umJog.getResistencia()*0.5;
-        habilidade += umJog.getDestreza()*1;
-        habilidade += umJog.getImpulsao()*0.5;
-        habilidade += umJog.getJogoCabeca()*0.5;
-        habilidade += umJog.getRemate()*0.5;
-        habilidade += umJog.getCapPasse()*1;
-        habilidade += this.capRecuperacao*1;
-        habilidade += this.dominioBola*1;
-        
+        double habilidade = umJog.getVelocidade()*0.5 + umJog.getResistencia()*0.5 + umJog.getDestreza()*1 + umJog.getImpulsao()*0.5 +
+                            umJog.getJogoCabeca()*0.5 + umJog.getRemate()*0.5 + umJog.getCapPasse()*1 + this.capRecuperacao*1 + this.dominioBola*1;
         return habilidade;
     }
 }
