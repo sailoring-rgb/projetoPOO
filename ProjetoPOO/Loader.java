@@ -15,7 +15,7 @@ public class Loader{
         Scanner sc = new Scanner(file);
     }
 
-    /**public void loadGame()
+    /**public void loadG()
     {
         
     }

@@ -13,9 +13,14 @@ public class Start extends Menu
     
     public Start()
     {
-        System.out.println("Introduza a sua escolha: \r\n 1 - Start new game \r\n 2 - Load Game \r\n 3 - Exit");
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Introduza a sua escolha:");
+        System.out.println("1: Start new game");
+        System.out.println("2: Load Game");
+        System.out.println("3: Exit");
     
-        Scanner option = new Scanner(System.in);
+        Double option = sc.nextDouble();
     }
 
     public void makeChoice(int option)
@@ -25,8 +30,7 @@ public class Start extends Menu
             newGame();
             break;
           case 2:
-            Loader load = new Loader();
-            //load.loadGame();
+            loadGame();
             break;
           case 3:
             exitGame();
@@ -37,7 +41,13 @@ public class Start extends Menu
     
     public void newGame()
     {
-        
+        CriarJog criar = new CriaJog();
+    }
+    
+    public void loadGame()
+    {
+        Loader load = new Loader();
+        load.loadG();
     }
     
     public void exitGame()

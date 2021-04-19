@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Start
+comment0.text=\r\n\ Escreva\ a\ descri\u00E7\u00E3o\ da\ classe\ Start\ aqui.\r\n\ \r\n\ @author\ Its\ me\ again\r\n\ @version\ 210413\r\n
+comment1.params=
+comment1.target=Start()
+comment2.params=option
+comment2.target=void\ makeChoice(int)
+comment3.params=
+comment3.target=void\ newGame()
+comment4.params=
+comment4.target=void\ exitGame()
+numComments=5
