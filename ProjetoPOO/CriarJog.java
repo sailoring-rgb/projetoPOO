@@ -20,16 +20,16 @@ public class CriarJog
         Jogador jog = new Jogador();
         
         System.out.println("Que jogador pretende criar?");
-        System.out.println("1: Guarda-Redes");
-        System.out.println("2: Defesa");
+        System.out.println("1: Avançado");
+        System.out.println("2: Lateral");
         System.out.println("3: Médio");
-        System.out.println("4: Lateral");
-        System.out.println("5: Avançado");
+        System.out.println("4: Defesa");
+        System.out.println("5: Guarda Redes");
         
-        Double id = sc.nextDouble();
+        int JogEscolhido = sc.nextInt();
     }
 
-    public int DivHabilidade(int id)
+    public int DivHabilidade(int JogEscolhido)
     {
         System.out.println("Os valores atribuídos as carateristicas tem estar entre 0 e 10");
 
@@ -63,11 +63,11 @@ public class CriarJog
         
     }
     
-    public int DivHabilidade(int id)
+    public int DivHabilidade(int JogEscolhido)
     {
-                switch(id){
+                switch(JogEscolhido){
         
-                    case "Avançado":
+                    case 1:
                         Avancado jogAvancado = new Avancado();
                     
                         System.out.println("Drible: ");
@@ -78,7 +78,7 @@ public class CriarJog
                         System.out.println("Habilidade do avançado: " + habilidade);
                         break;
             
-                        case "Lateral":
+                    case 2:
                         Lateral jogLateral = new Lateral();
         
                         System.out.println("Capaciadade de cruzamento: ");
@@ -89,7 +89,7 @@ public class CriarJog
                         System.out.println("Habilidade do lateral: " + habilidade);
                         break;
         
-                    case "Médio":
+                    case 3:
                         Medio jogMedio = new Medio();
         
                         System.out.println("Capacidade de recuperação: ");
@@ -104,7 +104,7 @@ public class CriarJog
                         System.out.println("Habilidade do médio: " + habilidade);
                         break;
         
-                    case "Defesa":
+                    case 4:
                         Defesa jogDefesa = new Defesa();
         
                         System.out.println("Desarme: ");
@@ -115,7 +115,7 @@ public class CriarJog
                         System.out.println("Habilidade do defesa: " + habilidade);
                         break;
         
-                    case "Guarda-redes":
+                    case 5:
                         GuardaRedes jogGR = new GuardaRedes();
         
                         System.out.println("Elastecidade: ");
