@@ -41,7 +41,8 @@ public class Start extends Menu
     
     public void newGame()
     {
-        CriarJog criar = new CriarJog();
+        CriarEquipa equipa1 = new CriarEquipa();
+        CriarEquipa equipa2 = new CriarEquipa();
     }
     
     public void loadGame()

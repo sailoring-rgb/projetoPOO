@@ -8,7 +8,6 @@ import java.util.*;
  */
 public class CriarJog
 {
-    
     /**
      * Método que pergunta ao usuário que tipo de jogador pretende criar.
      * @return o número da opção

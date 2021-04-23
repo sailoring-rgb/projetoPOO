@@ -56,6 +56,7 @@ public class JogMenu extends Menu
         
         Double tatica = sc.nextDouble();
         //setNrTatica(tatica-1);
+        //Distribui jogadores
         //switch com um set na tatica da equipa 
     }
     
