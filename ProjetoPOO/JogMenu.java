@@ -20,7 +20,8 @@ public class JogMenu extends Menu
         System.out.println("2: Escolher tática");
         System.out.println("3: Sair");
     
-        Double option = sc.nextDouble();
+        int option = sc.nextInt();
+        makeChoice(option);
     }
     
     public void makeChoice(int option)

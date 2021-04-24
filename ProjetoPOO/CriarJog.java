@@ -134,6 +134,15 @@ public class CriarJog
                         habilidade = jogGR.habGuardaRedes(jog);
                         System.out.println("Habilidade do guarda-redes: " + habilidade);
                         break;
-        } 
+        }
+    }
+    
+    public void atribEq(Jogador jog)
+    {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("A que equipa pretende associar este jogador?");
+        //Verificar todas as equipas existentes
+        
     }
 }

@@ -12,9 +12,10 @@ import java.util.Iterator;
 import java.util.stream.Collectors;
 
 public class Equipa{
-    
+
    private int nr_equipa;
    private int nr_tatica;
+   private String nome;
    private List<Jogador> titulares;
    private List<Jogador> suplentes;
    
@@ -24,6 +25,7 @@ public class Equipa{
    public Equipa(){
        this.nr_equipa = 0;
        this.nr_tatica = 0;
+       this.nome = "";
        this.titulares = new ArrayList<>();
        this.suplentes = new ArrayList<>();
    }
@@ -31,9 +33,10 @@ public class Equipa{
    /**
      * Construtor parametrizado.
      */
-   public Equipa(int nr_equipa,int nr_tatica,List<Jogador> titulares, List<Jogador> suplentes){
+   public Equipa(int nr_equipa,int nr_tatica,String nome,List<Jogador> titulares, List<Jogador> suplentes){
        this.nr_equipa = nr_equipa;
        this.nr_tatica = nr_tatica;
+       this.nome = nome;
        this.titulares = titulares.stream().map(Jogador::new).collect(Collectors.toList());
        this.suplentes = suplentes.stream().map(Jogador::new).collect(Collectors.toList());
    }
@@ -44,6 +47,7 @@ public class Equipa{
    public Equipa(Equipa umaEquipa){
        this.nr_equipa = umaEquipa.getNrEquipa();
        this.nr_tatica = umaEquipa.getNrTatica();
+       this.nome = umaEquipa.getNome();
        this.titulares = umaEquipa.getTitulares();
        this.suplentes = umaEquipa.getSuplentes();
    }
@@ -62,6 +66,14 @@ public class Equipa{
     */
    public int getNrTatica(){
        return this.nr_tatica;
+   }
+   
+   /**
+    * Método que obtém o nome da Equipa.
+    * @return o nome da Equipa
+    */
+   public String getNome(){
+       return this.nome;
    }
    
    /**
@@ -95,6 +107,14 @@ public class Equipa{
    public void setNrTatica(int nr_tatica){
        this.nr_tatica = nr_tatica;
     }
+    
+   /**
+    * Método que muda o nome da Equipa.
+    * @param o novo nome da Equipa
+    */
+   public void setNome(String nome){
+       this.nome = nome;
+    } 
     
    /**
     * Método que muda a lista de jogadores que são titulares.

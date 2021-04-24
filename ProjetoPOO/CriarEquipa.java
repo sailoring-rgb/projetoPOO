@@ -8,7 +8,7 @@ import java.util.*;
  */
 public class CriarEquipa
 {
-    public void criarEq()
+    public void criarEquipa()
     {
         Scanner sc = new Scanner(System.in);
         Equipa eq = new Equipa();
@@ -16,9 +16,6 @@ public class CriarEquipa
         System.out.println("Nome da equipa: ");
         
         String nome = sc.nextLine();
-        
-        for(int i = 0; i < 15; i++) {
-            CriarJog criar = new CriarJog();
-        }
+        eq.setNome(nome);
     }
 }

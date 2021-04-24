@@ -1,10 +1,12 @@
 #BlueJ class context
 comment0.target=CriarJog
-comment0.text=\n\ Escreva\ a\ descri\u00E7\u00E3o\ da\ classe\ CriarJog\ aqui.\n\ \n\ @author\ (seu\ nome)\ \n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\n
+comment0.text=\r\n\ Escreva\ a\ descri\u00E7\u00E3o\ da\ classe\ CriarJog\ aqui.\r\n\ \r\n\ @author\ (seu\ nome)\ \r\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\r\n
 comment1.params=
 comment1.target=int\ qualJog()
-comment1.text=\n\ M\u00E9todo\ que\ pergunta\ ao\ usu\u00E1rio\ que\ tipo\ de\ jogador\ pretende\ criar.\n\ @return\ o\ n\u00FAmero\ da\ op\u00E7\u00E3o\n
+comment1.text=\r\n\ M\u00E9todo\ que\ pergunta\ ao\ usu\u00E1rio\ que\ tipo\ de\ jogador\ pretende\ criar.\r\n\ @return\ o\ n\u00FAmero\ da\ op\u00E7\u00E3o\r\n
 comment2.params=jogEscolhido
 comment2.target=void\ divHabilidade(int)
-comment2.text=\n\ M\u00E9todo\ que\ pede\ ao\ usu\u00E1rio\ valores\ para\ as\ caracter\u00EDsticas\ do\ tipo\ de\ jogador\ que\ escolheu.\n\ Este\ m\u00E9todo\ calcula,\ ainda,\ a\ habilidade\ do\ dito\ jogador\ consoante\ os\ valores\ dados.\n\ @param\ o\ n\u00FAmero\ da\ op\u00E7\u00E3o\n
-numComments=3
+comment2.text=\r\n\ M\u00E9todo\ que\ pede\ ao\ usu\u00E1rio\ valores\ para\ as\ caracter\u00EDsticas\ do\ tipo\ de\ jogador\ que\ escolheu.\r\n\ Este\ m\u00E9todo\ calcula,\ ainda,\ a\ habilidade\ do\ dito\ jogador\ consoante\ os\ valores\ dados.\r\n\ @param\ o\ n\u00FAmero\ da\ op\u00E7\u00E3o\r\n
+comment3.params=jog
+comment3.target=void\ atribEq(Jogador)
+numComments=4

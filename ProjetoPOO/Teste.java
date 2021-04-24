@@ -9,36 +9,37 @@ import java.util.Scanner;
 
 public class Teste
 {
-    public static void main(String[] args){
+    public static void main(){
         // ..............
         Scanner sc = new Scanner(System.in);
     
         System.out.println("O que pretende fazer?");
 
         System.out.println("1: Criar um novo jogador.");
-        System.out.println("2: ...");
+        System.out.println("2: Entrar Main Menu");
         System.out.println("3: ...");
     
         int escolha = sc.nextInt();
-        if(escolha < 1 || escolha > 3)
-            System.out.println("Não exite esta opção!");
+        System.out.println("\n");
         
-        else{
-            System.out.println("\n");
-        
-            switch(escolha){
+        //É mais facil fazer com switch default 
+        switch(escolha){
 
-                case 1:
-                    CriarJog aux = new CriarJog();
-                    int jogEscolhido = aux.qualJog();
-                    if(jogEscolhido < 1 || jogEscolhido > 5)
-                        System.out.println("Não exite esta opção!");
-                        else aux.divHabilidade(jogEscolhido);
-                    break;
-        
-                    // case 2:
+            case 1:
+                CriarJog aux = new CriarJog();
+                int jogEscolhido = aux.qualJog();
+                if(jogEscolhido < 1 || jogEscolhido > 5)
+                    System.out.println("Não exite esta opção!");
+                    else aux.divHabilidade(jogEscolhido);
+                break;
+            
+            case 2:
+                MainMenu menu = new MainMenu();
+                break;
                     // case 3:
-            }
+            default: 
+                System.out.println("Não exite esta opção!");
+                break;
         }
     }
 }
