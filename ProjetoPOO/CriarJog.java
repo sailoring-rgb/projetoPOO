@@ -42,30 +42,58 @@ public class CriarJog
         
         System.out.println("Velocidade: ");
         double velocidade = sc.nextDouble();
+        if (velocidade < 0 || velocidade > 10){
+            System.out.println("Este valor não é válido! Insira um novo: ");
+            velocidade = sc.nextDouble();
+        }
         jog.setVelocidade(velocidade);
         
         System.out.println("Resistência: ");
         double resistencia = sc.nextDouble();
+        if (resistencia < 0 || resistencia > 10){
+            System.out.println("Este valor não é válido! Insira um novo: ");
+            resistencia = sc.nextDouble();
+        }
         jog.setResistencia(resistencia);
 
         System.out.println("Destreza: ");
         double destreza = sc.nextDouble();
+        if (destreza < 0 || destreza > 10){
+            System.out.println("Este valor não é válido! Insira um novo: ");
+            destreza = sc.nextDouble();
+        }
         jog.setDestreza(destreza);
 
         System.out.println("Impulsão: ");
         double impulsao = sc.nextDouble();
+        if (impulsao < 0 || impulsao > 10){
+            System.out.println("Este valor não é válido! Insira um novo: ");
+            impulsao = sc.nextDouble();
+        }
         jog.setImpulsao(impulsao);
 
         System.out.println("Jogo de Cabeça: ");
         double jogoCabeca = sc.nextDouble();
+        if (jogoCabeca < 0 || jogoCabeca > 10){
+            System.out.println("Este valor não é válido! Insira um novo: ");
+            jogoCabeca = sc.nextDouble();
+        }
         jog.setJogoCabeca(jogoCabeca);
 
         System.out.println("Remate: ");
         double remate = sc.nextDouble();
+        if (remate < 0 || remate > 10){
+            System.out.println("Este valor não é válido! Insira um novo: ");
+            remate = sc.nextDouble();
+        }
         jog.setRemate(remate);
 
         System.out.println("Capaciadade de passe: ");
-        double capPasse= sc.nextDouble();
+        double capPasse = sc.nextDouble();
+        if (capPasse < 0 || capPasse > 10){
+            System.out.println("Este valor não é válido! Insira um novo: ");
+            capPasse = sc.nextDouble();
+        }
         jog.setCapPasse(capPasse);
         
         double habilidade = 0;
@@ -77,6 +105,10 @@ public class CriarJog
                     
                         System.out.println("Drible: ");
                         double drible = sc.nextDouble();
+                        if (drible < 0 || drible > 10){
+                            System.out.println("Este valor não é válido! Insira um novo: ");
+                            drible = sc.nextDouble();
+                        }
                         jogAvancado.setDrible(drible);
         
                         habilidade = jogAvancado.habAvancado(jog);
@@ -86,8 +118,12 @@ public class CriarJog
                     case 2:
                         Lateral jogLateral = new Lateral();
         
-                        System.out.println("Capaciadade de cruzamento: ");
+                        System.out.println("Capaciadade de cruzamento: ");                       
                         double capCruzamento = sc.nextDouble();
+                        if (capCruzamento < 0 || capCruzamento > 10){
+                            System.out.println("Este valor não é válido! Insira um novo: ");
+                            capCruzamento = sc.nextDouble();
+                        }                         
                         jogLateral.setCapCruzamento(capCruzamento);
         
                         habilidade = jogLateral.habLateral(jog);
@@ -99,10 +135,18 @@ public class CriarJog
         
                         System.out.println("Capacidade de recuperação: ");
                         double capRecuperacao = sc.nextDouble();
+                        if (capRecuperacao < 0 || capRecuperacao > 10){
+                            System.out.println("Este valor não é válido! Insira um novo: ");
+                            capRecuperacao = sc.nextDouble();
+                        }                        
                         jogMedio.setCapRecuperacao(capRecuperacao);
         
                         System.out.println("Dominio de bola: ");
                         double dominioBola = sc.nextDouble();
+                        if (dominioBola < 0 || dominioBola > 10){
+                            System.out.println("Este valor não é válido! Insira um novo: ");
+                            dominioBola = sc.nextDouble();
+                        }                        
                         jogMedio.setDominioBola(dominioBola);
         
                         habilidade = jogMedio.habMedio(jog);
@@ -114,6 +158,10 @@ public class CriarJog
         
                         System.out.println("Desarme: ");
                         double desarme = sc.nextDouble();
+                        if (desarme < 0 || desarme > 10){
+                            System.out.println("Este valor não é válido! Insira um novo: ");
+                            desarme = sc.nextDouble();
+                        }                        
                         jogDefesa.setDesarme(desarme);
         
                         habilidade = jogDefesa.habDefesa(jog);
@@ -125,10 +173,18 @@ public class CriarJog
         
                         System.out.println("Elastecidade: ");
                         double elasticidade = sc.nextDouble();
+                        if (elasticidade < 0 || elasticidade > 10){
+                            System.out.println("Este valor não é válido! Insira um novo: ");
+                            elasticidade = sc.nextDouble();
+                        }                        
                         jogGR.setElasticidade(elasticidade);
         
                         System.out.println("Lançamento: ");
                         double lancamento = sc.nextDouble();
+                        if (lancamento < 0 || lancamento > 10){
+                            System.out.println("Este valor não é válido! Insira um novo: ");
+                            lancamento = sc.nextDouble();
+                        }                        
                         jogGR.setLancamento(lancamento);
         
                         habilidade = jogGR.habGuardaRedes(jog);
