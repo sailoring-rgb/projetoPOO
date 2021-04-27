@@ -6,6 +6,8 @@
  * @version 210402
  */
 
+import java.util.*;
+
 public class Defesa extends Jogador{
     
     private double desarme; // abordagem ao oponente, buscando obter a posse de bola
@@ -21,8 +23,8 @@ public class Defesa extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public Defesa(double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double desarme){
-        super(velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
+    public Defesa(double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double desarme, List<Equipa> historico){
+        super(velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico);
         this.desarme = desarme;
     }
     

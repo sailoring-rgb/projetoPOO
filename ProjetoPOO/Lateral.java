@@ -5,6 +5,9 @@
  * @author grupo
  * @version 210402
  */
+
+import java.util.*;
+
 public class Lateral extends Jogador{
 
     private double capCruzamento;
@@ -20,8 +23,8 @@ public class Lateral extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public Lateral(double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double capCruzamento){
-        super(velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
+    public Lateral(double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double capCruzamento, List<Equipa> historico){
+        super(velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico);
         this.capCruzamento = capCruzamento;
     }
     

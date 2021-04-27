@@ -5,6 +5,9 @@
  * @author grupo
  * @version 210402
  */
+
+import java.util.*;
+
 public class GuardaRedes extends Jogador{
     
     private double elasticidade;
@@ -22,8 +25,8 @@ public class GuardaRedes extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public GuardaRedes(double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double elasticidade, double lancamento){
-        super(velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
+    public GuardaRedes(double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double elasticidade, double lancamento, List<Equipa> historico){
+        super(velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico);
         this.elasticidade = elasticidade;
         this.lancamento = lancamento;
     }

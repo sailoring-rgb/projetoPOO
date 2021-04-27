@@ -5,6 +5,10 @@
  * @author grupo
  * @version 210330
  */
+
+import java.util.*;
+import java.util.stream.Collectors;
+
 public class Jogador{
     /*
     private static final int GUARDA_REDES = 0;
@@ -20,6 +24,7 @@ public class Jogador{
     private double jogoCabeca;
     private double remate;
     private double capPasse;
+    private List<Equipa> historico;
     
     /**
      * Construtor por omissão.
@@ -32,12 +37,13 @@ public class Jogador{
         this.jogoCabeca = 0;
         this.remate = 0;
         this.capPasse = 0;
+        this.historico = new ArrayList<>();
     }
     
     /**
      * Construtor parametrizado.
      */
-    public Jogador (double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse){
+    public Jogador (double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, List<Equipa> historico){
         this.velocidade = velocidade;
         this.resistencia = resistencia;
         this.destreza = destreza;
@@ -45,6 +51,7 @@ public class Jogador{
         this.jogoCabeca = jogoCabeca;
         this.remate = remate;
         this.capPasse = capPasse;
+        this.historico = historico.stream().map(Equipa::new).collect(Collectors.toList());
     }
     
     /**
@@ -58,6 +65,7 @@ public class Jogador{
         this.jogoCabeca = umJog.getJogoCabeca();
         this.remate = umJog.getRemate();
         this.capPasse = umJog.getCapPasse();
+        this.historico = umJog.getHistorico();
     }
     
     /**
@@ -117,6 +125,14 @@ public class Jogador{
     }
     
     /**
+    * Método que obtém a lista de equipas em que já jogou.
+    * @return a lista de equipas
+    */
+    public List<Equipa> getHistorico(){
+       return this.historico;
+    }
+    
+    /**
     * Método que muda o valor da velocidade do jogador.
     * @param o novo valor da velocidade
     */
@@ -170,5 +186,13 @@ public class Jogador{
     */
     public void setCapPasse(double capPasse){
         this.capPasse = capPasse;
+    }
+    
+    /**
+    * Método que muda a lista de equipas que já jogou.
+    * @param a nova lista de equipas
+    */
+    public void setHistorico(List<Equipa> historico){
+       this.historico = historico;
     }
 }

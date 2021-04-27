@@ -5,6 +5,9 @@
  * @author grupo
  * @version 210402
  */
+
+import java.util.*;
+
 public class Avancado extends Jogador{
     
     private double drible; // habilidade de evitar que adversio desarme o jogador que tem posse de bola
@@ -20,8 +23,8 @@ public class Avancado extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public Avancado(double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, int drible){
-        super(velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
+    public Avancado(double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, int drible, List<Equipa> historico){
+        super(velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico);
         this.drible = drible;
     }
     

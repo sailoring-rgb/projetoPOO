@@ -8,7 +8,7 @@ import java.util.*;
  */
 public class CriarEquipa
 {
-    public void criarEquipa()
+    public void CriarEquipa()
     {
         Scanner sc = new Scanner(System.in);
         Equipa eq = new Equipa();
