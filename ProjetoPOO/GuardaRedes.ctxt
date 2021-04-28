@@ -1,11 +1,10 @@
 #BlueJ class context
 comment0.target=GuardaRedes
-comment0.text=\r\n\ Dados\ sobre\ um\ Jogador\ do\ tipo\ Guarda\ Redes.\r\n\r\n\ @author\ grupo\r\n\ @version\ 210402\r\n
 comment1.params=
 comment1.target=GuardaRedes()
 comment1.text=\r\n\ Construtor\ por\ omiss\u00E3o.\r\n
-comment2.params=velocidade\ resistencia\ destreza\ impulsao\ jogoCabeca\ remate\ capPasse\ elasticidade\ lancamento
-comment2.target=GuardaRedes(double,\ double,\ double,\ double,\ double,\ double,\ double,\ double,\ double)
+comment2.params=velocidade\ resistencia\ destreza\ impulsao\ jogoCabeca\ remate\ capPasse\ elasticidade\ lancamento\ historico
+comment2.target=GuardaRedes(double,\ double,\ double,\ double,\ double,\ double,\ double,\ double,\ double,\ java.util.List)
 comment2.text=\r\n\ Construtor\ parametrizado.\r\n
 comment3.params=umJog
 comment3.target=GuardaRedes(GuardaRedes)

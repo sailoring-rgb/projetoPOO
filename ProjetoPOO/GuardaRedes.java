@@ -78,8 +78,8 @@ public class GuardaRedes extends Jogador{
     * @return a habilidade do guarda-redes
     */
     public double habGuardaRedes (Jogador umJog){
-        double habilidade = umJog.getVelocidade()*0.2 + umJog.getResistencia()*0.5 + umJog.getDestreza()*0.7 + umJog.getImpulsao()*1 +
-                            umJog.getJogoCabeca()*0.2 + umJog.getRemate()*0.2 + umJog.getCapPasse()*0.4 + this.elasticidade*1 +
+        double habilidade = umJog.getVelocidade()*0.5 + umJog.getResistencia()*1 + umJog.getDestreza()*0.5 + umJog.getImpulsao()*1 +
+                            umJog.getJogoCabeca()*0.5 + umJog.getRemate()*0.5 + umJog.getCapPasse()*0.5 + this.elasticidade*1 +
                             this.lancamento*1;
         return habilidade;
     }

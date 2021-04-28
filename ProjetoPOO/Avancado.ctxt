@@ -1,11 +1,10 @@
 #BlueJ class context
 comment0.target=Avancado
-comment0.text=\r\n\ Dados\ sobre\ um\ Jogador\ do\ tipo\ Avan\u00E7ado.\r\n\r\n\ @author\ grupo\r\n\ @version\ 210402\r\n
 comment1.params=
 comment1.target=Avancado()
 comment1.text=\r\n\ Construtor\ por\ omiss\u00E3o.\r\n
-comment2.params=velocidade\ resistencia\ destreza\ impulsao\ jogoCabeca\ remate\ capPasse\ drible
-comment2.target=Avancado(double,\ double,\ double,\ double,\ double,\ double,\ double,\ int)
+comment2.params=velocidade\ resistencia\ destreza\ impulsao\ jogoCabeca\ remate\ capPasse\ drible\ historico
+comment2.target=Avancado(double,\ double,\ double,\ double,\ double,\ double,\ double,\ int,\ java.util.List)
 comment2.text=\r\n\ Construtor\ parametrizado.\r\n
 comment3.params=umJog
 comment3.target=Avancado(Avancado)
