@@ -22,7 +22,7 @@ public class MainMenu extends Menu
         System.out.println("4: Carregar Jogo");
         System.out.println("5: Sair");
     
-        int option = sc.nextInt();
+        this.option = sc.nextInt();
         makeChoice(option);
     }
     

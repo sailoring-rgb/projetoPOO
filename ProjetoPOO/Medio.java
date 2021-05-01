@@ -1,4 +1,3 @@
-
 /**
  * Dados sobre um Jogador do tipo Médio.
  *

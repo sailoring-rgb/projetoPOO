@@ -22,7 +22,7 @@ public class GerirMenu extends Menu
         System.out.println("4: Transferir Jogadores");
         System.out.println("5: Voltar");
     
-        int option = sc.nextInt();
+        this.option = sc.nextInt();
         makeChoice(option);
     }
     

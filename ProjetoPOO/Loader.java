@@ -8,16 +8,10 @@ import java.io.*;
  * @version (número de versão ou data)
  */
 public class Loader{
-    
-    public Loader()
-    {
-        File file = new File("test.txt");
-        Scanner sc = new Scanner(file);
-    }
-
-    /**public void loadG()
-    {
-        
-    }
-    */
+    //
+    //public Loader()
+    //{
+    //    File file = new File("test.txt");
+    //    Scanner sc = new Scanner(file);
+    //}
 }
