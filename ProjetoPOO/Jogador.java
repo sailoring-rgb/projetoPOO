@@ -17,6 +17,8 @@ public class Jogador{
     private static final int AVANCADO = 3;
     private static final int LATERAL = 4;
     */
+    private String nome;
+    private int nr_camisola;
     private double velocidade;
     private double resistencia;
     private double destreza;
@@ -30,6 +32,8 @@ public class Jogador{
      * Construtor por omissão.
      */
     public Jogador(){
+        this.nome = "";
+        this.nr_camisola = 0;
         this.velocidade = 0;
         this.resistencia = 0;
         this.destreza = 0;
@@ -43,7 +47,9 @@ public class Jogador{
     /**
      * Construtor parametrizado.
      */
-    public Jogador (double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, List<Equipa> historico){
+    public Jogador (String nome, int nr_camisola, double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, List<Equipa> historico){
+        this.nome = nome;
+        this.nr_camisola = nr_camisola;
         this.velocidade = velocidade;
         this.resistencia = resistencia;
         this.destreza = destreza;
@@ -58,6 +64,8 @@ public class Jogador{
      * Construtor de cópia.
      */
     public Jogador(Jogador umJog){
+        this.nome = umJog.getNome();
+        this.nr_camisola = umJog.getNrCamisola();
         this.velocidade = umJog.getVelocidade();
         this.resistencia = umJog.getResistencia();
         this.destreza = umJog.getDestreza();
@@ -66,6 +74,22 @@ public class Jogador{
         this.remate = umJog.getRemate();
         this.capPasse = umJog.getCapPasse();
         this.historico = umJog.getHistorico();
+    }
+    
+    /**
+    * Método que obtém o nome do jogador.
+    * @return o nome
+    */
+    public String getNome(){
+        return this.nome;
+    }
+    
+    /**
+    * Método que obtém o numero da camisola do jogador.
+    * @return o numero da camisola
+    */
+    public int getNrCamisola(){
+        return this.nr_camisola;
     }
     
     /**
@@ -130,6 +154,22 @@ public class Jogador{
     */
     public List<Equipa> getHistorico(){
        return this.historico;
+    }
+    
+    /**
+    * Método que muda o nome do jogador.
+    * @param o novo nome
+    */
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+    
+    /**
+    * Método que muda o numero da camisola do jogador.
+    * @param o novo valor da camisola
+    */
+    public void setNrCamisola(int nr_camisola){
+        this.nr_camisola = nr_camisola;
     }
     
     /**

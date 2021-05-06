@@ -39,7 +39,7 @@ public class GerirMenu extends Menu
                 int jogEscolhido = aux.qualJog();
                 if(jogEscolhido < 1 || jogEscolhido > 5)
                     System.out.println("Não exite esta opção!");
-                    else aux.divHabilidade(jogEscolhido);
+                    else aux.escJogador(jogEscolhido);
             break;
           case 3:
             //Vizualizar Jogadores

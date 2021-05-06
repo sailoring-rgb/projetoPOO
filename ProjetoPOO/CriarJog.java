@@ -32,11 +32,19 @@ public class CriarJog
      * Este método calcula, ainda, a habilidade do dito jogador consoante os valores dados.
      * @param o número da opção
      */
-    public void divHabilidade(int jogEscolhido)
+    public void escJogador(int jogEscolhido)
     {
         Jogador jog = new Jogador();
         
         Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Nome do Jogador: ");
+        String nome = sc.nextLine();
+        jog.setNome(nome);
+        
+        System.out.println("Numero da camisola: ");
+        int nr_camisola = sc.nextInt();
+        jog.setNrCamisola(nr_camisola);
         
         System.out.println("Os valores atribuídos as carateristicas tem estar entre 0 e 10");
         

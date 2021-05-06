@@ -23,8 +23,8 @@ public class Lateral extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public Lateral(double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double capCruzamento, List<Equipa> historico){
-        super(velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico);
+    public Lateral(String nome, int nr_camisola, double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double capCruzamento, List<Equipa> historico){
+        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico);
         this.capCruzamento = capCruzamento;
     }
     
