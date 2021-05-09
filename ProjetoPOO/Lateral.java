@@ -1,13 +1,9 @@
-
 /**
  * Dados sobre um Jogador do tipo Lateral.
  *
  * @author grupo
  * @version 210402
  */
-
-import java.util.*;
-
 public class Lateral extends Jogador{
 
     private double capCruzamento;
@@ -23,8 +19,9 @@ public class Lateral extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public Lateral(String nome, int nr_camisola, double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double capCruzamento, List<Equipa> historico){
-        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico);
+    public Lateral(String nome, int numCamisola, double velocidade, double resistencia, double destreza, double impulsao, 
+                   double jogoCabeca, double remate, double capPasse, double capCruzamento){
+        super(nome, numCamisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
         this.capCruzamento = capCruzamento;
     }
     
@@ -58,7 +55,7 @@ public class Lateral extends Jogador{
     * @return a habilidade do lateral
     */
     public double habLateral (Jogador umJog){
-        double habilidade = umJog.getVelocidade()*1 + umJog.getResistencia()*1 + umJog.getDestreza()*1 + umJog.getImpulsao()*0.5 +
+        double habilidade = umJog.getVelocidade()*1 + umJog.getResistencia()*0.5 + umJog.getDestreza()*1 + umJog.getImpulsao()*1 +
                             umJog.getJogoCabeca()*0.5 + umJog.getRemate()*0.5 + umJog.getCapPasse()*1 + this.capCruzamento*1;
         return habilidade;
     }

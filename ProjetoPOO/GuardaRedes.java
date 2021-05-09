@@ -1,13 +1,9 @@
-
 /**
  * Dados sobre um Jogador do tipo Guarda Redes.
  *
  * @author grupo
  * @version 210402
  */
-
-import java.util.*;
-
 public class GuardaRedes extends Jogador{
     
     private double elasticidade;
@@ -25,8 +21,9 @@ public class GuardaRedes extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public GuardaRedes(String nome, int nr_camisola, double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double elasticidade, double lancamento, List<Equipa> historico){
-        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico);
+    public GuardaRedes(String nome, int numCamisola, double velocidade, double resistencia, double destreza, double impulsao, 
+                       double jogoCabeca, double remate, double capPasse, double elasticidade, double lancamento){
+        super(nome, numCamisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
         this.elasticidade = elasticidade;
         this.lancamento = lancamento;
     }
@@ -78,8 +75,8 @@ public class GuardaRedes extends Jogador{
     * @return a habilidade do guarda-redes
     */
     public double habGuardaRedes (Jogador umJog){
-        double habilidade = umJog.getVelocidade()*0.5 + umJog.getResistencia()*1 + umJog.getDestreza()*0.5 + umJog.getImpulsao()*1 +
-                            umJog.getJogoCabeca()*0.5 + umJog.getRemate()*0.5 + umJog.getCapPasse()*0.5 + this.elasticidade*1 +
+        double habilidade = umJog.getVelocidade()*0.2 + umJog.getResistencia()*0.5 + umJog.getDestreza()*0.7 + umJog.getImpulsao()*1 +
+                            umJog.getJogoCabeca()*0.2 + umJog.getRemate()*0.2 + umJog.getCapPasse()*0.4 + this.elasticidade*1 +
                             this.lancamento*1;
         return habilidade;
     }

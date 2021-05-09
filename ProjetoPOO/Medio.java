@@ -4,9 +4,6 @@
  * @author grupo
  * @version 210402
  */
-
-import java.util.*;
-
 public class Medio extends Jogador{
    
     private double capRecuperacao;
@@ -24,8 +21,9 @@ public class Medio extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public Medio(String nome, int nr_camisola, double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double capRecuperacao, double dominioBola, List<Equipa> historico){
-        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico);
+    public Medio(String nome, int numCamisola, double velocidade, double resistencia, double destreza, double impulsao, 
+                 double jogoCabeca, double remate, double capPasse, double capRecuperacao, double dominioBola){
+        super(nome, numCamisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
         this.capRecuperacao = capRecuperacao;
         this.dominioBola = dominioBola;
     }

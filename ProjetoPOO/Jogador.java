@@ -1,14 +1,9 @@
-
 /**
  * Dados sobre um jogador.
  *
  * @author grupo
  * @version 210330
  */
-
-import java.util.*;
-import java.util.stream.Collectors;
-
 public class Jogador{
     /*
     private static final int GUARDA_REDES = 0;
@@ -18,7 +13,7 @@ public class Jogador{
     private static final int LATERAL = 4;
     */
     private String nome;
-    private int nr_camisola;
+    private int numCamisola;
     private double velocidade;
     private double resistencia;
     private double destreza;
@@ -26,14 +21,13 @@ public class Jogador{
     private double jogoCabeca;
     private double remate;
     private double capPasse;
-    private List<Equipa> historico;
     
     /**
      * Construtor por omissão.
      */
     public Jogador(){
         this.nome = "";
-        this.nr_camisola = 0;
+        this.numCamisola = 0;
         this.velocidade = 0;
         this.resistencia = 0;
         this.destreza = 0;
@@ -41,23 +35,20 @@ public class Jogador{
         this.jogoCabeca = 0;
         this.remate = 0;
         this.capPasse = 0;
-        this.historico = new ArrayList<>();
     }
     
     /**
      * Construtor parametrizado.
      */
-    public Jogador (String nome, int nr_camisola, double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, List<Equipa> historico){
-        this.nome = nome;
-        this.nr_camisola = nr_camisola;
+    public Jogador (String nome, int numCamisola, double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse){
         this.velocidade = velocidade;
+        this.numCamisola = numCamisola;
         this.resistencia = resistencia;
         this.destreza = destreza;
         this.impulsao = impulsao;
         this.jogoCabeca = jogoCabeca;
         this.remate = remate;
         this.capPasse = capPasse;
-        this.historico = historico.stream().map(Equipa::new).collect(Collectors.toList());
     }
     
     /**
@@ -65,7 +56,7 @@ public class Jogador{
      */
     public Jogador(Jogador umJog){
         this.nome = umJog.getNome();
-        this.nr_camisola = umJog.getNrCamisola();
+        this.numCamisola = umJog.getNumCamisola();
         this.velocidade = umJog.getVelocidade();
         this.resistencia = umJog.getResistencia();
         this.destreza = umJog.getDestreza();
@@ -73,23 +64,22 @@ public class Jogador{
         this.jogoCabeca = umJog.getJogoCabeca();
         this.remate = umJog.getRemate();
         this.capPasse = umJog.getCapPasse();
-        this.historico = umJog.getHistorico();
     }
     
     /**
     * Método que obtém o nome do jogador.
-    * @return o nome
+    * @return o nome do jogador
     */
     public String getNome(){
         return this.nome;
     }
     
     /**
-    * Método que obtém o numero da camisola do jogador.
-    * @return o numero da camisola
+    * Método que obtém o número da camisola do jogador.
+    * @return o número da camisola do jogador
     */
-    public int getNrCamisola(){
-        return this.nr_camisola;
+    public int getNumCamisola(){
+        return this.numCamisola;
     }
     
     /**
@@ -149,27 +139,19 @@ public class Jogador{
     }
     
     /**
-    * Método que obtém a lista de equipas em que já jogou.
-    * @return a lista de equipas
-    */
-    public List<Equipa> getHistorico(){
-       return this.historico;
-    }
-    
-    /**
-    * Método que muda o nome do jogador.
-    * @param o novo nome
+    * Método que mudar o nome do jogador.
+    * @param o novo nome do jogador
     */
     public void setNome(String nome){
         this.nome = nome;
     }
     
     /**
-    * Método que muda o numero da camisola do jogador.
-    * @param o novo valor da camisola
+    * Método que obtém o valor da velocidade do jogador.
+    * @return o valor da velocidade
     */
-    public void setNrCamisola(int nr_camisola){
-        this.nr_camisola = nr_camisola;
+    public void setNumCamisola(int numCamisola){
+        this.numCamisola = numCamisola;
     }
     
     /**
@@ -229,10 +211,10 @@ public class Jogador{
     }
     
     /**
-    * Método que muda a lista de equipas que já jogou.
-    * @param a nova lista de equipas
+    * Método que faz o clone de um objeto Jogador.
+    * @return o clone do objeto Jogador
     */
-    public void setHistorico(List<Equipa> historico){
-       this.historico = historico;
+    public Jogador clone(){
+        return new Jogador();
     }
 }
