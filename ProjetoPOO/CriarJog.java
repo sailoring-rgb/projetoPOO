@@ -50,7 +50,7 @@ public class CriarJog
         
         System.out.println("Velocidade: ");
         double velocidade = sc.nextDouble();
-        if (velocidade < 0 || velocidade > 10){
+        if (velocidade < 10 || velocidade > 100){
             System.out.println("Este valor não é válido! Insira um novo: ");
             velocidade = sc.nextDouble();
         }
@@ -58,7 +58,7 @@ public class CriarJog
         
         System.out.println("Resistência: ");
         double resistencia = sc.nextDouble();
-        if (resistencia < 0 || resistencia > 10){
+        if (resistencia < 10 || resistencia > 100){
             System.out.println("Este valor não é válido! Insira um novo: ");
             resistencia = sc.nextDouble();
         }
@@ -66,7 +66,7 @@ public class CriarJog
 
         System.out.println("Destreza: ");
         double destreza = sc.nextDouble();
-        if (destreza < 0 || destreza > 10){
+        if (destreza < 10 || destreza > 100){
             System.out.println("Este valor não é válido! Insira um novo: ");
             destreza = sc.nextDouble();
         }
@@ -74,7 +74,7 @@ public class CriarJog
 
         System.out.println("Impulsão: ");
         double impulsao = sc.nextDouble();
-        if (impulsao < 0 || impulsao > 10){
+        if (impulsao < 10 || impulsao > 100){
             System.out.println("Este valor não é válido! Insira um novo: ");
             impulsao = sc.nextDouble();
         }
@@ -82,7 +82,7 @@ public class CriarJog
 
         System.out.println("Jogo de Cabeça: ");
         double jogoCabeca = sc.nextDouble();
-        if (jogoCabeca < 0 || jogoCabeca > 10){
+        if (jogoCabeca < 10 || jogoCabeca > 100){
             System.out.println("Este valor não é válido! Insira um novo: ");
             jogoCabeca = sc.nextDouble();
         }
@@ -90,7 +90,7 @@ public class CriarJog
 
         System.out.println("Remate: ");
         double remate = sc.nextDouble();
-        if (remate < 0 || remate > 10){
+        if (remate < 10 || remate > 100){
             System.out.println("Este valor não é válido! Insira um novo: ");
             remate = sc.nextDouble();
         }
@@ -98,7 +98,7 @@ public class CriarJog
 
         System.out.println("Capaciadade de passe: ");
         double capPasse = sc.nextDouble();
-        if (capPasse < 0 || capPasse > 10){
+        if (capPasse < 10 || capPasse > 100){
             System.out.println("Este valor não é válido! Insira um novo: ");
             capPasse = sc.nextDouble();
         }
@@ -113,7 +113,7 @@ public class CriarJog
                     
                         System.out.println("Drible: ");
                         double drible = sc.nextDouble();
-                        if (drible < 0 || drible > 10){
+                        if (drible < 10 || drible > 100){
                             System.out.println("Este valor não é válido! Insira um novo: ");
                             drible = sc.nextDouble();
                         }
@@ -128,7 +128,7 @@ public class CriarJog
         
                         System.out.println("Capaciadade de cruzamento: ");                       
                         double capCruzamento = sc.nextDouble();
-                        if (capCruzamento < 0 || capCruzamento > 10){
+                        if (capCruzamento < 10 || capCruzamento > 100){
                             System.out.println("Este valor não é válido! Insira um novo: ");
                             capCruzamento = sc.nextDouble();
                         }                         
@@ -143,7 +143,7 @@ public class CriarJog
         
                         System.out.println("Capacidade de recuperação: ");
                         double capRecuperacao = sc.nextDouble();
-                        if (capRecuperacao < 0 || capRecuperacao > 10){
+                        if (capRecuperacao < 10 || capRecuperacao > 100){
                             System.out.println("Este valor não é válido! Insira um novo: ");
                             capRecuperacao = sc.nextDouble();
                         }                        
@@ -151,7 +151,7 @@ public class CriarJog
         
                         System.out.println("Dominio de bola: ");
                         double dominioBola = sc.nextDouble();
-                        if (dominioBola < 0 || dominioBola > 10){
+                        if (dominioBola < 10 || dominioBola > 100){
                             System.out.println("Este valor não é válido! Insira um novo: ");
                             dominioBola = sc.nextDouble();
                         }                        
@@ -166,7 +166,7 @@ public class CriarJog
         
                         System.out.println("Desarme: ");
                         double desarme = sc.nextDouble();
-                        if (desarme < 0 || desarme > 10){
+                        if (desarme < 10 || desarme > 100){
                             System.out.println("Este valor não é válido! Insira um novo: ");
                             desarme = sc.nextDouble();
                         }                        
@@ -181,7 +181,7 @@ public class CriarJog
         
                         System.out.println("Elastecidade: ");
                         double elasticidade = sc.nextDouble();
-                        if (elasticidade < 0 || elasticidade > 10){
+                        if (elasticidade < 10 || elasticidade > 100){
                             System.out.println("Este valor não é válido! Insira um novo: ");
                             elasticidade = sc.nextDouble();
                         }                        
@@ -189,7 +189,7 @@ public class CriarJog
         
                         System.out.println("Lançamento: ");
                         double lancamento = sc.nextDouble();
-                        if (lancamento < 0 || lancamento > 10){
+                        if (lancamento < 10 || lancamento > 100){
                             System.out.println("Este valor não é válido! Insira um novo: ");
                             lancamento = sc.nextDouble();
                         }                        
