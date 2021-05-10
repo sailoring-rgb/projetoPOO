@@ -235,4 +235,12 @@ public class Jogador{
     public void setHistorico(List<Equipa> historico){
        this.historico = historico;
     }
+    
+    /**
+    * Método que faz um clone do objeto Jogador.
+    * @return o clone
+    */
+    public Jogador clone(){
+        return new Jogador(this);
+    }
 }
