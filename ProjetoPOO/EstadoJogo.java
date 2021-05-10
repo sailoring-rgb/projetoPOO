@@ -67,6 +67,10 @@ public class EstadoJogo{
         this.substituicoesFora = estado.getSubstituicoesFora();
     }
     
+    /**
+    * Método que muda o número da camisola do jogador.
+    * @param o novo número da camisola
+    */
     public LocalDateTime getData(){
         return this.data;
     }
@@ -75,7 +79,7 @@ public class EstadoJogo{
         return this.equipaCasa;
     }
 
-    public List<Equipa> getEquipaFora(){
+    public Equipa getEquipaFora(){
         return this.equipaFora;
     }
 
@@ -87,54 +91,90 @@ public class EstadoJogo{
         return this.scoreFora;
     }
 
-    public List<Jogador> getJogadoresCasa(){
-        return this.jogadoresCasa;
+    public Map<int,Jogador> getJogadoresCasa(){
+        return this.jogadoresCasa.entrySet().stream().collect(Collectors.toMap(par->par.getKey(), par->par.getValue().clone()));
     }
     
     public ... getSubstituicoesCasa(){
         return this.substituicoesCasa;
     }
     
-    public List<Jogador> getJogadoresFora(){
-        return this.jogadoresFora;
+    public Map<int,Jogador> getJogadoresFora(){
+        return this.jogadoresFora.entrySet().stream().collect(Collectors.toMap(par->par.getKey(), par->par.getValue().clone()));
     }
 
     public ... getSubstituicoesFora(){
         return this.substituicoesFora;
     }
     
+    /**
+    * Método que muda a data e instância do jogo.
+    * @param a nova data
+    */
     public void setData(LocalDateTime data){
         this.data = data;
     }
     
+    /**
+    * Método que muda a equipa que joga em casa.
+    * @param a nova equipa que joga em casa
+    */
     public void setEquipaCasa(Equipa equipaCasa){
         this.equipaCasa = equipaCasa;
     }
 
+    /**
+    * Método que muda a equipa que joga fora.
+    * @param a nova equipa que joga fora
+    */
     public void setEquipaFora(Equipa equipaFora){
         this.equipaFora = equipaFora;
     }
-
+    
+    /**
+    * Método que muda o score da equipa que joga em casa.
+    * @param o novo score
+    */
     public void setScoreCasa(int scoreCasa){
         this.scoreCasa = scoreCasa;
     }
 
+    /**
+    * Método que muda o score da equipa que joga fora.
+    * @param o novo score
+    */
     public void setScoreFora(int scoreFora){
         this.scoreFora = scoreFora;
     }
 
-    public void setJogadoresCasa(List<Jogador> jogadoresCasa){
+    /**
+    * Método que muda o conjunto de jogadores que joga em casa.
+    * @param o novo conjunto de jogadores 
+    */
+    public void setJogadoresCasa(Map<int,Jogador> jogadoresCasa){
         this.jogadoresCasa = jogadoresCasa;
     }
     
+    /**
+    * Método que muda as substituições feitas em casa.
+    * @param as novas substituições
+    */
     public void setSubstituicoesCasa(...){
         this.substituicoesCasa = substituicoesCasa;
     }
     
-    public void setJogadoresFora(List<Jogador> jogadoresFora){
+    /**
+    * Método que muda o conjunto de jogadores que joga fora.
+    * @param o novo conjunto de jogadores 
+    */
+    public void setJogadoresFora(Map<int,Jogador> jogadoresFora){
         this.jogadoresFora = jogadoresFora;
     }
 
+    /**
+    * Método que muda as substituições feitas fora.
+    * @param as novas substituições
+    */
     public void getSubstituicoesFora(...){
         this.substituicoesFora = substituicoesFora;
     }

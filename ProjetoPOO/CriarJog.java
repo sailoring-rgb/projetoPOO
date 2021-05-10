@@ -32,7 +32,7 @@ public class CriarJog
      * Este método calcula, ainda, a habilidade do dito jogador consoante os valores dados.
      * @param o número da opção
      */
-    public void divHabilidade(int jogEscolhido)
+    public void escJogador(int jogEscolhido)
     {
         Jogador jog = new Jogador();
         

@@ -41,8 +41,9 @@ public class Jogador{
      * Construtor parametrizado.
      */
     public Jogador (String nome, int numCamisola, double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse){
-        this.velocidade = velocidade;
+        this.nome = nome;
         this.numCamisola = numCamisola;
+        this.velocidade = velocidade;
         this.resistencia = resistencia;
         this.destreza = destreza;
         this.impulsao = impulsao;
@@ -147,8 +148,8 @@ public class Jogador{
     }
     
     /**
-    * Método que obtém o valor da velocidade do jogador.
-    * @return o valor da velocidade
+    * Método que muda o número da camisola do jogador.
+    * @param o novo número da camisola
     */
     public void setNumCamisola(int numCamisola){
         this.numCamisola = numCamisola;
@@ -215,6 +216,6 @@ public class Jogador{
     * @return o clone do objeto Jogador
     */
     public Jogador clone(){
-        return new Jogador();
+        return new Jogador(this);
     }
 }
