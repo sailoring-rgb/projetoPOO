@@ -21,9 +21,9 @@ public class EstadoJogo{
     private Equipa equipaFora;
     private int scoreCasa;
     private int scoreFora;
-    private Map<Integer,Jogador> jogadoresCasa;
+    private Map<int,Jogador> jogadoresCasa;
     private ... substituicoesCasa;
-    private Map<Integer,Jogador> jogadoresFora;
+    private Map<int,Jogador> jogadoresFora;
     private ... substituicoesFora;
     
     public EstadoJogo(){
@@ -91,7 +91,7 @@ public class EstadoJogo{
         return this.scoreFora;
     }
 
-    public Map<Integer,Jogador> getJogadoresCasa(){
+    public Map<int,Jogador> getJogadoresCasa(){
         return this.jogadoresCasa.entrySet().stream().collect(Collectors.toMap(par->par.getKey(), par->par.getValue().clone()));
     }
     
@@ -99,7 +99,7 @@ public class EstadoJogo{
         return this.substituicoesCasa;
     }
     
-    public Map<Integer,Jogador> getJogadoresFora(){
+    public Map<int,Jogador> getJogadoresFora(){
         return this.jogadoresFora.entrySet().stream().collect(Collectors.toMap(par->par.getKey(), par->par.getValue().clone()));
     }
 
@@ -151,7 +151,7 @@ public class EstadoJogo{
     * Método que muda o conjunto de jogadores que joga em casa.
     * @param o novo conjunto de jogadores 
     */
-    public void setJogadoresCasa(Map<Integer,Jogador> jogadoresCasa){
+    public void setJogadoresCasa(Map<int,Jogador> jogadoresCasa){
         this.jogadoresCasa = jogadoresCasa;
     }
     
@@ -167,7 +167,7 @@ public class EstadoJogo{
     * Método que muda o conjunto de jogadores que joga fora.
     * @param o novo conjunto de jogadores 
     */
-    public void setJogadoresFora(Map<Integer,Jogador> jogadoresFora){
+    public void setJogadoresFora(Map<int,Jogador> jogadoresFora){
         this.jogadoresFora = jogadoresFora;
     }
 
