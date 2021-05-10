@@ -1,9 +1,13 @@
+
 /**
  * Dados sobre um Jogador do tipo Avançado.
  *
  * @author grupo
  * @version 210402
  */
+
+import java.util.*;
+
 public class Avancado extends Jogador{
     
     private double drible; // habilidade de evitar que adversio desarme o jogador que tem posse de bola
@@ -19,9 +23,8 @@ public class Avancado extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public Avancado(String nome, int numCamisola, double velocidade, double resistencia, double destreza, 
-                    double impulsao, double jogoCabeca, double remate, double capPasse, int drible){
-        super(nome, numCamisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
+    public Avancado(String nome, int nr_camisola, double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, int drible, List<Equipa> historico){
+        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico);
         this.drible = drible;
     }
     
@@ -55,7 +58,7 @@ public class Avancado extends Jogador{
     * @return a habilidade do avançado
     */
     public double habAvancado (Jogador umJog){
-        double habilidade = umJog.getVelocidade()*1 + umJog.getResistencia()*0.5 + umJog.getDestreza()*1 + umJog.getImpulsao()*1 + 
+        double habilidade = umJog.getVelocidade()*0.5 + umJog.getResistencia()*0.5 + umJog.getDestreza()*1 + umJog.getImpulsao()*1 + 
                             umJog.getJogoCabeca()*1 + umJog.getRemate()*1 + umJog.getCapPasse()*0.5 + this.drible*1;
         // isto diminui (imenso) os acessos à memória
         return habilidade;

@@ -14,15 +14,17 @@ public class Jogo{
     private static final int TERMINADO = 2;
    
     private int estadoJogo;
-    // private EstadoJogo estado;
+    private LocalDateTime data;
+    private Equipa equipa1;
+    private Equipa equipa2;
     
     /**
      * Construtor da classe Jogo.
      */
     public Jogo(){
         this.estadoJogo = POR_COMECAR;
+        this.data = LocalDateTime.now();
     }
-    
     
     /**
     * Método que obtém o estado atual do jogo.

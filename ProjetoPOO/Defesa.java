@@ -1,9 +1,12 @@
+
 /**
  * Dados sobre um Jogador do tipo Defesa.
  *
  * @author grupo
  * @version 210402
  */
+
+import java.util.*;
 
 public class Defesa extends Jogador{
     
@@ -20,9 +23,8 @@ public class Defesa extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public Defesa(String nome, int numCamisola, double velocidade, double resistencia, double destreza, double impulsao, 
-                  double jogoCabeca, double remate, double capPasse, double desarme){
-        super(nome, numCamisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
+    public Defesa(String nome, int nr_camisola, double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double desarme, List<Equipa> historico){
+        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico);
         this.desarme = desarme;
     }
     
@@ -56,8 +58,8 @@ public class Defesa extends Jogador{
     * @return a habilidade do defesa
     */
     public double habDefesa (Jogador umJog){
-        double habilidade = umJog.getVelocidade()*0.5 + umJog.getResistencia()*1 + umJog.getDestreza()*0.5 + umJog.getImpulsao()*1 +
-                            umJog.getJogoCabeca()*1 + umJog.getRemate()*0.2 + umJog.getCapPasse()*0.2 + this.desarme*1;
+        double habilidade = umJog.getVelocidade()*0.5 + umJog.getResistencia()*1 + umJog.getDestreza()*1 + umJog.getImpulsao()*1 +
+                            umJog.getJogoCabeca()*1 + umJog.getRemate()*0.5 + umJog.getCapPasse()*0.5 + this.desarme*1;
         return habilidade;
     }
 }

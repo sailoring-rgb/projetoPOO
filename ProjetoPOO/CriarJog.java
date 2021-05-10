@@ -1,11 +1,11 @@
+import java.util.*;
+
 /**
  * Escreva a descrição da classe CriarJog aqui.
  * 
  * @author (seu nome) 
  * @version (número de versão ou data)
  */
-import java.util.*;
-
 public class CriarJog
 {
     /**
@@ -32,17 +32,25 @@ public class CriarJog
      * Este método calcula, ainda, a habilidade do dito jogador consoante os valores dados.
      * @param o número da opção
      */
-    public void divHabilidade(int jogEscolhido)
+    public void escJogador(int jogEscolhido)
     {
         Jogador jog = new Jogador();
         
         Scanner sc = new Scanner(System.in);
         
-        System.out.println("Os valores atribuídos as carateristicas tem estar entre 0 e 100");
+        System.out.println("Nome do Jogador: ");
+        String nome = sc.nextLine();
+        jog.setNome(nome);
+        
+        System.out.println("Numero da camisola: ");
+        int nr_camisola = sc.nextInt();
+        jog.setNrCamisola(nr_camisola);
+        
+        System.out.println("Os valores atribuídos as carateristicas tem estar entre 0 e 10");
         
         System.out.println("Velocidade: ");
         double velocidade = sc.nextDouble();
-        if (velocidade < 0 || velocidade > 100){
+        if (velocidade < 0 || velocidade > 10){
             System.out.println("Este valor não é válido! Insira um novo: ");
             velocidade = sc.nextDouble();
         }
@@ -50,7 +58,7 @@ public class CriarJog
         
         System.out.println("Resistência: ");
         double resistencia = sc.nextDouble();
-        if (resistencia < 0 || resistencia > 100){
+        if (resistencia < 0 || resistencia > 10){
             System.out.println("Este valor não é válido! Insira um novo: ");
             resistencia = sc.nextDouble();
         }
@@ -58,7 +66,7 @@ public class CriarJog
 
         System.out.println("Destreza: ");
         double destreza = sc.nextDouble();
-        if (destreza < 0 || destreza > 100){
+        if (destreza < 0 || destreza > 10){
             System.out.println("Este valor não é válido! Insira um novo: ");
             destreza = sc.nextDouble();
         }
@@ -66,7 +74,7 @@ public class CriarJog
 
         System.out.println("Impulsão: ");
         double impulsao = sc.nextDouble();
-        if (impulsao < 0 || impulsao > 100){
+        if (impulsao < 0 || impulsao > 10){
             System.out.println("Este valor não é válido! Insira um novo: ");
             impulsao = sc.nextDouble();
         }
@@ -74,7 +82,7 @@ public class CriarJog
 
         System.out.println("Jogo de Cabeça: ");
         double jogoCabeca = sc.nextDouble();
-        if (jogoCabeca < 0 || jogoCabeca > 100){
+        if (jogoCabeca < 0 || jogoCabeca > 10){
             System.out.println("Este valor não é válido! Insira um novo: ");
             jogoCabeca = sc.nextDouble();
         }
@@ -82,7 +90,7 @@ public class CriarJog
 
         System.out.println("Remate: ");
         double remate = sc.nextDouble();
-        if (remate < 0 || remate > 100){
+        if (remate < 0 || remate > 10){
             System.out.println("Este valor não é válido! Insira um novo: ");
             remate = sc.nextDouble();
         }
@@ -90,7 +98,7 @@ public class CriarJog
 
         System.out.println("Capaciadade de passe: ");
         double capPasse = sc.nextDouble();
-        if (capPasse < 0 || capPasse > 100){
+        if (capPasse < 0 || capPasse > 10){
             System.out.println("Este valor não é válido! Insira um novo: ");
             capPasse = sc.nextDouble();
         }
@@ -105,7 +113,7 @@ public class CriarJog
                     
                         System.out.println("Drible: ");
                         double drible = sc.nextDouble();
-                        if (drible < 0 || drible > 100){
+                        if (drible < 0 || drible > 10){
                             System.out.println("Este valor não é válido! Insira um novo: ");
                             drible = sc.nextDouble();
                         }
@@ -120,7 +128,7 @@ public class CriarJog
         
                         System.out.println("Capaciadade de cruzamento: ");                       
                         double capCruzamento = sc.nextDouble();
-                        if (capCruzamento < 0 || capCruzamento > 100){
+                        if (capCruzamento < 0 || capCruzamento > 10){
                             System.out.println("Este valor não é válido! Insira um novo: ");
                             capCruzamento = sc.nextDouble();
                         }                         
@@ -135,7 +143,7 @@ public class CriarJog
         
                         System.out.println("Capacidade de recuperação: ");
                         double capRecuperacao = sc.nextDouble();
-                        if (capRecuperacao < 0 || capRecuperacao > 100){
+                        if (capRecuperacao < 0 || capRecuperacao > 10){
                             System.out.println("Este valor não é válido! Insira um novo: ");
                             capRecuperacao = sc.nextDouble();
                         }                        
@@ -143,7 +151,7 @@ public class CriarJog
         
                         System.out.println("Dominio de bola: ");
                         double dominioBola = sc.nextDouble();
-                        if (dominioBola < 0 || dominioBola > 100){
+                        if (dominioBola < 0 || dominioBola > 10){
                             System.out.println("Este valor não é válido! Insira um novo: ");
                             dominioBola = sc.nextDouble();
                         }                        
@@ -158,7 +166,7 @@ public class CriarJog
         
                         System.out.println("Desarme: ");
                         double desarme = sc.nextDouble();
-                        if (desarme < 0 || desarme > 100){
+                        if (desarme < 0 || desarme > 10){
                             System.out.println("Este valor não é válido! Insira um novo: ");
                             desarme = sc.nextDouble();
                         }                        
@@ -173,7 +181,7 @@ public class CriarJog
         
                         System.out.println("Elastecidade: ");
                         double elasticidade = sc.nextDouble();
-                        if (elasticidade < 0 || elasticidade > 100){
+                        if (elasticidade < 0 || elasticidade > 10){
                             System.out.println("Este valor não é válido! Insira um novo: ");
                             elasticidade = sc.nextDouble();
                         }                        
@@ -181,7 +189,7 @@ public class CriarJog
         
                         System.out.println("Lançamento: ");
                         double lancamento = sc.nextDouble();
-                        if (lancamento < 0 || lancamento > 100){
+                        if (lancamento < 0 || lancamento > 10){
                             System.out.println("Este valor não é válido! Insira um novo: ");
                             lancamento = sc.nextDouble();
                         }                        
