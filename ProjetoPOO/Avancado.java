@@ -10,7 +10,7 @@ import java.util.*;
 
 public class Avancado extends Jogador{
     
-    private double drible; // habilidade de evitar que adversio desarme o jogador que tem posse de bola
+    private int drible; // habilidade de evitar que adversio desarme o jogador que tem posse de bola
     
     /**
      * Construtor por omissão.
@@ -23,8 +23,8 @@ public class Avancado extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public Avancado(String nome, int nr_camisola, double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, int drible, List<Equipa> historico){
-        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico);
+    public Avancado(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int drible){
+        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
         this.drible = drible;
     }
     
@@ -40,7 +40,7 @@ public class Avancado extends Jogador{
     * Método que obtém o valor da capacidade de drible do avançado.
     * @return o valor da capacidade de drible
     */
-    public double getDrible(){
+    public int getDrible(){
         return this.drible;
     }
     
@@ -48,7 +48,7 @@ public class Avancado extends Jogador{
     * Método que muda o valor da capacidade de drible do avançado.
     * @param o novo valor da capacidade de drible
     */
-    public void setDrible(double drible){
+    public void setDrible(int drible){
         this.drible = drible;
     }
     
@@ -62,5 +62,18 @@ public class Avancado extends Jogador{
                             umJog.getJogoCabeca()*1 + umJog.getRemate()*1 + umJog.getCapPasse()*0.5 + this.drible*1;
         // isto diminui (imenso) os acessos à memória
         return habilidade;
+    }
+    
+    public static Avancado parse(String input){
+        String[] campos = input.split(",");
+        return new Avancado(campos[0], Integer.parseInt(campos[1]),
+                Integer.parseInt(campos[2]),
+                Integer.parseInt(campos[3]),
+                Integer.parseInt(campos[4]),
+                Integer.parseInt(campos[5]),
+                Integer.parseInt(campos[6]),
+                Integer.parseInt(campos[7]),
+                Integer.parseInt(campos[8]),
+                10);
     }
 }

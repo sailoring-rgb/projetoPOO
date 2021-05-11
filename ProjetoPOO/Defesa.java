@@ -10,7 +10,7 @@ import java.util.*;
 
 public class Defesa extends Jogador{
     
-    private double desarme; // abordagem ao oponente, buscando obter a posse de bola
+    private int desarme; // abordagem ao oponente, buscando obter a posse de bola
     
     /**
      * Construtor por omissão.
@@ -23,8 +23,8 @@ public class Defesa extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public Defesa(String nome, int nr_camisola, double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double desarme, List<Equipa> historico){
-        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico);
+    public Defesa(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int desarme){
+        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
         this.desarme = desarme;
     }
     
@@ -40,7 +40,7 @@ public class Defesa extends Jogador{
     * Método que obtém o valor da capacidade de desarme do defesa.
     * @return o valor da capacidade de desarme
     */
-    public double getDesarme(){
+    public int getDesarme(){
         return this.desarme;
     }
     
@@ -48,7 +48,7 @@ public class Defesa extends Jogador{
     * Método que muda o valor da capacidade de desarme do defesa.
     * @param o novo valor da capacidade de desarme
     */
-    public void setDesarme(double desarme){
+    public void setDesarme(int desarme){
         this.desarme = desarme;
     }
     
@@ -61,5 +61,18 @@ public class Defesa extends Jogador{
         double habilidade = umJog.getVelocidade()*0.5 + umJog.getResistencia()*1 + umJog.getDestreza()*1 + umJog.getImpulsao()*1 +
                             umJog.getJogoCabeca()*1 + umJog.getRemate()*0.5 + umJog.getCapPasse()*0.5 + this.desarme*1;
         return habilidade;
+    }
+    
+    public static Defesa parse(String input){
+        String[] campos = input.split(",");
+        return new Defesa(campos[0], Integer.parseInt(campos[1]),
+                Integer.parseInt(campos[2]),
+                Integer.parseInt(campos[3]),
+                Integer.parseInt(campos[4]),
+                Integer.parseInt(campos[5]),
+                Integer.parseInt(campos[6]),
+                Integer.parseInt(campos[7]),
+                Integer.parseInt(campos[8]),
+                10);
     }
 }

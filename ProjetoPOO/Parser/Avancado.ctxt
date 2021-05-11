@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Avancado
+comment1.params=nomeJ\ numeroJ\ vel\ res\ des\ imp\ cab\ rem\ p
+comment1.target=Avancado(java.lang.String,\ int,\ int,\ int,\ int,\ int,\ int,\ int,\ int)
+comment2.params=input
+comment2.target=Avancado\ parse(java.lang.String)
+numComments=3

@@ -10,8 +10,8 @@ import java.util.*;
 
 public class GuardaRedes extends Jogador{
     
-    private double elasticidade;
-    private double lancamento; // ato de lançar a bola para um companheiro distante consoante a distância a que está dele.
+    private int elasticidade;
+    private int lancamento; // ato de lançar a bola para um companheiro distante consoante a distância a que está dele.
     
     /**
      * Construtor por omissão.
@@ -25,8 +25,8 @@ public class GuardaRedes extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public GuardaRedes(String nome, int nr_camisola, double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double elasticidade, double lancamento, List<Equipa> historico){
-        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico);
+    public GuardaRedes(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int elasticidade, int lancamento){
+        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
         this.elasticidade = elasticidade;
         this.lancamento = lancamento;
     }
@@ -44,7 +44,7 @@ public class GuardaRedes extends Jogador{
     * Método que obtém o valor da elasticidade do guarda-redes.
     * @return o valor da elasticidade
     */
-    public double getElasticidade(){
+    public int getElasticidade(){
         return this.elasticidade;
     }
     
@@ -52,7 +52,7 @@ public class GuardaRedes extends Jogador{
     * Método que obtém o valor da capacidade de lançamento do guarda-redes.
     * @return o valor da capacidade de lançamento
     */
-    public double getLancamento(){
+    public int getLancamento(){
         return this.lancamento;    
     }
     
@@ -60,7 +60,7 @@ public class GuardaRedes extends Jogador{
     * Método que muda o valor da elasticidade do guarda-redes.
     * @param o novo valor da elasticidade
     */
-    public void setElasticidade(double elasticidade){
+    public void setElasticidade(int elasticidade){
         this.elasticidade = elasticidade;
     }
     
@@ -68,7 +68,7 @@ public class GuardaRedes extends Jogador{
     * Método que muda o valor da capacidade de lançamento do guarda-redes.
     * @param o novo valor da capacidade de lançamento
     */
-    public void setLancamento(double lancamento){
+    public void setLancamento(int lancamento){
         this.lancamento = lancamento;
     }
     
@@ -82,5 +82,19 @@ public class GuardaRedes extends Jogador{
                             umJog.getJogoCabeca()*0.5 + umJog.getRemate()*0.5 + umJog.getCapPasse()*0.5 + this.elasticidade*1 +
                             this.lancamento*1;
         return habilidade;
+    }
+    
+    public static GuardaRedes parse(String input){
+        String[] campos = input.split(",");
+        return new GuardaRedes(campos[0], Integer.parseInt(campos[1]),
+                Integer.parseInt(campos[2]),
+                Integer.parseInt(campos[3]),
+                Integer.parseInt(campos[4]),
+                Integer.parseInt(campos[5]),
+                Integer.parseInt(campos[6]),
+                Integer.parseInt(campos[7]),
+                Integer.parseInt(campos[8]),
+                Integer.parseInt(campos[9]),
+                10);
     }
 }

@@ -49,58 +49,58 @@ public class CriarJog
         System.out.println("Os valores atribuídos as carateristicas tem estar entre 0 e 100");
         
         System.out.println("Velocidade: ");
-        double velocidade = sc.nextDouble();
+        int velocidade = sc.nextInt();
         if (velocidade < 0 || velocidade > 100){
             System.out.println("Este valor não é válido! Insira um novo: ");
-            velocidade = sc.nextDouble();
+            velocidade = sc.nextInt();
         }
         jog.setVelocidade(velocidade);
         
         System.out.println("Resistência: ");
-        double resistencia = sc.nextDouble();
+        int resistencia = sc.nextInt();
         if (resistencia < 0 || resistencia > 100){
             System.out.println("Este valor não é válido! Insira um novo: ");
-            resistencia = sc.nextDouble();
+            resistencia = sc.nextInt();
         }
         jog.setResistencia(resistencia);
 
         System.out.println("Destreza: ");
-        double destreza = sc.nextDouble();
+        int destreza = sc.nextInt();
         if (destreza < 0 || destreza > 100){
             System.out.println("Este valor não é válido! Insira um novo: ");
-            destreza = sc.nextDouble();
+            destreza = sc.nextInt();
         }
         jog.setDestreza(destreza);
 
         System.out.println("Impulsão: ");
-        double impulsao = sc.nextDouble();
+        int impulsao = sc.nextInt();
         if (impulsao < 0 || impulsao > 100){
             System.out.println("Este valor não é válido! Insira um novo: ");
-            impulsao = sc.nextDouble();
+            impulsao = sc.nextInt();
         }
         jog.setImpulsao(impulsao);
 
         System.out.println("Jogo de Cabeça: ");
-        double jogoCabeca = sc.nextDouble();
+        int jogoCabeca = sc.nextInt();
         if (jogoCabeca < 0 || jogoCabeca > 100){
             System.out.println("Este valor não é válido! Insira um novo: ");
-            jogoCabeca = sc.nextDouble();
+            jogoCabeca = sc.nextInt();
         }
         jog.setJogoCabeca(jogoCabeca);
 
         System.out.println("Remate: ");
-        double remate = sc.nextDouble();
+        int remate = sc.nextInt();
         if (remate < 0 || remate > 100){
             System.out.println("Este valor não é válido! Insira um novo: ");
-            remate = sc.nextDouble();
+            remate = sc.nextInt();
         }
         jog.setRemate(remate);
 
         System.out.println("Capaciadade de passe: ");
-        double capPasse = sc.nextDouble();
+        int capPasse = sc.nextInt();
         if (capPasse < 0 || capPasse > 100){
             System.out.println("Este valor não é válido! Insira um novo: ");
-            capPasse = sc.nextDouble();
+            capPasse = sc.nextInt();
         }
         jog.setCapPasse(capPasse);
         
@@ -112,10 +112,10 @@ public class CriarJog
                         Avancado jogAvancado = new Avancado();
                     
                         System.out.println("Drible: ");
-                        double drible = sc.nextDouble();
+                        int drible = sc.nextInt();
                         if (drible < 0 || drible > 100){
                             System.out.println("Este valor não é válido! Insira um novo: ");
-                            drible = sc.nextDouble();
+                            drible = sc.nextInt();
                         }
                         jogAvancado.setDrible(drible);
         
@@ -127,10 +127,10 @@ public class CriarJog
                         Lateral jogLateral = new Lateral();
         
                         System.out.println("Capaciadade de cruzamento: ");                       
-                        double capCruzamento = sc.nextDouble();
+                        int capCruzamento = sc.nextInt();
                         if (capCruzamento < 0 || capCruzamento > 100){
                             System.out.println("Este valor não é válido! Insira um novo: ");
-                            capCruzamento = sc.nextDouble();
+                            capCruzamento = sc.nextInt();
                         }                         
                         jogLateral.setCapCruzamento(capCruzamento);
         
@@ -142,18 +142,18 @@ public class CriarJog
                         Medio jogMedio = new Medio();
         
                         System.out.println("Capacidade de recuperação: ");
-                        double capRecuperacao = sc.nextDouble();
+                        int capRecuperacao = sc.nextInt();
                         if (capRecuperacao < 0 || capRecuperacao > 100){
                             System.out.println("Este valor não é válido! Insira um novo: ");
-                            capRecuperacao = sc.nextDouble();
+                            capRecuperacao = sc.nextInt();
                         }                        
                         jogMedio.setCapRecuperacao(capRecuperacao);
         
                         System.out.println("Dominio de bola: ");
-                        double dominioBola = sc.nextDouble();
+                        int dominioBola = sc.nextInt();
                         if (dominioBola < 0 || dominioBola > 100){
                             System.out.println("Este valor não é válido! Insira um novo: ");
-                            dominioBola = sc.nextDouble();
+                            dominioBola = sc.nextInt();
                         }                        
                         jogMedio.setDominioBola(dominioBola);
         
@@ -165,10 +165,10 @@ public class CriarJog
                         Defesa jogDefesa = new Defesa();
         
                         System.out.println("Desarme: ");
-                        double desarme = sc.nextDouble();
+                        int desarme = sc.nextInt();
                         if (desarme < 0 || desarme > 100){
                             System.out.println("Este valor não é válido! Insira um novo: ");
-                            desarme = sc.nextDouble();
+                            desarme = sc.nextInt();
                         }                        
                         jogDefesa.setDesarme(desarme);
         
@@ -180,18 +180,18 @@ public class CriarJog
                         GuardaRedes jogGR = new GuardaRedes();
         
                         System.out.println("Elastecidade: ");
-                        double elasticidade = sc.nextDouble();
+                        int elasticidade = sc.nextInt();
                         if (elasticidade < 0 || elasticidade > 100){
                             System.out.println("Este valor não é válido! Insira um novo: ");
-                            elasticidade = sc.nextDouble();
+                            elasticidade = sc.nextInt();
                         }                        
                         jogGR.setElasticidade(elasticidade);
         
                         System.out.println("Lançamento: ");
-                        double lancamento = sc.nextDouble();
+                        int lancamento = sc.nextInt();
                         if (lancamento < 0 || lancamento > 100){
                             System.out.println("Este valor não é válido! Insira um novo: ");
-                            lancamento = sc.nextDouble();
+                            lancamento = sc.nextInt();
                         }                        
                         jogGR.setLancamento(lancamento);
         

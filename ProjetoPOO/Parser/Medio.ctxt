@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Medio
+comment1.params=nomeJ\ numeroJ\ vel\ res\ des\ imp\ cab\ rem\ p\ rec
+comment1.target=Medio(java.lang.String,\ int,\ int,\ int,\ int,\ int,\ int,\ int,\ int,\ int)
+comment2.params=input
+comment2.target=Medio\ parse(java.lang.String)
+numComments=3

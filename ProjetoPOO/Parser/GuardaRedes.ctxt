@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=GuardaRedes
+comment1.params=nomeJ\ numeroJ\ vel\ res\ des\ imp\ cab\ rem\ p\ elast
+comment1.target=GuardaRedes(java.lang.String,\ int,\ int,\ int,\ int,\ int,\ int,\ int,\ int,\ int)
+comment2.params=input
+comment2.target=GuardaRedes\ parse(java.lang.String)
+numComments=3

@@ -10,7 +10,7 @@ import java.util.*;
 
 public class Lateral extends Jogador{
 
-    private double capCruzamento;
+    private int capCruzamento;
     
     /**
      * Construtor por omissão.
@@ -23,8 +23,8 @@ public class Lateral extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public Lateral(String nome, int nr_camisola, double velocidade, double resistencia, double destreza, double impulsao, double jogoCabeca, double remate, double capPasse, double capCruzamento, List<Equipa> historico){
-        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico);
+    public Lateral(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int capCruzamento){
+        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
         this.capCruzamento = capCruzamento;
     }
     
@@ -40,7 +40,7 @@ public class Lateral extends Jogador{
     * Método que obtém o valor da capacidade de cruzamento do lateral.
     * @return o valor da capacidade de cruzamento
     */
-    public double getCapCruzamento(){
+    public int getCapCruzamento(){
         return this.capCruzamento;
     }
     
@@ -48,7 +48,7 @@ public class Lateral extends Jogador{
     * Método que muda o valor da capacidade de cruzamento do lateral.
     * @param o novo valor da capacidade de cruzamento
     */
-    public void setCapCruzamento(double capCruzamento){
+    public void setCapCruzamento(int capCruzamento){
         this.capCruzamento = capCruzamento;
     }
     
@@ -61,5 +61,18 @@ public class Lateral extends Jogador{
         double habilidade = umJog.getVelocidade()*1 + umJog.getResistencia()*1 + umJog.getDestreza()*1 + umJog.getImpulsao()*0.5 +
                             umJog.getJogoCabeca()*0.5 + umJog.getRemate()*0.5 + umJog.getCapPasse()*1 + this.capCruzamento*1;
         return habilidade;
+    }
+    
+    public static Lateral parse(String input){
+        String[] campos = input.split(",");
+        return new Lateral(campos[0], Integer.parseInt(campos[1]),
+                Integer.parseInt(campos[2]),
+                Integer.parseInt(campos[3]),
+                Integer.parseInt(campos[4]),
+                Integer.parseInt(campos[5]),
+                Integer.parseInt(campos[6]),
+                Integer.parseInt(campos[7]),
+                Integer.parseInt(campos[8]),
+                Integer.parseInt(campos[9]));
     }
 }

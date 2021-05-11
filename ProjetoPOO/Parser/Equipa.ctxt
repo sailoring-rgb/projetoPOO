@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Equipa
+comment1.params=nomeE
+comment1.target=Equipa(java.lang.String)
+comment2.params=input
+comment2.target=Equipa\ parse(java.lang.String)
+comment3.params=j
+comment3.target=void\ insereJogador(Jogador)
+comment4.params=
+comment4.target=java.lang.String\ getNome()
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6

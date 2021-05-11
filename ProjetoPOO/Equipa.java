@@ -132,6 +132,13 @@ public class Equipa{
        this.suplentes = suplentes;
    }
    
+   public void insereTitular(Jogador jog) {
+        titulares.add(jog.clone());
+    }
+   
+   public void insereSuplente(Jogador jog) {
+        suplentes.add(jog.clone());
+    } 
    
    // FALTA ENTÃO CONSTRUIR OS TITULARES E OS SUPLENTES
    
@@ -175,6 +182,11 @@ public class Equipa{
        return habGlobal;
     }
     
+    
+    public static Equipa parse(String input){
+        String[] campos = input.split(",");
+        return new Equipa();
+    }
     
     // FALTA AINDA:   
     // Definir número de cada tipo de jogador numa equipa
