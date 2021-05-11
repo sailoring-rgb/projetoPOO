@@ -16,10 +16,10 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Collection;
 import java.util.stream.Collectors;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class EstadoJogo{
-    private LocalDateTime data;
+    private LocalDate data;
     private Equipa equipaCasa;
     private Equipa equipaFora;
     private int scoreCasa;
@@ -30,7 +30,7 @@ public class EstadoJogo{
     private List<SimpleEntry<Integer,Integer>> substituicoesFora;
     
     public EstadoJogo(){
-        this.data = LocalDateTime.now();
+        this.data = LocalDate.now();
         this.equipaCasa = new Equipa();
         this.equipaFora = new Equipa();
         this.scoreCasa = 0;
@@ -41,7 +41,7 @@ public class EstadoJogo{
         this.substituicoesFora = new ArrayList<SimpleEntry<Integer,Integer>>();
     }
     
-    public EstadoJogo(LocalDateTime data, Equipa equipaCasa, Equipa equipaFora, int scoreCasa, int scoreFora, 
+    public EstadoJogo(LocalDate data, Equipa equipaCasa, Equipa equipaFora, int scoreCasa, int scoreFora, 
                       Collection<Jogador> jogadoresCasa, List<SimpleEntry<Integer,Integer>> substituicoesCasa, Collection<Jogador> jogadoresFora, List<SimpleEntry<Integer,Integer>> substituicoesFora){
         this.data = data;
         this.equipaCasa = equipaCasa;
@@ -74,7 +74,7 @@ public class EstadoJogo{
     * Método que obtém a data e instância do jogo.
     * @return a data e instância do jogo
     */
-    public LocalDateTime getData(){
+    public LocalDate getData(){
         return this.data;
     }
     
@@ -146,7 +146,7 @@ public class EstadoJogo{
     * Método que muda a data e instância do jogo.
     * @param a nova data
     */
-    public void setData(LocalDateTime data){
+    public void setData(LocalDate data){
         this.data = data;
     }
     
