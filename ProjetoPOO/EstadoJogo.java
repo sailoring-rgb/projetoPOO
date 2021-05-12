@@ -16,7 +16,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Collection;
 import java.util.stream.Collectors;
-import java.time.LocalDate;
+import java.time.*;
+import java.time.temporal.*;
 
 public class EstadoJogo{
     private LocalDate data;
@@ -35,8 +36,8 @@ public class EstadoJogo{
         this.equipaFora = new Equipa();
         this.scoreCasa = 0;
         this.scoreFora = 0;
-        this.jogadoresCasa = new HashMap<>();
-        this.jogadoresFora = new HashMap<>();
+        this.jogadoresCasa = new HashMap<Integer,Jogador>();
+        this.jogadoresFora = new HashMap<Integer,Jogador>();
         this.substituicoesCasa = new ArrayList<SimpleEntry<Integer,Integer>>();
         this.substituicoesFora = new ArrayList<SimpleEntry<Integer,Integer>>();
     }
@@ -219,8 +220,8 @@ public class EstadoJogo{
         String[] data = campos[4].split("-");
         List<Integer> jc = new ArrayList<>();
         List<Integer> jf = new ArrayList<>();
-        Map<Integer, Integer> subsC = new HashMap<>();
-        Map<Integer, Integer> subsF = new HashMap<>();
+        Map<Integer, Integer> subsC = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> subsF = new HashMap<Integer, Integer>();
         for (int i = 5; i < 16; i++){
             jc.add(Integer.parseInt(campos[i]));
         }
