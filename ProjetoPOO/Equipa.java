@@ -16,8 +16,7 @@ public class Equipa{
    private int nr_equipa;
    private int nr_tatica;
    private String nome;
-   private List<Jogador> titulares;
-   private List<Jogador> suplentes;
+   private List<Jogador> jogadores;
    
    /**
      * Construtor por omissão.
@@ -26,19 +25,17 @@ public class Equipa{
        this.nr_equipa = 0;
        this.nr_tatica = 0;
        this.nome = "";
-       this.titulares = new ArrayList<>();
-       this.suplentes = new ArrayList<>();
+       this.jogadores = new ArrayList<>();
    }
    
    /**
      * Construtor parametrizado.
      */
-   public Equipa(int nr_equipa,int nr_tatica,String nome,List<Jogador> titulares, List<Jogador> suplentes){
+   public Equipa(int nr_equipa,int nr_tatica,String nome,List<Jogador> jogadores){
        this.nr_equipa = nr_equipa;
        this.nr_tatica = nr_tatica;
        this.nome = nome;
-       this.titulares = titulares.stream().map(Jogador::new).collect(Collectors.toList());
-       this.suplentes = suplentes.stream().map(Jogador::new).collect(Collectors.toList());
+       this.jogadores = jogadores.stream().map(Jogador::new).collect(Collectors.toList());
    }
    
    /**
@@ -48,8 +45,7 @@ public class Equipa{
        this.nr_equipa = umaEquipa.getNrEquipa();
        this.nr_tatica = umaEquipa.getNrTatica();
        this.nome = umaEquipa.getNome();
-       this.titulares = umaEquipa.getTitulares();
-       this.suplentes = umaEquipa.getSuplentes();
+       this.jogadores = umaEquipa.getJogadores();
    }
    
    /**
@@ -80,16 +76,8 @@ public class Equipa{
     * Método que obtém a lista de jogadores que são titulares.
     * @return a lista de titulares
     */
-   public List<Jogador> getTitulares(){
-       return this.titulares;
-   }
-   
-   /**
-    * Método que obtém a lista de jogadores que são suplentes.
-    * @return a lista de suplentes
-    */
-   public List<Jogador> getSuplentes(){
-       return this.suplentes;
+   public List<Jogador> getJogadores(){
+       return this.jogadores;
    }
    
    /**
@@ -115,30 +103,18 @@ public class Equipa{
    public void setNome(String nome){
        this.nome = nome;
     } 
-    
-   /**
-    * Método que muda a lista de jogadores que são titulares.
-    * @param a nova lista de titulares
-    */
-   public void setTitulares(List<Jogador> titulares){
-       this.titulares = titulares;
-   }
    
    /**
-    * Método que muda a lista de jogadores que são suplentes.
-    * @param a nova lista de suplentes
+    * Método que muda a lista de jogadores.
+    * @param a nova lista de jogores
     */
-   public void setSuplentes(List<Jogador> suplentes){
-       this.suplentes = suplentes;
+   public void setJogadores(List<Jogador> jogadores){
+       this.jogadores = jogadores;
    }
    
-   public void insereTitular(Jogador jog) {
-        titulares.add(jog.clone());
+   public void insereJogadores(Jogador jog) {
+        jogadores.add(jog.clone());
     }
-   
-   public void insereSuplente(Jogador jog) {
-        suplentes.add(jog.clone());
-    } 
    
    // FALTA ENTÃO CONSTRUIR OS TITULARES E OS SUPLENTES
    
@@ -158,8 +134,7 @@ public class Equipa{
         
         return new int[]{1,2,4,2,2}; 
     }
-   
-   
+     
    public double habEquipa(Equipa umaEquipa){
        double habGlobal = 0; // como recorremos a um loop, temos de declarar a var fora e igualá-la a 0 (ao contrário dos outros métodos hab)
        
@@ -170,7 +145,7 @@ public class Equipa{
        Avancado jogAvancado = new Avancado();
        Lateral jogLateral = new Lateral();
        
-       Iterator<Jogador> iter = umaEquipa.getTitulares().iterator(); 
+       Iterator<Jogador> iter = umaEquipa.getJogadores().iterator(); 
        
        int onzeT[] = taticaEsc(nr_tatica);//para saber quantos de cada
        
@@ -183,10 +158,10 @@ public class Equipa{
     }
     
     
-    public static Equipa parse(String input){
+   public static Equipa parse(String input){
         String[] campos = input.split(",");
         return new Equipa();
-    }
+   }
     
     // FALTA AINDA:   
     // Definir número de cada tipo de jogador numa equipa
