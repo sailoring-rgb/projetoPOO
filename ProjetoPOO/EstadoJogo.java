@@ -25,8 +25,8 @@ public class EstadoJogo{
     private int scoreCasa;
     private int scoreFora;
     private Map<Integer,Jogador> jogadoresCasa;
-    private Map<Integer,Jogador> jogadoresFora;
     private List<SimpleEntry<Integer,Integer>> substituicoesCasa;
+    private Map<Integer,Jogador> jogadoresFora;
     private List<SimpleEntry<Integer,Integer>> substituicoesFora;
     
     public EstadoJogo(){
@@ -36,8 +36,8 @@ public class EstadoJogo{
         this.scoreCasa = 0;
         this.scoreFora = 0;
         this.jogadoresCasa = new HashMap<>();
-        this.jogadoresFora = new HashMap<>();
         this.substituicoesCasa = new ArrayList<SimpleEntry<Integer,Integer>>();
+        this.jogadoresFora = new HashMap<>();
         this.substituicoesFora = new ArrayList<SimpleEntry<Integer,Integer>>();
     }
     
@@ -235,10 +235,10 @@ public class EstadoJogo{
             String[] sub = campos[i].split("->");
             subsF.put(Integer.parseInt(sub[0]), Integer.parseInt(sub[1]));
         }
-        return new Jogo(LocalDate.of(Integer.parseInt(data[0]),campos[0], campos[1], 
-                        Integer.parseInt(campos[2]),Integer.parseInt(campos[3]),
-                        Integer.parseInt(data[1]), Integer.parseInt(data[2])),
-                        jc, subsC, jf, subsF);
+        return new EstadoJogo(LocalDate.of(Integer.parseInt(data[0]),Integer.parseInt(data[1]), Integer.parseInt(data[2])),//Tempo
+                        new Equipa(campos[0]), new Equipa(campos[1]), //equipas
+                        Integer.parseInt(campos[2]),Integer.parseInt(campos[3]), //Scores
+                        jc, subsC, jf, subsF);//jogadores e substitutos
     }
 }
 

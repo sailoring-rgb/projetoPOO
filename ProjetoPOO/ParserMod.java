@@ -12,7 +12,7 @@ public class ParserMod {
         List<String> linhas = lerFicheiro("dados.txt");
         Map<String, Equipa> equipas = new HashMap<>(); //nome, equipa
         Map<Integer, Jogador> jogadores = new HashMap<>(); //numero, jogador
-        List<Jogo> jogos = new ArrayList<>();
+        List<EstadoJogo> jogos = new ArrayList<>();
         Equipa ultima = null; Jogador j = null;
         String[] linhaPartida;
         
@@ -55,7 +55,7 @@ public class ParserMod {
                     ultima.insereJogadores(j.clone()); //if no team was parsed previously, file is not well-formed
                     break;
                 case "Jogo":
-                    Jogo jo = Jogo.parse(linhaPartida[1]);
+                    EstadoJogo jo = EstadoJogo.parse(linhaPartida[1]);
                     jogos.add(jo);
                     break;
                 default:
@@ -68,7 +68,7 @@ public class ParserMod {
         for (Equipa e: equipas.values()){
             System.out.println(e.toString());
         }
-        for (Jogo jog: jogos){
+        for (EstadoJogo jog: jogos){
             System.out.println(jog.toString());
         }
 

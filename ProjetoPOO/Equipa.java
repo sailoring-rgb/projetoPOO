@@ -21,10 +21,10 @@ public class Equipa{
    /**
      * Construtor por omissão.
      */
-   public Equipa(){
+   public Equipa(String nome){
        this.nr_equipa = 0;
        this.nr_tatica = 0;
-       this.nome = "";
+       this.nome = nome;
        this.jogadores = new ArrayList<>();
    }
    
@@ -160,7 +160,7 @@ public class Equipa{
     
    public static Equipa parse(String input){
         String[] campos = input.split(",");
-        return new Equipa();
+        return new Equipa(campos[0]);
    }
     
     // FALTA AINDA:   
