@@ -10,6 +10,7 @@ import java.io.*;
 public class MainMenu extends Menu
 {
     private int option;
+    private Data dados;
     
     public MainMenu()
     {
