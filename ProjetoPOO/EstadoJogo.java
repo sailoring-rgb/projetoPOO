@@ -25,10 +25,14 @@ public class EstadoJogo{
     private Equipa equipaFora;
     private int scoreCasa;
     private int scoreFora;
-    private Map<Integer,Jogador> jogadoresCasa;
-    private List<SimpleEntry<Integer,Integer>> substituicoesCasa;
-    private Map<Integer,Jogador> jogadoresFora;
-    private List<SimpleEntry<Integer,Integer>> substituicoesFora;
+    private List<Integer> jogadoresCasa;
+    private List<Integer> jogadoresFora;
+    private Map<Integer,Integer> substituicoesCasa;
+    private Map<Integer,Integer> substituicoesFora;
+    
+    /**
+     * Construtores da classe EstadoJogo.
+     */
     
     public EstadoJogo(){
         this.data = LocalDate.now();
@@ -36,30 +40,37 @@ public class EstadoJogo{
         this.equipaFora = new Equipa();
         this.scoreCasa = 0;
         this.scoreFora = 0;
-        this.jogadoresCasa = new HashMap<Integer,Jogador>();
-        this.jogadoresFora = new HashMap<Integer,Jogador>();
-        this.substituicoesCasa = new ArrayList<SimpleEntry<Integer,Integer>>();
-        this.jogadoresFora = new HashMap<>();
-        this.substituicoesFora = new ArrayList<SimpleEntry<Integer,Integer>>();
+        this.jogadoresCasa = new ArrayList<Integer>();
+        this.jogadoresFora = new ArrayList<Integer>();
+        this.substituicoesCasa = new HashMap<Integer,Integer>();
+        this.substituicoesFora = new HashMap<Integer,Integer>();
+    }
+    
+    public EstadoJogo(String nomeEquipaCasa, String nomeEquipaFora){
+        this.data = LocalDate.now();
+        this.equipaCasa = new Equipa(nomeEquipaCasa);
+        this.equipaFora = new Equipa(nomeEquipaFora);
+        this.scoreCasa = 0;
+        this.scoreFora = 0;
+        this.jogadoresCasa = new ArrayList<Integer>();
+        this.jogadoresFora = new ArrayList<Integer>();
+        this.substituicoesCasa = new HashMap<Integer,Integer>();
+        this.substituicoesFora = new HashMap<Integer,Integer>();
     }
     
     public EstadoJogo(LocalDate data, Equipa equipaCasa, Equipa equipaFora, int scoreCasa, int scoreFora, 
-                      Collection<Jogador> jogadoresCasa, List<SimpleEntry<Integer,Integer>> substituicoesCasa, Collection<Jogador> jogadoresFora, List<SimpleEntry<Integer,Integer>> substituicoesFora){
+                      List<Integer> jogadoresCasa, List<Integer> jogadoresFora, Map<Integer,Integer> substituicoesCasa, Map<Integer,Integer> substituicoesFora){
         this.data = data;
         this.equipaCasa = equipaCasa;
         this.equipaFora = equipaFora;
         this.scoreCasa = scoreCasa;
         this.scoreFora = scoreCasa;
-        this.jogadoresCasa = new HashMap<>();
-        for(Jogador jogC: jogadoresCasa)
-            this.jogadoresCasa.put(jogC.getNrCamisola(), jogC.clone());
-        this.substituicoesCasa = substituicoesCasa;
-        this.jogadoresFora = new HashMap<>();
-        for(Jogador jogF: jogadoresCasa)
-            this.jogadoresFora.put(jogF.getNrCamisola(), jogF.clone());
-        this.substituicoesFora = substituicoesFora;
+        this.jogadoresCasa = jogadoresCasa.stream().collect(Collectors.toList());
+        this.jogadoresFora = jogadoresFora.stream().collect(Collectors.toList());
+        this.substituicoesCasa = substituicoesCasa.entrySet().stream().collect(Collectors.toMap(par->par.getKey(), par->par.getValue()));
+        this.substituicoesFora = substituicoesFora.entrySet().stream().collect(Collectors.toMap(par->par.getKey(), par->par.getValue()));
     }
-    
+   
     public EstadoJogo(EstadoJogo estado){
         this.data = estado.getData();
         this.equipaCasa = estado.getEquipaCasa();
@@ -67,8 +78,8 @@ public class EstadoJogo{
         this.scoreCasa = estado.getScoreCasa();
         this.scoreFora = estado.getScoreFora();
         this.jogadoresCasa = estado.getJogadoresCasa();
-        this.substituicoesCasa = estado.getSubstituicoesCasa();
         this.jogadoresFora = estado.getJogadoresFora();
+        this.substituicoesCasa = estado.getSubstituicoesCasa();
         this.substituicoesFora = estado.getSubstituicoesFora();
     }
     
@@ -116,15 +127,15 @@ public class EstadoJogo{
     * Método que obtém o conjunto de jogadores que joga em casa.
     * @return o conjunto de jogadores que joga em casa
     */
-    public Map<Integer,Jogador> getJogadoresCasa(){
-        return this.jogadoresCasa.entrySet().stream().collect(Collectors.toMap(par->par.getKey(), par->par.getValue().clone()));
+    public List<Integer> getJogadoresCasa(){
+        return this.jogadoresCasa;
     }
     
     /**
     * Método que obtém a lista de pares das substituições que foram feitas em casa
     * @return a lista de pares das substituições que foram feitas em casa
     */
-    public List<SimpleEntry<Integer,Integer>> getSubstituicoesCasa(){
+    public Map<Integer,Integer> getSubstituicoesCasa(){
         return this.substituicoesCasa;
     }
     
@@ -132,15 +143,15 @@ public class EstadoJogo{
     * Método que obtém o conjunto de jogadores que joga fora.
     * @return o conjunto de jogadores que joga fora
     */
-    public Map<Integer,Jogador> getJogadoresFora(){
-        return this.jogadoresFora.entrySet().stream().collect(Collectors.toMap(par->par.getKey(), par->par.getValue().clone()));
+    public List<Integer> getJogadoresFora(){
+        return this.jogadoresFora;
     }
 
     /**
     * Método que obtém a lista de pares das substituições que foram feitas fora
     * @return a lista de pares das substituições que foram feitas fora
     */
-    public List<SimpleEntry<Integer,Integer>> getSubstituicoesFora(){
+    public Map<Integer,Integer> getSubstituicoesFora(){
         return this.substituicoesFora;
     }
     
@@ -188,7 +199,7 @@ public class EstadoJogo{
     * Método que muda o conjunto de jogadores que joga em casa.
     * @param o novo conjunto de jogadores 
     */
-    public void setJogadoresCasa(Map<Integer,Jogador> jogadoresCasa){
+    public void setJogadoresCasa(List<Integer> jogadoresCasa){
         this.jogadoresCasa = jogadoresCasa;
     }
     
@@ -196,7 +207,7 @@ public class EstadoJogo{
     * Método que muda as substituições feitas em casa.
     * @param as novas substituições
     */
-    public void setSubstituicoesCasa(List<SimpleEntry<Integer,Integer>> substituicoesCasa){
+    public void setSubstituicoesCasa(Map<Integer,Integer> substituicoesCasa){
         this.substituicoesCasa = substituicoesCasa;
     }
     
@@ -204,7 +215,7 @@ public class EstadoJogo{
     * Método que muda o conjunto de jogadores que joga fora.
     * @param o novo conjunto de jogadores 
     */
-    public void setJogadoresFora(Map<Integer,Jogador> jogadoresFora){
+    public void setJogadoresFora(List<Integer> jogadoresFora){
         this.jogadoresFora = jogadoresFora;
     }
 
@@ -212,35 +223,54 @@ public class EstadoJogo{
     * Método que muda as substituições feitas fora.
     * @param as novas substituições
     */
-    public void getSubstituicoesFora(List<SimpleEntry<Integer,Integer>> substituicoesFora){
+    public void getSubstituicoesFora(Map<Integer,Integer> substituicoesFora){
         this.substituicoesFora = substituicoesFora;
+    }
+    
+    /**
+     * Método que define que equipa é que joga em casa e que equipa joga fora.
+     * @param equipas - o conjunto de todas as equipas
+     * @param nomeEquipaCasa - o nome da equipa selecionada para jogar em casa
+     * @param nomeEquipaFora - o nome da equipa selecionada para jogar fora
+     */
+    public void equipasEmCampo(Map<String, Equipa> equipas, String nomeEquipaCasa, String nomeEquipaFora){
+        if(equipas.containsKey(nomeEquipaCasa))
+            this.equipaCasa = equipas.get(nomeEquipaCasa).clone();
+            
+        if(equipas.containsKey(nomeEquipaFora))
+            this.equipaFora = equipas.get(nomeEquipaFora).clone();
     }
     
     public static EstadoJogo parse(String input){
         String[] campos = input.split(",");
         String[] data = campos[4].split("-");
-        List<Integer> jc = new ArrayList<>();
-        List<Integer> jf = new ArrayList<>();
-        Map<Integer, Integer> subsC = new HashMap<Integer, Integer>();
-        Map<Integer, Integer> subsF = new HashMap<Integer, Integer>();
+        List<Integer> jc = new ArrayList<Integer>();
+        List<Integer> jf = new ArrayList<Integer>();
+        Map<Integer,Integer> subsC = new HashMap<Integer, Integer>();
+        Map<Integer,Integer> subsF = new HashMap<Integer, Integer>();
+        
         for (int i = 5; i < 16; i++){
             jc.add(Integer.parseInt(campos[i]));
         }
+        
         for (int i = 16; i < 19; i++){
             String[] sub = campos[i].split("->");
             subsC.put(Integer.parseInt(sub[0]), Integer.parseInt(sub[1]));
         }
+        
         for (int i = 19; i < 30; i++){
             jf.add(Integer.parseInt(campos[i]));
         }
+        
         for (int i = 30; i < 33; i++){
             String[] sub = campos[i].split("->");
             subsF.put(Integer.parseInt(sub[0]), Integer.parseInt(sub[1]));
         }
-        return new EstadoJogo(LocalDate.of(Integer.parseInt(data[0]),Integer.parseInt(data[1]), Integer.parseInt(data[2])),//Tempo
-                        new Equipa(campos[0]), new Equipa(campos[1]), //equipas
-                        Integer.parseInt(campos[2]),Integer.parseInt(campos[3]), //Scores
-                        jc, subsC, jf, subsF);//jogadores e substitutos
+        
+        return new EstadoJogo(LocalDate.of(Integer.parseInt(data[0]),Integer.parseInt(data[1]), Integer.parseInt(data[2])), //Tempo
+                        new Equipa(campos[0]), new Equipa(campos[1]), // equipas
+                        Integer.parseInt(campos[2]),Integer.parseInt(campos[3]), // scores
+                        jc, jf, subsC, subsF); // jogadores e substituições
     }
 }
 

@@ -28,25 +28,38 @@ public class MainMenu extends Menu
     
     public void makeChoice(int option)
     {
+        Scanner sc = new Scanner(System.in);
+        // Jogo jogo = new Jogo(); para saveGame() e para loadGame()
+        
         switch (option) {
-          case 1:
-            //Escolher duas equipas para jogar
-            break;
-          case 2:
-            //Transferir jogador entre equipas, etc
-            GerirMenu menu = new GerirMenu();
-            break;
-          case 3:
-            //Save Game
-            break;
-          case 4:
-            //loadGame();
-            break;
-          case 5:
-             System.out.println("The End");
-             System.exit(0);
-            break;
-          default: System.out.println("Opção Inválida");
+            case 1:
+                Map<String, Equipa> equipas = ...;
+                
+                System.out.println("Que equipa que joga em casa?");
+                String nomeEquipaCasa = sc.nextLine();
+                System.out.println("Que equipa que joga fora?");
+                String nomeEquipaFora = sc.nextLine();
+            
+                Jogo jogo = new Jogo(nomeEquipaCasa, nomeEquipaFora);
+                jogo.getGameState().equipasEmCampo(equipas, nomeEquipaCasa, nomeEquipaFora);
+            
+                JogMenu menu1 = new JogMenu();
+                break;
+            case 2:
+                // Transferir jogador entre equipas, etc
+                GerirMenu menu2 = new GerirMenu();
+                break;
+            case 3:
+                // jogo.saveGame();
+                break;
+            case 4:
+                // jogo.loadGame();
+                break;
+            case 5:
+                System.out.println("The End");
+                System.exit(0);
+                break;
+            default: System.out.println("Opção Inválida");
         }
     }
 }

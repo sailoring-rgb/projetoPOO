@@ -10,9 +10,9 @@ import java.io.*;
 public class JogMenu extends Menu
 {
     private int option;
-
-    public JogMenu()
-    {
+    private Jogo jogo;
+    
+    public JogMenu(){
         Scanner sc = new Scanner(System.in);
         
         System.out.println("Introduza a sua escolha:");
@@ -24,11 +24,11 @@ public class JogMenu extends Menu
         makeChoice(option);
     }
     
-    public void makeChoice(int option)
-    {
+    public void makeChoice(int option){
         switch (option) {
           case 1:
-            startGame();
+            jogo.startGame();
+            // ...
             break;
           case 2:
             escTatica();
@@ -37,16 +37,10 @@ public class JogMenu extends Menu
             exit();
             break;
           default: System.out.println("Opção Inválida");
-    }
-    }
-    
-    public void startGame()
-    {
-        //Começa jogo
+        }
     }
     
-    public void escTatica()
-    {
+    public void escTatica(){
         Scanner sc = new Scanner(System.in);
         
         System.out.println("Introduza a tática:");
@@ -61,10 +55,8 @@ public class JogMenu extends Menu
         //switch com um set na tatica da equipa 
     }
     
-    public void exit()
-    {
+    public void exit(){
         System.out.println("The End");
-        
         System.exit(0);
     }
 }

@@ -5,6 +5,11 @@
  * @version 210402
  */
 
+import java.util.Map;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 import java.time.LocalDateTime;
 
 public class Jogo{
@@ -13,51 +18,81 @@ public class Jogo{
     private static final int A_DECORRER = 1;
     private static final int TERMINADO = 2;
    
-    private int estadoJogo;
-    private LocalDateTime data;
-    private Equipa equipa1;
-    private Equipa equipa2;
+    private int gameProgress;
+    // private LocalDateTime data;
+    private EstadoJogo gameState;
     
     /**
-     * Construtor da classe Jogo.
+     * Construtores da classe Jogo.
      */
+    
     public Jogo(){
-        this.estadoJogo = POR_COMECAR;
-        this.data = LocalDateTime.now();
+        this.gameProgress = POR_COMECAR;
+        // this.data = LocalDateTime.now();
+        this.gameState = new EstadoJogo();
+    }
+    
+    public Jogo(String nomeEquipaCasa, String nomeEquipaFora){
+        this.gameProgress = POR_COMECAR;
+        // this.data = LocalDateTime.now();
+        this.gameState = new EstadoJogo(nomeEquipaCasa, nomeEquipaFora);
     }
     
     /**
-    * Método que obtém o estado atual do jogo.
+    * Método que obtém como se encontra o jogo (por começar, a decorrer ou terminado).
+    * @return o progresso do jogo
+    */
+    public int getGameProgress(){
+        return this.gameProgress;
+    }
+    
+    /**
+    * Método que obtém o estado do jogo.
     * @return o estado do jogo
     */
-    public int getEstado(){
-        return this.estadoJogo;
+    public EstadoJogo getGameState(){
+        return this.gameState;
     }
     
     /**
-    * Método que muda o estado atual do jogo.
+    * Método que altera como se encontra o jogo (por começar, a decorrer ou terminado).
+    * @param o novo progresso do jogo
+    */
+    public void setGameProgress(int gameProgress){
+        this.gameProgress = gameProgress;
+    }
+    
+    /**
+    * Método que muda o estado do jogo.
     * @param o novo estado do jogo
     */
-    public void setEstado(int estado){
-        this.estadoJogo = estado;
+    public void setGameState(EstadoJogo gameState){
+        this.gameState = gameState;
     }
     
     /**
     * Método que começa o jogo.
     */
-    public void startJogo(){
-        if(this.estadoJogo == POR_COMECAR)
-            this.estadoJogo = A_DECORRER; 
+    public void startGame(){
+        if(this.gameProgress == POR_COMECAR)
+            this.gameProgress = A_DECORRER; 
     }
     
     /**
     * Método que termina o jogo.
     */
-    public void endJogo(){
-        if(this.estadoJogo == A_DECORRER)
-            this.estadoJogo = TERMINADO;
+    public void endGame(){
+        if(this.gameProgress == A_DECORRER)
+            this.gameProgress = TERMINADO;
     }
     
+    /**
+     * Construir método saveGame();
+     */
+    
+    /**
+     * Construir método loadGame();
+     */
     
     /*
     // FALTA AINDA:

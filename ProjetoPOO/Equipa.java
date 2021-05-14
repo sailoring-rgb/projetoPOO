@@ -21,6 +21,13 @@ public class Equipa{
    /**
      * Construtor por omissão.
      */
+   public Equipa(){
+       this.nr_equipa = 0;
+       this.nr_tatica = 0;
+       this.nome = "";
+       this.jogadores = new ArrayList<>();
+   }
+   
    public Equipa(String nome){
        this.nr_equipa = 0;
        this.nr_tatica = 0;
@@ -115,9 +122,7 @@ public class Equipa{
    public void insereJogadores(Jogador jog) {
         jogadores.add(jog.clone());
     }
-   
-   // FALTA ENTÃO CONSTRUIR OS TITULARES E OS SUPLENTES
-   
+      
    public int[] taticaEsc(int tacEscolhida)
     {
         //Isto é muito suboptimal mas não encontrei melhor maneira
@@ -157,7 +162,10 @@ public class Equipa{
        return habGlobal;
     }
     
-    
+   public Equipa clone(){
+       return new Equipa(this);
+   }
+   
    public static Equipa parse(String input){
         String[] campos = input.split(",");
         return new Equipa(campos[0]);

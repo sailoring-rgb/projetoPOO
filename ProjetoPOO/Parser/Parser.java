@@ -13,14 +13,15 @@ public class Parser {
 
     public static void parse() throws LinhaIncorretaException {
         List<String> linhas = lerFicheiro("dados.txt");
-        Map<String, Equipa> equipas = new HashMap<>(); //nome, equipa
-        Map<Integer, Jogador> jogadores = new HashMap<>(); //numero, jogador
+        Map<String, Equipa> equipas = new HashMap<>(); // nome, equipa
+        Map<Integer, Jogador> jogadores = new HashMap<>(); // numero, jogador
         List<Jogo> jogos = new ArrayList<>();
         Equipa ultima = null; Jogador j = null;
         String[] linhaPartida;
         
         for (String linha : linhas) {
             linhaPartida = linha.split(":", 2);
+            
             switch(linhaPartida[0]){
                 case "Equipa":
                     Equipa e = Equipa.parse(linhaPartida[1]);
@@ -85,5 +86,5 @@ public class Parser {
         return lines;
     }
 
-
+    
 }

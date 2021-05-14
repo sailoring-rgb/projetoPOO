@@ -10,13 +10,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Jogador{
-    /*
-    private static final int GUARDA_REDES = 0;
-    private static final int DEFESA = 1;
-    private static final int MEDIO = 2;
-    private static final int AVANCADO = 3;
-    private static final int LATERAL = 4;
-    */
+    
     private String nome;
     private int nr_camisola;
     private int velocidade;

@@ -30,11 +30,11 @@ public class GerirMenu extends Menu
     {
         switch (option) {
           case 1:
-            //CriarEquipa
+            // Criar uma equipa
             CriarEquipa equipa = new CriarEquipa();
             break;
           case 2:
-            //CriarJogador
+            //Criar um jogador
             CriarJog aux = new CriarJog();
                 int jogEscolhido = aux.qualJog();
                 if(jogEscolhido < 1 || jogEscolhido > 5)
@@ -42,13 +42,13 @@ public class GerirMenu extends Menu
                     else aux.escJogador(jogEscolhido);
             break;
           case 3:
-            //Vizualizar Jogadores
+            // Vizualizar os jogadores e equipas
             break;
           case 4:
-            //Transferir jogador entre equipas
+            // Transferir jogador entre equipas
             break;
           case 5:
-            //Voltar
+            // Voltar
             MainMenu menu = new MainMenu();
             break;
           default: System.out.println("Opção Inválida");
