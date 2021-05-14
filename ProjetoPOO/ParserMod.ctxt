@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=ParserMod
+comment1.params=
+comment1.target=Data\ parse()
+comment2.params=nomeFich
+comment2.target=java.util.List\ lerFicheiro(java.lang.String)
+numComments=3

@@ -72,7 +72,7 @@ public class ParserMod {
             System.out.println(jog.toString());
         }
 
-        Data data = new Data(equipas,jogadores,jogo);
+        Data data = new Data(equipas,jogadores,jogos);
         return data;
     }
 

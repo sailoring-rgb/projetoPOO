@@ -11,9 +11,10 @@ public class MainMenu extends Menu
 {
     private int option;
     private Data dados;
-    
+       
     public MainMenu()
     {
+        Data dados = new Data();
         Scanner sc = new Scanner(System.in);
         
         System.out.println("Introduza a sua escolha:");
@@ -54,7 +55,7 @@ public class MainMenu extends Menu
                 // jogo.saveGame();
                 break;
             case 4:
-                // jogo.loadGame();
+                MainMenu.loadGame();
                 break;
             case 5:
                 System.out.println("The End");
@@ -62,5 +63,10 @@ public class MainMenu extends Menu
                 break;
             default: System.out.println("Opção Inválida");
         }
+    }
+    
+    public void loadGame(int option)
+    {
+        this.dados = ParserMod.parse();
     }
 }
