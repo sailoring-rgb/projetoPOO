@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ParserMod {
-    public static void parse() throws LinhaIncorretaMod {
+    public static Data parse() throws LinhaIncorretaMod {
         List<String> linhas = lerFicheiro("dados.txt");
         Map<String, Equipa> equipas = new HashMap<>(); //nome, equipa
         Map<Integer, Jogador> jogadores = new HashMap<>(); //numero, jogador
@@ -72,7 +72,8 @@ public class ParserMod {
             System.out.println(jog.toString());
         }
 
-
+        Data data = new Data(equipas,jogadores,jogo);
+        return data;
     }
 
     public static List<String> lerFicheiro(String nomeFich) {
