@@ -10,10 +10,7 @@ import java.util.Scanner;
 public class Teste
 {
     public static void main(String[] args){
-        // ..............
         Scanner sc = new Scanner(System.in);
-    
-        System.out.println("O que pretende fazer?");
 
         System.out.println("1: Criar um novo jogador.");
         System.out.println("2: Entrar Main Menu");
