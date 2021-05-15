@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.stream.Collectors;
 import java.util.List;
 import java.util.Map;
 
@@ -28,15 +29,14 @@ public class Data {
     }
     
     public Map<String, Equipa> getEquipas(){
-        return this.equipas;
+        return this.equipas.entrySet().stream().collect(Collectors.toMap(par->par.getKey(), par->par.getValue().clone()));
     }
     
     public Map<Integer, Jogador> getJogadores(){
-        return this.jogadores;
+        return this.jogadores.entrySet().stream().collect(Collectors.toMap(par->par.getKey(), par->par.getValue().clone()));
     }
     
     public List<EstadoJogo> getJogos(){
         return this.jogos;
     }
-    
 }
