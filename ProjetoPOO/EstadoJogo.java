@@ -59,7 +59,7 @@ public class EstadoJogo{
     }
     
     public EstadoJogo(LocalDate data, Equipa equipaCasa, Equipa equipaFora, int scoreCasa, int scoreFora, 
-                      List<Integer> jogadoresCasa, List<Integer> jogadoresFora, Map<Integer,Integer> substituicoesCasa, Map<Integer,Integer> substituicoesFora){
+                      List<Integer> jogadoresCasa, List<Integer> jogadoresFora, Map<Integer, Integer> substituicoesCasa, Map<Integer, Integer> substituicoesFora){
         this.data = data;
         this.equipaCasa = equipaCasa;
         this.equipaFora = equipaFora;
@@ -67,8 +67,8 @@ public class EstadoJogo{
         this.scoreFora = scoreCasa;
         this.jogadoresCasa = jogadoresCasa.stream().collect(Collectors.toList());
         this.jogadoresFora = jogadoresFora.stream().collect(Collectors.toList());
-        this.substituicoesCasa = substituicoesCasa.entrySet().stream().collect(Collectors.toMap(par->par.getKey(), par->par.getValue()));
-        this.substituicoesFora = substituicoesFora.entrySet().stream().collect(Collectors.toMap(par->par.getKey(), par->par.getValue()));
+        this.substituicoesCasa.putAll(substituicoesCasa);
+        this.substituicoesFora.putAll(substituicoesFora);
     }
    
     public EstadoJogo(EstadoJogo estado){

@@ -31,11 +31,11 @@ public class MainMenu extends Menu
     public void makeChoice(int option)
     {
         Scanner sc = new Scanner(System.in);
-        // Jogo jogo = new Jogo(); para saveGame() e para loadGame()
+        Data dados = new Data();
         
         switch (option) {
             case 1:
-                Map<String, Equipa> equipas = ...;
+                Map<String, Equipa> equipas = dados.getEquipas();
                 
                 System.out.println("Que equipa que joga em casa?");
                 String nomeEquipaCasa = sc.nextLine();
