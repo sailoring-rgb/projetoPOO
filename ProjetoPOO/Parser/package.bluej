@@ -1,12 +1,12 @@
 #BlueJ package file
-dependency1.from=Equipa
-dependency1.to=Jogador
+dependency1.from=Main
+dependency1.to=Parser
 dependency1.type=UsesDependency
 dependency10.from=Parser
 dependency10.to=Avancado
 dependency10.type=UsesDependency
-dependency11.from=Main
-dependency11.to=Parser
+dependency11.from=Equipa
+dependency11.to=Jogador
 dependency11.type=UsesDependency
 dependency2.from=Parser
 dependency2.to=LinhaIncorretaException
