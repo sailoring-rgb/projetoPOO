@@ -17,8 +17,8 @@ public class Data {
     List<EstadoJogo> jogos;
     
     public Data (){
-        this.equipas = new HashMap<String, Equipa>(); //nome, equipa
-        this.jogadores = new HashMap<Integer, Jogador>(); //numero, jogador
+        this.equipas = new HashMap<>(); //nome, equipa
+        this.jogadores = new HashMap<>(); //numero, jogador
         this.jogos = new ArrayList<>();
     }
     

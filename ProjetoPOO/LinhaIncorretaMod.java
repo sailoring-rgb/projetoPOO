@@ -1,5 +1,6 @@
 
-public class LinhaIncorretaMod extends Exception {
+public class LinhaIncorretaMod extends Exception{
+    
     public LinhaIncorretaMod(){
         super();
     }

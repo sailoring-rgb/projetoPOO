@@ -31,7 +31,6 @@ public class MainMenu extends Menu
     public void makeChoice(int option)
     {
         Scanner sc = new Scanner(System.in);
-        Data dados = new Data();
         
         switch (option) {
             case 1:
@@ -55,7 +54,7 @@ public class MainMenu extends Menu
                 // jogo.saveGame();
                 break;
             case 4:
-                MainMenu.loadGame();
+                loadGame(option);
                 break;
             case 5:
                 System.out.println("The End");
@@ -65,8 +64,7 @@ public class MainMenu extends Menu
         }
     }
     
-    public void loadGame(int option)
-    {
-        this.dados = ParserMod.parse();
+    public void loadGame(int option){
+        this.dados = new Data();
     }
 }
