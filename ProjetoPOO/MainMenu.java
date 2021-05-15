@@ -55,7 +55,7 @@ public class MainMenu extends Menu
                 // System.out.println("stop");
                 break;
             case 3:
-                // jogo.saveGame();
+                Saver.save(dados);
                 break;
             case 4:
                 loadGame();
@@ -70,7 +70,8 @@ public class MainMenu extends Menu
     }
     
     public void loadGame(){
-        try{ this.dados = ParserMod.parse(); }
+        try{ this.dados = ParserMod.parse(); 
+             System.out.println("Jogo Carregado");}
         catch(Exception exc){ this.dados = new Data(); }
     }
 }

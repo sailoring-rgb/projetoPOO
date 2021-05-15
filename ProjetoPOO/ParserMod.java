@@ -72,6 +72,7 @@ public class ParserMod {
             System.out.println(jog.toString());
         }
 
+        System.out.println("Checkpoint");
         Data data = new Data(equipas,jogadores,jogos);
         return data;
     }
