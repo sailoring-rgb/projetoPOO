@@ -10,9 +10,12 @@ import java.io.*;
 public class GerirMenu extends Menu
 {
     private int option;
+    private Data data;
     
-    public GerirMenu()
+    public GerirMenu(Data dados)
     {
+        this.data = dados;
+        
         Scanner sc = new Scanner(System.in);
         
         System.out.println("Introduza a sua escolha:");
@@ -28,7 +31,7 @@ public class GerirMenu extends Menu
     
     public void makeChoice(int option)
     {
-        switch (option) {
+       switch (option) {
           case 1:
             // Criar uma equipa
             CriarEquipa equipa = new CriarEquipa();
@@ -42,7 +45,11 @@ public class GerirMenu extends Menu
                     else aux.escJogador(jogEscolhido);
             break;
           case 3:
-            // Vizualizar os jogadores e equipas
+            System.out.println("Equipas:");
+            data.getEquipas().forEach((key, value) -> System.out.println(key + ":" + value));
+            
+            System.out.println("Jogadores:");
+            data.getEquipas().forEach((key, value) -> System.out.println(key + ":" + value));
             break;
           case 4:
             // Transferir jogador entre equipas

@@ -5,23 +5,22 @@
  * @author grupo
  * @version 210418
  */
-import java.util.Scanner;
 
-public class Teste
-{
+import java.util.Scanner;
+import java.io.*;
+
+public class Teste{
+    
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("1: Criar um novo jogador.");
-        System.out.println("2: Entrar Main Menu");
-        System.out.println("3: ...");
-    
-        int escolha = sc.nextInt();
-        System.out.println("\n");
-        
-        //É mais facil fazer com switch default 
-        switch(escolha){
+        System.out.println("Seja bem-vindo!");
+        promptEnterKey();
 
+        MainMenu menu = new MainMenu();
+        
+        /*
+        switch(escolha){
             case 1:
                 CriarJog aux = new CriarJog();
                 int jogEscolhido = aux.qualJog();
@@ -29,14 +28,24 @@ public class Teste
                     System.out.println("Não exite esta opção!");
                     else aux.escJogador(jogEscolhido);
                 break;
-            
+        
             case 2:
                 MainMenu menu = new MainMenu();
                 break;
-                    // case 3:
+       
             default: 
                 System.out.println("Não exite esta opção!");
                 break;
-        }
+                */
     }
+
+    
+    public static void promptEnterKey(){
+        System.out.println("Presse \"ENTER\" para começar.");
+        try {
+            int read = System.in.read(new byte[2]);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }   
 }

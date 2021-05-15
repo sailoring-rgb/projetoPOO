@@ -14,10 +14,13 @@ public class MainMenu extends Menu
        
     public MainMenu()
     {
-        Data dados = new Data();
         Scanner sc = new Scanner(System.in);
         
-        System.out.println("Introduza a sua escolha:");
+        System.out.println("Loading game...");
+        loadGame();
+        System.out.println("Done!");
+        
+        System.out.println("O que pretende fazer?");
         System.out.println("1: Criar Partida");
         System.out.println("2: Gerir Jogadores/Equipas");
         System.out.println("3: Guardar Jogo");
@@ -34,13 +37,13 @@ public class MainMenu extends Menu
         
         switch (option) {
             case 1:
-                Map<String, Equipa> equipas = dados.getEquipas();
-                
                 System.out.println("Que equipa que joga em casa?");
                 String nomeEquipaCasa = sc.nextLine();
                 System.out.println("Que equipa que joga fora?");
                 String nomeEquipaFora = sc.nextLine();
             
+                Map<String, Equipa> equipas = dados.getEquipas();
+
                 Jogo jogo = new Jogo(nomeEquipaCasa, nomeEquipaFora);
                 jogo.getGameState().equipasEmCampo(equipas, nomeEquipaCasa, nomeEquipaFora);
             
@@ -48,7 +51,8 @@ public class MainMenu extends Menu
                 break;
             case 2:
                 // Transferir jogador entre equipas, etc
-                GerirMenu menu2 = new GerirMenu();
+                GerirMenu menu2 = new GerirMenu(dados);
+                // System.out.println("stop");
                 break;
             case 3:
                 // jogo.saveGame();

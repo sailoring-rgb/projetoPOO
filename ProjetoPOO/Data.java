@@ -16,15 +16,15 @@ public class Data {
     Map<Integer, Jogador> jogadores; //numero, jogador
     List<EstadoJogo> jogos;
     
-    public Data (){
+    public Data(){
         this.equipas = new HashMap<>(); //nome, equipa
         this.jogadores = new HashMap<>(); //numero, jogador
         this.jogos = new ArrayList<>();
     }
     
     public Data (Map<String, Equipa> equipas, Map<Integer, Jogador> jogadores,List<EstadoJogo> jogos){
-        this.equipas = equipas; //nome, equipa
-        this.jogadores = jogadores; //numero, jogador
+        this.equipas = equipas.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e-> e.getValue().clone()));
+        this.jogadores = jogadores.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e-> e.getValue().clone()));
         this.jogos = jogos;
     }
     
@@ -39,4 +39,6 @@ public class Data {
     public List<EstadoJogo> getJogos(){
         return this.jogos;
     }
+    
+    
 }
