@@ -49,7 +49,7 @@ public class GerirMenu extends Menu
             data.getEquipas().forEach((key, value) -> System.out.println(key + ":" + value));
             
             System.out.println("Jogadores:");
-            data.getEquipas().forEach((key, value) -> System.out.println(key + ":" + value));
+            data.getJogadores().forEach((key, value) -> System.out.println(key + ":" + value));
             break;
           case 4:
             // Transferir jogador entre equipas
