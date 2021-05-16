@@ -14,7 +14,7 @@ public class Saver{
         
         Map<String, Equipa> equipas = dados.getEquipas(); //nome, equipa
         Map<Integer, Jogador> jogadores = dados.getJogadores(); //numero, jogador
-        List<EstadoJogo> jogos = dados.getJogos();
+        List<JogoRegisto> jogos = dados.getJogos();
 
         var equipaSet = equipas.entrySet();
         
@@ -43,8 +43,8 @@ public class Saver{
             }
             
         }
-        
-        for(EstadoJogo jogo : jogos){
+        /*
+        for(JogoRegisto jogo : jogos){
             print.println("Jogo:"+ jogo.getEquipaCasa() +","
                                  + jogo.getEquipaFora() +","
                                  + jogo.getScoreCasa() +","
@@ -74,7 +74,7 @@ public class Saver{
                 print.println(subFora.getKey() +"->"+ subFora.getValue()+",");
             }
         }
-        
+        */
 
         print.close();
         }    

@@ -14,7 +14,7 @@ import java.util.Map;
 public class Data {
     Map<String, Equipa> equipas; //nome, equipa
     Map<Integer, Jogador> jogadores; //numero, jogador
-    List<EstadoJogo> jogos;
+    List<JogoRegisto> jogos;
     
     public Data(){
         this.equipas = new HashMap<>(); //nome, equipa
@@ -22,7 +22,7 @@ public class Data {
         this.jogos = new ArrayList<>();
     }
     
-    public Data (Map<String, Equipa> equipas, Map<Integer, Jogador> jogadores,List<EstadoJogo> jogos){
+    public Data (Map<String, Equipa> equipas, Map<Integer, Jogador> jogadores,List<JogoRegisto> jogos){
         this.equipas = equipas.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e-> e.getValue().clone()));
         this.jogadores = jogadores.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e-> e.getValue().clone()));
         this.jogos = jogos;
@@ -36,9 +36,7 @@ public class Data {
         return this.jogadores.entrySet().stream().collect(Collectors.toMap(par->par.getKey(), par->par.getValue().clone()));
     }
     
-    public List<EstadoJogo> getJogos(){
+    public List<JogoRegisto> getJogos(){
         return this.jogos;
     }
-    
-    
 }

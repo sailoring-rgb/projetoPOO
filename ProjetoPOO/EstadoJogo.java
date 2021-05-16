@@ -240,37 +240,5 @@ public class EstadoJogo{
         if(equipas.containsKey(nomeEquipaFora))
             this.equipaFora = equipas.get(nomeEquipaFora).clone();
     }
-    
-    public static EstadoJogo parse(String input){
-        String[] campos = input.split(",");
-        String[] data = campos[4].split("-");
-        List<Integer> jc = new ArrayList<Integer>();
-        List<Integer> jf = new ArrayList<Integer>();
-        Map<Integer,Integer> subsC = new HashMap<Integer, Integer>();
-        Map<Integer,Integer> subsF = new HashMap<Integer, Integer>();
-        
-        for (int i = 5; i < 16; i++){
-            jc.add(Integer.parseInt(campos[i]));
-        }
-        
-        for (int i = 16; i < 19; i++){
-            String[] sub = campos[i].split("->");
-            subsC.put(Integer.parseInt(sub[0]), Integer.parseInt(sub[1]));
-        }
-        
-        for (int i = 19; i < 30; i++){
-            jf.add(Integer.parseInt(campos[i]));
-        }
-        
-        for (int i = 30; i < 33; i++){
-            String[] sub = campos[i].split("->");
-            subsF.put(Integer.parseInt(sub[0]), Integer.parseInt(sub[1]));
-        }
-        
-        return new EstadoJogo(LocalDate.of(Integer.parseInt(data[0]),Integer.parseInt(data[1]), Integer.parseInt(data[2])), //Tempo
-                        new Equipa(campos[0]), new Equipa(campos[1]), // equipas
-                        Integer.parseInt(campos[2]),Integer.parseInt(campos[3]), // scores
-                        jc, jf, subsC, subsF); // jogadores e substituições
-    }
 }
 

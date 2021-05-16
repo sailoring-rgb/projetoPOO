@@ -16,9 +16,7 @@ public class MainMenu extends Menu
     {
         Scanner sc = new Scanner(System.in);
         
-        System.out.println("Loading game...");
         loadGame();
-        System.out.println("Done!");
         
         System.out.println("O que pretende fazer?");
         System.out.println("1: Criar Partida");
@@ -55,9 +53,12 @@ public class MainMenu extends Menu
                 // System.out.println("stop");
                 break;
             case 3:
-                Saver.save(dados);
+                //Guardar jogo
+                saveGame(dados);
+                new MainMenu();
                 break;
             case 4:
+                //Carregar jogo
                 loadGame();
                 new MainMenu();
                 break;
@@ -70,8 +71,20 @@ public class MainMenu extends Menu
     }
     
     public void loadGame(){
-        try{ this.dados = ParserMod.parse(); 
-             System.out.println("Jogo Carregado");}
-        catch(Exception exc){ this.dados = new Data(); }
+        try{ System.out.println("A carregar dados..");
+             this.dados = ParserMod.parse(); 
+             System.out.println("Jogo carregado");}
+        catch(Exception exc){ 
+            System.out.println("Erro a carregar! A criar nova base de dados..");
+            this.dados = new Data(); 
+            System.out.println("Base de dados criada");}
+    }
+    
+    public void saveGame(Data dados){
+        try{ System.out.println("A guardar dados..");
+             Saver.save(dados);
+             System.out.println("Jogo guardado");}
+        catch(Exception exc) {System.out.println("Erro a guardar Jogo");}
+            
     }
 }

@@ -5,7 +5,7 @@ all he/she needs to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
 PROJECT TITLE: Football Manager (crappy version)
-PURPOSE OF PROJECT: ...
+PURPOSE OF PROJECT: Ter 20
 VERSION or DATE: 210330
 HOW TO START THIS PROJECT: ...
 AUTHORS:

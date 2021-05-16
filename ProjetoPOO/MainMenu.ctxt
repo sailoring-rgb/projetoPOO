@@ -7,4 +7,6 @@ comment2.params=option
 comment2.target=void\ makeChoice(int)
 comment3.params=
 comment3.target=void\ loadGame()
-numComments=4
+comment4.params=dados
+comment4.target=void\ saveGame(Data)
+numComments=5
