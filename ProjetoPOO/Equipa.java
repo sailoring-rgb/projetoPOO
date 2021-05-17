@@ -116,7 +116,10 @@ public class Equipa{
     * @param a nova lista de jogores
     */
    public void setJogadores(List<Jogador> jogadores){
-       this.jogadores = jogadores;
+       this.jogadores = new ArrayList<>();
+       for(Jogador jog : jogadores) {
+            this.jogadores.add(jog);
+       }
    }
    
    public void insereJogadores(Jogador jog) {

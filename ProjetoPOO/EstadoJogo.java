@@ -200,7 +200,10 @@ public class EstadoJogo{
     * @param o novo conjunto de jogadores 
     */
     public void setJogadoresCasa(List<Integer> jogadoresCasa){
-        this.jogadoresCasa = jogadoresCasa;
+        this.jogadoresCasa = new ArrayList<>();
+        for(Integer numCamisola : jogadoresCasa) {
+            this.jogadoresCasa.add(numCamisola);
+        }
     }
     
     /**
@@ -208,7 +211,7 @@ public class EstadoJogo{
     * @param as novas substituições
     */
     public void setSubstituicoesCasa(Map<Integer,Integer> substituicoesCasa){
-        this.substituicoesCasa = substituicoesCasa;
+        this.substituicoesCasa = substituicoesCasa.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e->e.getValue()));
     }
     
     /**
@@ -216,7 +219,10 @@ public class EstadoJogo{
     * @param o novo conjunto de jogadores 
     */
     public void setJogadoresFora(List<Integer> jogadoresFora){
-        this.jogadoresFora = jogadoresFora;
+        this.jogadoresFora = new ArrayList<>();
+        for(Integer numCamisola : jogadoresFora) {
+            this.jogadoresFora.add(numCamisola);
+        }
     }
 
     /**
@@ -224,7 +230,7 @@ public class EstadoJogo{
     * @param as novas substituições
     */
     public void getSubstituicoesFora(Map<Integer,Integer> substituicoesFora){
-        this.substituicoesFora = substituicoesFora;
+        this.substituicoesFora = substituicoesFora.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e->e.getValue()));
     }
     
     /**

@@ -39,4 +39,19 @@ public class Data {
     public List<JogoRegisto> getJogos(){
         return this.jogos;
     }
+    
+    public void setEquipas(Map<String, Equipa> equipas){
+        this.equipas = equipas.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e->e.getValue().clone()));
+    }
+    
+    public void setJogadores(Map<Integer, Jogador> jogadores){
+        this.jogadores = jogadores.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e->e.getValue().clone()));
+    }
+    
+    public void setJogos(List<JogoRegisto> jogos){
+       this.jogos = new ArrayList<>();
+       for(JogoRegisto registo : jogos) {
+            this.jogos.add(registo);
+       }
+    }
 }
