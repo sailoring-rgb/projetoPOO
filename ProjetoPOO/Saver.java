@@ -13,7 +13,6 @@ public class Saver{
     {
         
         Map<String, Equipa> equipas = dados.getEquipas(); //nome, equipa
-        Map<Integer, Jogador> jogadores = dados.getJogadores(); //numero, jogador
         List<JogoRegisto> jogos = dados.getJogos();
 
         var equipaSet = equipas.entrySet();
@@ -41,7 +40,6 @@ public class Saver{
                                     + jogador.getRemate() +","
                                     + jogador.getCapPasse() +"\n");
             }
-            
         }
         /*
         for(JogoRegisto jogo : jogos){

@@ -47,18 +47,21 @@ public class GerirMenu extends Menu
             CriarJog aux = new CriarJog();
             int jogEscolhido = aux.escJogador();
             Jogador novoJog = aux.criarJogador(jogEscolhido);
-            this.data.getJogadores().put(novoJog.getNrCamisola(),novoJog);
+            //this.data.getJogadores().put(novoJog.getNrCamisola(),novoJog);
             
             new GerirMenu(data);
             break;
             
           case 3:
             System.out.println("Equipas:");
-            this.data.getEquipas().forEach((key, value) -> System.out.println("    " + key + " : " + value));
-            System.out.println("\n");
+            var equipaSet = this.data.getEquipas().entrySet();
+            for(var eq : equipaSet){
+                System.out.println("    " + eq.getKey() + " : ");
+                for (Jogador jogador : eq.getValue().getJogadores()) {
+                    System.out.println("        Número " + jogador.getNrCamisola() + " : " + jogador.getNome());
+                }
+            }
             
-            System.out.println("Jogadores:");
-            this.data.getJogadores().forEach((key, value) -> System.out.println("    Número " + key + " : " + value));
             
             new GerirMenu(data);
             break;

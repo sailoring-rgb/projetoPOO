@@ -12,28 +12,21 @@ import java.util.Map;
  * @version (número de versão ou data)
  */
 public class Data {
-    Map<String, Equipa> equipas; //nome, equipa
-    Map<Integer, Jogador> jogadores; //numero, jogador
-    List<JogoRegisto> jogos;
+    private Map<String, Equipa> equipas; //nome, equipa
+    private List<JogoRegisto> jogos;
     
     public Data(){
         this.equipas = new HashMap<>(); //nome, equipa
-        this.jogadores = new HashMap<>(); //numero, jogador
         this.jogos = new ArrayList<>();
     }
     
-    public Data (Map<String, Equipa> equipas, Map<Integer, Jogador> jogadores,List<JogoRegisto> jogos){
+    public Data (Map<String, Equipa> equipas,List<JogoRegisto> jogos){
         this.equipas = equipas.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e-> e.getValue().clone()));
-        this.jogadores = jogadores.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e-> e.getValue().clone()));
         this.jogos = jogos;
     }
     
     public Map<String, Equipa> getEquipas(){
         return this.equipas.entrySet().stream().collect(Collectors.toMap(par->par.getKey(), par->par.getValue().clone()));
-    }
-    
-    public Map<Integer, Jogador> getJogadores(){
-        return this.jogadores.entrySet().stream().collect(Collectors.toMap(par->par.getKey(), par->par.getValue().clone()));
     }
     
     public List<JogoRegisto> getJogos(){
@@ -42,10 +35,6 @@ public class Data {
     
     public void setEquipas(Map<String, Equipa> equipas){
         this.equipas = equipas.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e->e.getValue().clone()));
-    }
-    
-    public void setJogadores(Map<Integer, Jogador> jogadores){
-        this.jogadores = jogadores.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e->e.getValue().clone()));
     }
     
     public void setJogos(List<JogoRegisto> jogos){
