@@ -12,7 +12,7 @@ public class CriarJog
      * Método que pergunta ao usuário que tipo de jogador pretende criar.
      * @return o número da opção
      */
-    public int qualJog()
+    public int escJogador()
     {
         Scanner sc = new Scanner(System.in);
         
@@ -24,6 +24,10 @@ public class CriarJog
         System.out.println("5: Guarda Redes");
         
         int jogEscolhido = sc.nextInt();
+        if(jogEscolhido < 1 || jogEscolhido > 5){
+                System.out.println("Não exite esta opção! Insira outra: ");
+                jogEscolhido = sc.nextInt();
+        }
         return jogEscolhido;
     }
 
@@ -31,8 +35,9 @@ public class CriarJog
      * Método que pede ao usuário valores para as características do tipo de jogador que escolheu.
      * Este método calcula, ainda, a habilidade do dito jogador consoante os valores dados.
      * @param o número da opção
+     * @return o novo jogador criado
      */
-    public void escJogador(int jogEscolhido)
+    public Jogador criarJogador(int jogEscolhido)
     {
         Jogador jog = new Jogador();
         
@@ -118,9 +123,11 @@ public class CriarJog
                             drible = sc.nextInt();
                         }
                         jogAvancado.setDrible(drible);
-        
+                        
                         habilidade = jogAvancado.habAvancado(jog);
                         System.out.println("Habilidade do avançado: " + habilidade);
+                        
+                        jog = jogAvancado;
                         break;
             
                     case 2:
@@ -133,9 +140,11 @@ public class CriarJog
                             capCruzamento = sc.nextInt();
                         }                         
                         jogLateral.setCapCruzamento(capCruzamento);
-        
+                        
                         habilidade = jogLateral.habLateral(jog);
                         System.out.println("Habilidade do lateral: " + habilidade);
+                        
+                        jog = jogLateral;
                         break;
         
                     case 3:
@@ -156,9 +165,11 @@ public class CriarJog
                             dominioBola = sc.nextInt();
                         }                        
                         jogMedio.setDominioBola(dominioBola);
-        
+                        
                         habilidade = jogMedio.habMedio(jog);
                         System.out.println("Habilidade do médio: " + habilidade);
+                        
+                        jog = jogMedio;
                         break;
         
                     case 4:
@@ -171,9 +182,11 @@ public class CriarJog
                             desarme = sc.nextInt();
                         }                        
                         jogDefesa.setDesarme(desarme);
-        
+                        
                         habilidade = jogDefesa.habDefesa(jog);
                         System.out.println("Habilidade do defesa: " + habilidade);
+                        
+                        jog = jogDefesa;
                         break;
         
                     case 5:
@@ -194,11 +207,14 @@ public class CriarJog
                             lancamento = sc.nextInt();
                         }                        
                         jogGR.setLancamento(lancamento);
-        
+                        
                         habilidade = jogGR.habGuardaRedes(jog);
                         System.out.println("Habilidade do guarda-redes: " + habilidade);
+                        
+                        jog = jogGR;
                         break;
         }
+        return jog;
     }
     
     public void atribEq(Jogador jog)

@@ -17,7 +17,9 @@ public class ParserMod {
         String[] linhaPartida;
         
         for (String linha : linhas) {
+            
             linhaPartida = linha.split(":", 2);
+            
             switch(linhaPartida[0]){
                 case "Equipa":
                     Equipa e = Equipa.parse(linhaPartida[1]);
@@ -64,14 +66,14 @@ public class ParserMod {
             }
         }
         
-        //debug
+        /*
         for (Equipa e: equipas.values()){
             System.out.println(e.getNome());
         }
         for (JogoRegisto jog: jogos){
             System.out.println(jog.toString());
         }
-
+        */
         Data data = new Data(equipas,jogadores,jogos);
         return data;
     }

@@ -18,6 +18,7 @@ public class GerirMenu extends Menu
         
         Scanner sc = new Scanner(System.in);
         
+        System.out.println("\n");
         System.out.println("Introduza a sua escolha:");
         System.out.println("1: Criar Equipa");
         System.out.println("2: Criar Jogador");
@@ -26,39 +27,53 @@ public class GerirMenu extends Menu
         System.out.println("5: Voltar");
     
         this.option = sc.nextInt();
-        makeChoice(option);
+        if(option < 1 || option > 5)
+            System.out.println("Não exite esta opção!");
+        else makeChoice(option);
     }
     
     public void makeChoice(int option)
     {
        switch (option) {
           case 1:
-            // Criar uma equipa
             CriarEquipa equipa = new CriarEquipa();
+            Equipa novaEq = equipa.criarEq();
+            this.data.getEquipas().put(novaEq.getNome(), novaEq);
+            
+            new GerirMenu(data);
             break;
+            
           case 2:
-            //Criar um jogador
             CriarJog aux = new CriarJog();
-                int jogEscolhido = aux.qualJog();
-                if(jogEscolhido < 1 || jogEscolhido > 5)
-                    System.out.println("Não exite esta opção!");
-                    else aux.escJogador(jogEscolhido);
+            int jogEscolhido = aux.escJogador();
+            Jogador novoJog = aux.criarJogador(jogEscolhido);
+            this.data.getJogadores().put(novoJog.getNrCamisola(),novoJog);
+            
+            new GerirMenu(data);
             break;
+            
           case 3:
             System.out.println("Equipas:");
-            data.getEquipas().forEach((key, value) -> System.out.println(key + ":" + value));
+            this.data.getEquipas().forEach((key, value) -> System.out.println("    " + key + " : " + value));
+            System.out.println("\n");
             
             System.out.println("Jogadores:");
-            data.getJogadores().forEach((key, value) -> System.out.println(key + ":" + value));
+            this.data.getJogadores().forEach((key, value) -> System.out.println("    Número " + key + " : " + value));
+            
+            new GerirMenu(data);
             break;
+            
           case 4:
             // Transferir jogador entre equipas
+            // ...
+            new GerirMenu(data);
             break;
+            
           case 5:
-            // Voltar
             MainMenu menu = new MainMenu();
             break;
+            
           default: System.out.println("Opção Inválida");
-        }
+       }
     }
 }

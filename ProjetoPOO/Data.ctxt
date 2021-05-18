@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Data
-comment0.text=\r\n\ Escreva\ a\ descri\u00E7\u00E3o\ da\ classe\ Data\ aqui.\r\n\ \r\n\ @author\ (seu\ nome)\ \r\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\r\n
+comment0.text=\n\ Escreva\ a\ descri\u00E7\u00E3o\ da\ classe\ Data\ aqui.\n\ \n\ @author\ (seu\ nome)\ \n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\n
 comment1.params=
 comment1.target=Data()
 comment2.params=equipas\ jogadores\ jogos
@@ -11,4 +11,10 @@ comment4.params=
 comment4.target=java.util.Map\ getJogadores()
 comment5.params=
 comment5.target=java.util.List\ getJogos()
-numComments=6
+comment6.params=equipas
+comment6.target=void\ setEquipas(java.util.Map)
+comment7.params=jogadores
+comment7.target=void\ setJogadores(java.util.Map)
+comment8.params=jogos
+comment8.target=void\ setJogos(java.util.List)
+numComments=9

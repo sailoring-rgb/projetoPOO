@@ -15,6 +15,7 @@ public class JogMenu extends Menu
     public JogMenu(){
         Scanner sc = new Scanner(System.in);
         
+        System.out.println("\n");
         System.out.println("Introduza a sua escolha:");
         System.out.println("1: Começar Jogo");
         System.out.println("2: Escolher tática");

@@ -8,8 +8,11 @@ import java.util.*;
  */
 public class CriarEquipa
 {
-    public void CriarEquipa()
-    {
+    /**
+     * Método que pergunta ao usuário o nome da nova equipa, criando-a.
+     * @return a nova equipa criada
+     */
+    public Equipa criarEq(){
         Scanner sc = new Scanner(System.in);
         Equipa eq = new Equipa();
         
@@ -17,5 +20,7 @@ public class CriarEquipa
         
         String nome = sc.nextLine();
         eq.setNome(nome);
+        
+        return eq;
     }
 }
