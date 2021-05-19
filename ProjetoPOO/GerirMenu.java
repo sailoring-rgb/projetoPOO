@@ -47,6 +47,7 @@ public class GerirMenu extends Menu
             break;
             
           case 3:
+          
             var equipaSet = this.data.getEquipas().entrySet();
             for(var eq : equipaSet){
                 System.out.println("    " + eq.getKey() + " : ");
@@ -75,8 +76,7 @@ public class GerirMenu extends Menu
     
     public void gerarMenu()
     {
-        CriarEquipa criadorEq = new CriarEquipa();
-        Equipa equipa = criadorEq.criarEq();
+        Equipa equipa = CriarEquipa.criarEq();
         this.data.getEquipas().put(equipa.getNome(), equipa);
     }
     

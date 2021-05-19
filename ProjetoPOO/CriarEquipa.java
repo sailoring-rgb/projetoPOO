@@ -12,7 +12,7 @@ public class CriarEquipa
      * Método que pergunta ao usuário o nome da nova equipa, criando-a.
      * @return a nova equipa criada
      */
-    public Equipa criarEq(){
+    public static Equipa criarEq(){
         Scanner sc = new Scanner(System.in);
         
         System.out.println("Nome da equipa: ");
