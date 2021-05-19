@@ -35,7 +35,7 @@ public class GerirMenu extends Menu
     {
        switch (option) {
           case 1:
-            gerarMenu();
+            gerarEquipa();
             
             new GerirMenu(data);
             break;
@@ -74,7 +74,7 @@ public class GerirMenu extends Menu
        }
     }
     
-    public void gerarMenu()
+    public void gerarEquipa()
     {
         Equipa equipa = CriarEquipa.criarEq();
         this.data.getEquipas().put(equipa.getNome(), equipa);
