@@ -14,12 +14,11 @@ public class CriarEquipa
      */
     public Equipa criarEq(){
         Scanner sc = new Scanner(System.in);
-        Equipa eq = new Equipa();
         
         System.out.println("Nome da equipa: ");
         
         String nome = sc.nextLine();
-        eq.setNome(nome);
+        Equipa eq = new Equipa(nome);
         
         return eq;
     }

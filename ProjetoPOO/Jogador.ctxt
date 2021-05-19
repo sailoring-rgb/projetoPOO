@@ -45,9 +45,6 @@ comment21.text=\r\n\ M\u00E9todo\ que\ muda\ o\ valor\ da\ capacidade\ de\ passe
 comment22.params=
 comment22.target=Jogador\ clone()
 comment22.text=\r\n\ M\u00E9todo\ que\ faz\ um\ clone\ do\ objeto\ Jogador.\r\n\ @return\ o\ clone\r\n
-comment23.params=
-comment23.target=java.lang.String\ toString()
-comment23.text=public\ static\ Jogador\ parse(String\ input){\r\n\ \ \ \ \ \ \ \ String[]\ campos\ \=\ input.split(",");\r\n\ \ \ \ \ \ \ \ return\ new\ Jogador(campos[0],\ Integer.parseInt(campos[1]),\ campos[2],\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Integer.parseInt(campos[3]),\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Integer.parseInt(campos[4]),\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Integer.parseInt(campos[5]),\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Integer.parseInt(campos[6]),\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Integer.parseInt(campos[7]),\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Integer.parseInt(campos[8]));\r\n}
 comment3.params=umJog
 comment3.target=Jogador(Jogador)
 comment3.text=\r\n\ Construtor\ de\ c\u00F3pia.\r\n
@@ -69,4 +66,4 @@ comment8.text=\r\n\ M\u00E9todo\ que\ obt\u00E9m\ o\ valor\ da\ destreza\ do\ jo
 comment9.params=
 comment9.target=int\ getImpulsao()
 comment9.text=\r\n\ M\u00E9todo\ que\ obt\u00E9m\ o\ valor\ da\ impuls\u00E3o\ do\ jogador.\r\n\ @return\ o\ valor\ da\ impuls\u00E3o\r\n
-numComments=24
+numComments=23

@@ -218,19 +218,4 @@ public class Jogador{
         return new Jogador(this);
     }
     
-    /*public static Jogador parse(String input){
-        String[] campos = input.split(",");
-        return new Jogador(campos[0], Integer.parseInt(campos[1]), campos[2],
-                                        Integer.parseInt(campos[3]),
-                                        Integer.parseInt(campos[4]),
-                                        Integer.parseInt(campos[5]),
-                                        Integer.parseInt(campos[6]),
-                                        Integer.parseInt(campos[7]),
-                                        Integer.parseInt(campos[8]));
-    }*/
-
-        public String toString(){
-        return nome +"\n";
-    }
-    
 }

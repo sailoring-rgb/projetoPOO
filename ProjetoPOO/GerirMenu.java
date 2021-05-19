@@ -11,12 +11,11 @@ public class GerirMenu extends Menu
 {
     private int option;
     private Data data;
+    Scanner sc = new Scanner(System.in);
     
     public GerirMenu(Data dados)
     {
         this.data = dados;
-        
-        Scanner sc = new Scanner(System.in);
         
         System.out.println("\n");
         System.out.println("Introduza a sua escolha:");
@@ -36,24 +35,18 @@ public class GerirMenu extends Menu
     {
        switch (option) {
           case 1:
-            CriarEquipa equipa = new CriarEquipa();
-            Equipa novaEq = equipa.criarEq();
-            this.data.getEquipas().put(novaEq.getNome(), novaEq);
+            gerarMenu();
             
             new GerirMenu(data);
             break;
             
           case 2:
-            CriarJog aux = new CriarJog();
-            int jogEscolhido = aux.escJogador();
-            Jogador novoJog = aux.criarJogador(jogEscolhido);
-            //this.data.getJogadores().put(novoJog.getNrCamisola(),novoJog);
+            gerarJogador();
             
             new GerirMenu(data);
             break;
             
           case 3:
-            System.out.println("Equipas:");
             var equipaSet = this.data.getEquipas().entrySet();
             for(var eq : equipaSet){
                 System.out.println("    " + eq.getKey() + " : ");
@@ -78,5 +71,32 @@ public class GerirMenu extends Menu
             
           default: System.out.println("Opção Inválida");
        }
+    }
+    
+    public void gerarMenu()
+    {
+        CriarEquipa criadorEq = new CriarEquipa();
+        Equipa equipa = criadorEq.criarEq();
+        this.data.getEquipas().put(equipa.getNome(), equipa);
+    }
+    
+    public void gerarJogador()
+    {
+        CriarJog aux = new CriarJog();
+        int jogEscolhido = aux.escJogador();
+        Jogador novoJog = aux.criarJogador(jogEscolhido);
+        
+        var equipaSet = this.data.getEquipas().entrySet();
+        for(var eq : equipaSet){
+            System.out.println("    " + eq.getKey());
+        }
+        
+        System.out.println("Escreva para qual equipa deseja inserir o jogador:");
+        sc.nextLine(); 
+        String escolhaEq = sc.nextLine();
+        
+        Equipa eq = this.data.getEquipas().get(escolhaEq);
+        eq.insereJogadores(novoJog);
+        this.data.getEquipas().put(escolhaEq,eq);
     }
 }
