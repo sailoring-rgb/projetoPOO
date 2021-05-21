@@ -84,19 +84,7 @@ public class GerirMenu extends Menu
     {
         CriarJog aux = new CriarJog();
         int jogEscolhido = aux.escJogador();
-        Jogador novoJog = aux.criarJogador(jogEscolhido);
-        
-        var equipaSet = this.data.getEquipas().entrySet();
-        for(var eq : equipaSet){
-            System.out.println("    " + eq.getKey());
-        }
-        
-        System.out.println("Escreva para qual equipa deseja inserir o jogador:");
-        sc.nextLine(); 
-        String escolhaEq = sc.nextLine();
-        
-        Equipa eq = this.data.getEquipas().get(escolhaEq);
-        eq.insereJogadores(novoJog);
-        this.data.getEquipas().put(escolhaEq,eq);
+        Jogador novoJog = new Jogador(aux.criarJogador(jogEscolhido));
+        aux.atribEq(novoJog,data);
     }
 }

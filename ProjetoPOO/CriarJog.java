@@ -216,13 +216,29 @@ public class CriarJog
         }
         return jog;
     }
-    
-    public void atribEq(Jogador jog)
+     
+    public void atribEq(Jogador jog, Data data)
     {
         Scanner sc = new Scanner(System.in);
         
-        System.out.println("A que equipa pretende associar este jogador?");
-        //Verificar todas as equipas existentes
+        System.out.println(" Equipas:");
+        var equipaSet = data.getEquipas().entrySet();
+        for(var eq : equipaSet){
+            System.out.println("    " + eq.getKey());
+        }
         
+        System.out.println("A que equipa pretende associar este jogador?");
+        boolean valid = false;
+        
+        do{
+            try {String escolhaEq = sc.nextLine();
+                Equipa eq = data.getEquipas().get(escolhaEq);
+                eq.insereJogadores(jog);
+                data.getEquipas().put(escolhaEq,eq);
+                valid = true;
+                System.out.println(jog.getNome()+" faz agora parte de "+ eq.getNome()+ "!");}
+            catch(NullPointerException e) {System.out.println("Equipa não existe! Volte a inserir opção");}
+            catch(Exception exc) {System.out.println("Erro a inserir jogador!");}
+        } while (!valid);
     }
 }
