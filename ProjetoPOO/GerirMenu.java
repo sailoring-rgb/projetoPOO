@@ -47,15 +47,7 @@ public class GerirMenu extends Menu
             break;
             
           case 3:
-          
-            var equipaSet = this.data.getEquipas().entrySet();
-            for(var eq : equipaSet){
-                System.out.println("    " + eq.getKey() + " : ");
-                for (Jogador jogador : eq.getValue().getJogadores()) {
-                    System.out.println("        Número " + jogador.getNrCamisola() + " : " + jogador.getNome());
-                }
-            }
-            
+            apresentarData();
             
             new GerirMenu(data);
             break;
@@ -76,8 +68,9 @@ public class GerirMenu extends Menu
     
     public void gerarEquipa()
     {
-        Equipa equipa = CriarEquipa.criarEq();
-        this.data.getEquipas().put(equipa.getNome(), equipa);
+        Equipa equipa = new Equipa(CriarEquipa.criarEq());
+        data.inserirEquipa(equipa);
+        System.out.println("Criada Equipa: "+ (data.getEquipas().get(equipa.getNome())));
     }
     
     public void gerarJogador()
@@ -85,6 +78,19 @@ public class GerirMenu extends Menu
         CriarJog aux = new CriarJog();
         int jogEscolhido = aux.escJogador();
         Jogador novoJog = new Jogador(aux.criarJogador(jogEscolhido));
+        System.out.println("Jogador: " + novoJog.getNome());
         aux.atribEq(novoJog,data);
+    }
+    
+    public void apresentarData()
+    {
+        var equipaSet = data.getEquipas().entrySet();
+        System.out.println("  Equipas:");
+            for(var eq : equipaSet){
+                System.out.println("    " + eq.getKey());
+                for (var jogador : eq.getValue().getJogadores().entrySet()) {
+                    System.out.println("        Número " + jogador.getKey() + " : " + jogador.getValue().getNome());
+            }
+        }
     }
 }

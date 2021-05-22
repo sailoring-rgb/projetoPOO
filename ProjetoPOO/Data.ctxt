@@ -13,4 +13,6 @@ comment5.params=equipas
 comment5.target=void\ setEquipas(java.util.Map)
 comment6.params=jogos
 comment6.target=void\ setJogos(java.util.List)
-numComments=7
+comment7.params=equipa
+comment7.target=void\ inserirEquipa(Equipa)
+numComments=8

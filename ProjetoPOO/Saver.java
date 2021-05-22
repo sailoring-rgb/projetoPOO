@@ -27,7 +27,7 @@ public class Saver{
         for(var equipa : equipaSet){
             print.println("Equipa:"+ equipa.getKey());
             Equipa EquipaValor = equipa.getValue();
-            List<Jogador> jogadoresEquipa = EquipaValor.getJogadores();
+            /*List<Jogador> jogadoresEquipa = EquipaValor.getJogadores();
             
             for (Jogador jogador : jogadoresEquipa) {
             print.println("Jogador:"+ jogador.getNome() +","
@@ -39,7 +39,7 @@ public class Saver{
                                     + jogador.getJogoCabeca() +","
                                     + jogador.getRemate() +","
                                     + jogador.getCapPasse());
-            }
+            }*/
         }
         /*
         for(JogoRegisto jogo : jogos){

@@ -43,4 +43,16 @@ public class Data {
             this.jogos.add(registo);
        }
     }
+    
+    public void inserirEquipa(Equipa equipa){
+        equipas.put(equipa.getNome(),equipa);
+    }
+    /*
+    public void inserirJogo(List<JogoRegisto> jogos){
+       this.jogos = new ArrayList<>();
+       for(JogoRegisto registo : jogos) {
+            this.jogos.add(registo);
+       }
+    }
+    */
 }

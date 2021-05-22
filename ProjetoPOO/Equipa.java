@@ -10,14 +10,16 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.stream.Collectors;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class Equipa{
 
    private int nr_equipa;
    private int nr_tatica;
    private String nome;
-   private List<Jogador> jogadores;
-   
+   private Map<Integer, Jogador> jogadores; // numero de jogador, jogador
    /**
      * Construtor por omissão.
      */
@@ -25,24 +27,24 @@ public class Equipa{
        this.nr_equipa = 0;
        this.nr_tatica = 0;
        this.nome = "";
-       this.jogadores = new ArrayList<>();
+       this.jogadores = new HashMap<>();
    }
    
    public Equipa(String nome){
        this.nr_equipa = 0;
        this.nr_tatica = 0;
        this.nome = nome;
-       this.jogadores = new ArrayList<>();
+       this.jogadores = new HashMap<>();
    }
    
    /**
      * Construtor parametrizado.
      */
-   public Equipa(int nr_equipa,int nr_tatica,String nome,List<Jogador> jogadores){
+   public Equipa(int nr_equipa,int nr_tatica,String nome, Map<Integer, Jogador> jogadores){
        this.nr_equipa = nr_equipa;
        this.nr_tatica = nr_tatica;
        this.nome = nome;
-       this.jogadores = jogadores.stream().map(Jogador::new).collect(Collectors.toList());
+       this.jogadores = new HashMap<Integer, Jogador>(jogadores);
    }
    
    /**
@@ -83,7 +85,7 @@ public class Equipa{
     * Método que obtém a lista de jogadores que são titulares.
     * @return a lista de titulares
     */
-   public List<Jogador> getJogadores(){
+   public Map<Integer, Jogador> getJogadores(){
        return this.jogadores;
    }
    
@@ -115,15 +117,15 @@ public class Equipa{
     * Método que muda a lista de jogadores.
     * @param a nova lista de jogores
     */
-   public void setJogadores(List<Jogador> jogadores){
-       this.jogadores = new ArrayList<>();
-       for(Jogador jog : jogadores) {
-            this.jogadores.add(jog);
+   public void setJogadores(Map<Integer, Jogador> jogadores){
+       this.jogadores = new HashMap<>();
+       for(var jog : jogadores.entrySet()) {
+            this.jogadores.put(jog.getKey(),jog.getValue());
        }
    }
    
    public void insereJogadores(Jogador jog) {
-        jogadores.add(jog.clone());
+        jogadores.put(jog.clone().getNrCamisola(),jog.clone());
     }
       
    public int[] taticaEsc(int tacEscolhida)
@@ -153,7 +155,7 @@ public class Equipa{
        Avancado jogAvancado = new Avancado();
        Lateral jogLateral = new Lateral();
        
-       Iterator<Jogador> iter = umaEquipa.getJogadores().iterator(); 
+       Iterator iter = umaEquipa.getJogadores().entrySet().iterator(); 
        
        int onzeT[] = taticaEsc(nr_tatica);//para saber quantos de cada
        

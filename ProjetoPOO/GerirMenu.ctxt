@@ -9,4 +9,6 @@ comment3.params=
 comment3.target=void\ gerarEquipa()
 comment4.params=
 comment4.target=void\ gerarJogador()
-numComments=5
+comment5.params=
+comment5.target=void\ apresentarData()
+numComments=6
