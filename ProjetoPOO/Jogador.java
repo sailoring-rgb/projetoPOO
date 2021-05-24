@@ -20,6 +20,7 @@ public class Jogador{
     private int jogoCabeca;
     private int remate;
     private int capPasse;
+    private List<String> historico;
     
     /**
      * Construtor por omissão.
@@ -34,12 +35,13 @@ public class Jogador{
         this.jogoCabeca = 0;
         this.remate = 0;
         this.capPasse = 0;
+        this.historico = new ArrayList<>();
     }
     
     /**
      * Construtor parametrizado.
      */
-    public Jogador (String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse){
+    public Jogador (String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, List<String> historico){
         this.nome = nome;
         this.nr_camisola = nr_camisola;
         this.velocidade = velocidade;
@@ -49,6 +51,7 @@ public class Jogador{
         this.jogoCabeca = jogoCabeca;
         this.remate = remate;
         this.capPasse = capPasse;
+        this.historico = historico;
     }
     
     /**
@@ -64,6 +67,7 @@ public class Jogador{
         this.jogoCabeca = umJog.getJogoCabeca();
         this.remate = umJog.getRemate();
         this.capPasse = umJog.getCapPasse();
+        this.historico = umJog.getHistorico();
     }
     
     /**
@@ -139,6 +143,14 @@ public class Jogador{
     }
     
     /**
+    * Método que obtém o historico do jogador.
+    * @return o historico
+    */
+    public List<String> getHistorico(){
+        return this.historico;
+    }
+    
+    /**
     * Método que muda o nome do jogador.
     * @param o novo nome
     */
@@ -209,6 +221,23 @@ public class Jogador{
     public void setCapPasse(int capPasse){
         this.capPasse = capPasse;
     }
+    
+    /**
+    * Método que muda o historico do jogador.
+    * @return o novo historico
+    */
+    public void setHistorico(List<String> historico){
+        //etc etc
+    }
+    
+    /**
+    * Método que adiciona uma equipa o historico do jogador.
+    * @return o novo historico
+    */
+    public void addHistorico(String equipa){
+        this.historico.add(equipa);
+    }
+
     
     /**
     * Método que faz um clone do objeto Jogador.

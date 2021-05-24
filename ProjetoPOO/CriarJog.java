@@ -233,7 +233,7 @@ public class CriarJog
         do{
             try {String escolhaEq = sc.nextLine();
                 Equipa eq = data.getEquipas().get(escolhaEq);
-                eq.insereJogadores(jog);
+                eq.insereJogador(jog);
                 data.getEquipas().put(escolhaEq,eq);
                 valid = true;
                 System.out.println(jog.getNome()+" faz agora parte de "+ eq.getNome()+ "!");}

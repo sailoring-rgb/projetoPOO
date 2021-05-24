@@ -23,8 +23,8 @@ public class Lateral extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public Lateral(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int capCruzamento){
-        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
+    public Lateral(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int capCruzamento, List<String> historico){
+        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse,historico);
         this.capCruzamento = capCruzamento;
     }
     
@@ -73,6 +73,6 @@ public class Lateral extends Jogador{
                 Integer.parseInt(campos[6]),
                 Integer.parseInt(campos[7]),
                 Integer.parseInt(campos[8]),
-                Integer.parseInt(campos[9]));
+                Integer.parseInt(campos[9]),new ArrayList<>());
     }
 }

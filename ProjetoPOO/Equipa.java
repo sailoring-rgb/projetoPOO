@@ -20,6 +20,7 @@ public class Equipa{
    private int nr_tatica;
    private String nome;
    private Map<Integer, Jogador> jogadores; // numero de jogador, jogador
+   
    /**
      * Construtor por omissão.
      */
@@ -124,8 +125,12 @@ public class Equipa{
        }
    }
    
-   public void insereJogadores(Jogador jog) {
+   public void insereJogador(Jogador jog) {
         jogadores.put(jog.clone().getNrCamisola(),jog.clone());
+    }
+    
+   public void removeJogador(Jogador jog) {
+        jogadores.remove(jog.clone().getNrCamisola());
     }
       
    public int[] taticaEsc(int tacEscolhida)

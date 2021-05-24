@@ -25,8 +25,8 @@ public class GuardaRedes extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public GuardaRedes(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int elasticidade, int lancamento){
-        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
+    public GuardaRedes(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int elasticidade, int lancamento,List<String> historico){
+        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse,historico);
         this.elasticidade = elasticidade;
         this.lancamento = lancamento;
     }
@@ -95,6 +95,6 @@ public class GuardaRedes extends Jogador{
                 Integer.parseInt(campos[7]),
                 Integer.parseInt(campos[8]),
                 Integer.parseInt(campos[9]),
-                10);
+                10,new ArrayList<>());
     }
 }

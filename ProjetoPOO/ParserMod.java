@@ -28,27 +28,27 @@ public class ParserMod {
                 case "Guarda-Redes":
                     j = GuardaRedes.parse(linhaPartida[1]);
                     if (ultima == null) throw new LinhaIncorretaMod(); //we need to insert the player into the team
-                    ultima.insereJogadores(j.clone()); //if no team was parsed previously, file is not well-formed
+                    ultima.insereJogador(j.clone()); //if no team was parsed previously, file is not well-formed
                     break;
                 case "Defesa":
                     j = Defesa.parse(linhaPartida[1]);
                     if (ultima == null) throw new LinhaIncorretaMod(); //we need to insert the player into the team
-                    ultima.insereJogadores(j.clone()); //if no team was parsed previously, file is not well-formed
+                    ultima.insereJogador(j.clone()); //if no team was parsed previously, file is not well-formed
                     break;
                 case "Medio":
                     j = Medio.parse(linhaPartida[1]);
                     if (ultima == null) throw new LinhaIncorretaMod(); //we need to insert the player into the team
-                    ultima.insereJogadores(j.clone()); //if no team was parsed previously, file is not well-formed
+                    ultima.insereJogador(j.clone()); //if no team was parsed previously, file is not well-formed
                     break;
                 case "Lateral":
                     j = Lateral.parse(linhaPartida[1]);
                     if (ultima == null) throw new LinhaIncorretaMod(); //we need to insert the player into the team
-                    ultima.insereJogadores(j.clone()); //if no team was parsed previously, file is not well-formed
+                    ultima.insereJogador(j.clone()); //if no team was parsed previously, file is not well-formed
                     break;
                 case "Avancado":
                     j = Avancado.parse(linhaPartida[1]);
                     if (ultima == null) throw new LinhaIncorretaMod(); //we need to insert the player into the team
-                    ultima.insereJogadores(j.clone()); //if no team was parsed previously, file is not well-formed
+                    ultima.insereJogador(j.clone()); //if no team was parsed previously, file is not well-formed
                     break;
                 case "Jogo":
                     JogoRegisto jo = JogoRegisto.parse(linhaPartida[1]);

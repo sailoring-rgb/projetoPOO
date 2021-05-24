@@ -24,8 +24,8 @@ public class Medio extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public Medio(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int capRecuperacao, int dominioBola){
-        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
+    public Medio(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int capRecuperacao, int dominioBola, List<String> historico){
+        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse,historico);
         this.capRecuperacao = capRecuperacao;
         this.dominioBola = dominioBola;
     }
@@ -93,6 +93,6 @@ public class Medio extends Jogador{
                 Integer.parseInt(campos[7]),
                 Integer.parseInt(campos[8]),
                 Integer.parseInt(campos[9]),
-                10);
+                10,new ArrayList<>());
     }
 }

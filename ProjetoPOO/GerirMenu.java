@@ -29,6 +29,7 @@ public class GerirMenu extends Menu
         if(option < 1 || option > 5)
             System.out.println("Não exite esta opção!");
         else makeChoice(option);
+        dados = this.data;
     }
     
     public void makeChoice(int option)
@@ -55,6 +56,8 @@ public class GerirMenu extends Menu
           case 4:
             // Transferir jogador entre equipas
             // ...
+            transferirJog();
+            
             new GerirMenu(data);
             break;
             
@@ -91,6 +94,67 @@ public class GerirMenu extends Menu
                 for (var jogador : eq.getValue().getJogadores().entrySet()) {
                     System.out.println("        Número " + jogador.getKey() + " : " + jogador.getValue().getNome());
             }
+        }
+    }
+    
+    public void transferirJog()
+    {
+        var equipaSet = data.getEquipas().entrySet();
+        //fazer os trys e ver os nulls ainda
+        System.out.println("  Equipas:");
+            for(var eq : equipaSet){
+                System.out.println("    " + eq.getKey());
+        }
+        System.out.println("Escolha a origem do jogador");
+        sc.nextLine(); //flush
+        
+        
+        String escEquipaO = sc.nextLine();
+        
+        Equipa equipaOrigem = data.getEquipas().get(escEquipaO);
+
+            for (var jogador : equipaOrigem.getJogadores().entrySet()) {
+                    System.out.println("        Número " + jogador.getKey() + " : " + jogador.getValue().getNome());
+        }
+        System.out.println("Escolha o jogador que pretende transferir");
+        int nr = sc.nextInt();
+        
+        Jogador jogTransf = equipaOrigem.getJogadores().get(nr);
+
+        equipaSet.remove(escEquipaO);//how do i remove :(
+            for(var eq : equipaSet){
+                System.out.println("    " + eq.getKey());
+        }
+        
+        System.out.println("Escolha o destino do jogador");
+        sc.nextLine();
+        String escEquipaD = sc.nextLine();
+                
+        Equipa equipaDestino = data.getEquipas().get(escEquipaD);
+        
+        //para ser arranjado num futuro proximo
+        equipaOrigem.removeJogador(jogTransf);
+        data.inserirEquipa(equipaOrigem);
+        
+        int nr_inserido = 0;
+        
+        while(equipaDestino.getJogadores().containsKey(nr_inserido)){
+            nr_inserido +=1;
+        }
+        
+        //Mudar no jogador
+        jogTransf.setNrCamisola(nr_inserido);
+        jogTransf.addHistorico(escEquipaO);
+        
+        equipaDestino.insereJogador(jogTransf);
+        data.inserirEquipa(equipaDestino);
+            
+        System.out.println("Transferencia concluida");
+        
+        System.out.println(jogTransf.getNome() + " faz agora parte de " + escEquipaD);
+        System.out.println("Antigas Equipas do jogador:");
+        for(String equipaP : jogTransf.getHistorico()){
+            System.out.println(equipaP);
         }
     }
 }

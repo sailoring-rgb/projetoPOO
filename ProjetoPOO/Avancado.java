@@ -23,8 +23,8 @@ public class Avancado extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public Avancado(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int drible){
-        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse);
+    public Avancado(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int drible,List<String> historico){
+        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico);
         this.drible = drible;
     }
     
@@ -74,6 +74,6 @@ public class Avancado extends Jogador{
                 Integer.parseInt(campos[6]),
                 Integer.parseInt(campos[7]),
                 Integer.parseInt(campos[8]),
-                10);
+                10,new ArrayList<>());
     }
 }
