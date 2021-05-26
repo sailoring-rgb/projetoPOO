@@ -87,7 +87,8 @@ public class Equipa{
     * @return a lista de titulares
     */
    public Map<Integer, Jogador> getJogadores(){
-       return this.jogadores;
+       return this.jogadores.entrySet().stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, e->e.getValue().clone()));
    }
    
    /**
