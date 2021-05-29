@@ -24,7 +24,7 @@ public class Defesa extends Jogador{
      * Construtor parametrizado.
      */
     public Defesa(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int desarme, List<String> historico){
-        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico);
+        super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico, 4);
         this.desarme = desarme;
     }
     

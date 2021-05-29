@@ -10,6 +10,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Jogador{
+    private static final int AVANCADO = 1;
+    private static final int MEDIO = 2;
+    private static final int LATERAL = 3;
+    private static final int DEFESA = 4;
+    private static final int GR = 5;
     
     private String nome;
     private int nr_camisola;
@@ -21,6 +26,7 @@ public class Jogador{
     private int remate;
     private int capPasse;
     private List<String> historico;
+    private int tipoJogador;
     
     /**
      * Construtor por omissão.
@@ -36,12 +42,13 @@ public class Jogador{
         this.remate = 0;
         this.capPasse = 0;
         this.historico = new ArrayList<>();
+        this.tipoJogador = 0;
     }
     
     /**
      * Construtor parametrizado.
      */
-    public Jogador (String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, List<String> historico){
+    public Jogador (String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, List<String> historico, int tipoJogador){
         this.nome = nome;
         this.nr_camisola = nr_camisola;
         this.velocidade = velocidade;
@@ -52,6 +59,7 @@ public class Jogador{
         this.remate = remate;
         this.capPasse = capPasse;
         this.historico = historico;
+        this.tipoJogador = tipoJogador;
     }
     
     /**
@@ -68,6 +76,7 @@ public class Jogador{
         this.remate = umJog.getRemate();
         this.capPasse = umJog.getCapPasse();
         this.historico = umJog.getHistorico();
+        this.tipoJogador = umJog.getTipoJogador();
     }
     
     /**
@@ -151,6 +160,14 @@ public class Jogador{
     }
     
     /**
+    * Método que obtém o tipo do jogador.
+    * @return o tipo do jogador
+    */
+    public int getTipoJogador(){
+        return this.tipoJogador;
+    }
+    
+    /**
     * Método que muda o nome do jogador.
     * @param o novo nome
     */
@@ -227,7 +244,18 @@ public class Jogador{
     * @return o novo historico
     */
     public void setHistorico(List<String> historico){
-        //etc etc
+        this.historico = new ArrayList<>();
+        for(String hist : historico) {
+            this.historico.add(hist);
+        }
+    }
+    
+    /**
+    * Método que muda o tipo do jogador.
+    * @return o novo tipo de jogador
+    */
+    public void setTipoJogador(int tipoJogador){
+        this.tipoJogador = tipoJogador;
     }
     
     /**

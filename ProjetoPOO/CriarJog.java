@@ -18,8 +18,8 @@ public class CriarJog
         
         System.out.println("Que jogador pretende criar?");
         System.out.println("1: Avançado");
-        System.out.println("2: Lateral");
-        System.out.println("3: Médio");
+        System.out.println("2: Médio");
+        System.out.println("3: Lateral");
         System.out.println("4: Defesa");
         System.out.println("5: Guarda Redes");
         
@@ -40,6 +40,7 @@ public class CriarJog
     public Jogador criarJogador(int jogEscolhido)
     {
         Jogador jog = new Jogador();
+        jog.setTipoJogador(jogEscolhido);
         
         Scanner sc = new Scanner(System.in);
         
