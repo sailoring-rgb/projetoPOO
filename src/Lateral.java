@@ -63,6 +63,13 @@ public class Lateral extends Jogador{
         return habilidade;
     }
     
+    public void apresentarJogadorLateral(){
+        this.apresentarJogador();
+        System.out.println("Cruzamento: " + capCruzamento);
+        
+        this.apresentarHistorico();
+    }
+    
     public static Lateral parse(String input){
         String[] campos = input.split(",");
         return new Lateral(campos[0], Integer.parseInt(campos[1]),

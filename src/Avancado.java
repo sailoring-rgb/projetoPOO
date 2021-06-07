@@ -64,6 +64,12 @@ public class Avancado extends Jogador{
         return habilidade;
     }
     
+    public void apresentarJogadorAvancado(){
+        this.apresentarJogador();
+        
+        this.apresentarHistorico();
+    }
+    
     public static Avancado parse(String input){
         String[] campos = input.split(",");
         return new Avancado(campos[0], Integer.parseInt(campos[1]),
@@ -74,6 +80,6 @@ public class Avancado extends Jogador{
                 Integer.parseInt(campos[6]),
                 Integer.parseInt(campos[7]),
                 Integer.parseInt(campos[8]),
-                10,new ArrayList<>());
+                50,new ArrayList<>());
     }
 }

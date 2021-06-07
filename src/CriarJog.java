@@ -158,14 +158,7 @@ public class CriarJog
                             capRecuperacao = sc.nextInt();
                         }                        
                         jogMedio.setCapRecuperacao(capRecuperacao);
-        
-                        System.out.println("Dominio de bola: ");
-                        int dominioBola = sc.nextInt();
-                        if (dominioBola < 0 || dominioBola > 100){
-                            System.out.println("Este valor não é válido! Insira um novo: ");
-                            dominioBola = sc.nextInt();
-                        }                        
-                        jogMedio.setDominioBola(dominioBola);
+    
                         
                         habilidade = jogMedio.habMedio(jog);
                         System.out.println("Habilidade do médio: " + habilidade);
@@ -200,14 +193,6 @@ public class CriarJog
                             elasticidade = sc.nextInt();
                         }                        
                         jogGR.setElasticidade(elasticidade);
-        
-                        System.out.println("Lançamento: ");
-                        int lancamento = sc.nextInt();
-                        if (lancamento < 0 || lancamento > 100){
-                            System.out.println("Este valor não é válido! Insira um novo: ");
-                            lancamento = sc.nextInt();
-                        }                        
-                        jogGR.setLancamento(lancamento);
                         
                         habilidade = jogGR.habGuardaRedes(jog);
                         System.out.println("Habilidade do guarda-redes: " + habilidade);

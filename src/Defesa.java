@@ -63,6 +63,12 @@ public class Defesa extends Jogador{
         return habilidade;
     }
     
+    public void apresentarJogadorDefesa(){
+        this.apresentarJogador();
+        
+        this.apresentarHistorico();
+    }
+    
     public static Defesa parse(String input){
         String[] campos = input.split(",");
         return new Defesa(campos[0], Integer.parseInt(campos[1]),

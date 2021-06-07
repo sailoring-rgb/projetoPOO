@@ -177,6 +177,13 @@ public class Equipa{
        return new Equipa(this);
    }
    
+   public void apresentarPlantel(){   
+        System.out.println("  Jogadores:");
+            for (var jogador : jogadores.entrySet()) {
+                System.out.println("        Número " + jogador.getKey() + " : " + jogador.getValue().getNome());
+        }
+    }
+   
    public static Equipa parse(String input){
         String[] campos = input.split(",");
         return new Equipa(campos[0]);

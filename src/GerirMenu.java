@@ -29,7 +29,7 @@ public class GerirMenu extends Menu
         if(option < 1 || option > 5)
             System.out.println("Não exite esta opção!");
         else makeChoice(option);
-        dados = this.data;
+
     }
     
     public void makeChoice(int option)
@@ -48,7 +48,7 @@ public class GerirMenu extends Menu
             break;
             
           case 3:
-            apresentarData();
+            apresentarEquipas();
             
             new GerirMenu(data);
             break;
@@ -84,16 +84,45 @@ public class GerirMenu extends Menu
         System.out.println("Jogador: " + novoJog.getNome());
         aux.atribEq(novoJog,data);
     }
-    
-    public void apresentarData()
+
+    public void apresentarEquipas()
     {
-        var equipaSet = data.getEquipas().entrySet();
-        System.out.println("  Equipas:");
-            for(var eq : equipaSet){
-                System.out.println("    " + eq.getKey());
-                for (var jogador : eq.getValue().getJogadores().entrySet()) {
-                    System.out.println("        Número " + jogador.getKey() + " : " + jogador.getValue().getNome());
-            }
+        data.apresentarEquipas();
+        System.out.println("Escreva a equipa para inspecionar");
+        sc.nextLine(); // flush
+        String escEq = sc.nextLine();
+        try {
+            if(escEq.equals("voltar")) return;
+            apresentarPlantel(escEq);
+        } catch (NullPointerException e) {
+            System.out.println("Opção inválida, escolha novamente.");
+        }
+    }
+    
+    public void apresentarPlantel(String escEquipa)
+    {
+        data.apPlantel(escEquipa);
+
+        System.out.println("Escreva o jogador para inspecionar");
+        sc.nextLine(); // flush
+        int escJog = sc.nextInt();
+        try {
+            if(escJog == 99) return; //placeholder
+            apresentarJogador(escJog,escEquipa);
+        } catch (NullPointerException e) {
+            System.out.println("Opção inválida, escolha novamente.");
+        }
+    }
+    
+    public void apresentarJogador(int escJog, String esEquipa)
+    {
+        //etc etc
+        sc.nextLine(); // flush
+        int esc = sc.nextInt();
+        try {
+            
+        } catch (NullPointerException e) {
+            System.out.println("Opção inválida, escolha novamente.");
         }
     }
     

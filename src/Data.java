@@ -47,7 +47,21 @@ public class Data {
     public void inserirEquipa(Equipa equipa){
         equipas.put(equipa.getNome(),equipa);
     }
-
+    
+    public void apresentarEquipas()
+    {
+        System.out.println("  Equipas:");
+            for(var eq : equipas.entrySet()){
+                System.out.println("    " + eq.getKey());
+        }
+    }
+    
+    public void apPlantel(String escEquipa)
+    {
+        Equipa eq = equipas.get(escEquipa);
+        eq.apresentarPlantel();
+    }
+    
     /*
     public void inserirJogo(List<JogoRegisto> jogos){
        this.jogos = new ArrayList<>();

@@ -25,7 +25,7 @@ public class GuardaRedes extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public GuardaRedes(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int elasticidade, int lancamento,List<String> historico){
+    public GuardaRedes(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int elasticidade,List<String> historico){
         super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse,historico, 5);
         this.elasticidade = elasticidade;
         this.lancamento = lancamento;
@@ -37,7 +37,6 @@ public class GuardaRedes extends Jogador{
     public GuardaRedes(GuardaRedes umJog){
         super(umJog);
         this.elasticidade = umJog.getElasticidade();
-        this.lancamento = umJog.getLancamento();
     }
     
     /**
@@ -49,14 +48,6 @@ public class GuardaRedes extends Jogador{
     }
     
     /**
-    * Método que obtém o valor da capacidade de lançamento do guarda-redes.
-    * @return o valor da capacidade de lançamento
-    */
-    public int getLancamento(){
-        return this.lancamento;    
-    }
-    
-    /**
     * Método que muda o valor da elasticidade do guarda-redes.
     * @param o novo valor da elasticidade
     */
@@ -64,13 +55,6 @@ public class GuardaRedes extends Jogador{
         this.elasticidade = elasticidade;
     }
     
-    /**
-    * Método que muda o valor da capacidade de lançamento do guarda-redes.
-    * @param o novo valor da capacidade de lançamento
-    */
-    public void setLancamento(int lancamento){
-        this.lancamento = lancamento;
-    }
     
     /**
     * Método que calcula a habilidade do guarda-redes.
@@ -84,6 +68,13 @@ public class GuardaRedes extends Jogador{
         return habilidade;
     }
     
+    public void apresentarJogadorLateral(){
+        this.apresentarJogador();
+        System.out.println("Elasticidade: " + elasticidade);
+        
+        this.apresentarHistorico();
+    }
+    
     public static GuardaRedes parse(String input){
         String[] campos = input.split(",");
         return new GuardaRedes(campos[0], Integer.parseInt(campos[1]),
@@ -95,6 +86,6 @@ public class GuardaRedes extends Jogador{
                 Integer.parseInt(campos[7]),
                 Integer.parseInt(campos[8]),
                 Integer.parseInt(campos[9]),
-                10,new ArrayList<>());
+                new ArrayList<>());
     }
 }

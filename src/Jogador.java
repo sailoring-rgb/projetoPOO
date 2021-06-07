@@ -265,7 +265,6 @@ public class Jogador{
     public void addHistorico(String equipa){
         this.historico.add(equipa);
     }
-
     
     /**
     * Método que faz um clone do objeto Jogador.
@@ -275,4 +274,22 @@ public class Jogador{
         return new Jogador(this);
     }
     
+    public void apresentarJogador(){
+        System.out.println("  Habilidades:");
+
+        System.out.println("Velocidade: " + this.getVelocidade());
+        System.out.println("Resistencia: " + this.getResistencia());
+        System.out.println("Destreza: " + this.getDestreza());
+        System.out.println("Impulsao: " + this.getImpulsao());
+        System.out.println("Jogo de Cabeça: " + this.getJogoCabeca());
+        System.out.println("Remate: " + this.getRemate());
+        System.out.println("Capacidade de Passe: " + this.getCapPasse());
+    }
+    
+    public void apresentarHistorico(){
+        System.out.println("Equipas frequentadas: ");
+        for (String equipa : historico) {
+                System.out.println(equipa);
+        }
+    }
 }
