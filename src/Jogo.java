@@ -11,13 +11,15 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.time.LocalDateTime;
+import java.util.Random;
 
 public class Jogo{
     
     private static final int POR_COMECAR = 0;
     private static final int A_DECORRER = 1;
     private static final int TERMINADO = 2;
-   
+    
+    private String equipaAtual;   
     private int gameProgress;
     // private LocalDateTime data;
     private EstadoJogo gameState;
@@ -27,15 +29,25 @@ public class Jogo{
      */
     
     public Jogo(){
+        this.equipaAtual = "";
         this.gameProgress = POR_COMECAR;
         // this.data = LocalDateTime.now();
         this.gameState = new EstadoJogo();
     }
     
     public Jogo(String nomeEquipaCasa, String nomeEquipaFora){
+        this.equipaAtual = "";
         this.gameProgress = POR_COMECAR;
         // this.data = LocalDateTime.now();
         this.gameState = new EstadoJogo(nomeEquipaCasa, nomeEquipaFora);
+    }
+    
+    /**
+    * Método que obtém o nome da equipa com posse de bola.
+    * @return o nome da equipa atual
+    */
+    public String getEquipaAtual(){
+        return this.equipaAtual;
     }
     
     /**
@@ -52,6 +64,14 @@ public class Jogo{
     */
     public EstadoJogo getGameState(){
         return this.gameState;
+    }
+    
+    /**
+    * Método que altera o nome da equipa com posse de bola.
+    * @param o novo nome da equipa atual
+    */
+    public void setEquipaAtual(String equipaAtual){
+        this.equipaAtual = equipaAtual;
     }
     
     /**
@@ -73,9 +93,10 @@ public class Jogo{
     /**
     * Método que começa o jogo.
     */
-    public void startGame(){
+    public void startGame(EstadoJogo estado){
         if(this.gameProgress == POR_COMECAR)
-            this.gameProgress = A_DECORRER; 
+            this.gameProgress = A_DECORRER;
+        this.gameState = estado;
     }
     
     /**
@@ -86,19 +107,45 @@ public class Jogo{
             this.gameProgress = TERMINADO;
     }
     
-    /**
-     * Construir método saveGame();
-     */
+    public void iniciaJogada(EstadoJogo estado){
+
+        Random rand = new Random();
+
+        Equipa equipa1 = new Equipa(estado.getEquipaCasa());
+        Equipa equipa2 = new Equipa(estado.getEquipaFora());
+
+        double habilidadeEquipa1 = equipa1.habEquipa(equipa1);
+        double habilidadeEquipa2 = equipa2.habEquipa(equipa2);
+
+        //regra de 3 simples
+        double total = habilidadeEquipa1 + habilidadeEquipa2;
+        double hipoteseEquipa1 = (habilidadeEquipa1 * 4) / total;
+        double hipoteseEquipa2 = (habilidadeEquipa2 * 4) / total;
+
+        for(int tempo = 0; tempo < 90; tempo++){
+
+            int value = rand.nextInt(10);
+
+            // se o valor random estiver entre 5 e 9, então uma das equipas inciará uma jogada.
+            // se o valor estiver neste intervalo, é a equipa 1 que jogará.
+            if(value > 5 && value <= 5 + hipoteseEquipa1) {
+
+                this.equipaAtual = equipa1.getNome();
+                System.out.println(tempo + ": " + equipaAtual + "inicia uma jogada.");
+                constroiJogada();
+            }
+            // se o valor estiver neste intervalo, é a equipa 2 que jogará.
+            if(value > 5 + hipoteseEquipa1 && value <= 5 + hipoteseEquipa1 + hipoteseEquipa2) {
+
+                this.equipaAtual = equipa2.getNome();
+                System.out.println(tempo + ": " + equipaAtual + "inicia uma jogada.");
+                constroiJogada();
+            }
+        }
+        // acaba o jogo.
+    }
     
-    /**
-     * Construir método loadGame();
-     */
-    
-    /*
-    // FALTA AINDA:
-    // Método que calcula o vencedor do jogo.
-    // "pode arbitrar-se que em cada uma das divisões do tempo uma das equipas é responsável por atacar ...
-    // ... e em função disso a jogada pode resultar em golo ou então em perda de bola para o adversário."
-    // Indicar quem ganhou e qual o resultado.
-    */
+    public void constroiJogada(){
+        return;
+    }
 }

@@ -11,8 +11,9 @@ public class JogMenu extends Menu
 {
     private int option;
     private Jogo jogo;
+    private EstadoJogo estado;
     
-    public JogMenu(){
+    public JogMenu(EstadoJogo novoEstado){
         Scanner sc = new Scanner(System.in);
         
         System.out.println("\n");
@@ -21,15 +22,20 @@ public class JogMenu extends Menu
         System.out.println("2: Escolher tática");
         System.out.println("3: Sair");
     
+        // this.jogo = new Jogo(estado);
         this.option = sc.nextInt();
-        makeChoice(option);
+        this.estado = novoEstado;
+        makeChoice(this.option);
     }
     
     public void makeChoice(int option){
-        switch (option) {
+       switch (option) {
           case 1:
-            jogo.startGame();
-            // ...
+          System.out.println(this.estado.getEquipaCasa().getNome());
+          System.out.println(this.estado.getEquipaFora().getNome());
+            jogo.startGame(this.estado);
+            jogo.iniciaJogada(this.estado);
+            
             break;
           case 2:
             escTatica();

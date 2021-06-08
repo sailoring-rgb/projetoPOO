@@ -45,10 +45,10 @@ public class MainMenu extends Menu
             
                     Map<String, Equipa> equipas = dados.getEquipas();
 
-                    Jogo jogo = new Jogo(nomeEquipaCasa, nomeEquipaFora);
-                    jogo.getGameState().equipasEmCampo(equipas, nomeEquipaCasa, nomeEquipaFora);
-            
-                    JogMenu menu1 = new JogMenu();
+                    // Jogo jogo = new Jogo(nomeEquipaCasa, nomeEquipaFora);
+                    // jogo.getGameState().equipasEmCampo(equipas, nomeEquipaCasa, nomeEquipaFora);
+                    EstadoJogo estado = new EstadoJogo(nomeEquipaCasa, nomeEquipaFora);
+                    JogMenu novoMenu = new JogMenu(estado);
                 break;
                 
                 case 2:
