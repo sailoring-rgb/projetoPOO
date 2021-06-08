@@ -93,9 +93,10 @@ public class Jogo{
     /**
     * Método que começa o jogo.
     */
-    public void startGame(){
+    public void startGame(EstadoJogo estado){
         if(this.gameProgress == POR_COMECAR)
-            this.gameProgress = A_DECORRER; 
+            this.gameProgress = A_DECORRER;
+        this.gameState = estado;
     }
     
     /**
@@ -106,11 +107,9 @@ public class Jogo{
             this.gameProgress = TERMINADO;
     }
     
-    public void iniciaJogada(){
+    public void iniciaJogada(EstadoJogo estado){
 
         Random rand = new Random();
-
-        EstadoJogo estado = new EstadoJogo();
 
         Equipa equipa1 = new Equipa(estado.getEquipaCasa());
         Equipa equipa2 = new Equipa(estado.getEquipaFora());
@@ -143,8 +142,10 @@ public class Jogo{
                 constroiJogada();
             }
         }
-    // acaba o jogo.
+        // acaba o jogo.
     }
     
-    public void constroiJogada();
+    public void constroiJogada(){
+        return;
+    }
 }
