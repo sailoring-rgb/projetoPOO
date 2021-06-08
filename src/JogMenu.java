@@ -12,7 +12,7 @@ public class JogMenu extends Menu
     private int option;
     private Jogo jogo;
     
-    public JogMenu(){
+    public JogMenu(Jogo jogo){
         Scanner sc = new Scanner(System.in);
         
         System.out.println("\n");
@@ -22,14 +22,15 @@ public class JogMenu extends Menu
         System.out.println("3: Sair");
     
         this.option = sc.nextInt();
+        this.jogo = jogo;
         makeChoice(option);
     }
     
     public void makeChoice(int option){
-        switch (option) {
+       switch (option) {
           case 1:
             jogo.startGame();
-            // ...
+            
             break;
           case 2:
             escTatica();
