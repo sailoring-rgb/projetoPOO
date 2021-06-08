@@ -22,7 +22,7 @@ public class Jogo{
     private String equipaAtual;   
     private int gameProgress;
     // private LocalDateTime data;
-    private EstadoJogo gameState;
+    private EstadoJogo estado;
     
     /**
      * Construtores da classe Jogo.
@@ -32,14 +32,21 @@ public class Jogo{
         this.equipaAtual = "";
         this.gameProgress = POR_COMECAR;
         // this.data = LocalDateTime.now();
-        this.gameState = new EstadoJogo();
+        this.estado = new EstadoJogo();
     }
     
-    public Jogo(String nomeEquipaCasa, String nomeEquipaFora){
+    public Jogo(String nomeEquipaCasa, String nomeEquipaFora, Map<String, Equipa> equipas){
         this.equipaAtual = "";
         this.gameProgress = POR_COMECAR;
         // this.data = LocalDateTime.now();
-        this.gameState = new EstadoJogo(nomeEquipaCasa, nomeEquipaFora);
+        this.estado = new EstadoJogo(nomeEquipaCasa, nomeEquipaFora, equipas);
+    }
+    
+    public Jogo(EstadoJogo estado){
+        this.equipaAtual = "";
+        this.gameProgress = POR_COMECAR;
+        // this.data = LocalDateTime.now();
+        this.estado = estado;
     }
     
     /**
@@ -62,8 +69,8 @@ public class Jogo{
     * Método que obtém o estado do jogo.
     * @return o estado do jogo
     */
-    public EstadoJogo getGameState(){
-        return this.gameState;
+    public EstadoJogo getEstado(){
+        return this.estado;
     }
     
     /**
@@ -86,8 +93,8 @@ public class Jogo{
     * Método que muda o estado do jogo.
     * @param o novo estado do jogo
     */
-    public void setGameState(EstadoJogo gameState){
-        this.gameState = gameState;
+    public void setEstado(EstadoJogo estado){
+        this.estado = estado;
     }
     
     /**
@@ -96,7 +103,7 @@ public class Jogo{
     public void startGame(EstadoJogo estado){
         if(this.gameProgress == POR_COMECAR)
             this.gameProgress = A_DECORRER;
-        this.gameState = estado;
+        this.estado = estado;
     }
     
     /**
@@ -113,9 +120,11 @@ public class Jogo{
 
         Equipa equipa1 = new Equipa(estado.getEquipaCasa());
         Equipa equipa2 = new Equipa(estado.getEquipaFora());
-
+           
         double habilidadeEquipa1 = equipa1.habEquipa(equipa1);
+        System.out.println(habilidadeEquipa1);
         double habilidadeEquipa2 = equipa2.habEquipa(equipa2);
+        System.out.println(habilidadeEquipa2);
 
         //regra de 3 simples
         double total = habilidadeEquipa1 + habilidadeEquipa2;
@@ -125,20 +134,22 @@ public class Jogo{
         for(int tempo = 0; tempo < 90; tempo++){
 
             int value = rand.nextInt(10);
-
+            // System.out.println(value);
+            
             // se o valor random estiver entre 5 e 9, então uma das equipas inciará uma jogada.
             // se o valor estiver neste intervalo, é a equipa 1 que jogará.
             if(value > 5 && value <= 5 + hipoteseEquipa1) {
 
                 this.equipaAtual = equipa1.getNome();
-                System.out.println(tempo + ": " + equipaAtual + "inicia uma jogada.");
+                System.out.println("Minuto " + tempo + ": " + equipaAtual + " inicia uma jogada.");
                 constroiJogada();
             }
+            
             // se o valor estiver neste intervalo, é a equipa 2 que jogará.
             if(value > 5 + hipoteseEquipa1 && value <= 5 + hipoteseEquipa1 + hipoteseEquipa2) {
 
                 this.equipaAtual = equipa2.getNome();
-                System.out.println(tempo + ": " + equipaAtual + "inicia uma jogada.");
+                System.out.println("Minuto " + tempo + ": " + equipaAtual + " inicia uma jogada.");
                 constroiJogada();
             }
         }

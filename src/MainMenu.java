@@ -47,7 +47,7 @@ public class MainMenu extends Menu
 
                 // Jogo jogo = new Jogo(nomeEquipaCasa, nomeEquipaFora);
                 // jogo.getGameState().equipasEmCampo(equipas, nomeEquipaCasa, nomeEquipaFora);
-                EstadoJogo estado = new EstadoJogo(nomeEquipaCasa, nomeEquipaFora);
+                EstadoJogo estado = new EstadoJogo(nomeEquipaCasa, nomeEquipaFora, equipas);
                 JogMenu novoMenu = new JogMenu(estado);
                 break;
                 

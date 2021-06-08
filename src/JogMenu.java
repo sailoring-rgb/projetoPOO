@@ -22,17 +22,16 @@ public class JogMenu extends Menu
         System.out.println("2: Escolher tática");
         System.out.println("3: Sair");
     
-        // this.jogo = new Jogo(estado);
         this.option = sc.nextInt();
+        this.jogo = new Jogo(estado);
         this.estado = novoEstado;
+        
         makeChoice(this.option);
     }
     
     public void makeChoice(int option){
        switch (option) {
           case 1:
-          System.out.println(this.estado.getEquipaCasa().getNome());
-          System.out.println(this.estado.getEquipaFora().getNome());
             jogo.startGame(this.estado);
             jogo.iniciaJogada(this.estado);
             

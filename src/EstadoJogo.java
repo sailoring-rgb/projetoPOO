@@ -46,10 +46,10 @@ public class EstadoJogo{
         this.substituicoesFora = new HashMap<Integer,Integer>();
     }
     
-    public EstadoJogo(String nomeEquipaCasa, String nomeEquipaFora){
+    public EstadoJogo(String nomeEquipaCasa, String nomeEquipaFora, Map<String, Equipa> equipas){
         this.data = LocalDate.now();
-        this.equipaCasa = new Equipa(nomeEquipaCasa);
-        this.equipaFora = new Equipa(nomeEquipaFora);
+        this.equipaCasa = new Equipa(nomeEquipaCasa, equipas);
+        this.equipaFora = new Equipa(nomeEquipaFora, equipas);
         this.scoreCasa = 0;
         this.scoreFora = 0;
         this.jogadoresCasa = new ArrayList<Integer>();

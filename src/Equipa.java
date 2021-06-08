@@ -39,6 +39,13 @@ public class Equipa{
        this.jogadores = new HashMap<>();
    }
    
+   public Equipa(String nome, Map<String, Equipa> equipas){
+       this.nr_equipa = 0;
+       this.nr_tatica = 0;
+       this.nome = nome;
+       this.jogadores = new HashMap<>(equipas.get(nome).getJogadores());
+   }
+   
    /**
      * Construtor parametrizado.
      */
@@ -84,12 +91,20 @@ public class Equipa{
    }
    
    /**
-    * Método que obtém a lista de jogadores que são titulares.
-    * @return a lista de titulares
+    * Método que obtém o conjunto de jogadores.
+    * @return conjunto de jogadores
     */
    public Map<Integer, Jogador> getJogadores(){
        return this.jogadores.entrySet().stream()
                 .collect(Collectors.toMap(Map.Entry::getKey, e->e.getValue().clone()));
+   }
+   
+   /**
+    * Método que obtém a lista de jogadores que são titulares.
+    * @return a lista de titulares
+    */
+   public List<Jogador> getJogadoresList(){
+        return this.jogadores.values().stream().map(Jogador::clone).collect(Collectors.toList());
    }
    
    /**
@@ -100,7 +115,7 @@ public class Equipa{
        this.nr_equipa = nr_equipa;
     }
     
-    /**
+   /**
     * Método que muda o número da tatica.
     * @param o novo número da equipa
     */
@@ -117,8 +132,8 @@ public class Equipa{
     } 
    
    /**
-    * Método que muda a lista de jogadores.
-    * @param a nova lista de jogores
+    * Método que muda o conjunto de jogadores.
+    * @param o novo conjunto de jogores
     */
    public void setJogadores(Map<Integer, Jogador> jogadores){
        this.jogadores = new HashMap<>();
@@ -127,11 +142,19 @@ public class Equipa{
        }
    }
    
+   /**
+    * Método que obtém um jogador pelo número da sua camisola.
+    * @return o jogador com aquele número da camisola
+    */
    public Jogador getJogador(int escJog) {
         Jogador jog = jogadores.get(escJog);
         return jog; 
     }
    
+   /**
+    * Método que insere um jogador no conjunto de jogadores.
+    * @param o novo jogador a inserir
+    */
    public void insereJogador(Jogador jog) {
         jogadores.put(jog.clone().getNrCamisola(),jog.clone());
     }
@@ -158,22 +181,36 @@ public class Equipa{
     }
      
    public double habEquipa(Equipa umaEquipa){
-       double habGlobal = 0; // como recorremos a um loop, temos de declarar a var fora e igualá-la a 0 (ao contrário dos outros métodos hab)
+       double habGlobal = 0;
        
-       Jogador jog = new Jogador();
+       // Jogador jog = new Jogador();
        GuardaRedes jogGR = new GuardaRedes();
        Defesa jogDefesa = new Defesa();
        Medio jogMedio = new Medio();
        Avancado jogAvancado = new Avancado();
        Lateral jogLateral = new Lateral();
        
-       Iterator iter = umaEquipa.getJogadores().entrySet().iterator(); 
+       //Iterator iter = umaEquipa.getJogadores().entrySet().iterator(); 
        
        int onzeT[] = taticaEsc(nr_tatica);//para saber quantos de cada
        
-       while(iter.hasNext()){
-           habGlobal += jogGR.habGuardaRedes(jog)*onzeT[0] + jogDefesa.habDefesa(jog)*onzeT[1] + jogMedio.habMedio(jog)*onzeT[2] +
-                               jogAvancado.habAvancado(jog)*onzeT[3] + jogLateral.habLateral(jog)*onzeT[4];
+       for(Jogador j: umaEquipa.getJogadores().values()){
+           switch(j.getTipoJogador()){
+               case 1:
+                   habGlobal += jogAvancado.habAvancado(j)*onzeT[3];
+                   
+               case 2:
+                   habGlobal += jogMedio.habMedio(j)*onzeT[2];
+               
+               case 3:
+                   habGlobal += jogLateral.habLateral(j)*onzeT[4];
+               
+               case 4:
+                   habGlobal += jogDefesa.habDefesa(j)*onzeT[1];
+                   
+               case 5:
+                   habGlobal += jogGR.habGuardaRedes(j)*onzeT[0];
+           }
        }
        
        return habGlobal;
@@ -202,11 +239,5 @@ public class Equipa{
                 jogador.getValue().saver(print);
         }
    }
-    // FALTA AINDA:   
-    // Definir número de cada tipo de jogador numa equipa
-    // Definir os titulares e os suplentes
-    // Definir as substituições a fazer
-    // Método que muda um jogador de equipa
-    // Método que constroi o historial de um jogador (as equipas por onde passou)
-
+   
 }
