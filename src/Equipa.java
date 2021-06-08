@@ -126,10 +126,15 @@ public class Equipa{
        }
    }
    
+   public Jogador getJogador(int escJog) {
+        Jogador jog = jogadores.get(escJog);
+        return jog; 
+    }
+   
    public void insereJogador(Jogador jog) {
         jogadores.put(jog.clone().getNrCamisola(),jog.clone());
     }
-    
+
    public void removeJogador(Jogador jog) {
         jogadores.remove(jog.clone().getNrCamisola());
     }

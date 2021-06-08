@@ -64,10 +64,11 @@ public class Lateral extends Jogador{
     }
     
     public void apresentarJogadorLateral(){
-        this.apresentarJogador();
+        System.out.println("Posição: Lateral");
+        apresentarJogador();
         System.out.println("Cruzamento: " + capCruzamento);
         
-        this.apresentarHistorico();
+        apresentarHistorico();
     }
     
     public static Lateral parse(String input){

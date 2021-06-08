@@ -29,6 +29,10 @@ public class JogoRegisto {
         substituicoesFora = new HashMap<>(sf);
     }
 
+      public void apresentarJogo(){
+        System.out.println(date+": " + equipaCasa + " " + golosCasa + " - " + golosFora + " " + equipaFora);
+    }
+    
     public static JogoRegisto parse(String input){
         String[] campos = input.split(",");
         String[] data = campos[4].split("-");

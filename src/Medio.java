@@ -64,10 +64,11 @@ public class Medio extends Jogador{
     }
     
     public void apresentarJogadorMedio(){
-        this.apresentarJogador();
+        System.out.println("Posição: Médio");
+        apresentarJogador();
         System.out.println("Capacidade de Recuperação: " + capRecuperacao);
         
-        this.apresentarHistorico();
+        apresentarHistorico();
     }
     
     public static Medio parse(String input){

@@ -64,9 +64,10 @@ public class Defesa extends Jogador{
     }
     
     public void apresentarJogadorDefesa(){
-        this.apresentarJogador();
+        System.out.println("Posição: Defesa");
+        apresentarJogador();
         
-        this.apresentarHistorico();
+        apresentarHistorico();
     }
     
     public static Defesa parse(String input){

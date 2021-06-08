@@ -87,7 +87,7 @@ public class GerirMenu extends Menu
 
     public void apresentarEquipas()
     {
-        data.apresentarEquipas();
+        data.apEquipas();
         System.out.println("Escreva a equipa para inspecionar");
         sc.nextLine(); // flush
         String escEq = sc.nextLine();
@@ -114,10 +114,9 @@ public class GerirMenu extends Menu
         }
     }
     
-    public void apresentarJogador(int escJog, String esEquipa)
+    public void apresentarJogador(int escJog, String escEquipa)
     {
-        //etc etc
-        sc.nextLine(); // flush
+        data.apJogador(escEquipa, escJog);
         int esc = sc.nextInt();
         try {
             
@@ -128,32 +127,23 @@ public class GerirMenu extends Menu
     
     public void transferirJog()
     {
-        var equipaSet = data.getEquipas().entrySet();
+
         //fazer os trys e ver os nulls ainda
-        System.out.println("  Equipas:");
-            for(var eq : equipaSet){
-                System.out.println("    " + eq.getKey());
-        }
+        data.apEquipas();
         System.out.println("Escolha a origem do jogador");
         sc.nextLine(); //flush
-        
         
         String escEquipaO = sc.nextLine();
         
         Equipa equipaOrigem = data.getEquipas().get(escEquipaO);
 
-            for (var jogador : equipaOrigem.getJogadores().entrySet()) {
-                    System.out.println("        Número " + jogador.getKey() + " : " + jogador.getValue().getNome());
-        }
+        data.apPlantel(escEquipaO);
         System.out.println("Escolha o jogador que pretende transferir");
         int nr = sc.nextInt();
         
         Jogador jogTransf = equipaOrigem.getJogadores().get(nr);
 
-        equipaSet.remove(escEquipaO);//how do i remove :(
-            for(var eq : equipaSet){
-                System.out.println("    " + eq.getKey());
-        }
+        data.apEquipas();
         
         System.out.println("Escolha o destino do jogador");
         sc.nextLine();
@@ -181,9 +171,7 @@ public class GerirMenu extends Menu
         System.out.println("Transferencia concluida");
         
         System.out.println(jogTransf.getNome() + " faz agora parte de " + escEquipaD);
-        System.out.println("Antigas Equipas do jogador:");
-        for(String equipaP : jogTransf.getHistorico()){
-            System.out.println(equipaP);
-        }
+        
+        jogTransf.apresentarHistorico();
     }
 }

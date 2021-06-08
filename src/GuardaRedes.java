@@ -68,11 +68,12 @@ public class GuardaRedes extends Jogador{
         return habilidade;
     }
     
-    public void apresentarJogadorLateral(){
-        this.apresentarJogador();
+    public void apresentarJogadorGR(){
+        System.out.println("Posição: Guarda-Redes");
+        apresentarJogador();
         System.out.println("Elasticidade: " + elasticidade);
         
-        this.apresentarHistorico();
+        apresentarHistorico();
     }
     
     public static GuardaRedes parse(String input){

@@ -48,7 +48,7 @@ public class Data {
         equipas.put(equipa.getNome(),equipa);
     }
     
-    public void apresentarEquipas()
+    public void apEquipas()
     {
         System.out.println("  Equipas:");
             for(var eq : equipas.entrySet()){
@@ -60,6 +60,35 @@ public class Data {
     {
         Equipa eq = equipas.get(escEquipa);
         eq.apresentarPlantel();
+    }
+    
+    public void apJogador(String escEquipa, int escJog)
+    {
+        Equipa eq = equipas.get(escEquipa);
+        Jogador jog = eq.getJogador(escJog);
+        switch(jog.getTipoJogador()){
+            case 1:
+            jog.apresentarJogador(); break;
+            
+            case 2:
+            jog.apresentarJogador(); break;
+            
+            case 3:
+            jog.apresentarJogador(); break;
+            
+            case 4:
+            jog.apresentarJogador(); break;
+            
+            case 5:
+            jog.apresentarJogador(); break;
+        }
+    }
+    
+    public void apJogos()
+    {
+        for(JogoRegisto jogo: jogos){
+            jogo.apresentarJogo();
+        }
     }
     
     /*

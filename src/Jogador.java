@@ -275,19 +275,20 @@ public class Jogador{
     }
     
     public void apresentarJogador(){
+        System.out.println(nome + "\n");
         System.out.println("  Habilidades:");
 
-        System.out.println("Velocidade: " + this.getVelocidade());
-        System.out.println("Resistencia: " + this.getResistencia());
-        System.out.println("Destreza: " + this.getDestreza());
-        System.out.println("Impulsao: " + this.getImpulsao());
-        System.out.println("Jogo de Cabeça: " + this.getJogoCabeca());
-        System.out.println("Remate: " + this.getRemate());
-        System.out.println("Capacidade de Passe: " + this.getCapPasse());
+        System.out.println("     Velocidade: " + velocidade);
+        System.out.println("     Resistencia: " + resistencia);
+        System.out.println("     Destreza: " + destreza);
+        System.out.println("     Impulsao: " + impulsao);
+        System.out.println("     Jogo de Cabeça: " + jogoCabeca);
+        System.out.println("     Remate: " + remate);
+        System.out.println("     Capacidade de Passe: " + capPasse);
     }
     
     public void apresentarHistorico(){
-        System.out.println("Equipas frequentadas: ");
+        System.out.println("Antigas Equipas do jogador: ");
         for (String equipa : historico) {
                 System.out.println(equipa);
         }

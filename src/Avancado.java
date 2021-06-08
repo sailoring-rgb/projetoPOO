@@ -65,9 +65,10 @@ public class Avancado extends Jogador{
     }
     
     public void apresentarJogadorAvancado(){
-        this.apresentarJogador();
+        System.out.println("Posição: Avançado");
+        apresentarJogador();
         
-        this.apresentarHistorico();
+        apresentarHistorico();
     }
     
     public static Avancado parse(String input){
