@@ -18,68 +18,65 @@ public class MainMenu extends Menu
         
         loadGame();
         System.out.println("\n");
-        
-        System.out.println("Introduza a sua escolha:");
-        System.out.println("1: Criar Partida");
-        System.out.println("2: Gerir Jogadores/Equipas");
-        System.out.println("3: Verificar Registo de Jogos");
-        System.out.println("4: Guardar Jogo");
-        System.out.println("5: Carregar Jogo");
-        System.out.println("6: Sair");
     
-        this.option = sc.nextInt();
-        makeChoice(option);
+        while(true){
+            System.out.println("Introduza a sua escolha:");
+            System.out.println("1: Criar Partida");
+            System.out.println("2: Gerir Jogadores/Equipas");
+            System.out.println("3: Verificar Registo de Jogos");
+            System.out.println("4: Guardar Jogo");
+            System.out.println("5: Carregar Jogo");
+            System.out.println("6: Sair");
+            this.option = sc.nextInt();
+            makeChoice(option);
+        }
     }
     
     public void makeChoice(int option)
     {
         Scanner sc = new Scanner(System.in);
         
-        while(true){
-            switch (option) {
-                case 1:
-                    System.out.println("Que equipa que joga em casa?");
-                    String nomeEquipaCasa = sc.nextLine();
-                    System.out.println("Que equipa que joga fora?");
-                    String nomeEquipaFora = sc.nextLine();
+        switch (option) {
+            case 1:
+                System.out.println("Que equipa que joga em casa?");
+                String nomeEquipaCasa = sc.nextLine();
+                System.out.println("Que equipa que joga fora?");
+                String nomeEquipaFora = sc.nextLine();
             
-                    Map<String, Equipa> equipas = dados.getEquipas();
+                Map<String, Equipa> equipas = dados.getEquipas();
 
-                    // Jogo jogo = new Jogo(nomeEquipaCasa, nomeEquipaFora);
-                    // jogo.getGameState().equipasEmCampo(equipas, nomeEquipaCasa, nomeEquipaFora);
-                    EstadoJogo estado = new EstadoJogo(nomeEquipaCasa, nomeEquipaFora);
-                    JogMenu novoMenu = new JogMenu(estado);
+                // Jogo jogo = new Jogo(nomeEquipaCasa, nomeEquipaFora);
+                // jogo.getGameState().equipasEmCampo(equipas, nomeEquipaCasa, nomeEquipaFora);
+                EstadoJogo estado = new EstadoJogo(nomeEquipaCasa, nomeEquipaFora);
+                JogMenu novoMenu = new JogMenu(estado);
                 break;
                 
-                case 2:
-                    GerirMenu menu2 = new GerirMenu(dados);
-                    break;
+            case 2:
+                GerirMenu menu2 = new GerirMenu(dados);
+                break;
                 
-                case 3:
-                    dados.apJogos();
-                    new MainMenu();
-                    break;
+            case 3:
+                dados.apJogos();
+                return;
                 
-                case 4:
-                    saveGame(dados);
-                    new MainMenu();
-                    break;
+            case 4:
+                saveGame(dados);
+                return;
                 
-                case 5:
-                    loadGame();
-                    new MainMenu();
-                    break;
+            case 5:
+                loadGame();
+                return;
                 
-                case 6:
-                    System.out.println("The End!!");
-                    System.exit(0);
-                    break;
+            case 6:
+                System.out.println("The End!!");
+                System.exit(0);
+                break;
                 
-                default: 
-                    System.out.println("Opção Inválida! Digite a sua opção novamente");
-                    option = sc.nextInt();
-                    break;
-            }
+            default: 
+                System.out.println("Opção Inválida! Digite a sua opção novamente");
+                option = sc.nextInt();
+                makeChoice(option);
+                break;
         }
     }
     

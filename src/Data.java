@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.stream.Collectors;
 import java.util.List;
 import java.util.Map;
+import java.util.Comparator;
+import java.util.Collections;
 
 /**
  * Escreva a descrição da classe Data aqui.
@@ -23,10 +25,16 @@ public class Data {
     public Data (Map<String, Equipa> equipas,List<JogoRegisto> jogos){
         this.equipas = equipas.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e-> e.getValue().clone()));
         this.jogos = jogos;
+        this.jogos.sort(Comparator.comparing(JogoRegisto::getData));  
+        Collections.reverse(this.jogos);
     }
     
     public Map<String, Equipa> getEquipas(){
         return this.equipas.entrySet().stream().collect(Collectors.toMap(par->par.getKey(), par->par.getValue().clone()));
+    }
+    
+    public Equipa getEquipa(String escEquipa){
+        return this.equipas.get(escEquipa);
     }
     
     public List<JogoRegisto> getJogos(){
@@ -42,6 +50,7 @@ public class Data {
        for(JogoRegisto registo : jogos) {    
             this.jogos.add(registo);
        }
+       this.jogos.sort(Comparator.comparing(JogoRegisto::getData));     
     }
     
     public void inserirEquipa(Equipa equipa){

@@ -14,8 +14,8 @@ public class JogoRegisto {
     private LocalDate date;
     private List<Integer> jogadoresCasa;
     private List<Integer> jogadoresFora;
-    Map<Integer, Integer> substituicoesCasa = new HashMap<>();
-    Map<Integer, Integer> substituicoesFora = new HashMap<>();
+    Map<Integer, Integer> substituicoesCasa;
+    Map<Integer, Integer> substituicoesFora;
 
     public JogoRegisto (String ec, String ef, int gc, int gf, LocalDate d,  List<Integer> jc, Map<Integer, Integer> sc,  List<Integer> jf, Map<Integer, Integer> sf){
         equipaCasa = ec;
@@ -59,44 +59,31 @@ public class JogoRegisto {
                         jc, subsC, jf, subsF);
     }
     
-    public static void saver(JogoRegisto jogReg, PrintWriter print){
-        
-        String equipaCasaSav = jogReg.getEquipaCasa();
-        String equipaForaSav = jogReg.getEquipaFora();
-        String golosCasaSav = Integer.toString(jogReg.getGolosCasa());
-        String golosForaSav = Integer.toString(jogReg.getGolosCasa());
-        String dateSav = jogReg.getData().toString();
-        List<Integer> jogCasaSav = jogReg.getJogadoresCasa();
-        List<Integer> jogForaSav = jogReg.getJogadoresFora();
-        Map<Integer, Integer> subsCasa = jogReg.getSubstituicoesCasa();
-        Map<Integer, Integer> subsFora = jogReg.getSubstituicoesFora();
-        
-        var subsCasaSet = subsCasa.entrySet();
-        var subsForaSet = subsFora.entrySet();
-        
-        print.println("Jogo:"+ equipaCasaSav + ","
-                             + equipaForaSav + ","
-                             + golosCasaSav + ","
-                             + golosCasaSav + ","
-                             + dateSav);
+    public void saver(PrintWriter print){
+        print.print("Jogo:"+ equipaCasa + ","
+                             + equipaFora + ","
+                             + golosCasa + ","
+                             + golosFora + ","
+                             + date);
                              
-        for(int jogCSav : jogCasaSav) {
-                print.println("," + Integer.toString(jogCSav));
+        for(int jogC : jogadoresCasa) {
+                print.print("," + Integer.toString(jogC));
             }
         
-        for(var subsCSav : subsCasaSet){
-                print.println("," + Integer.toString(subsCSav.getKey()) + "->" 
-                                  + Integer.toString(subsCSav.getValue()));
+        for(var subsC : substituicoesCasa.entrySet()){
+                print.print("," + Integer.toString(subsC.getKey()) + "->" 
+                                  + Integer.toString(subsC.getValue()));
             }
         
-        for(int jogFSav : jogForaSav) {
-                print.println("," + Integer.toString(jogFSav));
+        for(int jogF : jogadoresFora) {
+                print.print("," + Integer.toString(jogF));
             }
         
-        for(var subsFSav : subsForaSet){
-                print.println("," + Integer.toString(subsFSav.getKey()) + "->" 
+        for(var subsFSav : substituicoesCasa.entrySet()){
+                print.print("," + Integer.toString(subsFSav.getKey()) + "->" 
                                   + Integer.toString(subsFSav.getValue()));
         }
+        print.print("\r");
     }
     
     public String toString() {

@@ -17,6 +17,7 @@ public class GerirMenu extends Menu
     {
         this.data = dados;
         
+        while(true){
         System.out.println("\n");
         System.out.println("Introduza a sua escolha:");
         System.out.println("1: Criar Equipa");
@@ -26,44 +27,29 @@ public class GerirMenu extends Menu
         System.out.println("5: Voltar");
     
         this.option = sc.nextInt();
-        if(option < 1 || option > 5)
-            System.out.println("Não exite esta opção!");
-        else makeChoice(option);
-
+        if(option < 1 || option > 5)System.out.println("Não exite esta opção!");
+        else {if(option == 5) return; else makeChoice(option);}
+        }
     }
     
     public void makeChoice(int option)
     {
        switch (option) {
           case 1:
-            gerarEquipa();
-            
-            new GerirMenu(data);
-            break;
+            gerarEquipa();            
+            return;
             
           case 2:
             gerarJogador();
-            
-            new GerirMenu(data);
-            break;
+            return;
             
           case 3:
             apresentarEquipas();
-            
-            new GerirMenu(data);
-            break;
+            return;
             
           case 4:
-            // Transferir jogador entre equipas
-            // ...
             transferirJog();
-            
-            new GerirMenu(data);
-            break;
-            
-          case 5:
-            MainMenu menu = new MainMenu();
-            break;
+            return;
             
           default: System.out.println("Opção Inválida");
        }

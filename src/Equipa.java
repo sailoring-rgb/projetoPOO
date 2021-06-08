@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.io.*;
 
 public class Equipa{
 
@@ -188,12 +189,19 @@ public class Equipa{
                 System.out.println("        Número " + jogador.getKey() + " : " + jogador.getValue().getNome());
         }
     }
-   
+    
    public static Equipa parse(String input){
         String[] campos = input.split(",");
         return new Equipa(campos[0]);
    }
-    
+
+   public void saver(PrintWriter print){
+        print.println("Equipa:"+ nome);
+            
+            for (var jogador : jogadores.entrySet()) {
+                jogador.getValue().saver(print);
+        }
+   }
     // FALTA AINDA:   
     // Definir número de cada tipo de jogador numa equipa
     // Definir os titulares e os suplentes

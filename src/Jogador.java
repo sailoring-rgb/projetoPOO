@@ -8,6 +8,7 @@
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.io.*;
 
 public class Jogador{
     private static final int AVANCADO = 1;
@@ -292,5 +293,42 @@ public class Jogador{
         for (String equipa : historico) {
                 System.out.println(equipa);
         }
+    }
+    
+    
+    public void saver(PrintWriter print){
+            switch(tipoJogador){
+                //por arranjar-----------------------
+                case 1:print.println("Avancado:"+ nome +","
+                                    + nr_camisola +"," + velocidade +","
+                                    + resistencia +"," + destreza +","
+                                    + impulsao +"," + jogoCabeca +","
+                                    + remate +"," + capPasse);
+                                    break;
+                case 2:print.println("Medio:"+ nome +","
+                                    + nr_camisola +"," + velocidade +","
+                                    + resistencia +"," + destreza +","
+                                    + impulsao +"," + jogoCabeca +","
+                                    + remate +"," + capPasse);
+                                    break;
+                case 3:print.println("Lateral:"+ nome +","
+                                    + nr_camisola +"," + velocidade +","
+                                    + resistencia +"," + destreza +","
+                                    + impulsao +"," + jogoCabeca +","
+                                    + remate +"," + capPasse);
+                                    break;
+                case 4:print.println("Defesa:"+ nome +","
+                                    + nr_camisola +"," + velocidade +","
+                                    + resistencia +"," + destreza +","
+                                    + impulsao +"," + jogoCabeca +","
+                                    + remate +"," + capPasse);
+                                    break;
+                case 5:print.println("Guarda-Redes:"+ nome +","
+                                    + nr_camisola +"," + velocidade +","
+                                    + resistencia +"," + destreza +","
+                                    + impulsao +"," + jogoCabeca +","
+                                    + remate +"," + capPasse);
+                                    break;
+                }
     }
 }

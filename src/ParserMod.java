@@ -59,15 +59,6 @@ public class ParserMod {
 
             }
         }
-        
-
-        /*for (Equipa e: equipas.values()){
-            System.out.println(e.getNome());
-        }
-        
-        for (JogoRegisto jog: jogos){
-            System.out.println(jog.toString());
-        }*/
 
         Data data = new Data(equipas,jogos);
         return data;
