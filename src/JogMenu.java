@@ -34,14 +34,17 @@ public class JogMenu extends Menu
           case 1:
             jogo.startGame(this.estado);
             jogo.iniciaJogada(this.estado);
-            
+            jogo.endGame(this.estado);            
             break;
+            
           case 2:
             escTatica();
             break;
+            
           case 3:
             exit();
             break;
+            
           default: System.out.println("Opção Inválida");
         }
     }

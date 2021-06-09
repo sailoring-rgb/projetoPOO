@@ -216,15 +216,25 @@ public class Equipa{
        return habGlobal;
     }
     
-   public Equipa clone(){
-       return new Equipa(this);
-   }
-   
    public void apresentarPlantel(){   
         System.out.println("  Jogadores:");
             for (var jogador : jogadores.entrySet()) {
                 System.out.println("        Número " + jogador.getKey() + " : " + jogador.getValue().getNome());
         }
+   }
+   
+   public Equipa clone(){
+       return new Equipa(this);
+   }
+   
+   public boolean equals(Object obj){
+        if (obj == this) return true;
+        if (obj == null || ! obj.getClass().equals(this.getClass())) return false;
+        Equipa equipa = (Equipa) obj;
+        return this.nr_equipa == equipa.getNrEquipa() &&
+            this.nr_tatica == equipa.getNrTatica() &&
+            this.nome.equals(equipa.getNome()) &&
+            this.jogadores.equals(equipa.getJogadores());
     }
     
    public static Equipa parse(String input){

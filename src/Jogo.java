@@ -109,9 +109,24 @@ public class Jogo{
     /**
     * Método que termina o jogo.
     */
-    public void endGame(){
+    public void endGame(EstadoJogo estado){
         if(this.gameProgress == A_DECORRER)
             this.gameProgress = TERMINADO;
+        
+        this.estado = estado;
+        
+        System.out.println("\n");
+        System.out.println("JOGO ACABOU");
+        System.out.println("    Pontuação final: " + estado.getEquipaCasa().getNome() + " - " + estado.getScoreCasa() + " | " + estado.getScoreFora() + " - " + estado.getEquipaFora().getNome());
+        
+        if(estado.getScoreCasa() > estado.getScoreFora()){
+            System.out.println("    " + estado.getEquipaCasa().getNome() + " ganhou o jogo!");
+        }
+        else{
+            System.out.println("    " + estado.getEquipaFora().getNome() + " ganhou o jogo!");
+        }
+        
+        System.out.println("\n");
     }
     
     public void iniciaJogada(EstadoJogo estado){
@@ -122,9 +137,7 @@ public class Jogo{
         Equipa equipa2 = new Equipa(estado.getEquipaFora());
            
         double habilidadeEquipa1 = equipa1.habEquipa(equipa1);
-        System.out.println(habilidadeEquipa1);
         double habilidadeEquipa2 = equipa2.habEquipa(equipa2);
-        System.out.println(habilidadeEquipa2);
 
         //regra de 3 simples
         double total = habilidadeEquipa1 + habilidadeEquipa2;
@@ -139,24 +152,75 @@ public class Jogo{
             // se o valor random estiver entre 5 e 9, então uma das equipas inciará uma jogada.
             // se o valor estiver neste intervalo, é a equipa 1 que jogará.
             if(value > 5 && value <= 5 + hipoteseEquipa1) {
-
+                System.out.println("\n");
                 this.equipaAtual = equipa1.getNome();
                 System.out.println("Minuto " + tempo + ": " + equipaAtual + " inicia uma jogada.");
-                constroiJogada();
+                constroiJogada(equipaAtual, estado);
             }
             
             // se o valor estiver neste intervalo, é a equipa 2 que jogará.
             if(value > 5 + hipoteseEquipa1 && value <= 5 + hipoteseEquipa1 + hipoteseEquipa2) {
-
+                System.out.println("\n");
                 this.equipaAtual = equipa2.getNome();
                 System.out.println("Minuto " + tempo + ": " + equipaAtual + " inicia uma jogada.");
-                constroiJogada();
+                constroiJogada(equipaAtual, estado);
             }
+            
         }
-        // acaba o jogo.
     }
     
-    public void constroiJogada(){
-        return;
+    public void constroiJogada(String equipaAtual, EstadoJogo estado){
+        
+        Random rand = new Random();
+        int r = 1;
+        
+        while(r==1){
+            
+            int value = rand.nextInt(10);
+            
+            if(value <= 2){
+                System.out.println("    " + equipaAtual + " perde a bola para a equipa adversária");
+                r=0;
+            } 
+            
+            if(value >= 3 && value <= 6){
+                System.out.println("    Passe de bola entre os jogadores");
+            }
+            
+            if(value >= 7 && value <= 8){
+                System.out.println("    A equipa adversária pressiona os jogadores de " + equipaAtual);
+            }
+            
+            if(value == 9){
+                remate(equipaAtual, estado);
+                r=0;
+            }
+        }
+        
+    }
+    
+    public void remate(String equipaAtual, EstadoJogo estado){
+        Random rand = new Random();
+        
+        int value = rand.nextInt(10);
+        
+        if(value < 4){
+            System.out.println("    " + equipaAtual + "remata e marca golo");
+            if(equipaAtual.equals(estado.getEquipaCasa())){
+                estado.setScoreCasa(estado.getScoreCasa() + 1);
+                System.out.println("    Pontuação: " + equipaAtual + " - " + estado.getScoreCasa() + " | " + estado.getScoreFora() + " - " + estado.getEquipaFora().getNome());
+            } else{
+                estado.setScoreFora(estado.getScoreFora() + 1);
+                System.out.println("    Pontuação: " + estado.getEquipaCasa().getNome() + " - " + estado.getScoreCasa() + " | " + estado.getScoreFora() + " - " + equipaAtual);
+            }
+        }
+        
+        if(value >= 4 && value <= 6){
+            System.out.println("    " + equipaAtual + "remata, mas o guarda redes defende");
+        }
+        
+        if(value >= 7 && value <= 8){
+            System.out.println("    " + equipaAtual + "remata, mas falha baliza");
+        }
     }
 }
