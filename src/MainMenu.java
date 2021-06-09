@@ -27,6 +27,7 @@ public class MainMenu extends Menu
             System.out.println("4: Guardar Jogo");
             System.out.println("5: Carregar Jogo");
             System.out.println("6: Sair");
+            
             this.option = sc.nextInt();
             makeChoice(option);
         }
@@ -38,15 +39,21 @@ public class MainMenu extends Menu
         
         switch (option) {
             case 1:
-                System.out.println("Que equipa que joga em casa?");
-                String nomeEquipaCasa = sc.nextLine();
-                System.out.println("Que equipa que joga fora?");
-                String nomeEquipaFora = sc.nextLine();
-            
-                Map<String, Equipa> equipas = dados.getEquipas();
+                this.dados.apEquipas();
 
-                // Jogo jogo = new Jogo(nomeEquipaCasa, nomeEquipaFora);
-                // jogo.getGameState().equipasEmCampo(equipas, nomeEquipaCasa, nomeEquipaFora);
+                Map<String, Equipa> equipas = this.dados.getEquipas();
+
+                System.out.println("Que equipa joga em casa?");
+                String nomeEquipaCasa = sc.nextLine();
+                if(!equipas.containsKey(nomeEquipaCasa)){
+                    throw new EquipaNaoExisteException(nomeEquipaCasa);
+                }
+                System.out.println("Que equipa joga fora?");
+                String nomeEquipaFora = sc.nextLine();
+                if(!equipas.containsKey(nomeEquipaFora)){
+                    throw new EquipaNaoExisteException(nomeEquipaFora);
+                }
+
                 EstadoJogo estado = new EstadoJogo(nomeEquipaCasa, nomeEquipaFora, equipas);
                 JogMenu novoMenu = new JogMenu(estado);
                 break;
