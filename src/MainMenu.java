@@ -84,6 +84,7 @@ public class MainMenu extends Menu
         Scanner sc = new Scanner(System.in);
         int pags = (dados.getJogos().size()/10);
         System.out.println(" Página "+pag+" de "+pags);
+        boolean on = true;
         
         dados.apJogos(pag);
         System.out.print("(0: Voltar) ");
@@ -92,13 +93,22 @@ public class MainMenu extends Menu
         System.out.print("\n");
         int escPag = sc.nextInt();
         
-        switch (escPag){
+        while(on){
+            switch (escPag){
             case 0:return;
-            case 1: if (pag > 0) apJogos(--pag); else System.out.println("Opção Inválida! Digite a sua opção novamente"); break;
-            case 2: if (pags > pag) apJogos(++pag); else System.out.println("Opção Inválida! Digite a sua opção novamente"); break;
+            case 1: if (pag > 0) {apJogos(--pag); on = false;} 
+                    else {System.out.println("Opção Inválida! Digite a sua opção novamente"); 
+                    escPag = sc.nextInt();}
+                    break;
+            case 2: if (pags > pag) {apJogos(++pag); on = false;}
+                    else {System.out.println("Opção Inválida! Digite a sua opção novamente"); 
+                    escPag = sc.nextInt();}
+                    break;
             default: 
             System.out.println("Opção Inválida! Digite a sua opção novamente");
+            escPag = sc.nextInt();
             break;
+            }
         }
     }
     
