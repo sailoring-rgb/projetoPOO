@@ -18,28 +18,8 @@ public class Teste{
         promptEnterKey();
 
         MainMenu menu = new MainMenu();
-        
-        /*
-        switch(escolha){
-            case 1:
-                CriarJog aux = new CriarJog();
-                int jogEscolhido = aux.qualJog();
-                if(jogEscolhido < 1 || jogEscolhido > 5)
-                    System.out.println("Não exite esta opção!");
-                    else aux.escJogador(jogEscolhido);
-                break;
-        
-            case 2:
-                MainMenu menu = new MainMenu();
-                break;
-       
-            default: 
-                System.out.println("Não exite esta opção!");
-                break;
-                */
     }
 
-    
     public static void promptEnterKey(){
         System.out.println("Presse \"ENTER\" para começar.");
         try {

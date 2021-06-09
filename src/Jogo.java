@@ -191,15 +191,15 @@ public class Jogo{
     public void constroiJogada(String equipaAtual, EstadoJogo estado){
         
         Random rand = new Random();
-        int r = 1;
+        boolean r = true;
         
-        while(r==1){
+        while(r){
             
             int value = rand.nextInt(10);
             
             if(value <= 2){
                 System.out.println("    " + equipaAtual + " perde a bola para a equipa adversária");
-                r=0;
+                r = false;
             } 
             
             if(value >= 3 && value <= 6){
@@ -212,7 +212,7 @@ public class Jogo{
             
             if(value == 9){
                 remate(equipaAtual, estado);
-                r=0;
+                r = false;
             }
         }
     }

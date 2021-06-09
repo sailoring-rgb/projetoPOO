@@ -1,9 +1,9 @@
 import java.util.*;
 
 /**
- * Escreva a descrição da classe CriarJog aqui.
+ * Esta classe destina-se a criar um jogador.
  * 
- * @author (seu nome) 
+ * @author grupo 3
  * @version (número de versão ou data)
  */
 public class CriarJog
@@ -33,7 +33,9 @@ public class CriarJog
 
     /**
      * Método que pede ao usuário valores para as características do tipo de jogador que escolheu.
+     * 
      * Este método calcula, ainda, a habilidade do dito jogador consoante os valores dados.
+     * 
      * @param o número da opção
      * @return o novo jogador criado
      */
@@ -203,6 +205,9 @@ public class CriarJog
         return jog;
     }
      
+    /**
+     * Método que associa um jogador a uma equipa a partir dos dados do ficheiro.
+     */
     public void atribEq(Jogador jog, Data data)
     {
         Scanner sc = new Scanner(System.in);
@@ -216,15 +221,21 @@ public class CriarJog
         System.out.println("A que equipa pretende associar este jogador?");
         boolean valid = false;
         
-        do{
-            try {String escolhaEq = sc.nextLine();
+        while(!valid){
+            try {
+                String escolhaEq = sc.nextLine();
                 Equipa eq = data.getEquipas().get(escolhaEq);
                 eq.insereJogador(jog);
                 data.getEquipas().put(escolhaEq,eq);
                 valid = true;
-                System.out.println(jog.getNome()+" faz agora parte de "+ eq.getNome()+ "!");}
-            catch(NullPointerException e) {System.out.println("Equipa não existe! Volte a inserir opção");}
-            catch(Exception exc) {System.out.println("Erro a inserir jogador!");}
-        } while (!valid);
+                System.out.println(jog.getNome()+" faz agora parte de "+ eq.getNome()+ "!");
+            }
+            catch(NullPointerException e) {
+                System.out.println("Equipa não existe! Volte a inserir opção");
+            }
+            catch(Exception exc) {
+                System.out.println("Erro a inserir jogador!");
+            }
+        }
     }
 }

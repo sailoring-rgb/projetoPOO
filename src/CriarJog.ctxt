@@ -1,12 +1,13 @@
 #BlueJ class context
 comment0.target=CriarJog
-comment0.text=\n\ Escreva\ a\ descri\u00E7\u00E3o\ da\ classe\ CriarJog\ aqui.\n\ \n\ @author\ (seu\ nome)\ \n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\n
+comment0.text=\n\ Esta\ classe\ destina-se\ a\ criar\ um\ jogador.\n\ \n\ @author\ grupo\ 3\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\n
 comment1.params=
 comment1.target=int\ escJogador()
 comment1.text=\n\ M\u00E9todo\ que\ pergunta\ ao\ usu\u00E1rio\ que\ tipo\ de\ jogador\ pretende\ criar.\n\ @return\ o\ n\u00FAmero\ da\ op\u00E7\u00E3o\n
 comment2.params=jogEscolhido
 comment2.target=Jogador\ criarJogador(int)
-comment2.text=\n\ M\u00E9todo\ que\ pede\ ao\ usu\u00E1rio\ valores\ para\ as\ caracter\u00EDsticas\ do\ tipo\ de\ jogador\ que\ escolheu.\n\ Este\ m\u00E9todo\ calcula,\ ainda,\ a\ habilidade\ do\ dito\ jogador\ consoante\ os\ valores\ dados.\n\ @param\ o\ n\u00FAmero\ da\ op\u00E7\u00E3o\n\ @return\ o\ novo\ jogador\ criado\n
+comment2.text=\n\ M\u00E9todo\ que\ pede\ ao\ usu\u00E1rio\ valores\ para\ as\ caracter\u00EDsticas\ do\ tipo\ de\ jogador\ que\ escolheu.\n\ \n\ Este\ m\u00E9todo\ calcula,\ ainda,\ a\ habilidade\ do\ dito\ jogador\ consoante\ os\ valores\ dados.\n\ \n\ @param\ o\ n\u00FAmero\ da\ op\u00E7\u00E3o\n\ @return\ o\ novo\ jogador\ criado\n
 comment3.params=jog\ data
 comment3.target=void\ atribEq(Jogador,\ Data)
+comment3.text=\n\ M\u00E9todo\ que\ associa\ um\ jogador\ a\ uma\ equipa\ a\ partir\ dos\ dados\ do\ ficheiro.\n
 numComments=4
