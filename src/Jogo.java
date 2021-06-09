@@ -27,7 +27,6 @@ public class Jogo{
     /**
      * Construtores da classe Jogo.
      */
-    
     public Jogo(){
         this.equipaAtual = "";
         this.gameProgress = POR_COMECAR;
@@ -98,7 +97,8 @@ public class Jogo{
     }
     
     /**
-    * Método que começa o jogo.
+    * Método que começa o jogo a partir de um estado.
+    * @param o estado do jogo
     */
     public void startGame(EstadoJogo estado){
         if(this.gameProgress == POR_COMECAR)
@@ -107,7 +107,11 @@ public class Jogo{
     }
     
     /**
-    * Método que termina o jogo.
+    * Método que termina o jogo a partir de um estado.
+    * 
+    * É imprimido também que equipa é que ganhou, bem como a pontuação final do jogo.
+    * 
+    * @param o estado do jogo
     */
     public void endGame(EstadoJogo estado){
         if(this.gameProgress == A_DECORRER)
@@ -129,6 +133,15 @@ public class Jogo{
         System.out.println("\n");
     }
     
+    /**
+     * Método que inicia uma jogada a partir de um estado.
+     * 
+     * Se o valor aleatório estiver entre 1 a 5, não se inicia jogada nenhuma.
+     * Se o valor aleatório estiver entre 6 a 9, inicia-se uma jogada.
+     * O fator que decide qual é a equipa com posse de bola depende do valor das habilidades de cada equipa.
+     * 
+     * @param o estado do jogo
+     */
     public void iniciaJogada(EstadoJogo estado){
 
         Random rand = new Random();
@@ -139,7 +152,6 @@ public class Jogo{
         double habilidadeEquipa1 = equipa1.habEquipa(equipa1);
         double habilidadeEquipa2 = equipa2.habEquipa(equipa2);
 
-        //regra de 3 simples
         double total = habilidadeEquipa1 + habilidadeEquipa2;
         double hipoteseEquipa1 = (habilidadeEquipa1 * 4) / total;
         double hipoteseEquipa2 = (habilidadeEquipa2 * 4) / total;
@@ -147,9 +159,7 @@ public class Jogo{
         for(int tempo = 0; tempo < 90; tempo++){
 
             int value = rand.nextInt(10);
-            // System.out.println(value);
-            
-            // se o valor random estiver entre 5 e 9, então uma das equipas inciará uma jogada.
+
             // se o valor estiver neste intervalo, é a equipa 1 que jogará.
             if(value > 5 && value <= 5 + hipoteseEquipa1) {
                 System.out.println("\n");
@@ -165,10 +175,19 @@ public class Jogo{
                 System.out.println("Minuto " + tempo + ": " + equipaAtual + " inicia uma jogada:");
                 constroiJogada(equipaAtual, estado);
             }
-            
         }
     }
     
+    /**
+     * Método que constroi uma jogada a partir de um estado.
+     * 
+     * Se o valor aleatório estiver entre 0 a 2, a equipa (a jogar) perde a bola para a equipa adversária.
+     * Se o valor aleatório estiver entre 3 a 6, um jogador (da equipa a jogar) passa a bola para outro jogador da sua equipa.
+     * Se o valor aleatório estiver entre 7 a 8, a equipa adversária pressiona os jogadores da equipa (a jogar).
+     * 
+     * @param a equipa com posse de bola (a jogar)
+     * @param o estado do jogo
+     */
     public void constroiJogada(String equipaAtual, EstadoJogo estado){
         
         Random rand = new Random();
@@ -196,9 +215,18 @@ public class Jogo{
                 r=0;
             }
         }
-        
     }
     
+    /**
+     * Método que efetua o remate a partir de um estado.
+     * 
+     * Se o valor aleatório estiver entre 0 a 3, a equipa (a jogar) remata e marca golo, apresentando a sua pontuação depois de marcar golo.
+     * Se o valor aleatório estiver entre 4 a 6, a equipa (a jogar) remata, mas o guarda redes defende.
+     * Se o valor aleatório estiver entre 7 a 9, a equipa (a jogar) remata, mas falha baliza.
+     * 
+     * @param a equipa com posse de bola (a jogar)
+     * @param o estado do jogo
+     */
     public void remate(String equipaAtual, EstadoJogo estado){
         Random rand = new Random();
         
