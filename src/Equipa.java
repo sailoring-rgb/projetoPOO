@@ -159,6 +159,10 @@ public class Equipa{
         jogadores.put(jog.clone().getNrCamisola(),jog.clone());
     }
 
+   /**
+    * Método que remove um jogador dum conjunto de jogadores.
+    * @param o jogador a remover
+    */
    public void removeJogador(Jogador jog) {
         jogadores.remove(jog.clone().getNrCamisola());
     }
@@ -175,19 +179,25 @@ public class Equipa{
         
         return new int[]{1,2,4,2,2}; 
     }
-     
+   
+   /**
+    * Método que calcula a habilidade total de uma equipa.
+    * 
+    * Será percorrido o map de jogadores e, dependendo do tipo do jogador e da quantidade de
+    * cada posição (defesa, lateral, médio, avançado, guarda-redes), as habilidades de cada jogador serão somadas.
+    * 
+    * @param a equipa cuja habilidade será calculada
+    * @return a habilidade total da equipa
+    */
    public double habEquipa(Equipa umaEquipa){
        double habGlobal = 0;
        
-       // Jogador jog = new Jogador();
        GuardaRedes jogGR = new GuardaRedes();
        Defesa jogDefesa = new Defesa();
        Medio jogMedio = new Medio();
        Avancado jogAvancado = new Avancado();
        Lateral jogLateral = new Lateral();
-       
-       //Iterator iter = umaEquipa.getJogadores().entrySet().iterator(); 
-       
+             
        int onzeT[] = taticaEsc(nr_tatica);//para saber quantos de cada
        
        for(Jogador j: umaEquipa.getJogadores().values()){
@@ -211,18 +221,46 @@ public class Equipa{
        
        return habGlobal;
     }
-    
+   
+   /**
+    * Método que imprime o plantel de jogadores, cada um identificado pelo número da sua camisola.
+    */
    public void apresentarPlantel(){   
         System.out.println("  Jogadores:");
-            for (var jogador : jogadores.entrySet()) {
-                System.out.println("        Número " + jogador.getKey() + " : " + jogador.getValue().getNome());
+        for (var jogador : jogadores.entrySet()) {
+            System.out.println("        Número " + jogador.getKey() + " : " + jogador.getValue().getNome());
         }
    }
    
+   /**
+    * Método que faz o parse de um objeto de tipo Equipa (e dos seus campos), a partir de uma string.
+    */
+   public static Equipa parse(String input){
+        String[] campos = input.split(",");
+        return new Equipa(campos[0]);
+   }
+
+   /**
+    * Método que guarda um objeto de tipo Equipa.
+    */
+   public void saver(PrintWriter print){
+        print.println("Equipa:"+ nome);
+            
+        for (var jogador : jogadores.entrySet()) {
+            jogador.getValue().saver(print);
+        }
+   }
+   
+   /**
+    * Método que faz o clone de um objeto de tipo Equipa.
+    */
    public Equipa clone(){
        return new Equipa(this);
    }
    
+   /**
+    * Método que reescreve o equals de um objeto de tipo Equipa.
+    */
    public boolean equals(Object obj){
         if (obj == this) return true;
         if (obj == null || ! obj.getClass().equals(this.getClass())) return false;
@@ -232,18 +270,4 @@ public class Equipa{
             this.nome.equals(equipa.getNome()) &&
             this.jogadores.equals(equipa.getJogadores());
     }
-    
-   public static Equipa parse(String input){
-        String[] campos = input.split(",");
-        return new Equipa(campos[0]);
-   }
-
-   public void saver(PrintWriter print){
-        print.println("Equipa:"+ nome);
-            
-            for (var jogador : jogadores.entrySet()) {
-                jogador.getValue().saver(print);
-        }
-   }
-   
 }

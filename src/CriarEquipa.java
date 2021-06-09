@@ -1,9 +1,9 @@
 import java.util.*;
 
 /**
- * Escreva a descrição da classe CriarEquipa aqui.
+ * Esta classe destina-se a criar uma equipa.
  * 
- * @author (seu nome) 
+ * @author grupo 3
  * @version (número de versão ou data)
  */
 public class CriarEquipa
