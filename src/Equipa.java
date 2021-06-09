@@ -168,13 +168,9 @@ public class Equipa{
         //Isto é muito suboptimal mas não encontrei melhor maneira
         switch(tacEscolhida){
             case 0:
-                return new int[]{1,2,4,2,2};
+                return new int[]{1,4,4,2};
             case 1:
-                return new int[]{1,2,3,4,1};
-            case 2:
-                return new int[]{1,2,2,4,2};
-            case 3:
-                return new int[]{1,3,4,2,1};
+                return new int[]{1,4,3,3};
         }
         
         return new int[]{1,2,4,2,2}; 

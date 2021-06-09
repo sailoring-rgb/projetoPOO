@@ -136,7 +136,6 @@ public class MainMenu {
         }
     }
     
-    
     public void loadGame(){
          try{ System.out.println("A carregar dados..");
              this.dados = ParserMod.parse(); 
