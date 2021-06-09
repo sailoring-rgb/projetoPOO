@@ -36,10 +36,14 @@ public class MainMenu {
                 System.out.println("Equipa não existe!");
                 System.out.println("\n");
             }
+            catch(JogoNaoValidoException ex){
+                System.out.println("Uma equipa não pode jogar contra si prórpia!");
+                System.out.println("\n");
+            }
         }
     }
     
-    public void makeChoice(int option) throws EquipaNaoExisteException
+    public void makeChoice(int option) throws EquipaNaoExisteException,JogoNaoValidoException
     {
         Scanner sc = new Scanner(System.in);
         
@@ -56,10 +60,15 @@ public class MainMenu {
                 if(!equipas.containsKey(nomeEquipaCasa)){
                     throw new EquipaNaoExisteException(nomeEquipaCasa);
                 }
+                
                 System.out.println("Que equipa joga fora?");
                 String nomeEquipaFora = sc.nextLine();
                 if(!equipas.containsKey(nomeEquipaFora)){
                     throw new EquipaNaoExisteException(nomeEquipaFora);
+                }
+                
+                if(nomeEquipaCasa.equals(nomeEquipaFora)){
+                    throw new JogoNaoValidoException(nomeEquipaCasa);
                 }
 
                 EstadoJogo estado = new EstadoJogo(nomeEquipaCasa, nomeEquipaFora, equipas);

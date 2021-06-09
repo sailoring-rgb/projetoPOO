@@ -246,5 +246,14 @@ public class EstadoJogo{
         if(equipas.containsKey(nomeEquipaFora))
             this.equipaFora = equipas.get(nomeEquipaFora).clone();
     }
+    
+    /**public void substituiJogadores(Equipa umaEquipa, int jogSai, int jogEntra){
+        if(umaEquipa.equals(getEquipaCasa())){
+        
+        }
+        else{
+        
+        }
+    }*/
 }
 
