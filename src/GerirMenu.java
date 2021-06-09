@@ -7,7 +7,7 @@ import java.io.*;
  * @author (seu nome) 
  * @version (número de versão ou data)
  */
-public class GerirMenu extends Menu
+public class GerirMenu 
 {
     private int option;
     private Data data;

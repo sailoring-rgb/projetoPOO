@@ -7,8 +7,7 @@ import java.io.*;
  * @author (seu nome) 
  * @version (número de versão ou data)
  */
-public class MainMenu extends Menu
-{
+public class MainMenu {
     private int option;
     private Data dados;
        
@@ -29,17 +28,26 @@ public class MainMenu extends Menu
             System.out.println("6: Sair");
             
             this.option = sc.nextInt();
-            makeChoice(option);
+            
+            try{ 
+                makeChoice(option);
+            }
+            catch(EquipaNaoExisteException exc) {
+                System.out.println("Equipa não existe!");
+                System.out.println("\n");
+            }
         }
     }
     
-    public void makeChoice(int option)
+    public void makeChoice(int option) throws EquipaNaoExisteException
     {
         Scanner sc = new Scanner(System.in);
         
         switch (option) {
             case 1:
                 this.dados.apEquipas();
+                
+                System.out.println("\n");
 
                 Map<String, Equipa> equipas = this.dados.getEquipas();
 

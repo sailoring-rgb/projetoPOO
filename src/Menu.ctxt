@@ -1,6 +1,0 @@
-#BlueJ class context
-comment0.target=Menu
-comment0.text=\r\n\ Escreva\ a\ descri\u00E7\u00E3o\ da\ classe\ Menu\ aqui.\r\n\ \r\n\ @author\ Me\r\n\ @version\ 210412\r\n
-comment1.params=option
-comment1.target=void\ makeChoice(int)
-numComments=2

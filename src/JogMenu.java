@@ -7,7 +7,7 @@ import java.io.*;
  * @author (seu nome) 
  * @version (número de versão ou data)
  */
-public class JogMenu extends Menu
+public class JogMenu 
 {
     private int option;
     private Jogo jogo;

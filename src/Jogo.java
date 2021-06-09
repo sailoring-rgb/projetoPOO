@@ -154,7 +154,7 @@ public class Jogo{
             if(value > 5 && value <= 5 + hipoteseEquipa1) {
                 System.out.println("\n");
                 this.equipaAtual = equipa1.getNome();
-                System.out.println("Minuto " + tempo + ": " + equipaAtual + " inicia uma jogada.");
+                System.out.println("Minuto " + tempo + ": " + equipaAtual + " inicia uma jogada:");
                 constroiJogada(equipaAtual, estado);
             }
             
@@ -162,7 +162,7 @@ public class Jogo{
             if(value > 5 + hipoteseEquipa1 && value <= 5 + hipoteseEquipa1 + hipoteseEquipa2) {
                 System.out.println("\n");
                 this.equipaAtual = equipa2.getNome();
-                System.out.println("Minuto " + tempo + ": " + equipaAtual + " inicia uma jogada.");
+                System.out.println("Minuto " + tempo + ": " + equipaAtual + " inicia uma jogada:");
                 constroiJogada(equipaAtual, estado);
             }
             
