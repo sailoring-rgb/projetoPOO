@@ -56,7 +56,7 @@ public class MainMenu extends Menu
                 break;
                 
             case 3:
-                dados.apJogos();
+                apJogos(0);
                 return;
                 
             case 4:
@@ -80,11 +80,34 @@ public class MainMenu extends Menu
         }
     }
     
+    public void apJogos(int pag){
+        Scanner sc = new Scanner(System.in);
+        int pags = (dados.getJogos().size()/10);
+        System.out.println(" Página "+pag+" de "+pags);
+        
+        dados.apJogos(pag);
+        System.out.print("(0: Voltar) ");
+        if (pag > 0) System.out.print("(1: Pag. Anterior) ");
+        if (pags > pag) System.out.print("(2: Pag. Seguinte) ");
+        System.out.print("\n");
+        int escPag = sc.nextInt();
+        
+        switch (escPag){
+            case 0:return;
+            case 1: if (pag > 0) apJogos(--pag); else System.out.println("Opção Inválida! Digite a sua opção novamente"); break;
+            case 2: if (pags > pag) apJogos(++pag); else System.out.println("Opção Inválida! Digite a sua opção novamente"); break;
+            default: 
+            System.out.println("Opção Inválida! Digite a sua opção novamente");
+            break;
+        }
+    }
+    
+    
     public void loadGame(){
-        try{ System.out.println("A carregar dados..");
+         try{ System.out.println("A carregar dados..");
              this.dados = ParserMod.parse(); 
              System.out.println("Jogo carregado.");}
-        catch(Exception exc){ 
+         catch(Exception exc){ 
             System.out.println("Erro a carregar! A criar nova base de dados..");
             this.dados = new Data(); 
             System.out.println("Base de dados criada.");}

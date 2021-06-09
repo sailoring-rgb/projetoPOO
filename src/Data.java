@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Comparator;
 import java.util.Collections;
+import java.util.Iterator;
 
 /**
  * Escreva a descrição da classe Data aqui.
@@ -57,6 +58,10 @@ public class Data {
         equipas.put(equipa.getNome(),equipa);
     }
     
+    public void inserirJogo(JogoRegisto jogo){
+        //coisas e tal
+    }
+    
     public void apEquipas()
     {
         System.out.println("  Equipas:");
@@ -93,19 +98,11 @@ public class Data {
         }
     }
     
-    public void apJogos()
+    public void apJogos(int pag)
     {
-        for(JogoRegisto jogo: jogos){
+        for(int i = pag*10; i < pag*10+10 && i < jogos.size(); i++) {
+            JogoRegisto jogo = jogos.get(i);
             jogo.apresentarJogo();
         }
     }
-    
-    /*
-    public void inserirJogo(List<JogoRegisto> jogos){
-       this.jogos = new ArrayList<>();
-       for(JogoRegisto registo : jogos) {
-            this.jogos.add(registo);
-       }
-    }
-    */
 }
