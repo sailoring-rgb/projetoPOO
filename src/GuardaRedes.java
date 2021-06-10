@@ -92,8 +92,8 @@ public class GuardaRedes extends Jogador{
     public void apresentarJogadorGR(){
         System.out.println("Posição: Guarda-Redes");
         apresentarJogador();
-        System.out.println("Elasticidade: " + getElasticidade());
-        System.out.println("Lançamento: " + getLancamento());
+        System.out.println("     Elasticidade: " + getElasticidade());
+        System.out.println("     Lançamento: " + getLancamento());
         
         System.out.println("Habilidade geral:" + habGuardaRedes(this));
         

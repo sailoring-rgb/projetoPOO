@@ -287,9 +287,11 @@ public class Jogador{
     * Método que imprime o histórico de um jogador, ou seja, todas as equips antigas em que já jogou.
     */
     public void apresentarHistorico(){
-        System.out.println("Antigas Equipas do jogador: ");
-        for (String equipa : historico) {
+        if(!historico.isEmpty()){
+            System.out.println("Antigas Equipas do jogador: ");
+            for (String equipa : historico) {
                 System.out.println(equipa);
+            }
         }
     }
     

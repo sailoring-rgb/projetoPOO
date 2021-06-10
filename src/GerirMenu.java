@@ -106,7 +106,7 @@ public class GerirMenu
     {
         data.apPlantel(escEquipa);
 
-        System.out.println("Escreva o jogador para inspecionar");
+        System.out.println("Escreva o número do jogador para inspecionar");
         sc.nextLine(); // flush
         int escJog = sc.nextInt();
         try {
@@ -118,10 +118,14 @@ public class GerirMenu
     
     public void apresentarJogador(int escJog, String escEquipa)
     {
-        data.apJogador(escEquipa, escJog);
-        int esc = sc.nextInt();
-        try {
-            
+        try {data.apJogador(escEquipa, escJog);
+             int esc = sc.nextInt();
+             System.out.println("Presse Enter para voltar ao Menu");
+             try {
+            int read = System.in.read(new byte[2]);
+            } catch (IOException e) {
+            e.printStackTrace();
+            }
         } catch (NullPointerException e) {
             System.out.println("Opção inválida, escolha novamente.");
         }

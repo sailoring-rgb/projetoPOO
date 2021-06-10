@@ -240,8 +240,8 @@ public class Jogo{
         int value = rand.nextInt(10);
         
         if(value < 4){
-            System.out.println("    " + equipaAtual + "remata e marca golo");
-            if(equipaAtual.equals(estado.getEquipaCasa())){
+            System.out.println("    " + equipaAtual + " remata e marca golo");
+            if(equipaAtual.equals(estado.getEquipaCasa().getNome())){
                 estado.setScoreCasa(estado.getScoreCasa() + 1);
                 System.out.println("    Pontuação: " + equipaAtual + " - " + estado.getScoreCasa() + " | " + estado.getScoreFora() + " - " + estado.getEquipaFora().getNome());
             } else{
@@ -251,11 +251,11 @@ public class Jogo{
         }
         
         if(value >= 4 && value <= 6){
-            System.out.println("    " + equipaAtual + "remata, mas o guarda redes defende");
+            System.out.println("    " + equipaAtual + " remata, mas o guarda redes defende");
         }
         
-        if(value >= 7 && value <= 8){
-            System.out.println("    " + equipaAtual + "remata, mas falha baliza");
+        if(value >= 7 && value <= 9){
+            System.out.println("    " + equipaAtual + " remata, mas falha baliza");
         }
     }
 }

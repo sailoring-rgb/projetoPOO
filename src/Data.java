@@ -79,22 +79,32 @@ public class Data {
     public void apJogador(String escEquipa, int escJog)
     {
         Equipa eq = equipas.get(escEquipa);
-        Jogador jog = eq.getJogador(escJog);
-        switch(jog.getTipoJogador()){
-            case 1:
-            jog.apresentarJogador(); break;
+        Jogador j = eq.getJogador(escJog);
+        switch(j.getTipoJogador()){
+            case 1: Jogador jogAvancado = new Avancado(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                       j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, j.getHistorico());
+                    ((Avancado) jogAvancado).apresentarJogadorAvancado();
+                    break;
             
-            case 2:
-            jog.apresentarJogador(); break;
+            case 2:Jogador jogMedio = new Medio(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90,90, j.getHistorico());
+                    ((Medio) jogMedio).apresentarJogadorMedio();
+                    break;
             
-            case 3:
-            jog.apresentarJogador(); break;
+            case 3:Jogador jogLateral = new Lateral(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                    j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, j.getHistorico());
+                    ((Lateral) jogLateral).apresentarJogadorLateral();
+                    break;
             
-            case 4:
-            jog.apresentarJogador(); break;
+            case 4:Jogador jogDefesa = new Defesa(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                               j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, j.getHistorico());
+                    ((Defesa) jogDefesa).apresentarJogadorDefesa();
+                    break;
             
-            case 5:
-            jog.apresentarJogador(); break;
+            case 5:Jogador jogGuardaRedes = new GuardaRedes(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                            j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90,90, j.getHistorico());
+                    ((GuardaRedes) jogGuardaRedes).apresentarJogadorGR();
+                    break;
         }
     }
     

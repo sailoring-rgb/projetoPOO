@@ -90,8 +90,8 @@ public class Medio extends Jogador{
     public void apresentarJogadorMedio(){
         System.out.println("Posição: Médio");
         apresentarJogador();
-        System.out.println("Capacidade de Recuperação: " + getCapRecuperacao());
-        System.out.println("Dominio de Bola: " + getDominioBola());
+        System.out.println("     Capacidade de Recuperação: " + getCapRecuperacao());
+        System.out.println("     Dominio de Bola: " + getDominioBola());
         
         System.out.println("Habilidade geral:" + habMedio(this));
         

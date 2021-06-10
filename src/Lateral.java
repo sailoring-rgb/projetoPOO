@@ -71,7 +71,7 @@ public class Lateral extends Jogador{
     public void apresentarJogadorLateral(){
         System.out.println("Posição: Lateral");
         apresentarJogador();
-        System.out.println("Cruzamento: " + getCapCruzamento());
+        System.out.println("      Cruzamento: " + getCapCruzamento());
         
         System.out.println("Habilidade geral:" + habLateral(this));
         

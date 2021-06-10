@@ -71,7 +71,7 @@ public class Defesa extends Jogador{
     public void apresentarJogadorDefesa(){
         System.out.println("Posição: Defesa");
         apresentarJogador();
-        System.out.println("Desarme: " + getDesarme());
+        System.out.println("     Desarme: " + getDesarme());
         
         System.out.println("Habilidade geral:" + habDefesa(this));
         

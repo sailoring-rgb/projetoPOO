@@ -12,10 +12,11 @@ public class JogMenu
     private int option;
     private Jogo jogo;
     private EstadoJogo estado;
+    private boolean fim = false;
     
     public JogMenu(EstadoJogo novoEstado){
         Scanner sc = new Scanner(System.in);
-        
+        while(!fim){
         System.out.println("\n");
         System.out.println("Introduza a sua escolha:");
         System.out.println("1: Começar Jogo");
@@ -28,6 +29,7 @@ public class JogMenu
         this.estado = novoEstado;
         
         makeChoice(this.option);
+        }
     }
     
     public void makeChoice(int option){
@@ -35,7 +37,9 @@ public class JogMenu
           case 1:
             jogo.startGame(this.estado);
             jogo.iniciaJogada(this.estado);
-            jogo.endGame(this.estado);            
+            jogo.endGame(this.estado);  
+            
+            fim = true;
             break;
             
           case 2:
