@@ -21,6 +21,8 @@ public class Equipa{
    private int nr_tatica;
    private String nome;
    private Map<Integer, Jogador> jogadores; // numero de jogador, jogador
+   private Map<Integer,Integer> titulares;
+   private Map<Integer, Integer> suplentes;
    
    /**
      * Construtor por omissão.
@@ -30,6 +32,8 @@ public class Equipa{
        this.nr_tatica = 0;
        this.nome = "";
        this.jogadores = new HashMap<>();
+       this.titulares = new HashMap<Integer,Integer>();
+       this.suplentes = new HashMap<Integer,Integer>();
    }
    
    public Equipa(String nome){
@@ -37,6 +41,8 @@ public class Equipa{
        this.nr_tatica = 0;
        this.nome = nome;
        this.jogadores = new HashMap<>();
+       this.titulares = new HashMap<Integer,Integer>();
+       this.suplentes = new HashMap<Integer,Integer>();
    }
    
    public Equipa(String nome, Map<String, Equipa> equipas){
@@ -44,16 +50,20 @@ public class Equipa{
        this.nr_tatica = 0;
        this.nome = nome;
        this.jogadores = new HashMap<>(equipas.get(nome).getJogadores());
+       this.titulares = new HashMap<Integer,Integer>();
+       this.suplentes = new HashMap<Integer,Integer>();
    }
    
    /**
      * Construtor parametrizado.
      */
-   public Equipa(int nr_equipa,int nr_tatica,String nome, Map<Integer, Jogador> jogadores){
+   public Equipa(int nr_equipa,int nr_tatica,String nome, Map<Integer, Jogador> jogadores, Map<Integer,Integer> titulares, Map<Integer,Integer> suplentes){
        this.nr_equipa = nr_equipa;
        this.nr_tatica = nr_tatica;
        this.nome = nome;
        this.jogadores = new HashMap<Integer, Jogador>(jogadores);
+       this.titulares.putAll(titulares);
+       this.suplentes.putAll(suplentes);
    }
    
    /**
@@ -64,6 +74,8 @@ public class Equipa{
        this.nr_tatica = umaEquipa.getNrTatica();
        this.nome = umaEquipa.getNome();
        this.jogadores = umaEquipa.getJogadores();
+       this.titulares = umaEquipa.getTitulares();
+       this.suplentes = umaEquipa.getSuplentes();
    }
    
    /**
@@ -108,12 +120,28 @@ public class Equipa{
    }
    
    /**
+    * Método que obtém um conjunto de jogadores titulares
+    * @return um conjunto de jogadores titulares
+    */
+   public Map<Integer,Integer> getTitulares(){
+        return this.titulares;
+   }
+    
+   /**
+    * Método que obtém um conjunto de jogadores suplentes
+    * @return um conjunto de jogadores suplenetes
+    */
+   public Map<Integer,Integer> getSuplentes(){
+        return this.suplentes;
+   }
+   
+   /**
     * Método que muda o número da equipa.
     * @param o novo número da equipa
     */
    public void setNrEquipa(int nr_equipa){
        this.nr_equipa = nr_equipa;
-    }
+   }
     
    /**
     * Método que muda o número da tatica.
@@ -143,6 +171,22 @@ public class Equipa{
    }
    
    /**
+    * Método que muda os titulares de uma equipa.
+    * @param os novos titulares
+    */
+   public void setTitulares(Map<Integer,Integer> titulares){
+        this.titulares = titulares.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e->e.getValue()));
+    }
+
+   /**
+    * Método que muda os suplentes de uma equipa.
+    * @param os novos suplentes
+    */
+   public void setSuplentes(Map<Integer,Integer> suplentes){
+        this.suplentes = suplentes.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e->e.getValue()));
+    }
+    
+   /**
     * Método que obtém um jogador pelo número da sua camisola.
     * @return o jogador com aquele número da camisola
     */
@@ -166,64 +210,277 @@ public class Equipa{
    public void removeJogador(Jogador jog) {
         jogadores.remove(jog.clone().getNrCamisola());
     }
-      
-   public int[] taticaEsc(int tacEscolhida)
-    {
-        //Isto é muito suboptimal mas não encontrei melhor maneira
-        switch(tacEscolhida){
-            case 0:
-                return new int[]{1,4,4,2};
-            case 1:
-                return new int[]{1,4,3,3};
+   
+   /**
+     * Método que cria, dependendo da tática selecionada, os conjuntos titulares e suplentes de uma equipa.
+     * 
+     * posição 1 -> guardaRedes
+     * posição 2 -> defesa central
+     * posição 3 -> defesa lateral
+     * posição 4 -> medio / medio centro
+     * posição 5 -> extremos
+     * posição 6 -> avancado / avançado centro
+     * posicao 7 -> não existe no jogo, é suplente
+     * 
+     * @param equipa cuja lista de suplentes queremos criar
+     * @param número da tática
+    */
+    public void criaTitularesSuplentes(EstadoJogo estado, int nr_tatica){
+        int onzeT[] = estado.taticaEsc(nr_tatica);
+        
+        List<Jogador> avancados = new ArrayList<Jogador>();
+        List<Jogador> medios = new ArrayList<Jogador>();
+        List<Jogador> defesas = new ArrayList<Jogador>();
+        List<Jogador> laterais = new ArrayList<Jogador>();
+        List<Jogador> guardaRedes = new ArrayList<Jogador>();
+        
+        adicionaJogPeloTipo(avancados, medios, defesas, laterais, guardaRedes);
+        
+        if(onzeT[2] == 4){
+            
+            paraPrimeiraTatica(avancados, medios, defesas, laterais, guardaRedes);
+            
+        }else{
+            
+            paraSegundaTatica(avancados, medios, defesas, laterais, guardaRedes);
+            
+        }
+    }
+    
+    /**
+     * Método que adiciona jogadores (de uma equipa) a uma lista do seu tipo.
+     * 
+     * Ou seja, se for um avançado, então este jogador será adicionada a uma lista de avançados.
+     * 
+     * @param equipa dos jogadores
+     * @param lista de avançados (incialmente vazia) onde se adicionarão os avançados dessa equipa
+     * @param lista de médios (incialmente vazia) onde se adicionarão os médios dessa equipa
+     * @param lista de defesas (incialmente vazia) onde se adicionarão os defesas dessa equipa
+     * @param lista de laterais (incialmente vazia) onde se adicionarão os laterais dessa equipa
+     * @param lista de guarda redes (incialmente vazia) onde se adicionarão os guarda redes dessa equipa
+     */
+    public void adicionaJogPeloTipo(List<Jogador> avancados, List<Jogador> medios,         
+                                    List<Jogador> defesas, List<Jogador> laterais, List<Jogador> guardaRedes){
+                                        
+        for(Jogador j: getJogadores().values()){
+            int tipoJog = j.getTipoJogador();
+            switch(tipoJog){
+                case 1:
+                    avancados.add(j);                
+                case 2:
+                    medios.add(j); 
+                case 3:
+                    laterais.add(j); 
+                case 4:
+                    defesas.add(j); 
+                case 5:
+                    guardaRedes.add(j); 
+            }
+        }
+    }
+    
+    /**
+     * Método que, para a primeira tática, cria e adiciona, aos conjuntos titulares e suplentes (inicialmente vazios),
+     * os titulares e os suplentes dessa equipa, respetivamente.
+     * 
+     * @param lista com os avançados dessa equipa
+     * @param lista com os médios dessa equipa
+     * @param lista com os defesas dessa equipa
+     * @param lista com os laterais dessa equipa
+     * @param lista com os guarda redes dessa equipa
+     */
+    public void paraPrimeiraTatica(List<Jogador> avancados, List<Jogador> medios,         
+                                   List<Jogador> defesas, List<Jogador> laterais, List<Jogador> guardaRedes){
+        int nrAvancados = 0, nrMedios = 0, nrDefesas = 0, nrGuardaRedes = 0, nrLaterais = 0;
+        
+        Map<Integer,Integer> titulares = new HashMap<Integer,Integer>();
+        Map<Integer,Integer> suplentes = new HashMap<Integer,Integer>();
+        
+        for(Jogador j: avancados){ 
+            if(nrAvancados < 2){
+                    titulares.put(j.getNrCamisola(),6);
+            }else{
+                    suplentes.put(j.getNrCamisola(),7);
+            }
+            nrAvancados++;
+        }
+            
+        for(Jogador j: medios){ 
+            if(nrMedios < 2){
+                titulares.put(j.getNrCamisola(),4);
+            }
+                
+            if(nrMedios >= 2 && nrMedios < 4){
+                 titulares.put(j.getNrCamisola(),7);
+            }
+            else{
+                 suplentes.put(j.getNrCamisola(), 7);
+            }
+            nrMedios++;
+        }
+            
+        for(Jogador j: defesas){ 
+            if(nrDefesas < 2){
+                 titulares.put(j.getNrCamisola(),2);
+            }else{
+                 suplentes.put(j.getNrCamisola(),7);
+            }
+            nrDefesas++;
+        }
+            
+        for(Jogador j: laterais){ 
+            if(nrLaterais < 2){
+                  titulares.put(j.getNrCamisola(),3);
+            }else{
+                  suplentes.put(j.getNrCamisola(),7);
+            }
+            nrLaterais++;
+        }
+            
+        for(Jogador j: guardaRedes){ 
+             if(nrGuardaRedes < 1){
+                  titulares.put(j.getNrCamisola(),1);
+             }else{
+                  suplentes.put(j.getNrCamisola(),7);
+             }
+             nrGuardaRedes++;
         }
         
-        return new int[]{1,2,4,2,2}; 
+        setTitulares(titulares);
+        setSuplentes(suplentes);
     }
-   
+    
+    /**
+     * Método que, para a segunda tática, cria e adiciona aos conjuntos titulares e suplentes (inicialmente vazios)
+     * os titulares e os suplentes dessa equipa, respetivamente.
+     * 
+     * @param lista com os avançados dessa equipa
+     * @param lista com os médios dessa equipa
+     * @param lista com os defesas dessa equipa
+     * @param lista com os laterais dessa equipa
+     * @param lista com os guarda redes dessa equipa
+     */
+    public void paraSegundaTatica(List<Jogador> avancados, List<Jogador> medios,         
+                                   List<Jogador> defesas, List<Jogador> laterais, List<Jogador> guardaRedes){
+        int nrAvancados = 0, nrMedios = 0, nrDefesas = 0, nrGuardaRedes = 0, nrLaterais = 0;
+        
+        Map<Integer,Integer> titulares = new HashMap<Integer,Integer>();
+        Map<Integer,Integer> suplentes = new HashMap<Integer,Integer>();
+        
+        for(Jogador j: avancados){ 
+             if(nrAvancados < 2){
+                  titulares.put(j.getNrCamisola(),5);
+             }
+                
+             if(nrAvancados >= 2 && nrAvancados < 3){
+                  titulares.put(j.getNrCamisola(), 6);
+             }
+             else{
+                  suplentes.put(j.getNrCamisola(),7);
+             }
+             nrAvancados++;
+        }
+            
+        for(Jogador j: medios){ 
+             if(nrMedios < 3){
+                  titulares.put(j.getNrCamisola(),3);
+             }else{
+                  suplentes.put(j.getNrCamisola(), 7);
+             }
+             nrMedios++;
+        }
+            
+        for(Jogador j: defesas){ 
+             if(nrDefesas < 2){
+                  titulares.put(j.getNrCamisola(),2);
+             }else{
+                  suplentes.put(j.getNrCamisola(),7);
+             }
+             nrDefesas++;
+        }
+            
+        for(Jogador j: laterais){ 
+             if(nrLaterais < 2){
+                  titulares.put(j.getNrCamisola(),3);
+             }else{
+                  suplentes.put(j.getNrCamisola(),7);
+             }
+             nrLaterais++;
+        }
+            
+        for(Jogador j: guardaRedes){ 
+            if(nrGuardaRedes < 1){
+                titulares.put(j.getNrCamisola(),1);
+            }else{
+                suplentes.put(j.getNrCamisola(),7);
+            }
+            nrGuardaRedes++;
+        }
+        
+        setTitulares(titulares);
+        setSuplentes(suplentes);
+   }
+    
    /**
     * Método que calcula a habilidade total de uma equipa.
     * 
-    * Será percorrido o map de jogadores e, dependendo do tipo do jogador e da quantidade de
-    * cada posição (defesa, lateral, médio, avançado, guarda-redes), as habilidades de cada jogador serão somadas.
+    * Será percorrido o map de jogadores de uma equipa e, dependendo do tipo do jogador,
+    * as habilidades de cada jogador (titular) serão somadas.
     * 
+    * @param conjuntos dos titulares da equipa
     * @param a equipa cuja habilidade será calculada
     * @return a habilidade total da equipa
     */
-   public double habEquipa(Equipa umaEquipa){
-       double habGlobal = 0;
+   public double habEquipa(Map<Integer,Integer> titulares, Equipa equipa){
+       double habGlobal = 0;  
        
-       GuardaRedes jogGR = new GuardaRedes();
-       Defesa jogDefesa = new Defesa();
-       Medio jogMedio = new Medio();
-       Avancado jogAvancado = new Avancado();
-       Lateral jogLateral = new Lateral();
-             
-       int onzeT[] = taticaEsc(nr_tatica);//para saber quantos de cada
-       
-       for(Jogador j: umaEquipa.getJogadores().values()){
-           switch(j.getTipoJogador()){
-               case 1:
-                   habGlobal += jogAvancado.habAvancado(j)*onzeT[3];
-                   
-               case 2:
-                   habGlobal += jogMedio.habMedio(j)*onzeT[2];
+       for(Jogador j: equipa.getJogadores().values()){
+           int nrCamisola = j.getNrCamisola();
+           
+           if(titulares.containsKey(nrCamisola)){
+               int tipoJog = j.getTipoJogador();
                
-               case 3:
-                   habGlobal += jogLateral.habLateral(j)*onzeT[4];
-               
-               case 4:
-                   habGlobal += jogDefesa.habDefesa(j)*onzeT[1];
+               switch(tipoJog){
+                   case 1:
+                       Jogador jog = new Avancado(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, j.getHistorico());
+                       habGlobal += ((Avancado) jog).habAvancado(j);
+                       break;
                    
-               case 5:
-                   habGlobal += jogGR.habGuardaRedes(j)*onzeT[0];
+                   case 2:
+                       Jogador jog1 = new Medio(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, 90, j.getHistorico());
+                       habGlobal += ((Medio) jog1).habMedio(j);
+                       break;
+                   
+                   case 3:
+                       Jogador jog2 = new Lateral(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, j.getHistorico());
+                       habGlobal += ((Lateral) jog2).habLateral(j);
+                       break;
+                       
+                   case 4:
+                       Jogador jog3 = new Defesa(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, j.getHistorico());
+                       habGlobal += ((Defesa) jog3).habDefesa(j);
+                       break;
+                       
+                   case 5:
+                       Jogador jog4 = new GuardaRedes(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, 90, j.getHistorico());
+                       habGlobal += ((GuardaRedes) jog4).habGuardaRedes(j);
+                       break;
+                   
+               }
            }
        }
        
        return habGlobal;
     }
-   
+    
    /**
-    * Método que imprime o plantel de jogadores, cada um identificado pelo número da sua camisola.
+    * Método que imprime o plantel de jogadores de uma equipa,
+    * cada um identificado pelo número da sua camisola.
     */
    public void apresentarPlantel(){   
         System.out.println("  Jogadores:");

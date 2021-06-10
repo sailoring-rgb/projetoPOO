@@ -2,7 +2,7 @@
 /**
  * Dados sobre um jogador.
  *
- * @author grupo
+ * @author grupo 3
  * @version 210330
  */
 
@@ -153,7 +153,7 @@ public class Jogador{
     }
     
     /**
-    * Método que obtém o historico do jogador.
+    * Método que obtém o historico do jogador (ou seja, em que equipas já esteve).
     * @return o historico
     */
     public List<String> getHistorico(){
@@ -241,7 +241,7 @@ public class Jogador{
     }
     
     /**
-    * Método que muda o historico do jogador.
+    * Método que muda o historico do jogador (ou seja, em que equipas já esteve).
     * @return o novo historico
     */
     public void setHistorico(List<String> historico){
@@ -260,7 +260,7 @@ public class Jogador{
     }
     
     /**
-    * Método que adiciona uma equipa o historico do jogador.
+    * Método que adiciona uma equipa o historico do jogador (ou seja, em que equipas já esteve).
     * @return o novo historico
     */
     public void addHistorico(String equipa){
@@ -268,13 +268,8 @@ public class Jogador{
     }
     
     /**
-    * Método que faz um clone do objeto Jogador.
-    * @return o clone
+    * Método que imprime o plantel de todas as habilidades de um jogador identificado pelo seu nome.
     */
-    public Jogador clone(){
-        return new Jogador(this);
-    }
-    
     public void apresentarJogador(){
         System.out.println(nome + "\n");
         System.out.println("  Habilidades:");
@@ -288,6 +283,9 @@ public class Jogador{
         System.out.println("     Capacidade de Passe: " + capPasse);
     }
     
+    /**
+    * Método que imprime o histórico de um jogador, ou seja, todas as equips antigas em que já jogou.
+    */
     public void apresentarHistorico(){
         System.out.println("Antigas Equipas do jogador: ");
         for (String equipa : historico) {
@@ -295,8 +293,70 @@ public class Jogador{
         }
     }
     
+    /**
+    * Método que guarda um objeto de tipo Jogador.
+    */
     public void saver(PrintWriter print){
-            print.print( nome +"," + nr_camisola +"," + velocidade +","+ resistencia +"," + destreza +","
-                         + impulsao +"," + jogoCabeca +","+ remate +"," + capPasse);
+            switch(tipoJogador){
+                //por arranjar-----------------------
+                case 1:print.println("Avancado:"+ nome +","
+                                    + nr_camisola +"," + velocidade +","
+                                    + resistencia +"," + destreza +","
+                                    + impulsao +"," + jogoCabeca +","
+                                    + remate +"," + capPasse);
+                                    break;
+                case 2:print.println("Medio:"+ nome +","
+                                    + nr_camisola +"," + velocidade +","
+                                    + resistencia +"," + destreza +","
+                                    + impulsao +"," + jogoCabeca +","
+                                    + remate +"," + capPasse);
+                                    break;
+                case 3:print.println("Lateral:"+ nome +","
+                                    + nr_camisola +"," + velocidade +","
+                                    + resistencia +"," + destreza +","
+                                    + impulsao +"," + jogoCabeca +","
+                                    + remate +"," + capPasse);
+                                    break;
+                case 4:print.println("Defesa:"+ nome +","
+                                    + nr_camisola +"," + velocidade +","
+                                    + resistencia +"," + destreza +","
+                                    + impulsao +"," + jogoCabeca +","
+                                    + remate +"," + capPasse);
+                                    break;
+                case 5:print.println("Guarda-Redes:"+ nome +","
+                                    + nr_camisola +"," + velocidade +","
+                                    + resistencia +"," + destreza +","
+                                    + impulsao +"," + jogoCabeca +","
+                                    + remate +"," + capPasse);
+                                    break;
+                }
+    }
+
+    /**
+    * Método que faz um clone do objeto Jogador.
+    * @return o clone
+    */
+    public Jogador clone(){
+        return new Jogador(this);
+    }
+    
+    /**
+    * Método que reescreve o equals de um objeto de tipo Jogador.
+    */
+    public boolean equals(Object obj){
+        if (obj == this) return true;
+        if (obj == null || ! obj.getClass().equals(this.getClass())) return false;
+        Jogador jog = (Jogador) obj;
+        return this.nome.equals(jog.getNome()) &&
+            this.nr_camisola == jog.getNrCamisola() &&
+            this.velocidade == jog.getVelocidade() &&
+            this.resistencia == jog.getResistencia() &&
+            this.destreza == jog.getDestreza() &&
+            this.impulsao == jog.getImpulsao() &&
+            this.jogoCabeca == jog.getJogoCabeca() &&
+            this.remate == jog.getRemate() &&
+            this.capPasse == jog.getCapPasse() &&
+            this.historico.equals(jog.getHistorico()) &&
+            this.tipoJogador == jog.getTipoJogador();
     }
 }

@@ -2,7 +2,7 @@
 /**
  * Estado jogo.
  *
- * @author grupo
+ * @author grupo 3
  * @version 210402
  */
 
@@ -29,8 +29,6 @@ public class EstadoJogo{
     private List<Integer> jogadoresFora;
     private Map<Integer,Integer> substituicoesCasa;
     private Map<Integer,Integer> substituicoesFora;
-    private Map<Integer,Jogador> titulares;
-    private Map<Integer, Jogador> suplentes;
     
     /**
      * Construtores da classe EstadoJogo.
@@ -46,8 +44,6 @@ public class EstadoJogo{
         this.jogadoresFora = new ArrayList<Integer>();
         this.substituicoesCasa = new HashMap<Integer,Integer>();
         this.substituicoesFora = new HashMap<Integer,Integer>();
-        this.titulares = new HashMap<Integer,Jogador>();
-        this.suplentes = new HashMap<Integer,Jogador>();
     }
     
     public EstadoJogo(String nomeEquipaCasa, String nomeEquipaFora, Map<String, Equipa> equipas){
@@ -60,13 +56,11 @@ public class EstadoJogo{
         this.jogadoresFora = new ArrayList<Integer>();
         this.substituicoesCasa = new HashMap<Integer,Integer>();
         this.substituicoesFora = new HashMap<Integer,Integer>();
-        this.titulares = new HashMap<Integer,Jogador>();
-        this.suplentes = new HashMap<Integer,Jogador>();
     }
     
     public EstadoJogo(LocalDate data, Equipa equipaCasa, Equipa equipaFora, int scoreCasa, int scoreFora, 
                       List<Integer> jogadoresCasa, List<Integer> jogadoresFora, Map<Integer, Integer> substituicoesCasa, Map<Integer, Integer> substituicoesFora,
-                      Map<Integer,Jogador> titulares, Map<Integer,Jogador> suplentes){
+                      Map<Integer,Integer> titulares, Map<Integer,Integer> suplentes){
         this.data = data;
         this.equipaCasa = equipaCasa;
         this.equipaFora = equipaFora;
@@ -76,8 +70,6 @@ public class EstadoJogo{
         this.jogadoresFora = jogadoresFora.stream().collect(Collectors.toList());
         this.substituicoesCasa.putAll(substituicoesCasa);
         this.substituicoesFora.putAll(substituicoesFora);
-        this.titulares.putAll(titulares);
-        this.suplentes.putAll(suplentes);
     }
    
     public EstadoJogo(EstadoJogo estado){
@@ -90,8 +82,6 @@ public class EstadoJogo{
         this.jogadoresFora = estado.getJogadoresFora();
         this.substituicoesCasa = estado.getSubstituicoesCasa();
         this.substituicoesFora = estado.getSubstituicoesFora();
-        this.titulares = estado.getTitulares();
-        this.suplentes = estado.getSuplentes();
     }
     
     /**
@@ -164,22 +154,6 @@ public class EstadoJogo{
     */
     public Map<Integer,Integer> getSubstituicoesFora(){
         return this.substituicoesFora;
-    }
-    
-    /**
-    * Método que obtém um conjunto de jogadores titulares
-    * @return um conjunto de jogadores titulares
-    */
-    public Map<Integer,Jogador> getTitulares(){
-        return this.titulares;
-    }
-    
-    /**
-    * Método que obtém um conjunto de jogadores suplentes
-    * @return um conjunto de jogadores suplenetes
-    */
-    public Map<Integer,Jogador> getSuplentes(){
-        return this.suplentes;
     }
     
     /**
@@ -261,22 +235,6 @@ public class EstadoJogo{
     }
     
     /**
-    * Método que muda os titulares de uma equipa.
-    * @param os novos titulares
-    */
-    public void setTitulares(Map<Integer,Jogador> titulares){
-        this.titulares = titulares.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e->e.getValue()));
-    }
-
-    /**
-    * Método que muda os suplentes de uma equipa.
-    * @param os novos suplentes
-    */
-    public void setSuplentes(Map<Integer,Jogador> suplentes){
-        this.suplentes = suplentes.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e->e.getValue()));
-    }
-    
-    /**
      * Método que define que equipa é que joga em casa e que equipa joga fora.
      * @param equipas - o conjunto de todas as equipas
      * @param nomeEquipaCasa - o nome da equipa selecionada para jogar em casa
@@ -290,8 +248,19 @@ public class EstadoJogo{
             this.equipaFora = equipas.get(nomeEquipaFora).clone();
     }
     
-    /*public Map<Integer,Jogador> criaTitulares(Equipa equipa){
-    
-    }*/
+    /**
+     * Método que ...
+     */
+    public int[] taticaEsc(int tacEscolhida)
+    {
+        switch(tacEscolhida){
+            case 0:
+                return new int[]{1,4,4,2};
+            case 1:
+                return new int[]{1,4,3,3};
+        }
+        
+        return new int[]{1,2,4,2,2};  // alterar para um dos de cima
+    }
 }
 
