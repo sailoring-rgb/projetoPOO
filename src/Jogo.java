@@ -151,11 +151,11 @@ public class Jogo{
         // estado.comunicaUsuario;
         // int escTatica = sc.nextInt();
         
-        estado.criaTitularesSuplentes(equipa1, 0 /*???????????????*/);
-        Map<Integer,Integer> titularesEq1 = estado.getTitulares();
+        equipa1.criaTitularesSuplentes(estado, 0 /*???????????????*/);
+        Map<Integer,Integer> titularesEq1 = equipa1.getTitulares();
         
-        estado.criaTitularesSuplentes(equipa2, 0 /*???????????????*/);
-        Map<Integer,Integer> titularesEq2 = estado.getTitulares();
+        equipa2.criaTitularesSuplentes(estado, 0 /*???????????????*/);
+        Map<Integer,Integer> titularesEq2 = equipa2.getTitulares();
         
         double habilidadeEquipa1 = equipa1.habEquipa(titularesEq1, equipa1);
         double habilidadeEquipa2 = equipa2.habEquipa(titularesEq2, equipa2);
