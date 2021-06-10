@@ -148,9 +148,6 @@ public class Jogo{
         Equipa equipa1 = new Equipa(estado.getEquipaCasa());
         Equipa equipa2 = new Equipa(estado.getEquipaFora());
         
-        // estado.comunicaUsuario;
-        // int escTatica = sc.nextInt();
-        
         equipa1.criaTitularesSuplentes(estado, 0 /*???????????????*/);
         Map<Integer,Integer> titularesEq1 = equipa1.getTitulares();
         

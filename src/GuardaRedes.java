@@ -8,6 +8,7 @@
 
 import java.util.*;
 import java.io.PrintWriter;
+import java.util.Random;
 
 public class GuardaRedes extends Jogador{
     
@@ -20,7 +21,8 @@ public class GuardaRedes extends Jogador{
     public GuardaRedes(){
         super();
         this.elasticidade = 0;
-        this.lancamento = 0;
+        Random rand = new Random();
+        this.lancamento = rand.nextInt(101);
     }
     
     /**
@@ -105,6 +107,8 @@ public class GuardaRedes extends Jogador{
     * com o conteúdo de uma string separado por vírgulas.
     */
     public static GuardaRedes parse(String input){
+        Random rand = new Random();
+        
         String[] campos = input.split(",");
         return new GuardaRedes(campos[0],
                 Integer.parseInt(campos[1]),
@@ -115,7 +119,8 @@ public class GuardaRedes extends Jogador{
                 Integer.parseInt(campos[6]),
                 Integer.parseInt(campos[7]),
                 Integer.parseInt(campos[8]),
-                Integer.parseInt(campos[9]),0,
+                Integer.parseInt(campos[9]),
+                rand.nextInt(101),
                 new ArrayList<>());
     }
     

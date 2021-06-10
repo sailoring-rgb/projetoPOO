@@ -307,7 +307,10 @@ public class EstadoJogo{
     }
     
     /**
-     * Método que ...
+     * Método que devolve a tática escolhida.
+     * 
+     * @param número da opção
+     * @return tática escolhida
      */
     public int[] taticaEsc(int tacEscolhida)
     {
@@ -317,8 +320,7 @@ public class EstadoJogo{
             case 1:
                 return new int[]{1,4,3,3};
         }
-        
-        return new int[]{1,4,4,2};  // alterar para um dos de cima
+        return new int[]{1,4,4,2};
     }
 }
 
