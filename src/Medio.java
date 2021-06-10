@@ -1,7 +1,7 @@
 /**
  * Dados sobre um Jogador do tipo Médio.
  *
- * @author grupo
+ * @author grupo 3
  * @version 210402
  */
 
@@ -59,18 +59,26 @@ public class Medio extends Jogador{
     */
     public double habMedio (Jogador umJog){
         double habilidade = umJog.getVelocidade()*0.5 + umJog.getResistencia()*0.5 + umJog.getDestreza()*1 + umJog.getImpulsao()*0.5 +
-                            umJog.getJogoCabeca()*0.5 + umJog.getRemate()*0.5 + umJog.getCapPasse()*1 + this.capRecuperacao*1;
+                            umJog.getJogoCabeca()*0.5 + umJog.getRemate()*0.5 + umJog.getCapPasse()*1 + getCapRecuperacao()*1;
         return habilidade;
     }
     
+    /**
+    * Método que imprime a informação de um médio, incluindo o seu histórico
+    * (ou seja, as equipas onde já esteve).
+    */
     public void apresentarJogadorMedio(){
         System.out.println("Posição: Médio");
         apresentarJogador();
-        System.out.println("Capacidade de Recuperação: " + capRecuperacao);
+        System.out.println("Capacidade de Recuperação: " + getCapRecuperacao());
         
         apresentarHistorico();
     }
     
+    /**
+    * Método que preenche os campos de um objeto de tipo Medio (e dos seus campos)
+    * com o conteúdo de uma string separado por vírgulas.
+    */
     public static Medio parse(String input){
         String[] campos = input.split(",");
         return new Medio(campos[0], Integer.parseInt(campos[1]),

@@ -233,7 +233,8 @@ public class Equipa{
    }
    
    /**
-    * Método que faz o parse de um objeto de tipo Equipa (e dos seus campos), a partir de uma string.
+    * Método que preenche os campos de um objeto de tipo Equipa (e dos seus campos)
+    * com o conteúdo de uma string separado por vírgulas.
     */
    public static Equipa parse(String input){
         String[] campos = input.split(",");

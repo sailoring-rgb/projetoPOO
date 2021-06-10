@@ -2,7 +2,7 @@
 /**
  * Dados sobre um Jogador do tipo Lateral.
  *
- * @author grupo
+ * @author grupo 3
  * @version 210402
  */
 
@@ -59,18 +59,26 @@ public class Lateral extends Jogador{
     */
     public double habLateral (Jogador umJog){
         double habilidade = umJog.getVelocidade()*1 + umJog.getResistencia()*1 + umJog.getDestreza()*1 + umJog.getImpulsao()*0.5 +
-                            umJog.getJogoCabeca()*0.5 + umJog.getRemate()*0.5 + umJog.getCapPasse()*1 + this.capCruzamento*1;
+                            umJog.getJogoCabeca()*0.5 + umJog.getRemate()*0.5 + umJog.getCapPasse()*1 + getCapCruzamento()*1;
         return habilidade;
     }
     
+    /**
+    * Método que imprime a informação de um lateral, incluindo o seu histórico
+    * (ou seja, as equipas onde já esteve).
+    */
     public void apresentarJogadorLateral(){
         System.out.println("Posição: Lateral");
         apresentarJogador();
-        System.out.println("Cruzamento: " + capCruzamento);
+        System.out.println("Cruzamento: " + getCapCruzamento());
         
         apresentarHistorico();
     }
     
+    /**
+    * Método que preenche os campos de um objeto de tipo Lateral (e dos seus campos)
+    * com o conteúdo de uma string separado por vírgulas.
+    */
     public static Lateral parse(String input){
         String[] campos = input.split(",");
         return new Lateral(campos[0], Integer.parseInt(campos[1]),

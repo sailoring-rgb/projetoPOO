@@ -2,7 +2,7 @@
 /**
  * Dados sobre um Jogador do tipo Avançado.
  *
- * @author grupo
+ * @author grupo 3
  * @version 210402
  */
 
@@ -54,23 +54,31 @@ public class Avancado extends Jogador{
     
     /**
     * Método que calcula a habilidade do avançado.
-    * @param umJog O jogador cuja habilidade será calculada
+    * @param o jogador cuja habilidade será calculada
     * @return a habilidade do avançado
     */
     public double habAvancado (Jogador umJog){
         double habilidade = umJog.getVelocidade()*0.5 + umJog.getResistencia()*0.5 + umJog.getDestreza()*1 + umJog.getImpulsao()*1 + 
-                            umJog.getJogoCabeca()*1 + umJog.getRemate()*1 + umJog.getCapPasse()*0.5 + this.drible*1;
-        // isto diminui (imenso) os acessos à memória
+                            umJog.getJogoCabeca()*1 + umJog.getRemate()*1 + umJog.getCapPasse()*0.5 + getDrible()*1;
         return habilidade;
     }
     
+    /**
+    * Método que imprime a informação de um avançado, incluindo o seu histórico
+    * (ou seja, as equipas onde já esteve).
+    */
     public void apresentarJogadorAvancado(){
         System.out.println("Posição: Avançado");
         apresentarJogador();
+        System.out.println("Drible: " + getDrible());
         
         apresentarHistorico();
     }
     
+    /**
+    * Método que preenche os campos de um objeto de tipo Avancado (e dos seus campos)
+    * com o conteúdo de uma string separado por vírgulas.
+    */
     public static Avancado parse(String input){
         String[] campos = input.split(",");
         return new Avancado(campos[0], Integer.parseInt(campos[1]),

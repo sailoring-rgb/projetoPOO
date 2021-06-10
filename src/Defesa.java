@@ -2,7 +2,7 @@
 /**
  * Dados sobre um Jogador do tipo Defesa.
  *
- * @author grupo
+ * @author grupo 3
  * @version 210402
  */
 
@@ -59,17 +59,26 @@ public class Defesa extends Jogador{
     */
     public double habDefesa (Jogador umJog){
         double habilidade = umJog.getVelocidade()*0.5 + umJog.getResistencia()*1 + umJog.getDestreza()*1 + umJog.getImpulsao()*1 +
-                            umJog.getJogoCabeca()*1 + umJog.getRemate()*0.5 + umJog.getCapPasse()*0.5 + this.desarme*1;
+                            umJog.getJogoCabeca()*1 + umJog.getRemate()*0.5 + umJog.getCapPasse()*0.5 + getDesarme()*1;
         return habilidade;
     }
     
+    /**
+    * Método que imprime a informação de um defesa, incluindo o seu histórico
+    * (ou seja, as equipas onde já esteve).
+    */
     public void apresentarJogadorDefesa(){
         System.out.println("Posição: Defesa");
         apresentarJogador();
+        System.out.println("Desarme: " + getDesarme());
         
         apresentarHistorico();
     }
     
+    /**
+    * Método que preenche os campos de um objeto de tipo Defesa (e dos seus campos)
+    * com o conteúdo de uma string separado por vírgulas.
+    */
     public static Defesa parse(String input){
         String[] campos = input.split(",");
         return new Defesa(campos[0], Integer.parseInt(campos[1]),

@@ -163,5 +163,4 @@ public class JogoRegisto {
     public Map<Integer,Integer> getSubstituicoesFora(){
         return this.substituicoesFora;
     }
-    
 }

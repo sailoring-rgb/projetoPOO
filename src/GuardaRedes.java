@@ -2,7 +2,7 @@
 /**
  * Dados sobre um Jogador do tipo Guarda Redes.
  *
- * @author grupo
+ * @author grupo 3
  * @version 210402
  */
 
@@ -55,6 +55,21 @@ public class GuardaRedes extends Jogador{
         this.elasticidade = elasticidade;
     }
     
+    /**
+    * Método que obtém o valor do lançamento do guarda-redes.
+    * @return o valor do lançamento
+    */
+    public int getLancamento(){
+        return this.elasticidade;
+    }
+    
+    /**
+    * Método que muda o valor do lançamento do guarda-redes.
+    * @param o novo valor do lançamento
+    */
+    public void setLancamento(int lancamento){
+        this.lancamento = lancamento;
+    }
     
     /**
     * Método que calcula a habilidade do guarda-redes.
@@ -63,19 +78,28 @@ public class GuardaRedes extends Jogador{
     */
     public double habGuardaRedes (Jogador umJog){
         double habilidade = umJog.getVelocidade()*0.5 + umJog.getResistencia()*1 + umJog.getDestreza()*0.5 + umJog.getImpulsao()*1 +
-                            umJog.getJogoCabeca()*0.5 + umJog.getRemate()*0.5 + umJog.getCapPasse()*0.5 + this.elasticidade*1 +
-                            this.lancamento*1;
+                            umJog.getJogoCabeca()*0.5 + umJog.getRemate()*0.5 + umJog.getCapPasse()*0.5 + getElasticidade()*1 +
+                            getLancamento()*1;
         return habilidade;
     }
     
+    /**
+    * Método que imprime a informação de um guarda redes, incluindo o seu histórico
+    * (ou seja, as equipas onde já esteve).
+    */
     public void apresentarJogadorGR(){
         System.out.println("Posição: Guarda-Redes");
         apresentarJogador();
-        System.out.println("Elasticidade: " + elasticidade);
+        System.out.println("Elasticidade: " + getElasticidade());
+        System.out.println("Lançamento: " + getLancamento());
         
         apresentarHistorico();
     }
     
+    /**
+    * Método que preenche os campos de um objeto de tipo GuardaRedes (e dos seus campos)
+    * com o conteúdo de uma string separado por vírgulas.
+    */
     public static GuardaRedes parse(String input){
         String[] campos = input.split(",");
         return new GuardaRedes(campos[0], Integer.parseInt(campos[1]),
