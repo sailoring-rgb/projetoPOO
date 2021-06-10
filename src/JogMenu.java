@@ -51,17 +51,25 @@ public class JogMenu
     
     public void escTatica(){
         Scanner sc = new Scanner(System.in);
+        System.out.println("Qual equipa pretende que mude a tática:");
+        System.out.println("1: " + estado.getEquipaCasa().getNome());
+        System.out.println("2: " + estado.getEquipaFora().getNome());
+        
+        int equipa = sc.nextInt();
+        
         
         System.out.println("Introduza a tática:");
         System.out.println("1: 4-4-2");
         System.out.println("2: 4-3-3");
-        System.out.println("3: 4-2-4");
-        System.out.println("4: 3-4-3");
         
-        Double tatica = sc.nextDouble();
-        //setNrTatica(tatica-1);
-        //Distribui jogadores
-        //switch com um set na tatica da equipa 
+        int tatica = sc.nextInt();
+        switch(equipa){
+            case 1: estado.setTaticaCasa(tatica);break;
+            case 2: estado.setTaticaFora(tatica);break;
+            default:break;
+        }
+        
+        System.out.println("Tatica modificada com sucesso");
     }
     
     public void exit(){

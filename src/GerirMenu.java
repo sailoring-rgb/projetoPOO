@@ -127,51 +127,50 @@ public class GerirMenu
         String escEquipaO = sc.nextLine();
         Equipa equipaOrigem = new Equipa();
         
-        if(data.getEquipas().containsKey(escEquipaO)){
-            equipaOrigem = data.getEquipas().get(escEquipaO);
-            data.apPlantel(escEquipaO);
-            System.out.println("Escolha o número do jogador que pretende transferir");
-            int nr = sc.nextInt();
+        if(!(data.getEquipas().containsKey(escEquipaO)))
+            throw new EquipaNaoExisteException(escEquipaO);
         
-            Jogador jogTransf = equipaOrigem.getJogadores().get(nr);
+        equipaOrigem = data.getEquipas().get(escEquipaO);
+        data.apPlantel(escEquipaO);
+        System.out.println("Escolha o jogador que pretende transferir");
+        int nr = sc.nextInt();
+        
+        Jogador jogTransf = equipaOrigem.getJogadores().get(nr);
             
-
-            data.apEquipas();
+        data.apEquipas();
         
-            System.out.println("Escolha o destino do jogador");
-            sc.nextLine();
-            String escEquipaD = sc.nextLine();
+        System.out.println("Escolha o destino do jogador");
+        sc.nextLine();
+        String escEquipaD = sc.nextLine();
                 
-            Equipa equipaDestino = new Equipa();
+        Equipa equipaDestino = new Equipa();
             
-            if(data.getEquipas().containsKey(escEquipaD)){
-                equipaDestino = data.getEquipas().get(escEquipaD);
+        if(!(data.getEquipas().containsKey(escEquipaD)))
+            throw new EquipaNaoExisteException(escEquipaD);
         
-                //para ser arranjado num futuro proximo
-                equipaOrigem.removeJogador(jogTransf);
-                data.inserirEquipa(equipaOrigem);
+        equipaDestino = data.getEquipas().get(escEquipaD);
         
-                int nr_inserido = 0;
+        //para ser arranjado num futuro proximo
+        equipaOrigem.removeJogador(jogTransf);
+        data.inserirEquipa(equipaOrigem);
         
-                while(equipaDestino.getJogadores().containsKey(nr_inserido)){
-                    nr_inserido +=1;
-                }
+        int nr_inserido = 0;
         
-                //Mudar no jogador
-                jogTransf.setNrCamisola(nr_inserido);
-                jogTransf.addHistorico(escEquipaO);
-        
-                equipaDestino.insereJogador(jogTransf);
-                data.inserirEquipa(equipaDestino);
-            
-                System.out.println("Transferencia concluida");
-        
-                System.out.println(jogTransf.getNome() + " faz agora parte de " + escEquipaD);
-        
-                jogTransf.apresentarHistorico();
-            }
-            else throw new EquipaNaoExisteException(escEquipaD);
+        while(equipaDestino.getJogadores().containsKey(nr_inserido)){
+            nr_inserido +=1;
         }
-        else throw new EquipaNaoExisteException(escEquipaO);
+        
+        //Mudar no jogador
+        jogTransf.setNrCamisola(nr_inserido);
+        jogTransf.addHistorico(escEquipaO);
+        
+        equipaDestino.insereJogador(jogTransf);
+        data.inserirEquipa(equipaDestino);
+            
+        System.out.println("Transferencia concluida");
+        
+        System.out.println(jogTransf.getNome() + " faz agora parte de " + escEquipaD);
+        
+        jogTransf.apresentarHistorico();
     }
 }

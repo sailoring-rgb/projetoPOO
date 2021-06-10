@@ -199,6 +199,14 @@ public class EstadoJogo{
     }
 
     /**
+    * Método que muda a tatica da equipa da casa.
+    * @param a nova tatica
+    */
+    public void setTaticaCasa(int tatica){
+        this.equipaCasa.setNrTatica(tatica);
+    }
+ 
+    /**
     * Método que muda a equipa que joga fora.
     * @param a nova equipa que joga fora
     */
@@ -206,6 +214,14 @@ public class EstadoJogo{
         this.equipaFora = equipaFora;
     }
 
+    /**
+    * Método que muda a tatica da equipa da fora.
+    * @param a nova tatica
+    */
+    public void setTaticaFora(int tatica){
+        this.equipaFora.setNrTatica(tatica);
+    }
+    
     /**
     * Método que muda o score da equipa que joga em casa.
     * @param o novo score
