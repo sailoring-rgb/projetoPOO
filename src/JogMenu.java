@@ -20,6 +20,7 @@ public class JogMenu
         System.out.println("Introduza a sua escolha:");
         System.out.println("1: Começar Jogo");
         System.out.println("2: Escolher tática");
+        System.out.println("2: Escolher substituições");
         System.out.println("3: Sair");
     
         this.option = sc.nextInt();
@@ -40,8 +41,12 @@ public class JogMenu
           case 2:
             escTatica();
             break;
-            
+                
           case 3:
+            escSubs();
+            break;
+        
+          case 4:
             exit();
             break;
             
@@ -70,6 +75,18 @@ public class JogMenu
         }
         
         System.out.println("Tatica modificada com sucesso");
+    }
+    
+    
+    public void escSubs(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Qual equipa que pretende definir as substituições:");
+        System.out.println("1: " + estado.getEquipaCasa().getNome());
+        System.out.println("2: " + estado.getEquipaFora().getNome());
+        
+        int equipa = sc.nextInt();
+               
+        //etc etc
     }
     
     public void exit(){
