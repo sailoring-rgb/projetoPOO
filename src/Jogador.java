@@ -2,7 +2,7 @@
 /**
  * Dados sobre um jogador.
  *
- * @author grupo
+ * @author grupo 3
  * @version 210330
  */
 

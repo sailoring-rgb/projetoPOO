@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=GerirMenu
-comment0.text=\r\n\ Escreva\ a\ descri\u00E7\u00E3o\ da\ classe\ GerirMenu\ aqui.\r\n\ \r\n\ @author\ (seu\ nome)\ \r\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\r\n
+comment0.text=\r\n\ Escreva\ a\ descri\u00E7\u00E3o\ da\ classe\ GerirMenu\ aqui.\r\n\ \r\n\ @author\ grupo\ 3\ \r\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\r\n
 comment1.params=dados
 comment1.target=GerirMenu(Data)
 comment2.params=option

@@ -1,7 +1,7 @@
 /**
  * Jogo de futebol.
  *
- * @author grupo
+ * @author grupo 3
  * @version 210402
  */
 

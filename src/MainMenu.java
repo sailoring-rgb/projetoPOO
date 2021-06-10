@@ -4,7 +4,7 @@ import java.io.*;
 /**
  * Escreva a descrição da classe MainMenu aqui.
  * 
- * @author (seu nome) 
+ * @author grupo 3 
  * @version (número de versão ou data)
  */
 public class MainMenu {
