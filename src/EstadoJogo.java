@@ -302,7 +302,7 @@ public class EstadoJogo{
                 return new int[]{1,4,3,3};
         }
         
-        return new int[]{1,2,4,2,2};  // alterar para um dos de cima
+        return new int[]{1,4,4,2};  // alterar para um dos de cima
     }
 }
 
