@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=GerirMenu
-comment0.text=\n\ Apresenta\ o\ menu\ destinado\ \u00E0s\ equipas\ e\ aos\ jogadores.\n\ \n\ @author\ grupo\ 3\ \n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\n
+comment0.text=\r\n\ Apresenta\ o\ menu\ destinado\ \u00E0s\ equipas\ e\ aos\ jogadores.\r\n\ \r\n\ @author\ grupo\ 3\ \r\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\r\n
 comment1.params=dados
 comment1.target=GerirMenu(Data)
 comment2.params=option

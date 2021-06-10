@@ -157,8 +157,8 @@ public class Jogo{
         equipa2.criaTitularesSuplentes(estado, 0 /*???????????????*/);
         Map<Integer,Integer> titularesEq2 = equipa2.getTitulares();
         
-        double habilidadeEquipa1 = equipa1.habEquipa(titularesEq1, equipa1);
-        double habilidadeEquipa2 = equipa2.habEquipa(titularesEq2, equipa2);
+        double habilidadeEquipa1 = equipa1.habEquipa(titularesEq1);
+        double habilidadeEquipa2 = equipa2.habEquipa(titularesEq2);
 
         double total = habilidadeEquipa1 + habilidadeEquipa2;
         double hipoteseEquipa1 = (habilidadeEquipa1 * 4) / total;

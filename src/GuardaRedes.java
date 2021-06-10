@@ -95,6 +95,8 @@ public class GuardaRedes extends Jogador{
         System.out.println("Elasticidade: " + getElasticidade());
         System.out.println("Lançamento: " + getLancamento());
         
+        System.out.println("Habilidade geral:" + habGuardaRedes(this));
+        
         apresentarHistorico();
     }
     

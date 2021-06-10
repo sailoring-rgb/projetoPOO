@@ -43,8 +43,11 @@ public class JogMenu
             break;
                 
           case 3:
-            escSubs();
-            break;
+              try{escSubs();}
+              catch(OpcaoInvalidaException exc){
+                  System.out.println("Opção introduzida é inválida");
+                }
+                break;
         
           case 4:
             exit();
@@ -78,15 +81,56 @@ public class JogMenu
     }
     
     
-    public void escSubs(){
+    public void escSubs() throws OpcaoInvalidaException{
         Scanner sc = new Scanner(System.in);
         System.out.println("Qual equipa que pretende definir as substituições:");
         System.out.println("1: " + estado.getEquipaCasa().getNome());
         System.out.println("2: " + estado.getEquipaFora().getNome());
         
         int equipa = sc.nextInt();
-               
-        //etc etc
+        
+        switch(equipa){
+            case 1: estado.getEquipaCasa().apresentarTitulares();break;
+            case 2: estado.getEquipaCasa().apresentarTitulares();break;
+            default: throw new OpcaoInvalidaException();
+        }
+        
+        System.out.println("Escreva o número do Titular que pretende substituir");
+        int titular = sc.nextInt();
+        
+        switch(equipa){
+            case 1: if(!(estado.getEquipaCasa().getTitulares().containsKey(titular)))
+                        throw new OpcaoInvalidaException();
+                    break;
+            case 2: if(!(estado.getEquipaFora().getTitulares().containsKey(titular)))
+                        throw new OpcaoInvalidaException();
+                    break;
+            default: throw new OpcaoInvalidaException();
+        }
+        
+        switch(equipa){
+            case 1: estado.getEquipaCasa().apresentarSuplentes();break;
+            case 2: estado.getEquipaCasa().apresentarSuplentes();break;
+            default:throw new OpcaoInvalidaException();
+        }
+        
+        System.out.println("Escreva o número do Suplente que pretende que substitua o nr." + titular);
+        int suplente = sc.nextInt();
+        
+        switch(equipa){
+            case 1: if(!(estado.getEquipaCasa().getSuplentes().containsKey(suplente)))
+                        throw new OpcaoInvalidaException();
+                    break;
+            case 2: if(!(estado.getEquipaFora().getSuplentes().containsKey(suplente)))
+                        throw new OpcaoInvalidaException();
+                    break;
+            default: throw new OpcaoInvalidaException();
+        }
+        
+        //substituir aqui
+        
+        System.out.println("Substituição " + titular + " -> " + suplente +" planeada");
+        
     }
     
     public void exit(){

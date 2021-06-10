@@ -73,6 +73,8 @@ public class Lateral extends Jogador{
         apresentarJogador();
         System.out.println("Cruzamento: " + getCapCruzamento());
         
+        System.out.println("Habilidade geral:" + habLateral(this));
+        
         apresentarHistorico();
     }
     

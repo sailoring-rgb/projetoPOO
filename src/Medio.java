@@ -93,6 +93,8 @@ public class Medio extends Jogador{
         System.out.println("Capacidade de Recuperação: " + getCapRecuperacao());
         System.out.println("Dominio de Bola: " + getDominioBola());
         
+        System.out.println("Habilidade geral:" + habMedio(this));
+        
         apresentarHistorico();
     }
     

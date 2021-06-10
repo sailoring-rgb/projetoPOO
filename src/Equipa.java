@@ -22,7 +22,7 @@ public class Equipa{
    private String nome;
    private Map<Integer, Jogador> jogadores; // numero de jogador, jogador
    private Map<Integer,Integer> titulares;
-   private Map<Integer, Integer> suplentes;
+   private Map<Integer,Integer> suplentes;
    
    /**
      * Construtor por omissão.
@@ -431,10 +431,10 @@ public class Equipa{
     * @param a equipa cuja habilidade será calculada
     * @return a habilidade total da equipa
     */
-   public double habEquipa(Map<Integer,Integer> titulares, Equipa equipa){
+   public double habEquipa(Map<Integer,Integer> titulares){
        double habGlobal = 0;  
        
-       for(Jogador j: equipa.getJogadores().values()){
+       for(Jogador j: this.getJogadores().values()){
            int nrCamisola = j.getNrCamisola();
            
            if(titulares.containsKey(nrCamisola)){
@@ -613,6 +613,32 @@ public class Equipa{
         for (var jogador : jogadores.entrySet()) {
             System.out.println("        Número " + jogador.getKey() + " : " + jogador.getValue().getNome());
         }
+        
+        System.out.println("  Habilidade: "+habEquipa(titulares));
+   }
+   
+   /**
+    * Método que imprime os titulares de uma equipa,
+    * cada um identificado pelo número da sua camisola.
+    */
+   public void apresentarTitulares(){   
+        System.out.println("  Jogadores Titulares:");
+        for (var jogador : titulares.entrySet()) {
+            int numr = jogador.getKey();
+            System.out.println("        Número " + numr + " : " + jogadores.get(numr).getNome());
+        }
+   }
+   
+   /**
+    * Método que imprime os suplentes de uma equipa,
+    * cada um identificado pelo número da sua camisola.
+    */
+   public void apresentarSuplentes(){   
+        System.out.println("  Jogadores Suplentes:");
+        for (var jogador : suplentes.entrySet()) {
+            int numr = jogador.getKey();
+            System.out.println("        Número " + numr + " : " + jogadores.get(numr).getNome());
+        }
    }
    
    /**
@@ -631,28 +657,34 @@ public class Equipa{
         print.println("Equipa:"+ nome);
             
         for (var jogador : jogadores.entrySet()) {
-            int tipo = jogador.getValue().getTipoJogador();
+            Jogador j = jogador.getValue();
+            int tipo = j.getTipoJogador();
             
             switch(tipo){
                 case 1:
-                    Avancado jogAvancado = new Avancado();
-                    jogAvancado.saverAvancado(print,jogador.getValue());
+                    Jogador jogAvancado = new Avancado(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, j.getHistorico());
+                    ((Avancado) jogAvancado).saverAvancado(print,jogador.getValue());
                     break;
                 case 2:
-                    Medio jogMedio = new Medio();
-                    jogMedio.saverMedio(print,jogador.getValue());
+                    Jogador jogMedio = new Medio(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90,90, j.getHistorico());
+                    ((Medio) jogMedio).saverMedio(print,jogador.getValue());
                     break;
                 case 3:
-                    Lateral jogLateral = new Lateral();
-                    jogLateral.saverLateral(print,jogador.getValue());
+                    Jogador jogLateral = new Lateral(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, j.getHistorico());
+                    ((Lateral) jogLateral).saverLateral(print,jogador.getValue());
                     break;
                 case 4:
-                    Defesa jogDefesa = new Defesa();
-                    jogDefesa.saverDefesa(print,jogador.getValue());
+                    Jogador jogDefesa = new Avancado(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, j.getHistorico());
+                    ((Defesa) jogDefesa).saverDefesa(print,jogador.getValue());
                     break;
                 case 5:
-                    GuardaRedes jogGR = new GuardaRedes();
-                    jogGR.saverGuardaRedes(print,jogador.getValue());
+                    Jogador jogGuardaRedes = new GuardaRedes(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90,90, j.getHistorico());
+                    ((GuardaRedes) jogGuardaRedes).saverGuardaRedes(print,jogador.getValue());
                     break;
             }
         }

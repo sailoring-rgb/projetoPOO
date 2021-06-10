@@ -5,13 +5,13 @@
  * @author grupo 3
  * @version (número de versão ou data)
  */
-public class JogadorNaoExisteException extends Exception{
+public class EquipaJaExisteException extends Exception{
     
-    public JogadorNaoExisteException(){
+    public EquipaJaExisteException(){
         super();
     }
 
-    public JogadorNaoExisteException(String msg){
+    public EquipaJaExisteException(String msg){
         super(msg);
     }
 }

@@ -73,6 +73,8 @@ public class Avancado extends Jogador{
         apresentarJogador();
         System.out.println("Drible: " + getDrible());
         
+        System.out.println("Habilidade geral:" + habAvancado(this));
+        
         apresentarHistorico();
     }
     

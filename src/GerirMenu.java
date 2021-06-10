@@ -36,7 +36,12 @@ public class GerirMenu
     {
        switch (option) {
           case 1:
-            gerarEquipa();            
+            try{
+                gerarEquipa();
+            }
+            catch(EquipaJaExisteException exc){
+                System.out.println("Esta equipa já existe!");
+            }
             return;
             
           case 2:
@@ -54,17 +59,22 @@ public class GerirMenu
             catch(EquipaNaoExisteException exc){
                 System.out.println("Esta equipa não existe!");
             }
+            catch(JogadorNaoExisteException exc){
+                System.out.println("Este jogador não existe!");
+            }
             return;
           
           default: System.out.println("Opção Inválida");
        }
     }
     
-    public void gerarEquipa()
+    public void gerarEquipa() throws EquipaJaExisteException
     {
         Equipa equipa = new Equipa(CriarEquipa.criarEq());
+        if(data.getEquipas().containsKey(equipa.getNome()))
+            throw new EquipaJaExisteException();
         data.inserirEquipa(equipa);
-        System.out.println("Criada Equipa: "+ (data.getEquipas().get(equipa.getNome())));
+        System.out.println("Criada Equipa: "+ (data.getEquipa(equipa.getNome()).getNome()));
     }
     
     public void gerarJogador()
@@ -73,6 +83,8 @@ public class GerirMenu
         int jogEscolhido = aux.escJogador();
         Jogador novoJog = new Jogador(aux.criarJogador(jogEscolhido));
         System.out.println("Jogador: " + novoJog.getNome());
+        
+        data.apEquipas();
         aux.atribEq(novoJog,data);
     }
 
@@ -98,7 +110,6 @@ public class GerirMenu
         sc.nextLine(); // flush
         int escJog = sc.nextInt();
         try {
-            if(escJog == 99) return; //placeholder
             apresentarJogador(escJog,escEquipa);
         } catch (NullPointerException e) {
             System.out.println("Opção inválida, escolha novamente.");
@@ -116,7 +127,7 @@ public class GerirMenu
         }
     }
     
-    public void transferirJog() throws EquipaNaoExisteException
+    public void transferirJog() throws EquipaNaoExisteException, JogadorNaoExisteException 
     {
 
         //fazer os trys e ver os nulls ainda
@@ -125,16 +136,18 @@ public class GerirMenu
         sc.nextLine(); //flush
         
         String escEquipaO = sc.nextLine();
-        Equipa equipaOrigem = new Equipa();
         
         if(!(data.getEquipas().containsKey(escEquipaO)))
             throw new EquipaNaoExisteException(escEquipaO);
         
-        equipaOrigem = data.getEquipas().get(escEquipaO);
+        Equipa equipaOrigem = data.getEquipas().get(escEquipaO);
         data.apPlantel(escEquipaO);
         System.out.println("Escolha o jogador que pretende transferir");
         int nr = sc.nextInt();
         
+        if(!(equipaOrigem.getJogadores().containsKey(nr)))
+            throw new JogadorNaoExisteException(escEquipaO);
+            
         Jogador jogTransf = equipaOrigem.getJogadores().get(nr);
             
         data.apEquipas();

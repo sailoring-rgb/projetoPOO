@@ -73,6 +73,8 @@ public class Defesa extends Jogador{
         apresentarJogador();
         System.out.println("Desarme: " + getDesarme());
         
+        System.out.println("Habilidade geral:" + habDefesa(this));
+        
         apresentarHistorico();
     }
     

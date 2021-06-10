@@ -50,10 +50,6 @@ public class CriarJog
         String nome = sc.nextLine();
         jog.setNome(nome);
         
-        System.out.println("Numero da camisola: ");
-        int nr_camisola = sc.nextInt();
-        jog.setNrCamisola(nr_camisola);
-        
         System.out.println("Os valores atribuídos as carateristicas tem estar entre 0 e 100");
         
         System.out.println("Velocidade: ");
@@ -119,6 +115,15 @@ public class CriarJog
                     case 1:
                         Avancado jogAvancado = new Avancado();
                         
+                        System.out.println("Capaciadade de drible: ");                       
+                        int drible = sc.nextInt();
+                        if (drible < 0 || drible > 100){
+                            System.out.println("Este valor não é válido! Insira um novo: ");
+                            drible = sc.nextInt();
+                        }                         
+                        jogAvancado.setDrible(drible);
+                        
+                        
                         habilidade = jogAvancado.habAvancado(jog);
                         System.out.println("Habilidade do avançado: " + habilidade);
                         
@@ -162,6 +167,15 @@ public class CriarJog
                     case 4:
                         Defesa jogDefesa = new Defesa();
                         
+                        System.out.println("Desarme: ");
+                        int desarme = sc.nextInt();
+                        if (desarme < 0 || desarme > 100){
+                            System.out.println("Este valor não é válido! Insira um novo: ");
+                            desarme = sc.nextInt();
+                        }                        
+                        jogDefesa.setDesarme(desarme);
+                        
+                        
                         habilidade = jogDefesa.habDefesa(jog);
                         System.out.println("Habilidade do defesa: " + habilidade);
                         
@@ -179,6 +193,14 @@ public class CriarJog
                         }                        
                         jogGR.setElasticidade(elasticidade);
                         
+                        System.out.println("Lançamento: ");
+                        int lancamento = sc.nextInt();
+                        if (lancamento < 0 || lancamento > 100){
+                            System.out.println("Este valor não é válido! Insira um novo: ");
+                            lancamento = sc.nextInt();
+                        }                        
+                        jogGR.setElasticidade(lancamento);
+                        
                         habilidade = jogGR.habGuardaRedes(jog);
                         System.out.println("Habilidade do guarda-redes: " + habilidade);
                         
@@ -195,19 +217,24 @@ public class CriarJog
     {
         Scanner sc = new Scanner(System.in);
         
-        System.out.println(" Equipas:");
-        var equipaSet = data.getEquipas().entrySet();
-        for(var eq : equipaSet){
-            System.out.println("    " + eq.getKey());
-        }
-        
         System.out.println("A que equipa pretende associar este jogador?");
         boolean valid = false;
         
         while(!valid){
             try {
                 String escolhaEq = sc.nextLine();
+                sc.nextLine();//flush
                 Equipa eq = data.getEquipas().get(escolhaEq);
+                
+                System.out.println("Numero da camisola do jogador: ");
+                
+                boolean v2 = false;
+                while(!v2){
+                int nr_camisola = sc.nextInt();
+                if(eq.getJogadores().containsKey(nr_camisola))
+                    System.out.println("Este número já está a ser usado, insira outro número: ");
+                else {jog.setNrCamisola(nr_camisola); v2 = true;}}
+                
                 eq.insereJogador(jog);
                 data.getEquipas().put(escolhaEq,eq);
                 valid = true;
