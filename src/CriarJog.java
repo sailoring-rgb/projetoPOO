@@ -18,8 +18,8 @@ public class CriarJog
         
         System.out.println("Que jogador pretende criar?");
         System.out.println("1: Avançado");
-        System.out.println("2: Médio");
-        System.out.println("3: Lateral");
+        System.out.println("2: Lateral");
+        System.out.println("3: Médio");
         System.out.println("4: Defesa");
         System.out.println("5: Guarda Redes");
         
@@ -155,8 +155,15 @@ public class CriarJog
                         if (capRecuperacao < 0 || capRecuperacao > 100){
                             System.out.println("Este valor não é válido! Insira um novo: ");
                             capRecuperacao = sc.nextInt();
-                        }                        
-                        jogMedio.setCapRecuperacao(capRecuperacao);
+                        }
+                        
+                        System.out.println("Domínio de bola: ");
+                        int dominioBola = sc.nextInt();
+                        if (dominioBola < 0 || dominioBola > 100){
+                            System.out.println("Este valor não é válido! Insira um novo: ");
+                            dominioBola = sc.nextInt();
+                        } 
+                        jogMedio.setDominioBola(dominioBola);
     
                         habilidade = jogMedio.habMedio(jog);
                         System.out.println("Habilidade do médio: " + habilidade);
@@ -230,15 +237,19 @@ public class CriarJog
                 
                 boolean v2 = false;
                 while(!v2){
-                int nr_camisola = sc.nextInt();
-                if(eq.getJogadores().containsKey(nr_camisola))
-                    System.out.println("Este número já está a ser usado, insira outro número: ");
-                else {jog.setNrCamisola(nr_camisola); v2 = true;}}
+                    int nr_camisola = sc.nextInt();
+                    if(eq.getJogadores().containsKey(nr_camisola))
+                        System.out.println("Este número já está a ser usado, insira outro número: ");
+                    else {
+                        jog.setNrCamisola(nr_camisola);
+                        v2 = true;
+                    }
+                }
                 
                 eq.insereJogador(jog);
                 data.getEquipas().put(escolhaEq,eq);
                 valid = true;
-                System.out.println(jog.getNome()+" faz agora parte de "+ eq.getNome()+ "!");
+                System.out.println(jog.getNome() +" faz agora parte de " + eq.getNome() + "!");
             }
             catch(NullPointerException e) {
                 System.out.println("Equipa não existe! Volte a inserir opção");

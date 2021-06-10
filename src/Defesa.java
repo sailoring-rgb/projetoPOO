@@ -8,6 +8,7 @@
 
 import java.util.*;
 import java.io.PrintWriter;
+import java.util.Random;
 
 public class Defesa extends Jogador{
     
@@ -18,7 +19,8 @@ public class Defesa extends Jogador{
      */
     public Defesa(){
         super();
-        this.desarme = 0;
+        Random rand = new Random();
+        this.desarme = rand.nextInt(101);
     }
     
     /**
@@ -83,20 +85,24 @@ public class Defesa extends Jogador{
     * com o conteúdo de uma string separado por vírgulas.
     */
     public static Defesa parse(String input){
+        Random rand = new Random();
+        
         String[] campos = input.split(",");
-        return new Defesa(campos[0], Integer.parseInt(campos[1]),
+        return new Defesa(campos[0],
+                Integer.parseInt(campos[1]),
                 Integer.parseInt(campos[2]),
                 Integer.parseInt(campos[3]),
                 Integer.parseInt(campos[4]),
                 Integer.parseInt(campos[5]),
                 Integer.parseInt(campos[6]),
                 Integer.parseInt(campos[7]),
-                Integer.parseInt(campos[8]),1,
+                Integer.parseInt(campos[8]),
+                rand.nextInt(101),
                 new ArrayList<>());
     }
     
     public void saverDefesa(PrintWriter print,Jogador umJog){
         print.print("Defesa:");
         saver(print);
-        }
+    }
 }

@@ -74,7 +74,7 @@ public class GerirMenu
         if(data.getEquipas().containsKey(equipa.getNome()))
             throw new EquipaJaExisteException();
         data.inserirEquipa(equipa);
-        System.out.println("Criada Equipa: "+ (data.getEquipa(equipa.getNome()).getNome()));
+        System.out.println("Equipa criada: "+ (data.getEquipa(equipa.getNome()).getNome()));
     }
     
     public void gerarJogador()
