@@ -478,20 +478,27 @@ public class Equipa{
        return habGlobal;
     }
     
-   public void troca(EstadoJogo estado, int nrCamisolaTit, int nrCamisolaSup){
+   public void troca(EstadoJogo estado, int nrCamisolaTit, int nrCamisolaSup, String nomeEquipa){
        int posTit = this.titulares.get(nrCamisolaTit); //guarda a posição do jogador titular
        this.titulares.remove(nrCamisolaTit);
        this.titulares.put(nrCamisolaSup, posTit);
        this.suplentes.remove(nrCamisolaSup);
        this.suplentes.put(nrCamisolaTit, 7);       
+       String equipaCasa = estado.getEquipaCasa().getNome();
+       if(nomeEquipa.equals(equipaCasa)){
+           estado.getSubstituicoesCasa().putIfAbsent(nrCamisolaTit,nrCamisolaSup);
+       }
+       else{
+           estado.getSubstituicoesFora().putIfAbsent(nrCamisolaTit, nrCamisolaSup); 
+       }
    }
    
-   public void substituirDentroEquipa(EstadoJogo estado, int nrCamisolaTit, int nrCamisolaSup) throws JogadorNaoExisteException, SubstituicaoNaoValidaException{
+   public void substituirDentroEquipa(EstadoJogo estado, int nrCamisolaTit, int nrCamisolaSup, String nomeEquipa) throws JogadorNaoExisteException, SubstituicaoNaoValidaException, SubstituicaoNaoPermitidaException{
 
       if(!this.titulares.containsKey(nrCamisolaTit) || !this.suplentes.containsKey(nrCamisolaSup)){
           throw new JogadorNaoExisteException();
       }
-        
+      
       Jogador jogSup = this.jogadores.get(nrCamisolaSup);
       int tipoJog = jogSup.getTipoJogador();
         
@@ -500,35 +507,97 @@ public class Equipa{
       switch(tipoJog){
         case 1: //Avancado
             if(posTitular == 5 || posTitular == 6){
-                troca(estado, nrCamisolaTit, nrCamisolaSup);
+                
+                if(estado.getEquipaCasa().getNome().equals(nomeEquipa)){
+                    if(estado.getNrSubstituicoesCasa() >= 3){
+                        throw new SubstituicaoNaoPermitidaException(nomeEquipa);
+                    }
+                    troca(estado, nrCamisolaTit, nrCamisolaSup, nomeEquipa);
+                }
+                else {
+                    if(estado.getNrSubstituicoesFora() >= 3){
+                        throw new SubstituicaoNaoPermitidaException(nomeEquipa);
+                    }
+                    troca(estado, nrCamisolaTit, nrCamisolaSup, nomeEquipa);
+                }
+                
             }
             else throw new SubstituicaoNaoValidaException();
             break;
                 
         case 2: //Medio
             if(posTitular == 4 || posTitular == 5){
-                troca(estado, nrCamisolaTit, nrCamisolaSup);
+                
+                if(estado.getEquipaCasa().getNome().equals(nomeEquipa)){
+                    if(estado.getNrSubstituicoesCasa() >= 3){
+                        throw new SubstituicaoNaoPermitidaException(nomeEquipa);
+                    }
+                    troca(estado, nrCamisolaTit, nrCamisolaSup, nomeEquipa);
+                }
+                else {
+                    if(estado.getNrSubstituicoesFora() >= 3){
+                        throw new SubstituicaoNaoPermitidaException(nomeEquipa);
+                    }
+                    troca(estado, nrCamisolaTit, nrCamisolaSup, nomeEquipa);
+                }
+                
             }
             else throw new SubstituicaoNaoValidaException();
             break;
                 
         case 3: //Lateral
             if(posTitular == 3 || posTitular == 5){
-                troca(estado, nrCamisolaTit, nrCamisolaSup);
+                
+                if(estado.getEquipaCasa().getNome().equals(nomeEquipa)){
+                    if(estado.getNrSubstituicoesCasa() >= 3){
+                        throw new SubstituicaoNaoPermitidaException(nomeEquipa);
+                    }
+                    troca(estado, nrCamisolaTit, nrCamisolaSup, nomeEquipa);
+                }
+                else {
+                    if(estado.getNrSubstituicoesFora() >= 3){
+                        throw new SubstituicaoNaoPermitidaException(nomeEquipa);
+                    }
+                    troca(estado, nrCamisolaTit, nrCamisolaSup, nomeEquipa);
+                }
             }
             else throw new SubstituicaoNaoValidaException();
             break;
                 
         case 4: // Defesa
             if(posTitular == 2 || posTitular == 6){
-                troca(estado, nrCamisolaTit, nrCamisolaSup);
+                
+                if(estado.getEquipaCasa().getNome().equals(nomeEquipa)){
+                    if(estado.getNrSubstituicoesCasa() >= 3){
+                        throw new SubstituicaoNaoPermitidaException(nomeEquipa);
+                    }
+                    troca(estado, nrCamisolaTit, nrCamisolaSup, nomeEquipa);
+                }
+                else {
+                    if(estado.getNrSubstituicoesFora() >= 3){
+                        throw new SubstituicaoNaoPermitidaException(nomeEquipa);
+                    }
+                    troca(estado, nrCamisolaTit, nrCamisolaSup, nomeEquipa);
+                }
             }
             else throw new SubstituicaoNaoValidaException();
             break;
                 
         case 5: //GuardaRedes
             if(posTitular == 1){
-                troca(estado, nrCamisolaTit, nrCamisolaSup);
+                
+                if(estado.getEquipaCasa().getNome().equals(nomeEquipa)){
+                    if(estado.getNrSubstituicoesCasa() >= 3){
+                        throw new SubstituicaoNaoPermitidaException(nomeEquipa);
+                    }
+                    troca(estado, nrCamisolaTit, nrCamisolaSup, nomeEquipa);
+                }
+                else {
+                    if(estado.getNrSubstituicoesFora() >= 3){
+                        throw new SubstituicaoNaoPermitidaException(nomeEquipa);
+                    }
+                    troca(estado, nrCamisolaTit, nrCamisolaSup, nomeEquipa);
+                }
             }
             else throw new SubstituicaoNaoValidaException();
             break;

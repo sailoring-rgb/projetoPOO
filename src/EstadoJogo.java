@@ -29,6 +29,8 @@ public class EstadoJogo{
     private List<Integer> jogadoresFora;
     private Map<Integer,Integer> substituicoesCasa;
     private Map<Integer,Integer> substituicoesFora;
+    private int nrSubstituicoesCasa;
+    private int nrSubstituicoesFora;
     
     /**
      * Construtores da classe EstadoJogo.
@@ -44,6 +46,8 @@ public class EstadoJogo{
         this.jogadoresFora = new ArrayList<Integer>();
         this.substituicoesCasa = new HashMap<Integer,Integer>();
         this.substituicoesFora = new HashMap<Integer,Integer>();
+        this.nrSubstituicoesCasa = 0;
+        this.nrSubstituicoesFora = 0;
     }
     
     public EstadoJogo(String nomeEquipaCasa, String nomeEquipaFora, Map<String, Equipa> equipas){
@@ -56,11 +60,13 @@ public class EstadoJogo{
         this.jogadoresFora = new ArrayList<Integer>();
         this.substituicoesCasa = new HashMap<Integer,Integer>();
         this.substituicoesFora = new HashMap<Integer,Integer>();
+        this.nrSubstituicoesCasa = 0;
+        this.nrSubstituicoesFora = 0;
     }
     
     public EstadoJogo(LocalDate data, Equipa equipaCasa, Equipa equipaFora, int scoreCasa, int scoreFora, 
                       List<Integer> jogadoresCasa, List<Integer> jogadoresFora, Map<Integer, Integer> substituicoesCasa, Map<Integer, Integer> substituicoesFora,
-                      Map<Integer,Integer> titulares, Map<Integer,Integer> suplentes){
+                      int nrSubstituicoesCasa, int nrSubstituicoesFora){
         this.data = data;
         this.equipaCasa = equipaCasa;
         this.equipaFora = equipaFora;
@@ -70,6 +76,8 @@ public class EstadoJogo{
         this.jogadoresFora = jogadoresFora.stream().collect(Collectors.toList());
         this.substituicoesCasa.putAll(substituicoesCasa);
         this.substituicoesFora.putAll(substituicoesFora);
+        this.nrSubstituicoesCasa = nrSubstituicoesCasa;
+        this.nrSubstituicoesFora = nrSubstituicoesFora;
     }
    
     public EstadoJogo(EstadoJogo estado){
@@ -82,6 +90,8 @@ public class EstadoJogo{
         this.jogadoresFora = estado.getJogadoresFora();
         this.substituicoesCasa = estado.getSubstituicoesCasa();
         this.substituicoesFora = estado.getSubstituicoesFora();
+        this.nrSubstituicoesCasa = estado.getNrSubstituicoesCasa();
+        this.nrSubstituicoesFora = estado.getNrSubstituicoesFora();
     }
     
     /**
@@ -154,6 +164,22 @@ public class EstadoJogo{
     */
     public Map<Integer,Integer> getSubstituicoesFora(){
         return this.substituicoesFora;
+    }
+    
+    /**
+    * Método que obtém o número de substituições da equipa que joga em casa.
+    * @return o número de substituições da equipa que joga em casa
+    */
+    public int getNrSubstituicoesCasa(){
+        return this.nrSubstituicoesCasa;
+    }
+    
+    /**
+    * Método que obtém o número de substituições da equipa que joga fora.
+    * @return o número de substituições da equipa que joga fora
+    */
+    public int getNrSubstituicoesFora(){
+        return this.nrSubstituicoesFora;
     }
     
     /**
@@ -232,6 +258,22 @@ public class EstadoJogo{
     */
     public void setSubstituicoesFora(Map<Integer,Integer> substituicoesFora){
         this.substituicoesFora = substituicoesFora.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e->e.getValue()));
+    }
+    
+    /**
+    * Método que muda o número de substituições da equipa que joga em casa.
+    * @param o novo número de substituições
+    */
+    public void setNrSubstituicoesCasa(int nrSubstituicoesCasa){
+        this.nrSubstituicoesCasa = nrSubstituicoesCasa;
+    }
+    
+    /**
+    * Método que muda o número de substituições da equipa que joga fora.
+    * @param o novo número de substituições
+    */
+    public void setNrSubstituicoesFora(int nrSubstituicoesFora){
+        this.nrSubstituicoesCasa = nrSubstituicoesCasa;
     }
     
     /**
