@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 /**
- * Escreva a descrição da classe MainMenu aqui.
+ * Apresenta o menu principal deste jogo.
  * 
  * @author grupo 3 
  * @version (número de versão ou data)

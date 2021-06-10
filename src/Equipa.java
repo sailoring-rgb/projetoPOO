@@ -166,36 +166,26 @@ public class Equipa{
    public void removeJogador(Jogador jog) {
         jogadores.remove(jog.clone().getNrCamisola());
     }
-      
-   public int[] taticaEsc(int tacEscolhida)
-    {
-        //Isto é muito suboptimal mas não encontrei melhor maneira
-        switch(tacEscolhida){
-            case 0:
-                return new int[]{1,4,4,2};
-            case 1:
-                return new int[]{1,4,3,3};
-        }
-        
-        return new int[]{1,2,4,2,2}; 
-    }
    
    /**
     * Método que calcula a habilidade total de uma equipa.
     * 
-    * Será percorrido o map de jogadores e, dependendo do tipo do jogador e da quantidade de
-    * cada posição (defesa, lateral, médio, avançado, guarda-redes), as habilidades de cada jogador serão somadas.
+    * Será percorrido o map de jogadores de uma equipa e, dependendo do tipo do jogador,
+    * as habilidades de cada jogador (titular) serão somadas.
     * 
+    * @param conjuntos dos titulares da equipa
     * @param a equipa cuja habilidade será calculada
     * @return a habilidade total da equipa
     */
-   public double habEquipa(Map <Integer,Integer> titulares, Equipa equipa){
+   public double habEquipa(Map<Integer,Integer> titulares, Equipa equipa){
        double habGlobal = 0;  
        
        for(Jogador j: equipa.getJogadores().values()){
            int nrCamisola = j.getNrCamisola();
+           
            if(titulares.containsKey(nrCamisola)){
                int tipoJog = j.getTipoJogador();
+               
                switch(tipoJog){
                    case 1:
                        Jogador jog = new Avancado(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
@@ -229,14 +219,14 @@ public class Equipa{
                    
                }
            }
-        
        }
        
        return habGlobal;
     }
     
-/**
-    * Método que imprime o plantel de jogadores, cada um identificado pelo número da sua camisola.
+   /**
+    * Método que imprime o plantel de jogadores de uma equipa,
+    * cada um identificado pelo número da sua camisola.
     */
    public void apresentarPlantel(){   
         System.out.println("  Jogadores:");

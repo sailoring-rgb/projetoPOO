@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=JogMenu
-comment0.text=\n\ Escreva\ a\ descri\u00E7\u00E3o\ da\ classe\ JogMenu\ aqui.\n\ \n\ @author\ (seu\ nome)\ \n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\n
+comment0.text=\n\ Apresenta\ um\ menu\ destinado\ ao\ jogo.\n\ \n\ @author\ grupo\ 3\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\n
 comment1.params=novoEstado
 comment1.target=JogMenu(EstadoJogo)
 comment2.params=option

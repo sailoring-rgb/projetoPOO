@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 /**
- * Escreva a descrição da classe GerirMenu aqui.
+ * Apresenta o menu destinado às equipas e aos jogadores.
  * 
  * @author grupo 3 
  * @version (número de versão ou data)

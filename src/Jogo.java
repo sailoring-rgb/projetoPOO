@@ -143,14 +143,19 @@ public class Jogo{
      * @param o estado do jogo
      */
     public void iniciaJogada(EstadoJogo estado){
-
         Random rand = new Random();
 
         Equipa equipa1 = new Equipa(estado.getEquipaCasa());
         Equipa equipa2 = new Equipa(estado.getEquipaFora());
-           
-        double habilidadeEquipa1 = equipa1.habEquipa(equipa1);
-        double habilidadeEquipa2 = equipa2.habEquipa(equipa2);
+        
+        estado.criaTitularesSuplentes(equipa1, 0 /*???????????????*/);
+        Map<Integer,Integer> titularesEq1 = estado.getTitulares();
+        
+        estado.criaTitularesSuplentes(equipa2, 0 /*???????????????*/);
+        Map<Integer,Integer> titularesEq2 = estado.getTitulares();
+        
+        double habilidadeEquipa1 = equipa1.habEquipa(titularesEq1, equipa1);
+        double habilidadeEquipa2 = equipa2.habEquipa(titularesEq2, equipa2);
 
         double total = habilidadeEquipa1 + habilidadeEquipa2;
         double hipoteseEquipa1 = (habilidadeEquipa1 * 4) / total;
@@ -189,7 +194,6 @@ public class Jogo{
      * @param o estado do jogo
      */
     public void constroiJogada(String equipaAtual, EstadoJogo estado){
-        
         Random rand = new Random();
         boolean r = true;
         

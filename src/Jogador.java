@@ -153,7 +153,7 @@ public class Jogador{
     }
     
     /**
-    * Método que obtém o historico do jogador.
+    * Método que obtém o historico do jogador (ou seja, em que equipas já esteve).
     * @return o historico
     */
     public List<String> getHistorico(){
@@ -241,7 +241,7 @@ public class Jogador{
     }
     
     /**
-    * Método que muda o historico do jogador.
+    * Método que muda o historico do jogador (ou seja, em que equipas já esteve).
     * @return o novo historico
     */
     public void setHistorico(List<String> historico){
@@ -260,13 +260,16 @@ public class Jogador{
     }
     
     /**
-    * Método que adiciona uma equipa o historico do jogador.
+    * Método que adiciona uma equipa o historico do jogador (ou seja, em que equipas já esteve).
     * @return o novo historico
     */
     public void addHistorico(String equipa){
         this.historico.add(equipa);
     }
     
+    /**
+    * Método que imprime o plantel de todas as habilidades de um jogador identificado pelo seu nome.
+    */
     public void apresentarJogador(){
         System.out.println(nome + "\n");
         System.out.println("  Habilidades:");
@@ -280,6 +283,9 @@ public class Jogador{
         System.out.println("     Capacidade de Passe: " + capPasse);
     }
     
+    /**
+    * Método que imprime o histórico de um jogador, ou seja, todas as equips antigas em que já jogou.
+    */
     public void apresentarHistorico(){
         System.out.println("Antigas Equipas do jogador: ");
         for (String equipa : historico) {
@@ -287,7 +293,9 @@ public class Jogador{
         }
     }
     
-    
+    /**
+    * Método que guarda um objeto de tipo Jogador.
+    */
     public void saver(PrintWriter print){
             switch(tipoJogador){
                 //por arranjar-----------------------

@@ -290,9 +290,11 @@ public class EstadoJogo{
             this.equipaFora = equipas.get(nomeEquipaFora).clone();
     }
     
-       public int[] taticaEsc(int tacEscolhida)
+    /**
+     * Método que ...
+     */
+    public int[] taticaEsc(int tacEscolhida)
     {
-        //Isto é muito suboptimal mas não encontrei melhor maneira
         switch(tacEscolhida){
             case 0:
                 return new int[]{1,4,4,2};
@@ -304,6 +306,8 @@ public class EstadoJogo{
     }
     
     /**
+     * Método que cria, dependendo da tática selecionada, os conjuntos titulares e suplentes de uma equipa.
+     * 
      * posição 1 -> guardaRedes
      * posição 2 -> defesa central
      * posição 3 -> defesa lateral
@@ -311,6 +315,9 @@ public class EstadoJogo{
      * posição 5 -> extremos
      * posição 6 -> avancado / avançado centro
      * posicao 7 -> não existe no jogo, é suplente
+     * 
+     * @param equipa cuja lista de suplentes queremos criar
+     * @param número da tática
     */
     public void criaTitularesSuplentes(Equipa equipa, int nr_tatica){
         int onzeT[] = taticaEsc(nr_tatica);
@@ -324,6 +331,34 @@ public class EstadoJogo{
         List<Jogador> laterais = new ArrayList<Jogador>();
         List<Jogador> guardaRedes = new ArrayList<Jogador>();
         
+        adicionaJogPeloTipo(equipa, avancados, medios, defesas, laterais, guardaRedes);
+        
+        if(onzeT[2] == 4){
+            
+            paraPrimeiraTatica(avancados, medios, defesas, laterais, guardaRedes);
+            
+        }else{
+            
+            paraSegundaTatica(avancados, medios, defesas, laterais, guardaRedes);
+            
+        }
+    }
+    
+    /**
+     * Método que adiciona jogadores (de uma equipa) a uma lista do seu tipo.
+     * 
+     * Ou seja, se for um avançado, então este jogador será adicionada a uma lista de avançados.
+     * 
+     * @param equipa dos jogadores
+     * @param lista de avançados (incialmente vazia) onde se adicionarão os avançados dessa equipa
+     * @param lista de médios (incialmente vazia) onde se adicionarão os médios dessa equipa
+     * @param lista de defesas (incialmente vazia) onde se adicionarão os defesas dessa equipa
+     * @param lista de laterais (incialmente vazia) onde se adicionarão os laterais dessa equipa
+     * @param lista de guarda redes (incialmente vazia) onde se adicionarão os guarda redes dessa equipa
+     */
+    public void adicionaJogPeloTipo(Equipa equipa, List<Jogador> avancados, List<Jogador> medios,         
+                                    List<Jogador> defesas, List<Jogador> laterais, List<Jogador> guardaRedes){
+                                        
         for(Jogador j: equipa.getJogadores().values()){
             int tipoJog = j.getTipoJogador();
             switch(tipoJog){
@@ -339,112 +374,135 @@ public class EstadoJogo{
                     guardaRedes.add(j); 
             }
         }
-        
-        if(onzeT[2] == 4){
-            int nrAvancados = 0, nrMedios = 0, nrDefesas = 0, nrGuardaRedes = 0, nrLaterais = 0;
+    }
+    
+    /**
+     * Método que, para a primeira tática, cria adiciona aos conjuntos titulares e suplentes (inicialmente vazios)
+     * os titulares e os suplentes dessa equipa, respetivamente.
+     * 
+     * @param lista com os avançados dessa equipa
+     * @param lista com os médios dessa equipa
+     * @param lista com os defesas dessa equipa
+     * @param lista com os laterais dessa equipa
+     * @param lista com os guarda redes dessa equipa
+     */
+    public void paraPrimeiraTatica(List<Jogador> avancados, List<Jogador> medios,         
+                                   List<Jogador> defesas, List<Jogador> laterais, List<Jogador> guardaRedes){
+        int nrAvancados = 0, nrMedios = 0, nrDefesas = 0, nrGuardaRedes = 0, nrLaterais = 0;
             
-            for(Jogador j: avancados){ 
-                if(nrAvancados < 2){
+        for(Jogador j: avancados){ 
+            if(nrAvancados < 2){
                     this.titulares.put(j.getNrCamisola(),6);
-                }else{
+            }else{
                     this.suplentes.put(j.getNrCamisola(),7);
-                }
-                nrAvancados++;
             }
+            nrAvancados++;
+        }
             
-            for(Jogador j: medios){ 
-                if(nrMedios < 2){
-                    this.titulares.put(j.getNrCamisola(),4);
-                }
-                if(nrMedios >= 2 && nrMedios < 4){
-                    this.titulares.put(j.getNrCamisola(),7);
-                }
-                else{
-                    this.suplentes.put(j.getNrCamisola(), 7);
-                }
-                nrMedios++;
+        for(Jogador j: medios){ 
+            if(nrMedios < 2){
+                this.titulares.put(j.getNrCamisola(),4);
             }
-            
-            for(Jogador j: defesas){ 
-                if(nrDefesas < 2){
-                    this.titulares.put(j.getNrCamisola(),2);
-                }else{
-                    this.suplentes.put(j.getNrCamisola(),7);
-                }
-                nrDefesas++;
+                
+            if(nrMedios >= 2 && nrMedios < 4){
+                 this.titulares.put(j.getNrCamisola(),7);
             }
-            
-            for(Jogador j: laterais){ 
-                if(nrLaterais < 2){
-                    this.titulares.put(j.getNrCamisola(),3);
-                }else{
-                    this.suplentes.put(j.getNrCamisola(),7);
-                }
-                nrLaterais++;
+            else{
+                 this.suplentes.put(j.getNrCamisola(), 7);
             }
+            nrMedios++;
+        }
             
-            for(Jogador j: guardaRedes){ 
-                if(nrGuardaRedes < 1){
-                    this.titulares.put(j.getNrCamisola(),1);
-                }else{
-                    this.suplentes.put(j.getNrCamisola(),7);
-                }
-                nrGuardaRedes++;
+        for(Jogador j: defesas){ 
+            if(nrDefesas < 2){
+                 this.titulares.put(j.getNrCamisola(),2);
+            }else{
+                 this.suplentes.put(j.getNrCamisola(),7);
             }
+            nrDefesas++;
+        }
             
-        }else{
-            int nrAvancados = 0, nrMedios = 0, nrDefesas = 0, nrGuardaRedes = 0, nrLaterais = 0;
-            
-            for(Jogador j: avancados){ 
-                if(nrAvancados < 2){
-                    this.titulares.put(j.getNrCamisola(),5);
-                }
-                if(nrAvancados >= 2 && nrAvancados < 3){
-                    this.titulares.put(j.getNrCamisola(), 6);
-                }
-                else{
-                    this.suplentes.put(j.getNrCamisola(),7);
-                }
-                nrAvancados++;
+        for(Jogador j: laterais){ 
+            if(nrLaterais < 2){
+                  this.titulares.put(j.getNrCamisola(),3);
+            }else{
+                  this.suplentes.put(j.getNrCamisola(),7);
             }
+            nrLaterais++;
+        }
             
-            for(Jogador j: medios){ 
-                if(nrMedios < 3){
-                    this.titulares.put(j.getNrCamisola(),3);
-                }else{
-                    this.suplentes.put(j.getNrCamisola(), 7);
-                }
-                nrMedios++;
+        for(Jogador j: guardaRedes){ 
+             if(nrGuardaRedes < 1){
+                  this.titulares.put(j.getNrCamisola(),1);
+             }else{
+                  this.suplentes.put(j.getNrCamisola(),7);
+             }
+             nrGuardaRedes++;
+        }
+    }
+    
+    /**
+     * Método que, para a segunda tática, cria adiciona aos conjuntos titulares e suplentes (inicialmente vazios)
+     * os titulares e os suplentes dessa equipa, respetivamente.
+     * 
+     * @param lista com os avançados dessa equipa
+     * @param lista com os médios dessa equipa
+     * @param lista com os defesas dessa equipa
+     * @param lista com os laterais dessa equipa
+     * @param lista com os guarda redes dessa equipa
+     */
+    public void paraSegundaTatica(List<Jogador> avancados, List<Jogador> medios,         
+                                   List<Jogador> defesas, List<Jogador> laterais, List<Jogador> guardaRedes){
+        int nrAvancados = 0, nrMedios = 0, nrDefesas = 0, nrGuardaRedes = 0, nrLaterais = 0;
+            
+        for(Jogador j: avancados){ 
+             if(nrAvancados < 2){
+                  this.titulares.put(j.getNrCamisola(),5);
+             }
+                
+             if(nrAvancados >= 2 && nrAvancados < 3){
+                  this.titulares.put(j.getNrCamisola(), 6);
+             }
+             else{
+                  this.suplentes.put(j.getNrCamisola(),7);
+             }
+             nrAvancados++;
+        }
+            
+        for(Jogador j: medios){ 
+             if(nrMedios < 3){
+                  this.titulares.put(j.getNrCamisola(),3);
+             }else{
+                  this.suplentes.put(j.getNrCamisola(), 7);
+             }
+             nrMedios++;
+        }
+            
+        for(Jogador j: defesas){ 
+             if(nrDefesas < 2){
+                  this.titulares.put(j.getNrCamisola(),2);
+             }else{
+                  this.suplentes.put(j.getNrCamisola(),7);
+             }
+             nrDefesas++;
+        }
+            
+        for(Jogador j: laterais){ 
+             if(nrLaterais < 2){
+                  this.titulares.put(j.getNrCamisola(),3);
+             }else{
+                  this.suplentes.put(j.getNrCamisola(),7);
+             }
+             nrLaterais++;
+        }
+            
+        for(Jogador j: guardaRedes){ 
+            if(nrGuardaRedes < 1){
+                this.titulares.put(j.getNrCamisola(),1);
+            }else{
+                this.suplentes.put(j.getNrCamisola(),7);
             }
-            
-            for(Jogador j: defesas){ 
-                if(nrDefesas < 2){
-                    this.titulares.put(j.getNrCamisola(),2);
-                }else{
-                    this.suplentes.put(j.getNrCamisola(),7);
-                }
-                nrDefesas++;
-            }
-            
-            for(Jogador j: laterais){ 
-                if(nrLaterais < 2){
-                    this.titulares.put(j.getNrCamisola(),3);
-                }else{
-                    this.suplentes.put(j.getNrCamisola(),7);
-                }
-                nrLaterais++;
-            }
-            
-            for(Jogador j: guardaRedes){ 
-                if(nrGuardaRedes < 1){
-                    this.titulares.put(j.getNrCamisola(),1);
-                }else{
-                    this.suplentes.put(j.getNrCamisola(),7);
-                }
-                nrGuardaRedes++;
-            }
-            
-        
+            nrGuardaRedes++;
         }
     }
 }
