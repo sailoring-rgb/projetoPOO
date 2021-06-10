@@ -25,7 +25,7 @@ public class GuardaRedes extends Jogador{
     /**
      * Construtor parametrizado.
      */
-    public GuardaRedes(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int elasticidade,List<String> historico){
+    public GuardaRedes(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int elasticidade, int lancamento, List<String> historico){
         super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse,historico, 5);
         this.elasticidade = elasticidade;
         this.lancamento = lancamento;
@@ -37,6 +37,7 @@ public class GuardaRedes extends Jogador{
     public GuardaRedes(GuardaRedes umJog){
         super(umJog);
         this.elasticidade = umJog.getElasticidade();
+        this.lancamento = umJog.getLancamento();
     }
     
     /**
@@ -102,7 +103,8 @@ public class GuardaRedes extends Jogador{
     */
     public static GuardaRedes parse(String input){
         String[] campos = input.split(",");
-        return new GuardaRedes(campos[0], Integer.parseInt(campos[1]),
+        return new GuardaRedes(campos[0],
+                Integer.parseInt(campos[1]),
                 Integer.parseInt(campos[2]),
                 Integer.parseInt(campos[3]),
                 Integer.parseInt(campos[4]),
@@ -111,6 +113,7 @@ public class GuardaRedes extends Jogador{
                 Integer.parseInt(campos[7]),
                 Integer.parseInt(campos[8]),
                 Integer.parseInt(campos[9]),
+                0,
                 new ArrayList<>());
     }
 }
