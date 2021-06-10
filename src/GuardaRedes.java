@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 public class GuardaRedes extends Jogador{
     
     private int elasticidade;
+    private int lancamento;
     
     /**
      * Construtor por omissão.
@@ -19,6 +20,7 @@ public class GuardaRedes extends Jogador{
     public GuardaRedes(){
         super();
         this.elasticidade = 0;
+        this.lancamento = 0;
     }
     
     /**
@@ -27,6 +29,7 @@ public class GuardaRedes extends Jogador{
     public GuardaRedes(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int elasticidade, int lancamento, List<String> historico){
         super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse,historico, 5);
         this.elasticidade = elasticidade;
+        this.lancamento = lancamento;
     }
     
     /**
@@ -59,7 +62,7 @@ public class GuardaRedes extends Jogador{
     * @return o valor do lançamento
     */
     public int getLancamento(){
-        return this.elasticidade;
+        return this.lancamento;
     }
     
     /**
@@ -79,6 +82,7 @@ public class GuardaRedes extends Jogador{
         double habilidade = umJog.getVelocidade()*0.5 + umJog.getResistencia()*1 + umJog.getDestreza()*0.5 + umJog.getImpulsao()*1 +
                             umJog.getJogoCabeca()*0.5 + umJog.getRemate()*0.5 + umJog.getCapPasse()*0.5 + getElasticidade()*1 +
                             getLancamento()*1;
+        return habilidade;
     }
     
     /**
@@ -109,8 +113,7 @@ public class GuardaRedes extends Jogador{
                 Integer.parseInt(campos[6]),
                 Integer.parseInt(campos[7]),
                 Integer.parseInt(campos[8]),
-                Integer.parseInt(campos[9]),
-                0,
+                Integer.parseInt(campos[9]),0,
                 new ArrayList<>());
     }
     

@@ -10,18 +10,23 @@ import java.util.*;
 import java.io.PrintWriter;
 
 public class Avancado extends Jogador{
+    
+    private int drible;
+    
     /**
      * Construtor por omissão.
      */
     public Avancado(){
         super();
+        this.drible = 0;
     }
     
     /**
      * Construtor parametrizado.
      */
-    public Avancado(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse,List<String> historico){
+    public Avancado(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int drible,List<String> historico){
         super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico,1);
+        this.drible = drible;
     }
     
     /**
@@ -29,6 +34,23 @@ public class Avancado extends Jogador{
      */
     public Avancado(Avancado umJog){
         super(umJog);
+        this.drible = umJog.getDrible();
+    }
+    
+    /**
+    * Método que obtém o valor do drible do avançado.
+    * @return o valor do drible
+    */
+    public int getDrible(){
+        return this.drible;
+    }
+    
+    /**
+    * Método que muda o valor do drible do avançado.
+    * @param o novo valor do drible
+    */
+    public void setDrible(int drible){
+        this.drible = drible;
     }
     
     /**
@@ -67,7 +89,7 @@ public class Avancado extends Jogador{
                 Integer.parseInt(campos[5]),
                 Integer.parseInt(campos[6]),
                 Integer.parseInt(campos[7]),
-                Integer.parseInt(campos[8]),
+                Integer.parseInt(campos[8]),1,
                 new ArrayList<>());
     }
     

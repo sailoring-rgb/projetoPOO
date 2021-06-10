@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 public class Medio extends Jogador{
    
     private int capRecuperacao;
+    private int dominioBola;
     
     /**
      * Construtor por omissão.
@@ -78,7 +79,7 @@ public class Medio extends Jogador{
     */
     public double habMedio (Jogador umJog){
         double habilidade = umJog.getVelocidade()*0.5 + umJog.getResistencia()*0.5 + umJog.getDestreza()*1 + umJog.getImpulsao()*0.5 +
-                            umJog.getJogoCabeca()*0.5 + umJog.getRemate()*0.5 + umJog.getCapPasse()*1 + getCapRecuperacao()*1;
+                            umJog.getJogoCabeca()*0.5 + umJog.getRemate()*0.5 + umJog.getCapPasse()*1 + getCapRecuperacao()*1 + getDominioBola()*1;
         return habilidade;
     }
     
@@ -90,6 +91,7 @@ public class Medio extends Jogador{
         System.out.println("Posição: Médio");
         apresentarJogador();
         System.out.println("Capacidade de Recuperação: " + getCapRecuperacao());
+        System.out.println("Dominio de Bola: " + getDominioBola());
         
         apresentarHistorico();
     }
@@ -109,8 +111,7 @@ public class Medio extends Jogador{
                 Integer.parseInt(campos[6]),
                 Integer.parseInt(campos[7]),
                 Integer.parseInt(campos[8]),
-                Integer.parseInt(campos[9]),
-                0,
+                Integer.parseInt(campos[9]),0,
                 new ArrayList<>());
     }
     

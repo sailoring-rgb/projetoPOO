@@ -10,18 +10,23 @@ import java.util.*;
 import java.io.PrintWriter;
 
 public class Defesa extends Jogador{
+    
+    private int desarme;
+    
     /**
      * Construtor por omissão.
      */
     public Defesa(){
         super();
+        this.desarme = 0;
     }
     
     /**
      * Construtor parametrizado.
      */
-    public Defesa(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, List<String> historico){
+    public Defesa(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse,int desarme, List<String> historico){
         super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico, 4);
+        this.desarme = desarme;
     }
     
     /**
@@ -29,6 +34,23 @@ public class Defesa extends Jogador{
      */
     public Defesa(Defesa umJog){
         super(umJog);
+        this.desarme = umJog.getDesarme();
+    }
+    
+    /**
+    * Método que obtém o valor do desarme do defesa.
+    * @return o valor do desarme
+    */
+    public int getDesarme(){
+        return this.desarme;
+    }
+    
+    /**
+    * Método que muda o valor do desarme do Defesa.
+    * @param o novo valor do desarme
+    */
+    public void setDesarme(int desarme){
+        this.desarme = desarme;
     }
     
     /**
@@ -67,7 +89,7 @@ public class Defesa extends Jogador{
                 Integer.parseInt(campos[5]),
                 Integer.parseInt(campos[6]),
                 Integer.parseInt(campos[7]),
-                Integer.parseInt(campos[8]),
+                Integer.parseInt(campos[8]),1,
                 new ArrayList<>());
     }
     
