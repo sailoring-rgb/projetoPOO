@@ -189,40 +189,53 @@ public class Equipa{
     * @param a equipa cuja habilidade será calculada
     * @return a habilidade total da equipa
     */
-   public double habEquipa(Equipa umaEquipa){
-       double habGlobal = 0;
+   public double habEquipa(Map <Integer,Integer> titulares, Equipa equipa){
+       double habGlobal = 0;  
        
-       GuardaRedes jogGR = new GuardaRedes();
-       Defesa jogDefesa = new Defesa();
-       Medio jogMedio = new Medio();
-       Avancado jogAvancado = new Avancado();
-       Lateral jogLateral = new Lateral();
-             
-       int onzeT[] = taticaEsc(nr_tatica);//para saber quantos de cada
-       
-       for(Jogador j: umaEquipa.getJogadores().values()){
-           switch(j.getTipoJogador()){
-               case 1:
-                   habGlobal += jogAvancado.habAvancado(j)*onzeT[3];
+       for(Jogador j: equipa.getJogadores().values()){
+           int nrCamisola = j.getNrCamisola();
+           if(titulares.containsKey(nrCamisola)){
+               int tipoJog = j.getTipoJogador();
+               switch(tipoJog){
+                   case 1:
+                       Jogador jog = new Avancado(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, j.getHistorico());
+                       habGlobal += ((Avancado) jog).habAvancado(j);
+                       break;
                    
-               case 2:
-                   habGlobal += jogMedio.habMedio(j)*onzeT[2];
-               
-               case 3:
-                   habGlobal += jogLateral.habLateral(j)*onzeT[4];
-               
-               case 4:
-                   habGlobal += jogDefesa.habDefesa(j)*onzeT[1];
+                   case 2:
+                       Jogador jog1 = new Medio(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, 90, j.getHistorico());
+                       habGlobal += ((Medio) jog1).habMedio(j);
+                       break;
                    
-               case 5:
-                   habGlobal += jogGR.habGuardaRedes(j)*onzeT[0];
+                   case 3:
+                       Jogador jog2 = new Lateral(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, j.getHistorico());
+                       habGlobal += ((Lateral) jog2).habLateral(j);
+                       break;
+                       
+                   case 4:
+                       Jogador jog3 = new Defesa(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, j.getHistorico());
+                       habGlobal += ((Defesa) jog3).habDefesa(j);
+                       break;
+                       
+                   case 5:
+                       Jogador jog4 = new GuardaRedes(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, 90, j.getHistorico());
+                       habGlobal += ((GuardaRedes) jog4).habGuardaRedes(j);
+                       break;
+                   
+               }
            }
+        
        }
        
        return habGlobal;
     }
-   
-   /**
+    
+/**
     * Método que imprime o plantel de jogadores, cada um identificado pelo número da sua camisola.
     */
    public void apresentarPlantel(){   

@@ -267,14 +267,6 @@ public class Jogador{
         this.historico.add(equipa);
     }
     
-    /**
-    * Método que faz um clone do objeto Jogador.
-    * @return o clone
-    */
-    public Jogador clone(){
-        return new Jogador(this);
-    }
-    
     public void apresentarJogador(){
         System.out.println(nome + "\n");
         System.out.println("  Habilidades:");
@@ -330,5 +322,33 @@ public class Jogador{
                                     + remate +"," + capPasse);
                                     break;
                 }
+    }
+
+    /**
+    * Método que faz um clone do objeto Jogador.
+    * @return o clone
+    */
+    public Jogador clone(){
+        return new Jogador(this);
+    }
+    
+    /**
+    * Método que reescreve o equals de um objeto de tipo Jogador.
+    */
+    public boolean equals(Object obj){
+        if (obj == this) return true;
+        if (obj == null || ! obj.getClass().equals(this.getClass())) return false;
+        Jogador jog = (Jogador) obj;
+        return this.nome.equals(jog.getNome()) &&
+            this.nr_camisola == jog.getNrCamisola() &&
+            this.velocidade == jog.getVelocidade() &&
+            this.resistencia == jog.getResistencia() &&
+            this.destreza == jog.getDestreza() &&
+            this.impulsao == jog.getImpulsao() &&
+            this.jogoCabeca == jog.getJogoCabeca() &&
+            this.remate == jog.getRemate() &&
+            this.capPasse == jog.getCapPasse() &&
+            this.historico.equals(jog.getHistorico()) &&
+            this.tipoJogador == jog.getTipoJogador();
     }
 }
