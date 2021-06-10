@@ -7,6 +7,7 @@
 
 import java.util.*;
 import java.io.PrintWriter;
+import java.util.Random;
 
 public class Medio extends Jogador{
    
@@ -19,7 +20,8 @@ public class Medio extends Jogador{
     public Medio(){
         super();
         this.capRecuperacao = 0;
-        this.dominioBola = 0;
+        Random rand = new Random();
+        this.dominioBola = rand.nextInt(101);
     }
     
     /**

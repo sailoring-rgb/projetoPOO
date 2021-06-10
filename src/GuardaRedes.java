@@ -8,6 +8,7 @@
 
 import java.util.*;
 import java.io.PrintWriter;
+import java.util.Random;
 
 public class GuardaRedes extends Jogador{
     
@@ -20,7 +21,8 @@ public class GuardaRedes extends Jogador{
     public GuardaRedes(){
         super();
         this.elasticidade = 0;
-        this.lancamento = 0;
+        Random rand = new Random();
+        this.lancamento = rand.nextInt(101);
     }
     
     /**
