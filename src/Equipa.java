@@ -478,6 +478,63 @@ public class Equipa{
        return habGlobal;
     }
     
+   public void troca(EstadoJogo estado, int nrCamisolaTit, int nrCamisolaSup){
+       int posTit = this.titulares.get(nrCamisolaTit); //guarda a posição do jogador titular
+       this.titulares.remove(nrCamisolaTit);
+       this.titulares.put(nrCamisolaSup, posTit);
+       this.suplentes.remove(nrCamisolaSup);
+       this.suplentes.put(nrCamisolaTit, 7);       
+   }
+   
+   public void substituirDentroEquipa(EstadoJogo estado, int nrCamisolaTit, int nrCamisolaSup) throws JogadorNaoExisteException, SubstituicaoNaoValidaException{
+
+      if(!this.titulares.containsKey(nrCamisolaTit) || !this.suplentes.containsKey(nrCamisolaSup)){
+          throw new JogadorNaoExisteException();
+      }
+        
+      Jogador jogSup = this.jogadores.get(nrCamisolaSup);
+      int tipoJog = jogSup.getTipoJogador();
+        
+      int posTitular = this.titulares.get(nrCamisolaTit);
+        
+      switch(tipoJog){
+        case 1: //Avancado
+            if(posTitular == 5 || posTitular == 6){
+                troca(estado, nrCamisolaTit, nrCamisolaSup);
+            }
+            else throw new SubstituicaoNaoValidaException();
+            break;
+                
+        case 2: //Medio
+            if(posTitular == 4 || posTitular == 5){
+                troca(estado, nrCamisolaTit, nrCamisolaSup);
+            }
+            else throw new SubstituicaoNaoValidaException();
+            break;
+                
+        case 3: //Lateral
+            if(posTitular == 3 || posTitular == 5){
+                troca(estado, nrCamisolaTit, nrCamisolaSup);
+            }
+            else throw new SubstituicaoNaoValidaException();
+            break;
+                
+        case 4: // Defesa
+            if(posTitular == 2 || posTitular == 6){
+                troca(estado, nrCamisolaTit, nrCamisolaSup);
+            }
+            else throw new SubstituicaoNaoValidaException();
+            break;
+                
+        case 5: //GuardaRedes
+            if(posTitular == 1){
+                troca(estado, nrCamisolaTit, nrCamisolaSup);
+            }
+            else throw new SubstituicaoNaoValidaException();
+            break;
+      }
+   } 
+   
    /**
     * Método que imprime o plantel de jogadores de uma equipa,
     * cada um identificado pelo número da sua camisola.
