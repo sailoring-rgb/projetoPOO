@@ -22,4 +22,6 @@ comment7.params=
 comment7.target=void\ apresentarJogadorGR()
 comment8.params=input
 comment8.target=GuardaRedes\ parse(java.lang.String)
-numComments=9
+comment9.params=print\ umJog
+comment9.target=void\ saverGuardaRedes(java.io.PrintWriter,\ Jogador)
+numComments=10

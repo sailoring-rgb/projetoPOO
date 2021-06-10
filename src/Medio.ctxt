@@ -31,3 +31,4 @@ comment9.params=
 comment9.target=void\ apresentarJogadorMedio()
 comment9.text=\n\ M\u00E9todo\ que\ imprime\ a\ informa\u00E7\u00E3o\ de\ um\ m\u00E9dio,\ incluindo\ o\ seu\ hist\u00F3rico\n\ (ou\ seja,\ as\ equipas\ onde\ j\u00E1\ esteve).\n
 numComments=11
+

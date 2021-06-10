@@ -48,7 +48,12 @@ public class GerirMenu
             return;
             
           case 4:
-            transferirJog();
+            try{
+                transferirJog();
+            }
+            catch(EquipaNaoExisteException exc){
+                System.out.println("Esta equipa não existe!");
+            }
             return;
           
           default: System.out.println("Opção Inválida");
@@ -111,7 +116,7 @@ public class GerirMenu
         }
     }
     
-    public void transferirJog()
+    public void transferirJog() throws EquipaNaoExisteException
     {
 
         //fazer os trys e ver os nulls ainda
@@ -120,44 +125,53 @@ public class GerirMenu
         sc.nextLine(); //flush
         
         String escEquipaO = sc.nextLine();
+        Equipa equipaOrigem = new Equipa();
         
-        Equipa equipaOrigem = data.getEquipas().get(escEquipaO);
-
-        data.apPlantel(escEquipaO);
-        System.out.println("Escolha o jogador que pretende transferir");
-        int nr = sc.nextInt();
+        if(data.getEquipas().containsKey(escEquipaO)){
+            equipaOrigem = data.getEquipas().get(escEquipaO);
+            data.apPlantel(escEquipaO);
+            System.out.println("Escolha o número do jogador que pretende transferir");
+            int nr = sc.nextInt();
         
-        Jogador jogTransf = equipaOrigem.getJogadores().get(nr);
-
-        data.apEquipas();
-        
-        System.out.println("Escolha o destino do jogador");
-        sc.nextLine();
-        String escEquipaD = sc.nextLine();
-                
-        Equipa equipaDestino = data.getEquipas().get(escEquipaD);
-        
-        //para ser arranjado num futuro proximo
-        equipaOrigem.removeJogador(jogTransf);
-        data.inserirEquipa(equipaOrigem);
-        
-        int nr_inserido = 0;
-        
-        while(equipaDestino.getJogadores().containsKey(nr_inserido)){
-            nr_inserido +=1;
-        }
-        
-        //Mudar no jogador
-        jogTransf.setNrCamisola(nr_inserido);
-        jogTransf.addHistorico(escEquipaO);
-        
-        equipaDestino.insereJogador(jogTransf);
-        data.inserirEquipa(equipaDestino);
+            Jogador jogTransf = equipaOrigem.getJogadores().get(nr);
             
-        System.out.println("Transferencia concluida");
+
+            data.apEquipas();
         
-        System.out.println(jogTransf.getNome() + " faz agora parte de " + escEquipaD);
+            System.out.println("Escolha o destino do jogador");
+            sc.nextLine();
+            String escEquipaD = sc.nextLine();
+                
+            Equipa equipaDestino = new Equipa();
+            
+            if(data.getEquipas().containsKey(escEquipaD)){
+                equipaDestino = data.getEquipas().get(escEquipaD);
         
-        jogTransf.apresentarHistorico();
+                //para ser arranjado num futuro proximo
+                equipaOrigem.removeJogador(jogTransf);
+                data.inserirEquipa(equipaOrigem);
+        
+                int nr_inserido = 0;
+        
+                while(equipaDestino.getJogadores().containsKey(nr_inserido)){
+                    nr_inserido +=1;
+                }
+        
+                //Mudar no jogador
+                jogTransf.setNrCamisola(nr_inserido);
+                jogTransf.addHistorico(escEquipaO);
+        
+                equipaDestino.insereJogador(jogTransf);
+                data.inserirEquipa(equipaDestino);
+            
+                System.out.println("Transferencia concluida");
+        
+                System.out.println(jogTransf.getNome() + " faz agora parte de " + escEquipaD);
+        
+                jogTransf.apresentarHistorico();
+            }
+            else throw new EquipaNaoExisteException(escEquipaD);
+        }
+        else throw new EquipaNaoExisteException(escEquipaO);
     }
 }

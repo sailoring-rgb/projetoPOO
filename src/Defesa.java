@@ -7,25 +7,21 @@
  */
 
 import java.util.*;
+import java.io.PrintWriter;
 
 public class Defesa extends Jogador{
-    
-    private int desarme; // abordagem ao oponente, buscando obter a posse de bola
-    
     /**
      * Construtor por omissão.
      */
     public Defesa(){
         super();
-        this.desarme = 0;
     }
     
     /**
      * Construtor parametrizado.
      */
-    public Defesa(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, int desarme, List<String> historico){
+    public Defesa(String nome, int nr_camisola, int velocidade, int resistencia, int destreza, int impulsao, int jogoCabeca, int remate, int capPasse, List<String> historico){
         super(nome, nr_camisola, velocidade, resistencia, destreza, impulsao, jogoCabeca, remate, capPasse, historico, 4);
-        this.desarme = desarme;
     }
     
     /**
@@ -33,23 +29,6 @@ public class Defesa extends Jogador{
      */
     public Defesa(Defesa umJog){
         super(umJog);
-        this.desarme = umJog.getDesarme();
-    }
-    
-    /**
-    * Método que obtém o valor da capacidade de desarme do defesa.
-    * @return o valor da capacidade de desarme
-    */
-    public int getDesarme(){
-        return this.desarme;
-    }
-    
-    /**
-    * Método que muda o valor da capacidade de desarme do defesa.
-    * @param o novo valor da capacidade de desarme
-    */
-    public void setDesarme(int desarme){
-        this.desarme = desarme;
     }
     
     /**
@@ -89,6 +68,11 @@ public class Defesa extends Jogador{
                 Integer.parseInt(campos[6]),
                 Integer.parseInt(campos[7]),
                 Integer.parseInt(campos[8]),
-                10,new ArrayList<>());
+                new ArrayList<>());
     }
+    
+    public void saverDefesa(PrintWriter print,Jogador umJog){
+        print.print("Defesa:");
+        saver(print);
+        }
 }

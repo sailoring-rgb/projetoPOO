@@ -248,7 +248,30 @@ public class Equipa{
         print.println("Equipa:"+ nome);
             
         for (var jogador : jogadores.entrySet()) {
-            jogador.getValue().saver(print);
+            int tipo = jogador.getValue().getTipoJogador();
+            
+            switch(tipo){
+                case 1:
+                    Avancado jogAvancado = new Avancado();
+                    jogAvancado.saverAvancado(print,jogador.getValue());
+                    break;
+                case 2:
+                    Medio jogMedio = new Medio();
+                    jogMedio.saverMedio(print,jogador.getValue());
+                    break;
+                case 3:
+                    Lateral jogLateral = new Lateral();
+                    jogLateral.saverLateral(print,jogador.getValue());
+                    break;
+                case 4:
+                    Defesa jogDefesa = new Defesa();
+                    jogDefesa.saverDefesa(print,jogador.getValue());
+                    break;
+                case 5:
+                    GuardaRedes jogGR = new GuardaRedes();
+                    jogGR.saverGuardaRedes(print,jogador.getValue());
+                    break;
+            }
         }
    }
    

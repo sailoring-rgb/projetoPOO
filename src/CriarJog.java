@@ -118,14 +118,6 @@ public class CriarJog
         
                     case 1:
                         Avancado jogAvancado = new Avancado();
-                    
-                        System.out.println("Drible: ");
-                        int drible = sc.nextInt();
-                        if (drible < 0 || drible > 100){
-                            System.out.println("Este valor não é válido! Insira um novo: ");
-                            drible = sc.nextInt();
-                        }
-                        jogAvancado.setDrible(drible);
                         
                         habilidade = jogAvancado.habAvancado(jog);
                         System.out.println("Habilidade do avançado: " + habilidade);
@@ -161,7 +153,6 @@ public class CriarJog
                         }                        
                         jogMedio.setCapRecuperacao(capRecuperacao);
     
-                        
                         habilidade = jogMedio.habMedio(jog);
                         System.out.println("Habilidade do médio: " + habilidade);
                         
@@ -170,14 +161,6 @@ public class CriarJog
         
                     case 4:
                         Defesa jogDefesa = new Defesa();
-        
-                        System.out.println("Desarme: ");
-                        int desarme = sc.nextInt();
-                        if (desarme < 0 || desarme > 100){
-                            System.out.println("Este valor não é válido! Insira um novo: ");
-                            desarme = sc.nextInt();
-                        }                        
-                        jogDefesa.setDesarme(desarme);
                         
                         habilidade = jogDefesa.habDefesa(jog);
                         System.out.println("Habilidade do defesa: " + habilidade);

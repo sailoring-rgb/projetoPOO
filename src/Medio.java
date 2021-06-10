@@ -6,11 +6,11 @@
  */
 
 import java.util.*;
+import java.io.PrintWriter;
 
 public class Medio extends Jogador{
    
     private int capRecuperacao;
-    private int dominioBola; // habilidade de reter uma bola em condições de realizar uma jogada
     
     /**
      * Construtor por omissão.
@@ -113,4 +113,9 @@ public class Medio extends Jogador{
                 0,
                 new ArrayList<>());
     }
+    
+    public void saverMedio(PrintWriter print,Jogador umJog){
+        print.print("Medio:");
+        saver(print);
+        }
 }

@@ -7,6 +7,7 @@
  */
 
 import java.util.*;
+import java.io.PrintWriter;
 
 public class Lateral extends Jogador{
 
@@ -91,4 +92,10 @@ public class Lateral extends Jogador{
                 Integer.parseInt(campos[8]),
                 Integer.parseInt(campos[9]),new ArrayList<>());
     }
+    
+    public void saverLateral(PrintWriter print,Jogador umJog){
+        print.print("Lateral:");
+        saver(print);
+        print.println(","+capCruzamento);
+        }
 }
