@@ -64,6 +64,8 @@ public class Data {
                                          jogo.getJogadoresCasa(),jogo.getSubstituicoesCasa(),
                                          jogo.getJogadoresFora(),jogo.getSubstituicoesFora());
         jogos.add(jR);
+        this.jogos.sort(Comparator.comparing(JogoRegisto::getData)); 
+        Collections.reverse(jogos);
     }
     
     public void apEquipas()

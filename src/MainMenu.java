@@ -27,21 +27,24 @@ public class MainMenu {
             System.out.println("5: Carregar Jogo");
             System.out.println("6: Sair");
             
-            this.option = sc.nextInt();
+            try{
+                this.option = sc.nextInt();
             
-            try{ 
-                makeChoice(option);
-            }
-            catch(EquipaNaoExisteException exc) {
-                System.out.println("Equipa não existe!");
-                System.out.println("\n");
-            }
-            catch(JogoNaoValidoException ex){
-                System.out.println("Uma equipa não pode jogar contra si prórpia!");
-                System.out.println("\n");
-            }
+                try{ 
+                    makeChoice(option);
+                }
+                catch(EquipaNaoExisteException exc) {
+                    System.out.println("Equipa não existe!");
+                    System.out.println("\n");
+                }
+                catch(JogoNaoValidoException ex){
+                    System.out.println("Uma equipa não pode jogar contra si prórpia!");
+                    System.out.println("\n");
+                }
+            }catch(InputMismatchException exc){System.out.println("Opção inválida!");}
         }
     }
+    
     
     public void makeChoice(int option) throws EquipaNaoExisteException,JogoNaoValidoException
     {

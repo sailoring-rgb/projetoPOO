@@ -20,18 +20,18 @@ public class JogMenu
         Scanner sc = new Scanner(System.in);
         
         while(!fim){
-        System.out.println("\n");
-        System.out.println("Introduza a sua escolha:");
-        System.out.println("1: Começar Jogo");
-        System.out.println("2: Escolher tática");
-        System.out.println("2: Escolher substituições");
-        System.out.println("3: Sair");
+            System.out.println("\n");
+            System.out.println("Introduza a sua escolha:");
+            System.out.println("1: Começar Jogo");
+            System.out.println("2: Escolher tática");
+            System.out.println("2: Escolher substituições");
+            System.out.println("3: Sair");
     
-        this.option = sc.nextInt();
-        this.jogo = new Jogo(estado);
-        this.estado = novoEstado;
+            this.option = sc.nextInt();
+            this.jogo = new Jogo(estado);
+            this.estado = novoEstado;
         
-        makeChoice(this.option);
+            makeChoice(this.option);
         }
     }
     
@@ -59,8 +59,8 @@ public class JogMenu
             break;
         
           case 4:
-            exit();
-            break;
+              fim = true;
+            return;
             
           default: System.out.println("Opção Inválida");
         }
@@ -159,10 +159,5 @@ public class JogMenu
         //substituir aqui
         
         System.out.println("Substituição " + titular + " -> " + suplente +" planeada");
-    }
-    
-    public void exit(){
-        System.out.println("The End");
-        System.exit(0);
     }
 }
