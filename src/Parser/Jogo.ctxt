@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=Jogo
-comment1.params=ec\ ef\ gc\ gf\ d\ jc\ sc\ jf\ sf
-comment1.target=Jogo(java.lang.String,\ java.lang.String,\ int,\ int,\ java.time.LocalDate,\ java.util.List,\ java.util.Map,\ java.util.List,\ java.util.Map)
-comment2.params=input
-comment2.target=Jogo\ parse(java.lang.String)
-comment3.params=
-comment3.target=java.lang.String\ toString()
-numComments=4

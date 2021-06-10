@@ -58,8 +58,12 @@ public class Data {
         equipas.put(equipa.getNome(),equipa);
     }
     
-    public void inserirJogo(JogoRegisto jogo){
-        //coisas e tal
+    public void inserirJogo(EstadoJogo jogo){
+        JogoRegisto jR = new JogoRegisto(jogo.getEquipaCasa().getNome(),jogo.getEquipaFora().getNome(),
+                                         jogo.getScoreCasa(),jogo.getScoreFora(),jogo.getData(),
+                                         jogo.getJogadoresCasa(),jogo.getSubstituicoesCasa(),
+                                         jogo.getJogadoresFora(),jogo.getSubstituicoesFora());
+        jogos.add(jR);
     }
     
     public void apEquipas()

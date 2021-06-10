@@ -72,7 +72,7 @@ public class MainMenu {
                 }
 
                 EstadoJogo estado = new EstadoJogo(nomeEquipaCasa, nomeEquipaFora, equipas);
-                JogMenu novoMenu = new JogMenu(estado);
+                JogMenu novoMenu = new JogMenu(estado,dados);
                 break;
                 
             case 2:

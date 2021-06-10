@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=JogMenu
 comment0.text=\r\n\ Apresenta\ um\ menu\ destinado\ ao\ jogo.\r\n\ \r\n\ @author\ grupo\ 3\r\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\r\n
-comment1.params=novoEstado
-comment1.target=JogMenu(EstadoJogo)
+comment1.params=novoEstado\ dados
+comment1.target=JogMenu(EstadoJogo,\ Data)
 comment2.params=option
 comment2.target=void\ makeChoice(int)
 comment3.params=

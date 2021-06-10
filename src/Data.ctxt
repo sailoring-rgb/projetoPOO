@@ -26,5 +26,5 @@ comment7.target=void\ setJogos(java.util.List)
 comment8.params=equipa
 comment8.target=void\ inserirEquipa(Equipa)
 comment9.params=jogo
-comment9.target=void\ inserirJogo(JogoRegisto)
+comment9.target=void\ inserirJogo(EstadoJogo)
 numComments=14
