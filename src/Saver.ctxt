@@ -1,6 +1,7 @@
 #BlueJ class context
 comment0.target=Saver
-comment0.text=\r\n\ Escreva\ a\ descri\u00E7\u00E3o\ da\ classe\ Loader\ aqui.\r\n\ \r\n\ @author\ (seu\ nome)\ \r\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\r\n
+comment0.text=\r\n\ Classe\ do\ saver\ do\ Jogo.\r\n\ \r\n\ @author\ grupo\ 3\r\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\r\n
 comment1.params=dados
 comment1.target=void\ save(Data)
+comment1.text=\r\n\ M\u00E9todo\ que\ transfere\ toda\ a\ informa\u00E7\u00E3o\ de\ um\ ficheiro\ para\ o\ jogo\r\n\ @param\ dados\ objeto\ onde\ se\ vai\ guardar\ a\ informa\u00E7\u00E3o\r\n
 numComments=2

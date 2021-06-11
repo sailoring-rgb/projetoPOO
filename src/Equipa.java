@@ -15,6 +15,8 @@ import java.util.Map;
 import java.util.Set;
 import java.io.*;
 import java.util.Random;
+import java.util.Comparator;
+import java.util.Collections;
 
 public class Equipa{
 
@@ -659,13 +661,13 @@ public class Equipa{
    public void apresentarTitulares(){   
         System.out.println("\n");
         System.out.println("Jogadores Titulares:");
-        System.out.println("    Tipos: 1 - Avancado, 2 - Medio, 3 - Lateral, 4 - Defesa, 5 - Guarda-Redes\n");
+        System.out.println("    Posições: 6 - Avancado Centro, 5 - Extremo, 4 - Medio Centro, 3 - Defesa Lateral,2 - Defesa Centro ,1 - Guarda-Redes\n");
         
-        for (Jogador jog : this.jogadores.values()) {
-            int numr = jog.getNrCamisola();
-            String nome = jog.getNome();
+        for (var jog : this.jogadores.entrySet()) {
+            int numr = jog.getValue().getNrCamisola();
+            String nome = jog.getValue().getNome();
             if(this.titulares.containsKey(numr)){
-                System.out.println("    (Tipo "+jog.getTipoJogador() + ") Número " + numr + " : " + nome);
+                System.out.println("    (Posição "+titulares.get(numr) + ") Número " + numr + " : " + nome);
             }
         }
    }
