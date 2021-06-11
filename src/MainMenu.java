@@ -10,7 +10,11 @@ import java.io.*;
 public class MainMenu {
     private int option;
     private Data dados;
-       
+    
+    /**
+    * Construtor que apresenta as primeiras opções do Menu principal
+    */
+    
     public MainMenu()
     {
         Scanner sc = new Scanner(System.in);
@@ -33,11 +37,16 @@ public class MainMenu {
             }
             catch (OpcaoInvalidaException oie)
             {
-                System.out.println("Opção Inválida!");
+                System.out.println("Opção não existe!");
             }
             catch(EquipaNaoExisteException exc) 
             {
                 System.out.println("Equipa não existe!");
+                System.out.println("\n");
+            }
+            catch(EquipaNaoValidaException exc) 
+            {
+                System.out.println("Equipa não tem jogadores suficientes!");
                 System.out.println("\n");
             }
             catch(JogoNaoValidoException ex)
@@ -45,15 +54,19 @@ public class MainMenu {
                 System.out.println("Uma equipa não pode jogar contra si prórpia!");
                 System.out.println("\n");
             }
-            catch(InputMismatchException exc)
+            catch(InputMismatchException e)
             {
                 System.out.println("Opção inválida!");
+                sc.nextLine();
             }
         }
     }
     
-    
-    public void makeChoice(int option) throws EquipaNaoExisteException,JogoNaoValidoException, OpcaoInvalidaException
+    /**
+    * Método que verifica a escolha feita e decide o método
+    * @param option a escolha feita pelo utilizador
+    */
+    public void makeChoice(int option) throws EquipaNaoExisteException,JogoNaoValidoException, OpcaoInvalidaException, EquipaNaoValidaException
     {
         Scanner sc = new Scanner(System.in);
         
@@ -71,6 +84,10 @@ public class MainMenu {
                     throw new EquipaNaoExisteException(nomeEquipaCasa);
                 }
                 
+                if(equipas.get(nomeEquipaCasa).getJogadores().size()<15){
+                    throw new EquipaNaoValidaException(nomeEquipaCasa);
+                }
+                
                 System.out.println("Que equipa joga fora?");
                 String nomeEquipaFora = sc.nextLine();
                 if(!equipas.containsKey(nomeEquipaFora)){
@@ -81,6 +98,10 @@ public class MainMenu {
                     throw new JogoNaoValidoException(nomeEquipaCasa);
                 }
 
+                if(equipas.get(nomeEquipaFora).getJogadores().size()<15){
+                    throw new EquipaNaoValidaException(nomeEquipaFora);
+                }
+                
                 EstadoJogo estado = new EstadoJogo(nomeEquipaCasa, nomeEquipaFora, equipas);
                 JogMenu novoMenu = new JogMenu(estado,dados);
                 break;
@@ -111,6 +132,10 @@ public class MainMenu {
         }
     }
     
+    /**
+    * Método que apresenta os jogos já feitos
+    * @param pag página de jogos atual
+    */
     public void apJogos(int pag){
         Scanner sc = new Scanner(System.in);
         int pags = (dados.getJogos().size()/10);
@@ -143,6 +168,10 @@ public class MainMenu {
         }
     }
     
+    /**
+    * Método que chama usa os métodos que guardam a informação de um ficheiro, e distribui os planteis de acordo.
+    */
+    
     public void loadGame(){
          try{ System.out.println("A carregar dados..");
              this.dados = ParserMod.parse(); 
@@ -154,6 +183,9 @@ public class MainMenu {
             System.out.println("Base de dados criada.");}
     }
     
+    /**
+    * Método que guardam a informação do jogo num ficheiro
+    */
     public void saveGame(Data dados){
         try{ System.out.println("A guardar dados..");
              Saver.save(dados);

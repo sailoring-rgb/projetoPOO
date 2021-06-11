@@ -6,6 +6,12 @@ import java.util.List;
 import java.util.Map;
 import java.io.*;
 
+/**
+ * Classe dos registos de Jogos.
+ * 
+ * @author grupo 3
+ * @version (número de versão ou data)
+ */
 public class JogoRegisto {
     private String equipaCasa;
     private String equipaFora;
@@ -16,7 +22,10 @@ public class JogoRegisto {
     private List<Integer> jogadoresFora;
     Map<Integer, Integer> substituicoesCasa;
     Map<Integer, Integer> substituicoesFora;
-
+    
+    /**
+     * Construtores da classe JogoRegisto que permite formar um jogo com o objetivo de o guardar.
+     */
     public JogoRegisto (String ec, String ef, int gc, int gf, LocalDate d,  List<Integer> jc, Map<Integer, Integer> sc,  List<Integer> jf, Map<Integer, Integer> sf){
         equipaCasa = ec;
         equipaFora = ef;
@@ -29,10 +38,17 @@ public class JogoRegisto {
         substituicoesFora = new HashMap<>(sf);
     }
 
+    /**
+     * Método que apresenta o registo de um Jogo.
+     */
     public void apresentarJogo(){
         System.out.println(date+": " + equipaCasa + " " + golosCasa + " - " + golosFora + " " + equipaFora);
     }
     
+    /**
+     * Método que transfere a informação de um jogo num ficheiro para o jogo em si.
+     * @param input linha do JogoRegisto do ficheiro
+     */
     public static JogoRegisto parse(String input){
         String[] campos = input.split(",");
         String[] data = campos[4].split("-");
@@ -59,6 +75,10 @@ public class JogoRegisto {
                         jc, subsC, jf, subsF);
     }
     
+    /**
+     * Método que guarda um jogo num ficheiro.
+     * @param print o escritor que vai transferir a informação para o ficheiro.
+     */
     public void saver(PrintWriter print){
         print.print("Jogo:"+ equipaCasa + ","
                              + equipaFora + ","

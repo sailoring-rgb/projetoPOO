@@ -3,6 +3,7 @@ comment0.target=MainMenu
 comment0.text=\r\n\ Apresenta\ o\ menu\ principal\ deste\ jogo.\r\n\ \r\n\ @author\ grupo\ 3\ \r\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\r\n
 comment1.params=
 comment1.target=MainMenu()
+comment1.text=\r\n\ M\u00E9todo\ que\ calcula\ a\ habilidade\ do\ lateral.\r\n\ @param\ umJog\ O\ jogador\ cuja\ habilidade\ ser\u00E1\ calculada\r\n\ @return\ a\ habilidade\ do\ lateral\r\n
 comment2.params=option
 comment2.target=void\ makeChoice(int)
 comment3.params=pag

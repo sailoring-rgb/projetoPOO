@@ -107,7 +107,7 @@ public class Avancado extends Jogador{
     public void saverAvancado(PrintWriter print,Jogador umJog){
         print.print("Avancado:");
         umJog.saver(print);
-        print.println(","+this.drible);
+        print.print("\n");
     }
     
     /**

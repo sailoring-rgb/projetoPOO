@@ -2,19 +2,23 @@ import java.util.*;
 import java.io.*;
 
 /**
- * Escreva a descrição da classe Loader aqui.
+ * Classe do saver do Jogo.
  * 
- * @author (seu nome) 
+ * @author grupo 3
  * @version (número de versão ou data)
  */
 public class Saver{
+    /**
+     * Método que transfere toda a informação de um ficheiro para o jogo
+     * @param dados objeto onde se vai guardar a informação
+     */
     public static void save(Data dados)
     {
         Map<String, Equipa> equipas = dados.getEquipas(); //nome, equipa
         List<JogoRegisto> jogos = dados.getJogos();
         
         try{
-            File file = new File("dadosteste.txt");
+            File file = new File("dados.txt");
         
             if(!(file.exists())) file.createNewFile();
             

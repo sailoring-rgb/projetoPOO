@@ -15,6 +15,11 @@ public class JogMenu
     private Data dados;
     private boolean fim = false;
     
+    /**
+    * Construtor que apresenta as opções
+    * @param novoEstado do jogo planeado
+    * @param dados completos do jogo
+    */
     public JogMenu(EstadoJogo novoEstado, Data dados){
         this.dados = dados;
         Scanner sc = new Scanner(System.in);
@@ -34,6 +39,11 @@ public class JogMenu
             makeChoice(this.option);
         }
     }
+    
+    /**
+    * Método que sitribui os metodos de acordo com a opção inserida pelo utilizador.
+    * @param option opção escolhida pelo utilizador
+    */
     
     public void makeChoice(int option){
        switch (option) {
@@ -67,6 +77,9 @@ public class JogMenu
         }
     }
     
+    /**
+    * Método que permite escolher uma tática para a sua respetiva equipa
+    */
     public void escTatica(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Qual equipa pretende que mude a tática:");
@@ -99,6 +112,9 @@ public class JogMenu
         System.out.println("Tatica modificada com sucesso");
     }
 
+    /**
+    * Método que permite escolher as substituições e em que equipa são feitas
+    */
     public void escSubs() throws OpcaoInvalidaException{
         Scanner sc = new Scanner(System.in);
         System.out.println("Qual equipa que pretende definir as substituições:");

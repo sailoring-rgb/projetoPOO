@@ -710,27 +710,27 @@ public class Equipa{
             switch(tipo){
                 case 1:
                     Jogador jogAvancado = new Avancado(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
-                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), rand.nextInt(101), j.getHistorico());
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), ((Avancado) j).getDrible(), j.getHistorico());
                     ((Avancado) jogAvancado).saverAvancado(print,j);
                     break;
                 case 2:
                     Jogador jogMedio = new Medio(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
-                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), rand.nextInt(101), rand.nextInt(101), j.getHistorico());
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), ((Medio) j).getCapRecuperacao(), ((Medio) j).getImpulsao(), j.getHistorico());
                     ((Medio) jogMedio).saverMedio(print,j);
                     break;
                 case 3:
                     Jogador jogLateral = new Lateral(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
-                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), rand.nextInt(101), j.getHistorico());
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(),  ((Lateral) j).getCapCruzamento(), j.getHistorico());
                     ((Lateral) jogLateral).saverLateral(print,j);
                     break;
                 case 4:
                     Jogador jogDefesa = new Defesa(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
-                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), rand.nextInt(101), j.getHistorico());
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(),  ((Defesa) j).getDesarme(), j.getHistorico());
                     ((Defesa) jogDefesa).saverDefesa(print,j);
                     break;
                 case 5:
                     Jogador jogGuardaRedes = new GuardaRedes(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
-                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), rand.nextInt(101), rand.nextInt(101), j.getHistorico());
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), ((GuardaRedes) j).getElasticidade(), ((GuardaRedes) j).getLancamento(), j.getHistorico());
                     ((GuardaRedes) jogGuardaRedes).saverGuardaRedes(print,j);
                     break;
             }

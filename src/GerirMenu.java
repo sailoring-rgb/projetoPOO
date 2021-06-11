@@ -13,6 +13,10 @@ public class GerirMenu
     private Data data;
     Scanner sc = new Scanner(System.in);
     
+    /**
+    * Construtor que apresenta todas as opções no Menu
+    * @param dados informação completa do jogo
+    */
     public GerirMenu(Data dados)
     {
         this.data = dados;
@@ -32,6 +36,11 @@ public class GerirMenu
         }
     }
     
+    
+    /**
+    * Método que distribui métodos de acordo com a escolha feita pelo utilizador
+    * @param option opção escolhida
+    **/
     public void makeChoice(int option)
     {
        switch (option) {
@@ -68,6 +77,9 @@ public class GerirMenu
        }
     }
     
+    /**
+    * Método que permite gerar uma equipa através dos seus respetivos métodos.
+    */
     public void gerarEquipa() throws EquipaJaExisteException
     {
         Equipa equipa = new Equipa(CriarEquipa.criarEq());
@@ -77,6 +89,9 @@ public class GerirMenu
         System.out.println("Equipa criada: "+ (data.getEquipa(equipa.getNome()).getNome()));
     }
     
+    /**
+    * Método que permite gerar um jogador através dos seus respetivos métodos.
+    */
     public void gerarJogador()
     {
         CriarJog aux = new CriarJog();
@@ -87,7 +102,10 @@ public class GerirMenu
         data.apEquipas();
         aux.atribEq(novoJog,data);
     }
-
+    
+    /**
+    * Método apresenta as equipas ao utilizador.
+    */
     public void apresentarEquipas()
     {
         data.apEquipas();
@@ -102,12 +120,15 @@ public class GerirMenu
         }
     }
     
+    /**
+    * Método que apresenta o Plantel de uma equipa ao utilizador
+    * @param escEquipa a esquipa escolhida
+    */
     public void apresentarPlantel(String escEquipa)
     {
         data.apPlantel(escEquipa);
 
         System.out.println("Escreva o número do jogador para inspecionar");
-        sc.nextLine(); // flush
         int escJog = sc.nextInt();
         try {
             apresentarJogador(escJog,escEquipa);
@@ -116,6 +137,11 @@ public class GerirMenu
         }
     }
     
+    /**
+    * Método que permite apresentar um jogador através do seu número e equipa.
+    * @param escJog número do Jogador
+    * @escEquipa nome da equipa escolhida
+    */
     public void apresentarJogador(int escJog, String escEquipa)
     {
         try {
@@ -132,6 +158,9 @@ public class GerirMenu
         }
     }
     
+    /**
+    * Método que movimenta jogadores entre equipas
+    */
     public void transferirJog() throws EquipaNaoExisteException, JogadorNaoExisteException 
     {
 
