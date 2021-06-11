@@ -39,7 +39,7 @@ public class CriarEquipa
                     int jogEscolhido = aux.escJogador();
                     Jogador novoJog = new Jogador(aux.criarJogador(jogEscolhido));
             
-                    eq.getJogadores().put(novoJog.getNrCamisola(), novoJog);
+                    eq.getJogadores().put(novoJog.getNrCamisola(), novoJog.clone());
                 }
                 break;
                 

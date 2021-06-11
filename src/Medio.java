@@ -122,9 +122,20 @@ public class Medio extends Jogador{
                 new ArrayList<>());
     }
     
+    /**
+    * Método que guarda um objeto de tipo Medio.
+    */
     public void saverMedio(PrintWriter print,Jogador umJog){
         print.print("Medio:");
         umJog.saver(print);
         print.println(","+this.dominioBola);
         }
+        
+    /**
+    * Método que faz um clone do objeto Medio.
+    * @return o clone
+    */
+    public Medio clone(){
+        return new Medio(this);
+    }
 }

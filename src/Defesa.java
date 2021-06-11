@@ -101,9 +101,20 @@ public class Defesa extends Jogador{
                 new ArrayList<>());
     }
     
+    /**
+    * Método que guarda um objeto de tipo Defesa.
+    */
     public void saverDefesa(PrintWriter print,Jogador umJog){
         print.print("Defesa:");
         umJog.saver(print);
         print.println(","+this.desarme);
+    }
+    
+    /**
+    * Método que faz um clone do objeto Defesa.
+    * @return o clone
+    */
+    public Defesa clone(){
+        return new Defesa(this);
     }
 }

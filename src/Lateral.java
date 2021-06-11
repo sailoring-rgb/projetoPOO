@@ -95,9 +95,20 @@ public class Lateral extends Jogador{
                 Integer.parseInt(campos[9]),new ArrayList<>());
     }
     
+    /**
+    * Método que guarda um objeto de tipo Lateral.
+    */
     public void saverLateral(PrintWriter print,Jogador umJog){
         print.print("Lateral:");
         umJog.saver(print);
         print.println(","+this.capCruzamento);
         }
+        
+    /**
+    * Método que faz um clone do objeto Lateral.
+    * @return o clone
+    */
+    public Lateral clone(){
+        return new Lateral(this);
+    }
 }

@@ -101,9 +101,20 @@ public class Avancado extends Jogador{
                 new ArrayList<>());
     }
     
+    /**
+    * Método que guarda um objeto de tipo Avancado.
+    */
     public void saverAvancado(PrintWriter print,Jogador umJog){
         print.print("Avancado:");
         umJog.saver(print);
         print.println(","+this.drible);
+    }
+    
+    /**
+    * Método que faz um clone do objeto Avancado.
+    * @return o clone
+    */
+    public Avancado clone(){
+        return new Avancado(this);
     }
 }

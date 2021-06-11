@@ -29,7 +29,7 @@ public class JogoRegisto {
         substituicoesFora = new HashMap<>(sf);
     }
 
-      public void apresentarJogo(){
+    public void apresentarJogo(){
         System.out.println(date+": " + equipaCasa + " " + golosCasa + " - " + golosFora + " " + equipaFora);
     }
     

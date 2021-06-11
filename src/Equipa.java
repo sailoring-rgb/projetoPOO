@@ -192,7 +192,7 @@ public class Equipa{
     * @return o jogador com aquele número da camisola
     */
    public Jogador getJogador(int escJog) {
-        Jogador jog = jogadores.get(escJog);
+        Jogador jog = this.jogadores.get(escJog).clone();
         return jog; 
     }
    
@@ -283,19 +283,19 @@ public class Equipa{
             int tipoJog = j.getTipoJogador();
             switch(tipoJog){
                 case 1:
-                    avancados.add(j); 
+                    avancados.add(j.clone()); 
                     break;
                 case 2:
-                    medios.add(j); 
+                    medios.add(j.clone()); 
                     break;
                 case 3:
-                    laterais.add(j); 
+                    laterais.add(j.clone()); 
                     break;
                 case 4:
-                    defesas.add(j); 
+                    defesas.add(j.clone()); 
                     break;
                 case 5:
-                    guardaRedes.add(j); 
+                    guardaRedes.add(j.clone()); 
                     break;
             }
         }
@@ -655,7 +655,7 @@ public class Equipa{
             int numr = jog.getNrCamisola();
             String nome = jog.getNome();
             if(this.titulares.containsKey(numr)){
-                System.out.println("    Tipo:"+jog.getTipoJogador() + ": Número " + numr + " : " + nome);}
+                System.out.println("    (Tipo "+jog.getTipoJogador() + ") Número " + numr + " : " + nome);}
         }
    }
    

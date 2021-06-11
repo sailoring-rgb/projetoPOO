@@ -124,9 +124,20 @@ public class GuardaRedes extends Jogador{
                 new ArrayList<>());
     }
     
+    /**
+    * Método que guarda um objeto de tipo GuardaRedes.
+    */
     public void saverGuardaRedes(PrintWriter print,Jogador umJog){
         print.print("Guarda-Redes:");
         umJog.saver(print);
         print.println(","+this.elasticidade);
         }
+        
+    /**
+    * Método que faz um clone do objeto GuardaRedes.
+    * @return o clone
+    */
+    public GuardaRedes clone(){
+        return new GuardaRedes(this);
+    }
 }
