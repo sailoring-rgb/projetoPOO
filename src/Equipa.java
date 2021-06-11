@@ -221,9 +221,9 @@ public class Equipa{
     public int[] taticaEsc(int tacEscolhida)
     {
         switch(tacEscolhida){
-            case 0:
-                return new int[]{1,4,4,2};
             case 1:
+                return new int[]{1,4,4,2};
+            case 2:
                 return new int[]{1,4,3,3};
         }
         return new int[]{1,4,4,2};
@@ -244,7 +244,7 @@ public class Equipa{
      * @param número da tática
     */
     public void criaTitularesSuplentes(){ 
-        int onzeT[] = taticaEsc(nr_tatica);
+        int[] onzeT = taticaEsc(this.nr_tatica);
         
         List<Jogador> avancados = new ArrayList<Jogador>();
         List<Jogador> medios = new ArrayList<Jogador>();
@@ -397,10 +397,10 @@ public class Equipa{
              else
              {
                  if(nrAvancados >= 2 && nrAvancados < 3){
-                  titulares.put(j.getNrCamisola(), 6);
+                     titulares.put(j.getNrCamisola(), 6);
                  }
                  else{
-                  suplentes.put(j.getNrCamisola(),7);
+                     suplentes.put(j.getNrCamisola(),7);
                  }
             }
              nrAvancados++;
@@ -512,9 +512,11 @@ public class Equipa{
        String equipaCasa = estado.getEquipaCasa().getNome();
        if(nomeEquipa.equals(equipaCasa)){
            estado.getSubstituicoesCasa().putIfAbsent(nrCamisolaTit,nrCamisolaSup);
+           estado.setNrSubstituicoesCasa(estado.getNrSubstituicoesCasa()+1);
        }
        else{
            estado.getSubstituicoesFora().putIfAbsent(nrCamisolaTit, nrCamisolaSup); 
+           estado.setNrSubstituicoesFora(estado.getNrSubstituicoesFora()+1);
        }
    }
    
@@ -534,13 +536,13 @@ public class Equipa{
             if(posTitular == 5 || posTitular == 6){
                 
                 if(estado.getEquipaCasa().getNome().equals(nomeEquipa)){
-                    if(estado.getNrSubstituicoesCasa() >= 3){
+                    if(estado.getNrSubstituicoesCasa() > 3){
                         throw new SubstituicaoNaoPermitidaException(nomeEquipa);
                     }
                     troca(estado, nrCamisolaTit, nrCamisolaSup, nomeEquipa);
                 }
                 else {
-                    if(estado.getNrSubstituicoesFora() >= 3){
+                    if(estado.getNrSubstituicoesFora() > 3){
                         throw new SubstituicaoNaoPermitidaException(nomeEquipa);
                     }
                     troca(estado, nrCamisolaTit, nrCamisolaSup, nomeEquipa);
@@ -648,6 +650,7 @@ public class Equipa{
     * cada um identificado pelo número da sua camisola.
     */
    public void apresentarTitulares(){   
+        System.out.println("\n");
         System.out.println("Jogadores Titulares:");
         System.out.println("    Tipos: 1 - Avancado, 2 - Medio, 3 - Lateral, 4 - Defesa, 5 - Guarda-Redes\n");
         
@@ -655,7 +658,8 @@ public class Equipa{
             int numr = jog.getNrCamisola();
             String nome = jog.getNome();
             if(this.titulares.containsKey(numr)){
-                System.out.println("    (Tipo "+jog.getTipoJogador() + ") Número " + numr + " : " + nome);}
+                System.out.println("    (Tipo "+jog.getTipoJogador() + ") Número " + numr + " : " + nome);
+            }
         }
    }
    
@@ -663,7 +667,8 @@ public class Equipa{
     * Método que imprime os suplentes de uma equipa,
     * cada um identificado pelo número da sua camisola.
     */
-   public void apresentarSuplentes(){   
+   public void apresentarSuplentes(){  
+        System.out.println("\n");
         System.out.println("Jogadores Suplentes:");
         System.out.println("    Tipos: 1 - Avancado, 2 - Medio, 3 - Lateral, 4 - Defesa, 5 - Guarda-Redes\n");
         
@@ -671,7 +676,8 @@ public class Equipa{
             int numr = jog.getNrCamisola();
             String nome = jog.getNome();
             if(this.suplentes.containsKey(numr)){
-                System.out.println("    Tipo:"+jog.getTipoJogador() + " Número " + numr + " : " + nome);}
+                System.out.println("    (Tipo "+jog.getTipoJogador() + ") Número " + numr + " : " + nome);
+            }
         }
    }
    

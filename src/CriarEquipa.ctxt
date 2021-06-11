@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=CriarEquipa
-comment0.text=\n\ Esta\ classe\ destina-se\ a\ criar\ uma\ equipa.\n\ \n\ @author\ grupo\ 3\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\n
+comment0.text=\r\n\ Esta\ classe\ destina-se\ a\ criar\ uma\ equipa.\r\n\ \r\n\ @author\ grupo\ 3\r\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\r\n
 comment1.params=
 comment1.target=Equipa\ criarEq()
-comment1.text=\n\ M\u00E9todo\ que\ pergunta\ ao\ usu\u00E1rio\ o\ nome\ da\ nova\ equipa,\ criando-a.\n\ @return\ a\ nova\ equipa\ criada\n
+comment1.text=\r\n\ M\u00E9todo\ que\ pergunta\ ao\ usu\u00E1rio\ o\ nome\ da\ nova\ equipa,\ criando-a.\r\n\ @return\ a\ nova\ equipa\ criada\r\n
 numComments=2

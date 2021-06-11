@@ -77,17 +77,21 @@ public class JogMenu
         
         
         System.out.println("Introduza a tática:");
-        System.out.println("1: 4-4-2");
-        System.out.println("2: 4-3-3");
+        System.out.println("1: 1-4-4-2");
+        System.out.println("2: 1-4-3-3");
         
         int tatica = sc.nextInt();
         switch(equipa){
             case 1:
-                estado.setTaticaCasa(tatica);
+                estado.getEquipaCasa().setNrTatica(tatica);
+                estado.getEquipaCasa().criaTitularesSuplentes();
                 break;
+                
             case 2:
-                estado.setTaticaFora(tatica);
+                estado.getEquipaFora().setNrTatica(tatica);
+                estado.getEquipaFora().criaTitularesSuplentes();
                 break;
+                
             default:
                 break;
         }
@@ -117,9 +121,6 @@ public class JogMenu
                 throw new OpcaoInvalidaException();
         }
         
-        System.out.println("Escreva o número do Titular que pretende substituir:");
-        int titular = sc.nextInt();
-        
         switch(equipa){
             case 1:
                 estado.getEquipaCasa().apresentarSuplentes();
@@ -130,8 +131,11 @@ public class JogMenu
             default:
                 throw new OpcaoInvalidaException();
         }
+        System.out.println("\n");
+        System.out.println("Escreva o número do Titular que pretende substituir:");
+        int titular = sc.nextInt();
         
-        System.out.println("Escreva o número do Suplente que pretende que substitua o nr." + titular);
+        System.out.println("Escreva o número do Suplente que pretende que substitua o nr." + titular + " da equipa titular");
         int suplente = sc.nextInt();
         
         
@@ -155,6 +159,6 @@ public class JogMenu
             System.out.println("Erro! Já fez 3 substituições");
         }
         
-        System.out.println("Substituição " + titular + " -> " + suplente +" planeada");
+        System.out.println("Substituição " + titular + " -> " + suplente +" pedida");
     }
 }
