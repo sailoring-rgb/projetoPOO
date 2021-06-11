@@ -521,9 +521,16 @@ public class Equipa{
    }
    
    public void substituirDentroEquipa(EstadoJogo estado, int nrCamisolaTit, int nrCamisolaSup, String nomeEquipa) throws JogadorNaoExisteException, SubstituicaoNaoValidaException, SubstituicaoNaoPermitidaException{
-
-      if(!this.titulares.containsKey(nrCamisolaTit) || !this.suplentes.containsKey(nrCamisolaSup)){
-          throw new JogadorNaoExisteException();
+      if(!this.titulares.containsKey(nrCamisolaTit) && !this.suplentes.containsKey(nrCamisolaSup)){
+        throw new JogadorNaoExisteException("titular e jogador suplente não existem");
+      }
+      
+      if(!this.titulares.containsKey(nrCamisolaTit)){
+          throw new JogadorNaoExisteException("titular não existe");
+      }
+      
+      if(!this.suplentes.containsKey(nrCamisolaSup)){
+          throw new JogadorNaoExisteException("suplente não existe");
       }
       
       Jogador jogSup = this.jogadores.get(nrCamisolaSup);

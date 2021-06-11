@@ -150,7 +150,7 @@ public class JogMenu
             }
         }
         catch(JogadorNaoExisteException ex0){
-            System.out.println("Erro! Jogador não existe");
+            System.out.println("Erro! Jogador " + ex0.getMessage());
         }
         catch(SubstituicaoNaoValidaException ex1){
             System.out.println("Erro! Troca de jogadores não permitida");
