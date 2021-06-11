@@ -29,24 +29,31 @@ public class MainMenu {
             
             try{
                 this.option = sc.nextInt();
-            
-                try{ 
-                    makeChoice(option);
-                }
-                catch(EquipaNaoExisteException exc) {
-                    System.out.println("Equipa não existe!");
-                    System.out.println("\n");
-                }
-                catch(JogoNaoValidoException ex){
-                    System.out.println("Uma equipa não pode jogar contra si prórpia!");
-                    System.out.println("\n");
-                }
-            }catch(InputMismatchException exc){System.out.println("Opção inválida!");}
+                makeChoice(option);
+            }
+            catch (OpcaoInvalidaException oie)
+            {
+                System.out.println("Opção Inválida!");
+            }
+            catch(EquipaNaoExisteException exc) 
+            {
+                System.out.println("Equipa não existe!");
+                System.out.println("\n");
+            }
+            catch(JogoNaoValidoException ex)
+            {
+                System.out.println("Uma equipa não pode jogar contra si prórpia!");
+                System.out.println("\n");
+            }
+            catch(InputMismatchException exc)
+            {
+                System.out.println("Opção inválida!");
+            }
         }
     }
     
     
-    public void makeChoice(int option) throws EquipaNaoExisteException,JogoNaoValidoException
+    public void makeChoice(int option) throws EquipaNaoExisteException,JogoNaoValidoException, OpcaoInvalidaException
     {
         Scanner sc = new Scanner(System.in);
         
@@ -100,10 +107,7 @@ public class MainMenu {
                 break;
                 
             default: 
-                System.out.println("Opção Inválida! Digite a sua opção novamente");
-                option = sc.nextInt();
-                makeChoice(option);
-                break;
+                throw new OpcaoInvalidaException();
         }
     }
     
