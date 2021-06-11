@@ -305,22 +305,4 @@ public class EstadoJogo{
         if(equipas.containsKey(nomeEquipaFora))
             this.equipaFora = equipas.get(nomeEquipaFora).clone();
     }
-    
-    /**
-     * Método que devolve a tática escolhida.
-     * 
-     * @param número da opção
-     * @return tática escolhida
-     */
-    public int[] taticaEsc(int tacEscolhida)
-    {
-        switch(tacEscolhida){
-            case 0:
-                return new int[]{1,4,4,2};
-            case 1:
-                return new int[]{1,4,3,3};
-        }
-        return new int[]{1,4,4,2};
-    }
 }
-

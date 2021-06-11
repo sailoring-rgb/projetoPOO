@@ -46,12 +46,12 @@ public class Equipa{
    }
    
    public Equipa(String nome, Map<String, Equipa> equipas){
-       this.nr_equipa = 0;
-       this.nr_tatica = 0;
+       this.nr_equipa = equipas.get(nome).getNrEquipa();
+       this.nr_tatica = equipas.get(nome).getNrTatica();
        this.nome = nome;
        this.jogadores = new HashMap<>(equipas.get(nome).getJogadores());
-       this.titulares = new HashMap<Integer,Integer>();
-       this.suplentes = new HashMap<Integer,Integer>();
+       this.titulares = new HashMap<>(equipas.get(nome).getTitulares());
+       this.suplentes = new HashMap<>(equipas.get(nome).getSuplentes());
    }
    
    /**
@@ -62,8 +62,8 @@ public class Equipa{
        this.nr_tatica = nr_tatica;
        this.nome = nome;
        this.jogadores = new HashMap<Integer, Jogador>(jogadores);
-       this.titulares.putAll(titulares);
-       this.suplentes.putAll(suplentes);
+       this.titulares = titulares.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e->e.getValue()));
+       this.suplentes = suplentes.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e->e.getValue()));
    }
    
    /**
@@ -212,6 +212,23 @@ public class Equipa{
     }
    
    /**
+     * Método que devolve a tática escolhida.
+     * 
+     * @param número da opção
+     * @return tática escolhida
+     */
+    public int[] taticaEsc(int tacEscolhida)
+    {
+        switch(tacEscolhida){
+            case 0:
+                return new int[]{1,4,4,2};
+            case 1:
+                return new int[]{1,4,3,3};
+        }
+        return new int[]{1,4,4,2};
+    } 
+
+   /**
      * Método que cria, dependendo da tática selecionada, os conjuntos titulares e suplentes de uma equipa.
      * 
      * posição 1 -> guardaRedes
@@ -225,8 +242,8 @@ public class Equipa{
      * @param equipa cuja lista de suplentes queremos criar
      * @param número da tática
     */
-    public void criaTitularesSuplentes(EstadoJogo estado, int nr_tatica){
-        int onzeT[] = estado.taticaEsc(nr_tatica);
+    public void criaTitularesSuplentes(){ 
+        int onzeT[] = taticaEsc(nr_tatica);
         
         List<Jogador> avancados = new ArrayList<Jogador>();
         List<Jogador> medios = new ArrayList<Jogador>();
@@ -260,21 +277,25 @@ public class Equipa{
      * @param lista de guarda redes (incialmente vazia) onde se adicionarão os guarda redes dessa equipa
      */
     public void adicionaJogPeloTipo(List<Jogador> avancados, List<Jogador> medios,         
-                                    List<Jogador> defesas, List<Jogador> laterais, List<Jogador> guardaRedes){
-                                        
+                                    List<Jogador> defesas, List<Jogador> laterais, List<Jogador> guardaRedes){                           
         for(Jogador j: getJogadores().values()){
             int tipoJog = j.getTipoJogador();
             switch(tipoJog){
                 case 1:
-                    avancados.add(j);                
+                    avancados.add(j); 
+                    break;
                 case 2:
                     medios.add(j); 
+                    break;
                 case 3:
                     laterais.add(j); 
+                    break;
                 case 4:
                     defesas.add(j); 
+                    break;
                 case 5:
                     guardaRedes.add(j); 
+                    break;
             }
         }
     }
@@ -309,12 +330,13 @@ public class Equipa{
             if(nrMedios < 2){
                 titulares.put(j.getNrCamisola(),4);
             }
-                
-            if(nrMedios >= 2 && nrMedios < 4){
-                 titulares.put(j.getNrCamisola(),7);
-            }
             else{
-                 suplentes.put(j.getNrCamisola(), 7);
+                if(nrMedios >= 2 && nrMedios < 4){
+                 titulares.put(j.getNrCamisola(),5);
+                }
+                else{
+                     suplentes.put(j.getNrCamisola(), 7);
+                }
             }
             nrMedios++;
         }
@@ -371,19 +393,21 @@ public class Equipa{
              if(nrAvancados < 2){
                   titulares.put(j.getNrCamisola(),5);
              }
-                
-             if(nrAvancados >= 2 && nrAvancados < 3){
+             else
+             {
+                 if(nrAvancados >= 2 && nrAvancados < 3){
                   titulares.put(j.getNrCamisola(), 6);
-             }
-             else{
+                 }
+                 else{
                   suplentes.put(j.getNrCamisola(),7);
-             }
+                 }
+            }
              nrAvancados++;
         }
             
         for(Jogador j: medios){ 
              if(nrMedios < 3){
-                  titulares.put(j.getNrCamisola(),3);
+                  titulares.put(j.getNrCamisola(),4);
              }else{
                   suplentes.put(j.getNrCamisola(), 7);
              }
@@ -613,8 +637,9 @@ public class Equipa{
         for (var jogador : jogadores.entrySet()) {
             System.out.println("        Número " + jogador.getKey() + " : " + jogador.getValue().getNome());
         }
+        apresentarTitulares();
         
-        System.out.println("  Habilidade: "+habEquipa(titulares));
+        System.out.println("  Habilidade: " + habEquipa(titulares));
    }
    
    /**
@@ -622,10 +647,14 @@ public class Equipa{
     * cada um identificado pelo número da sua camisola.
     */
    public void apresentarTitulares(){   
-        System.out.println("  Jogadores Titulares:");
-        for (var jogador : titulares.entrySet()) {
-            int numr = jogador.getKey();
-            System.out.println("        Número " + numr + " : " + jogadores.get(numr).getNome());
+        System.out.println("Jogadores Titulares:");
+        System.out.println("    Tipos: 1 - Avancado, 2 - Medio, 3 - Lateral, 4 - Defesa, 5 - Guarda-Redes\n");
+        
+        for (Jogador jog : this.jogadores.values()) {
+            int numr = jog.getNrCamisola();
+            String nome = jog.getNome();
+            if(this.titulares.containsKey(numr)){
+                System.out.println("    Tipo:"+jog.getTipoJogador() + ": Número " + numr + " : " + nome);}
         }
    }
    
@@ -634,10 +663,14 @@ public class Equipa{
     * cada um identificado pelo número da sua camisola.
     */
    public void apresentarSuplentes(){   
-        System.out.println("  Jogadores Suplentes:");
-        for (var jogador : suplentes.entrySet()) {
-            int numr = jogador.getKey();
-            System.out.println("        Número " + numr + " : " + jogadores.get(numr).getNome());
+        System.out.println("Jogadores Suplentes:");
+        System.out.println("    Tipos: 1 - Avancado, 2 - Medio, 3 - Lateral, 4 - Defesa, 5 - Guarda-Redes\n");
+        
+        for (Jogador jog : this.jogadores.values()) {
+            int numr = jog.getNrCamisola();
+            String nome = jog.getNome();
+            if(this.suplentes.containsKey(numr)){
+                System.out.println("    Tipo:"+jog.getTipoJogador() + " Número " + numr + " : " + nome);}
         }
    }
    

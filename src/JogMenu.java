@@ -24,8 +24,8 @@ public class JogMenu
             System.out.println("Introduza a sua escolha:");
             System.out.println("1: Começar Jogo");
             System.out.println("2: Escolher tática");
-            System.out.println("2: Escolher substituições");
-            System.out.println("3: Sair");
+            System.out.println("3: Escolher substituições");
+            System.out.println("4: Sair");
     
             this.option = sc.nextInt();
             this.jogo = new Jogo(estado);
@@ -41,6 +41,7 @@ public class JogMenu
             jogo.startGame(this.estado);
             jogo.iniciaJogada(this.estado);
             jogo.endGame(this.estado);  
+            
             dados.inserirJogo(this.estado);
             fim = true;
             break;
@@ -101,13 +102,16 @@ public class JogMenu
         System.out.println("2: " + estado.getEquipaFora().getNome());
         
         int equipa = sc.nextInt();
+        String nomeEq;
         
         switch(equipa){
-            case 1: 
+            case 1:  
+                nomeEq = estado.getEquipaCasa().getNome();
                 estado.getEquipaCasa().apresentarTitulares();
                 break;
             case 2: 
-                estado.getEquipaCasa().apresentarTitulares();
+                nomeEq = estado.getEquipaFora().getNome();
+                estado.getEquipaFora().apresentarTitulares();
                 break;
             default:
                 throw new OpcaoInvalidaException();
@@ -118,23 +122,10 @@ public class JogMenu
         
         switch(equipa){
             case 1:
-                if(!(estado.getEquipaCasa().getTitulares().containsKey(titular)))
-                    throw new OpcaoInvalidaException();
-                break;
-            case 2:
-                if(!(estado.getEquipaFora().getTitulares().containsKey(titular)))
-                    throw new OpcaoInvalidaException();
-                break;
-            default:
-                throw new OpcaoInvalidaException();
-        }
-        
-        switch(equipa){
-            case 1:
                 estado.getEquipaCasa().apresentarSuplentes();
                 break;
             case 2:
-                estado.getEquipaCasa().apresentarSuplentes();
+                estado.getEquipaFora().apresentarSuplentes();
                 break;
             default:
                 throw new OpcaoInvalidaException();
@@ -143,20 +134,26 @@ public class JogMenu
         System.out.println("Escreva o número do Suplente que pretende que substitua o nr." + titular);
         int suplente = sc.nextInt();
         
-        switch(equipa){
-            case 1:
-                if(!(estado.getEquipaCasa().getSuplentes().containsKey(suplente)))
-                    throw new OpcaoInvalidaException();
-                break;
-            case 2: 
-                if(!(estado.getEquipaFora().getSuplentes().containsKey(suplente)))
-                    throw new OpcaoInvalidaException();
-                break;
-            default:
-                throw new OpcaoInvalidaException();
-        }
         
-        //substituir aqui
+        try{
+            if(equipa == 1)
+            {
+                estado.getEquipaCasa().substituirDentroEquipa(estado,titular,suplente,nomeEq);
+            }
+            else 
+            {
+                estado.getEquipaFora().substituirDentroEquipa(estado,titular,suplente,nomeEq);
+            }
+        }
+        catch(JogadorNaoExisteException ex0){
+            System.out.println("Erro! Jogador não existe");
+        }
+        catch(SubstituicaoNaoValidaException ex1){
+            System.out.println("Erro! Troca de jogadores não permitida");
+        }
+        catch(SubstituicaoNaoPermitidaException ex2){
+            System.out.println("Erro! Já fez 3 substituições");
+        }
         
         System.out.println("Substituição " + titular + " -> " + suplente +" planeada");
     }

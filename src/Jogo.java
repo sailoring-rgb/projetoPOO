@@ -21,7 +21,6 @@ public class Jogo{
     
     private String equipaAtual;   
     private int gameProgress;
-    // private LocalDateTime data;
     private EstadoJogo estado;
     
     /**
@@ -148,10 +147,7 @@ public class Jogo{
         Equipa equipa1 = new Equipa(estado.getEquipaCasa());
         Equipa equipa2 = new Equipa(estado.getEquipaFora());
         
-        equipa1.criaTitularesSuplentes(estado, 0 /*???????????????*/);
         Map<Integer,Integer> titularesEq1 = equipa1.getTitulares();
-        
-        equipa2.criaTitularesSuplentes(estado, 0 /*???????????????*/);
         Map<Integer,Integer> titularesEq2 = equipa2.getTitulares();
         
         double habilidadeEquipa1 = equipa1.habEquipa(titularesEq1);

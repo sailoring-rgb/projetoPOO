@@ -21,7 +21,7 @@ public class MainMenu {
         while(true){
             System.out.println("Introduza a sua escolha:");
             System.out.println("1: Criar Partida");
-            System.out.println("2: Gerir Jogadores/Equipas");
+            System.out.println("2: Consultar e Criar Jogadores/Equipas");
             System.out.println("3: Verificar Registo de Jogos");
             System.out.println("4: Guardar Jogo");
             System.out.println("5: Carregar Jogo");
@@ -142,6 +142,7 @@ public class MainMenu {
     public void loadGame(){
          try{ System.out.println("A carregar dados..");
              this.dados = ParserMod.parse(); 
+             this.dados.divisao();
              System.out.println("Jogo carregado.");}
          catch(Exception exc){ 
             System.out.println("Erro a carregar! A criar nova base de dados..");

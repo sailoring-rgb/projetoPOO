@@ -153,7 +153,7 @@ public class GerirMenu
             throw new JogadorNaoExisteException(escEquipaO);
             
         Jogador jogTransf = equipaOrigem.getJogadores().get(nr);
-            
+    
         data.apEquipas();
         
         System.out.println("Escolha o destino do jogador");
@@ -181,6 +181,7 @@ public class GerirMenu
         jogTransf.setNrCamisola(nr_inserido);
         jogTransf.addHistorico(escEquipaO);
         
+        equipaOrigem.criaTitularesSuplentes();
         equipaDestino.insereJogador(jogTransf);
         data.inserirEquipa(equipaDestino);
             

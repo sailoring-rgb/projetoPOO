@@ -121,4 +121,11 @@ public class Data {
             jogo.apresentarJogo();
         }
     }
+    
+    public void divisao()
+    {
+        for(Equipa eq : equipas.values()){
+            eq.criaTitularesSuplentes();
+        }
+    } 
 }
