@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.io.*;
+import java.util.Random;
 
 public class Equipa{
 
@@ -687,37 +688,37 @@ public class Equipa{
     * Método que guarda um objeto de tipo Equipa.
     */
    public void saver(PrintWriter print){
-        print.println("Equipa:"+ nome);
-            
-        for (var jogador : jogadores.entrySet()) {
-            Jogador j = jogador.getValue();
+        print.println("Equipa:"+ this.nome);
+        
+         for (Jogador j : jogadores.values()) {
             int tipo = j.getTipoJogador();
+            Random rand = new Random();
             
             switch(tipo){
                 case 1:
                     Jogador jogAvancado = new Avancado(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
-                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, j.getHistorico());
-                    ((Avancado) jogAvancado).saverAvancado(print,jogador.getValue());
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), rand.nextInt(101), j.getHistorico());
+                    ((Avancado) jogAvancado).saverAvancado(print,j);
                     break;
                 case 2:
                     Jogador jogMedio = new Medio(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
-                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90,90, j.getHistorico());
-                    ((Medio) jogMedio).saverMedio(print,jogador.getValue());
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), rand.nextInt(101), rand.nextInt(101), j.getHistorico());
+                    ((Medio) jogMedio).saverMedio(print,j);
                     break;
                 case 3:
                     Jogador jogLateral = new Lateral(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
-                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, j.getHistorico());
-                    ((Lateral) jogLateral).saverLateral(print,jogador.getValue());
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), rand.nextInt(101), j.getHistorico());
+                    ((Lateral) jogLateral).saverLateral(print,j);
                     break;
                 case 4:
-                    Jogador jogDefesa = new Avancado(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
-                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90, j.getHistorico());
-                    ((Defesa) jogDefesa).saverDefesa(print,jogador.getValue());
+                    Jogador jogDefesa = new Defesa(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), rand.nextInt(101), j.getHistorico());
+                    ((Defesa) jogDefesa).saverDefesa(print,j);
                     break;
                 case 5:
                     Jogador jogGuardaRedes = new GuardaRedes(j.getNome(), j.getNrCamisola(), j.getVelocidade(), j.getResistencia(), j.getDestreza(),
-                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), 90,90, j.getHistorico());
-                    ((GuardaRedes) jogGuardaRedes).saverGuardaRedes(print,jogador.getValue());
+                                                  j.getImpulsao(), j.getJogoCabeca(), j.getRemate(), j.getCapPasse(), rand.nextInt(101), rand.nextInt(101), j.getHistorico());
+                    ((GuardaRedes) jogGuardaRedes).saverGuardaRedes(print,j);
                     break;
             }
         }

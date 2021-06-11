@@ -103,6 +103,7 @@ public class Defesa extends Jogador{
     
     public void saverDefesa(PrintWriter print,Jogador umJog){
         print.print("Defesa:");
-        saver(print);
+        umJog.saver(print);
+        print.println(","+this.desarme);
     }
 }

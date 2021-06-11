@@ -126,7 +126,7 @@ public class GuardaRedes extends Jogador{
     
     public void saverGuardaRedes(PrintWriter print,Jogador umJog){
         print.print("Guarda-Redes:");
-        saver(print);
-        print.println(","+elasticidade);
+        umJog.saver(print);
+        print.println(","+this.elasticidade);
         }
 }

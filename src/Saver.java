@@ -10,27 +10,28 @@ import java.io.*;
 public class Saver{
     public static void save(Data dados)
     {
-        
         Map<String, Equipa> equipas = dados.getEquipas(); //nome, equipa
         List<JogoRegisto> jogos = dados.getJogos();
         
         try{
-        File file = new File("dadosteste.txt");
+            File file = new File("dadosteste.txt");
         
-        if(!file.exists()) file.createNewFile();
+            if(!(file.exists())) file.createNewFile();
+            
+            PrintWriter print = new PrintWriter(file);
         
-        PrintWriter print = new PrintWriter(file);
-        
-        for(var equipa : equipas.entrySet()){
-            equipa.getValue().saver(print);
-        }
+            for(Equipa equipa : equipas.values()){
+                equipa.saver(print);
+            }
+            
+            for(JogoRegisto jogo : jogos){
+                jogo.saver(print);
+            }
 
-        for(JogoRegisto jogo : jogos){
-            jogo.saver(print);
-        }
-
-        print.close();
+            print.close();
         }    
         catch(IOException e) {e.printStackTrace();}
+        
+        System.out.println("\n");
     }
 }

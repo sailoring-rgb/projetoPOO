@@ -97,7 +97,7 @@ public class Lateral extends Jogador{
     
     public void saverLateral(PrintWriter print,Jogador umJog){
         print.print("Lateral:");
-        saver(print);
-        print.println(","+capCruzamento);
+        umJog.saver(print);
+        print.println(","+this.capCruzamento);
         }
 }

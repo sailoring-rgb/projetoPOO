@@ -25,6 +25,13 @@ public class CriarEquipa
         
         switch(resposta){
             case "Y":
+                System.out.println("É preciso ter em conta o seguinte:");
+                System.out.println("    Avançados: no mínimo 3");
+                System.out.println("    Laterais: no mínimo 2");
+                System.out.println("    Médios: no mínimo 4");
+                System.out.println("    Defesas: no mínimo 2");
+                System.out.println("    Guarda Redes: no mínimo 1");
+                
                 for(int num = 0; num < 20; num++){
                     System.out.println("\n");
             
@@ -35,8 +42,10 @@ public class CriarEquipa
                     eq.getJogadores().put(novoJog.getNrCamisola(), novoJog);
                 }
                 break;
+                
             case "N":
                 break;
+                
             default:
                 System.out.println("A sua resposta não é válida");
                 break;

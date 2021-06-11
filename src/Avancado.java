@@ -103,6 +103,7 @@ public class Avancado extends Jogador{
     
     public void saverAvancado(PrintWriter print,Jogador umJog){
         print.print("Avancado:");
-        saver(print);
+        umJog.saver(print);
+        print.println(","+this.drible);
     }
 }

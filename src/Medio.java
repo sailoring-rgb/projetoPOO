@@ -124,6 +124,7 @@ public class Medio extends Jogador{
     
     public void saverMedio(PrintWriter print,Jogador umJog){
         print.print("Medio:");
-        saver(print);
+        umJog.saver(print);
+        print.println(","+this.dominioBola);
         }
 }
