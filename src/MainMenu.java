@@ -84,7 +84,7 @@ public class MainMenu {
                     throw new EquipaNaoExisteException(nomeEquipaCasa);
                 }
                 
-                if(equipas.get(nomeEquipaCasa).getJogadores().size()<15){
+                if(equipas.get(nomeEquipaCasa).getJogadores().size()<16){
                     throw new EquipaNaoValidaException(nomeEquipaCasa);
                 }
                 
@@ -98,7 +98,7 @@ public class MainMenu {
                     throw new JogoNaoValidoException(nomeEquipaCasa);
                 }
 
-                if(equipas.get(nomeEquipaFora).getJogadores().size()<15){
+                if(equipas.get(nomeEquipaFora).getJogadores().size()<16){
                     throw new EquipaNaoValidaException(nomeEquipaFora);
                 }
                 
