@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=EquipaIgualException
-comment0.text=\r\n\ Classe\ que\ coiso\r\n\ \r\n\ @author\ (seu\ nome)\ \r\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\r\n
-comment1.params=
-comment1.target=EquipaIgualException()
-comment2.params=msg
-comment2.target=EquipaIgualException(java.lang.String)
-numComments=3

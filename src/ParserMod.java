@@ -70,6 +70,4 @@ public class ParserMod {
         catch(IOException exc) { lines = new ArrayList<>(); }
         return lines;
     }
-
-
 }
