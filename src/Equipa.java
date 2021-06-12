@@ -203,7 +203,7 @@ public class Equipa{
     * @param o novo jogador a inserir
     */
    public void insereJogador(Jogador jog) {
-        jogadores.put(jog.clone().getNrCamisola(),jog.clone());
+        jogadores.putIfAbsent(jog.clone().getNrCamisola(),jog.clone());
     }
 
    /**
