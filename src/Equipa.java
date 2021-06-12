@@ -240,7 +240,7 @@ public class Equipa{
      * posição 4 -> medio / medio centro
      * posição 5 -> extremos
      * posição 6 -> avancado / avançado centro
-     * posicao 7 -> não existe no jogo, é suplente
+     * posicao 7 -> jogador suplente
      * 
      * @param equipa cuja lista de suplentes queremos criar
      * @param número da tática
@@ -505,6 +505,14 @@ public class Equipa{
        return habGlobal;
     }
     
+   /**
+    * Método que realiza a subtituição de um jogador titular por um jogador suplente numa equipa
+    * 
+    * @param estado do jogo
+    * @param número da camisola do jogador titular
+    * @param número da camisola do jogador suplente
+    * @param nome da equipa onde prentede fazer a substituição
+    */ 
    public void troca(EstadoJogo estado, int nrCamisolaTit, int nrCamisolaSup, String nomeEquipa){
        int posTit = this.titulares.get(nrCamisolaTit); //guarda a posição do jogador titular
        this.titulares.remove(nrCamisolaTit);
@@ -522,6 +530,15 @@ public class Equipa{
        }
    }
    
+   
+   /**
+    * Método que verifica e permite a subtituição de um jogador titular por um jogador suplente numa equipa
+    * 
+    * @param estado do jogo
+    * @param número da camisola do jogador titular
+    * @param número da camisola do jogador suplente
+    * @param nome da equipa onde prentede fazer a substituição
+    */ 
    public void substituirDentroEquipa(EstadoJogo estado, int nrCamisolaTit, int nrCamisolaSup, String nomeEquipa) throws JogadorNaoExisteException, SubstituicaoNaoValidaException, SubstituicaoNaoPermitidaException{
       if(!this.titulares.containsKey(nrCamisolaTit) && !this.suplentes.containsKey(nrCamisolaSup)){
         throw new JogadorNaoExisteException("titular e jogador suplente não existem");

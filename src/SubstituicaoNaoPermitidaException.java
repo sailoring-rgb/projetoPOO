@@ -1,8 +1,8 @@
 
 /**
- * Escreva a descrição da classe SubstituicaoNaoPermitidaException aqui.
+ * Classe que se encarrega de denotar o facto de não ser permitida uma susbtituição entre titular e suplente
  * 
- * @author (seu nome) 
+ * @author grupo 3
  * @version (número de versão ou data)
  */
 public class SubstituicaoNaoPermitidaException extends Exception

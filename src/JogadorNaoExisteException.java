@@ -1,6 +1,6 @@
 
 /**
- * Classe que se encarrega de denotar o facto de uma equipa não existir e lança uma mensagem se tal acontecer.
+ * Classe que se encarrega de denotar o facto de um jogador não existir.
  * 
  * @author grupo 3
  * @version (número de versão ou data)
