@@ -1,6 +1,7 @@
 import java.util.*;
 import java.io.*;
-
+import Exceptions.*;
+import GestInfo.*;
 /**
  * Apresenta o menu destinado às equipas e aos jogadores.
  * 
@@ -17,8 +18,7 @@ public class GerirMenu
     * Construtor que apresenta todas as opções no Menu
     * @param dados informação completa do jogo
     */
-    public GerirMenu(Data dados)
-    {
+    public GerirMenu(Data dados){
         this.data = dados;
         
         while(true){
@@ -99,8 +99,8 @@ public class GerirMenu
         Jogador novoJog = new Jogador(aux.criarJogador(jogEscolhido));
         System.out.println("Jogador: " + novoJog.getNome());
         
-        data.apEquipas();
-        aux.atribEq(novoJog,data);
+        this.data.apEquipas();
+        aux.atribEq(novoJog,this.data);
     }
     
     /**

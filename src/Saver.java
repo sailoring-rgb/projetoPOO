@@ -1,3 +1,6 @@
+import GestInfo.Equipa;
+import GestInfo.JogoRegisto;
+
 import java.util.*;
 import java.io.*;
 

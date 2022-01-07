@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import GestInfo.*;
+import Exceptions.*;
+
 public class ParserMod {
     public static Data parse() throws LinhaIncorretaMod {
         List<String> linhas = lerFicheiro("dados.txt");

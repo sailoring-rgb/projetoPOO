@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=EquipaNaoExisteException
-comment0.text=\r\n\ Classe\ que\ se\ encarrega\ de\ denotar\ o\ facto\ de\ uma\ equipa\ n\u00E3o\ existir\ e\ lan\u00E7a\ uma\ mensagem\ se\ tal\ acontecer.\r\n\ \r\n\ @author\ grupo\ 3\r\n\ @version\ (n\u00FAmero\ de\ vers\u00E3o\ ou\ data)\r\n
-comment1.params=
-comment1.target=EquipaNaoExisteException()
-comment2.params=msg
-comment2.target=EquipaNaoExisteException(java.lang.String)
-numComments=3

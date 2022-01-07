@@ -1,5 +1,7 @@
+import Exceptions.*;
+
 import java.util.*;
-import java.io.*;
+import GestInfo.*;
 
 /**
  * Apresenta o menu principal deste jogo.
@@ -179,7 +181,7 @@ public class MainMenu {
              System.out.println("Jogo carregado.");}
          catch(Exception exc){ 
             System.out.println("Erro a carregar! A criar nova base de dados..");
-            this.dados = new Data(); 
+            this.dados = new Data();
             System.out.println("Base de dados criada.");}
     }
     

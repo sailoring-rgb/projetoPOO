@@ -1,5 +1,6 @@
 import java.util.*;
-import java.io.*;
+import GestInfo.*;
+import Exceptions.*;
 
 /**
  * Apresenta um menu destinado ao jogo.
@@ -115,29 +116,28 @@ public class JogMenu
     /**
     * Método que permite escolher as substituições e em que equipa são feitas
     */
-    public void escSubs() throws OpcaoInvalidaException{
+    public void escSubs() throws OpcaoInvalidaException {
         Scanner sc = new Scanner(System.in);
         System.out.println("Qual equipa que pretende definir as substituições:");
         System.out.println("1: " + estado.getEquipaCasa().getNome());
         System.out.println("2: " + estado.getEquipaFora().getNome());
-        
         int equipa = sc.nextInt();
         String nomeEq;
-        
-        switch(equipa){
-            case 1:  
+
+        switch (equipa) {
+            case 1:
                 nomeEq = estado.getEquipaCasa().getNome();
                 estado.getEquipaCasa().apresentarTitulares();
                 break;
-            case 2: 
+            case 2:
                 nomeEq = estado.getEquipaFora().getNome();
                 estado.getEquipaFora().apresentarTitulares();
                 break;
             default:
                 throw new OpcaoInvalidaException();
         }
-        
-        switch(equipa){
+
+        switch (equipa) {
             case 1:
                 estado.getEquipaCasa().apresentarSuplentes();
                 break;
@@ -150,31 +150,22 @@ public class JogMenu
         System.out.println("\n");
         System.out.println("Escreva o número do Titular que pretende substituir:");
         int titular = sc.nextInt();
-        
+
         System.out.println("Escreva o número do Suplente que pretende que substitua o nr." + titular + " da equipa titular");
         int suplente = sc.nextInt();
-        
-        
-        try{
-            if(equipa == 1)
-            {
-                estado.getEquipaCasa().substituirDentroEquipa(estado,titular,suplente,nomeEq);
-            }
-            else 
-            {
-                estado.getEquipaFora().substituirDentroEquipa(estado,titular,suplente,nomeEq);
-            }
-        }
-        catch(JogadorNaoExisteException ex0){
+
+        if (equipa == 1) estado.getEquipaCasa().substituirDentroEquipa(estado, titular, suplente, nomeEq);
+        else estado.getEquipaFora().substituirDentroEquipa(estado, titular, suplente, nomeEq);
+
+        System.out.println("Substituição " + titular + " -> " + suplente + " pedida");
+          /*
+        } catch(JogadorNaoExisteException ex0){
             System.out.println("Erro! Jogador " + ex0.getMessage());
-        }
-        catch(SubstituicaoNaoValidaException ex1){
+        } catch(SubstituicaoNaoValidaException ex1){
             System.out.println("Erro! Troca de jogadores não permitida");
-        }
-        catch(SubstituicaoNaoPermitidaException ex2){
+        } catch(SubstituicaoNaoPermitidaException ex2){
             System.out.println("Erro! Já fez 3 substituições");
         }
-        
-        System.out.println("Substituição " + titular + " -> " + suplente +" pedida");
+        */
     }
 }
