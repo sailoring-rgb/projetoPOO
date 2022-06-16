@@ -7,6 +7,6 @@ Classificação do projeto: 14/20
 
 # Autores
 
-- Ana Murta (@AnaMurta10)
-- Ana Henriques (@AnaHenriques01)
-- Carlos Santos (@karlofsky)
+- Ana Murta
+- Ana Henriques
+- Carlos Santos
